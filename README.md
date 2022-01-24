@@ -4,7 +4,7 @@ My personal website.
 
 ## Author
 
-[**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)>
+- [**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)>
 
 ## License
 
