@@ -1,0 +1,26 @@
+main:
+  - identifier: posts
+    pre: <i class="fas fa-archive"></i>
+    title: 文章归档
+    url: /archive/
+    weight: 1
+  - identifier: tags
+    pre: <i class="fas fa-tag"></i>
+    title: 所有标签
+    url: /tags/
+    weight: 2
+  - identifier: categories
+    pre: <i class="fas fa-th"></i>
+    title: 所有分类
+    url: /categories/
+    weight: 3
+  - identifier: about
+    pre: <i class="fas fa-address-card"></i>
+    title: 关于我
+    url: /about/
+    weight: 4
+  - identifier: github
+    title: 网站源码
+    pre: <i class="fab fa-github"></i>
+    url: https://github.com/hakula139/hakula.xyz
+    weight: 5

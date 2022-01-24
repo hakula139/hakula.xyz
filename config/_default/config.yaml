@@ -1,0 +1,47 @@
+baseURL: https://hakula.xyz
+defaultContentLanguage: zh-cn
+languageCode: zh-CN
+timeZone: Asia/Shanghai
+title: HAKULA†CHANNEL
+theme: LoveIt
+
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+hasCJKLanguage: true
+
+author:
+  name: Hakula
+  email: i@hakula.xyz
+  link: https://hakula.xyz
+
+mediaTypes:
+  text/plain:
+    suffixes: [md]
+
+outputFormats:
+  Markdown:
+    mediaType: text/plain
+    isPlainText: true
+    isHTML: false
+
+outputs:
+  home: [HTML, RSS, JSON]
+  page: [HTML, Markdown]
+  section: [HTML, RSS]
+  taxonomy: [HTML, RSS]
+  taxonomyTerm: [HTML]
+
+permalinks:
+  posts: /:sections/:slug/
+
+privacy:
+  twitter:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true
+
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5

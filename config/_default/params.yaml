@@ -1,0 +1,93 @@
+version: 0.2.X
+description: Welcome to Hakula's personal website!
+defaultTheme: dark
+fingerprint: sha384
+gitRepo: https://github.com/hakula139/hakula.xyz
+
+app:
+  title: Hakula
+  themeColor: "#000a12"
+  iconColor: "#263238"
+  tileColor: "#263238"
+
+search:
+  enable: true
+  type: algolia
+  contentLength: 4000
+  maxResultLength: 5
+  snippetLength: 50
+  highlightTag: em
+  algolia:
+    index: posts
+    appID: AN2MWDWC48
+    searchKey: f25871d25200d271ffb3ed1db5fe3dce
+
+header:
+  desktopMode: fixed
+  mobileMode: auto
+  title:
+    name: Hakula.XYZ
+
+footer:
+  enable: true
+  hugo: true
+  copyright: true
+  author: true
+  since: 2018
+  license: >
+    <a
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="license external nofollow noopener noreferrer"
+      target="_blank"
+    >CC BY-NC-SA 4.0</a>
+
+sections:
+  paginate: 10
+  rss: 10
+
+list:
+  paginate: 10
+  rss: 10
+
+home:
+  rss: 10
+  profile:
+    enable: true
+    gravatarEmail: i@hakula.xyz
+    title: HAKULA†CHANNEL
+    subtitle: Hakula 的个人站！
+    typeit: true
+    social: true
+  posts:
+    enable: true
+    paginate: 10
+
+social:
+  GitHub: hakula139
+  Linkedin: hakula
+  Telegram: hakulaTG
+  Steam: hakula139
+  Zhihu: hakula139
+  Bilibili: 3507112
+  Email: i@hakula.xyz
+  RSS: true
+
+page:
+  twemoji: true
+  lightgallery: true
+  ruby: true
+  fraction: true
+  fontawesome: true
+  toc:
+    enable: true
+    keepStatic: false
+    auto: true
+  code:
+    copy: true
+    maxShownLines: 24
+  math:
+    enable: true
+    copyTex: true
+
+cdn:
+  data: jsdelivr.yml
