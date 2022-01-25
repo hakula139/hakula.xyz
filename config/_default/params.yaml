@@ -1,7 +1,6 @@
 version: 0.2.X
 description: Welcome to Hakula's personal website!
 defaultTheme: dark
-fingerprint: sha384
 gitRepo: https://github.com/hakula139/hakula.xyz
 
 app:
