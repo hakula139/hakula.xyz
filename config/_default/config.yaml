@@ -32,9 +32,6 @@ outputs:
   taxonomy: [HTML, RSS]
   taxonomyTerm: [HTML]
 
-permalinks:
-  posts: /:sections/:slug/
-
 privacy:
   twitter:
     enableDNT: true

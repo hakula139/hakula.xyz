@@ -3,7 +3,6 @@ title: {{ replace .ContentBaseName "-" " " | title }}
 date: {{ .Date }}
 draft: true
 
-slug: {{ .ContentBaseName }}
 tags: []
 categories: []
 featuredImage: /images/article-covers/

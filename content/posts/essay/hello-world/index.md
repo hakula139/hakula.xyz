@@ -2,7 +2,6 @@
 title: Hello, World!
 date: 2018-08-23T12:15:00+08:00
 
-slug: hello-world
 tags: [建站, VPS]
 categories: [essay]
 featuredImage: /images/article-covers/66372748.webp
