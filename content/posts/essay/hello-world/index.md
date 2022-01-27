@@ -7,7 +7,7 @@ tags: [建站, VPS]
 categories: [essay]
 license: CC BY-NC-SA 4.0
 
-featuredImage: /article-covers/66372748.webp
+featuredImage: /images/article-covers/66372748.webp
 
 toc: true
 math: false

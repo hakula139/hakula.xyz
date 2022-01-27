@@ -8,7 +8,7 @@ tags: []
 categories: []
 license: CC BY-NC-SA 4.0
 
-featuredImage: /article-covers/
+featuredImage: /images/article-covers/
 
 toc: true
 math: false

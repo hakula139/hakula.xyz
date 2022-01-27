@@ -52,7 +52,7 @@ home:
   rss: 10
   profile:
     enable: true
-    gravatarEmail: i@hakula.xyz
+    avatarUrl: /images/hotlink-ok/avatar.webp
     title: HAKULA†CHANNEL
     subtitle: Hakula 的个人站！
     typeit: true
