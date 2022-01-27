@@ -6,13 +6,9 @@ draft: true
 slug: {{ .ContentBaseName }}
 tags: []
 categories: []
+featuredImage: /images/article-covers/
 license: CC BY-NC-SA 4.0
 
-featuredImage: /images/article-covers/
-
-toc: true
-math: false
-lightgallery: true
 hiddenFromHomePage: false
 hiddenFromSearch: false
 ---

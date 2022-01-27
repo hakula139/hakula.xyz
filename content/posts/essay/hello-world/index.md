@@ -5,13 +5,9 @@ date: 2018-08-23T12:15:00+08:00
 slug: hello-world
 tags: [建站, VPS]
 categories: [essay]
+featuredImage: /images/article-covers/66372748.webp
 license: CC BY-NC-SA 4.0
 
-featuredImage: /images/article-covers/66372748.webp
-
-toc: true
-math: false
-lightgallery: true
 hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
