@@ -52,7 +52,7 @@ home:
   rss: 10
   profile:
     enable: true
-    avatarUrl: /images/hotlink-ok/avatar.webp
+    avatarUrl: /images/hotlink-ok/avatar-lite.webp
     title: HAKULA†CHANNEL
     subtitle: Hakula 的个人站！
     typeit: true
