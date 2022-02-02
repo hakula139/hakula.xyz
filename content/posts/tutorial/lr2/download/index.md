@@ -51,26 +51,36 @@ hiddenFromSearch: false
 - WMIX 皮肤 - @MsrButterfly 改
   - 在 WMIX 的结算界面显示 Combo Break 统计信息及当前游玩模式等额外信息
   - 需手动开启
-- 皮肤转换工具（Skin Converter）
-  - 位于 `LR2files/Theme` 目录下，用于强制调整皮肤分辨率
+- 皮肤转换工具
+  - 位于 `LR2files/Theme`，用于修改皮肤分辨率
 - 東方ハードコアβ 背景音乐 + 音效
-  - 如无法正常使用（没有声音）请转区
+  - 如无法正常使用请转区
 - 测试用 BMS
-  - started - Ym1024 feat. lamie*
-  - 紅月夜想 ～Scarlet Nocturne～ - nmk feat. °Ciel
+  - *started* - Ym1024 feat. lamie*
+  - *紅月夜想 ～Scarlet Nocturne～* - nmk feat. °Ciel
 
 {{< /admonition >}}
 
 ## 准备工作 - 转区
 
-在打开游戏前，推荐先使用 Locale Emulator 将 LR2 转到日区（可选）。
+### Locale Emulator
+
+在打开游戏前，推荐先使用 Locale Emulator 将 LR2 转到日本区（可选）。
 
 {{< admonition tip 参考 >}}
 [Locale Emulator 使用教程](https://pooi.moe/Locale-Emulator)
 {{< /admonition >}}
 
+### 全局转区
+
+如果 Locale Emulator 没有效果，可以通过控制面板将系统全局转到日本区。
+
+{{< image src="assets/system-locale.webp" caption="全局转区" width="100%" >}}
+
+全局转区的弊端是之后运行其他程序（例如记事本、汉化版 Galgame）时可能会出现乱码，不过我们可以再对这些程序使用 Locale Emulator 转回中国区，这样这个问题就解决了。
+
 ### 为什么要转区
 
-因为 LR2 使用的是日文编码（Shift-JIS），而绝大多数国内玩家的 Windows 系统使用的是中文编码（GB2312），于是在导入 BMS 或 Custom Folder 时，如果文件名中存在非英文、数字的字符（中文、日文、特殊字符等），就有可能导致导入失败、谱面无声、显示乱码等各种问题。
+因为 LR2 使用的是日文编码（Shift-JIS），而大多数国内玩家的 Windows 系统使用的是中文编码（GB2312），于是在导入 BMS 或 Custom Folder 时，如果文件名中存在非英文、数字的字符（中文、日文、特殊字符等），就可能导致导入失败、谱面无声、显示乱码等各种问题。
 
 建议还是转一下区，当然不转区也能玩就是了，遇到问题请参考 [FAQ](../faq)。
