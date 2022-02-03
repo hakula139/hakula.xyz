@@ -1,7 +1,18 @@
-.content .table-wrapper > table {
-  min-width: 640px;
+.single {
+  .content {
+    ul,
+    ol {
+      padding-left: 2rem;
+    }
 
-  > thead {
-    white-space: pre;
+    .table-wrapper {
+      > table {
+        min-width: 40rem;
+
+        thead {
+          white-space: pre;
+        }
+      }
+    }
   }
 }
