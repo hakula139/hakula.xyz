@@ -163,7 +163,7 @@ Custom Folder 在目前语境下通常表示第三方难易度表，导入方式
 | :------ | :--------------------------------------- |
 | Preview | 选曲界面启用歌曲预览，推荐关闭[^preview] |
 
-其它选项此处从略。
+其他选项此处从略。
 
 ## SYSTEM
 
@@ -175,7 +175,7 @@ Custom Folder 在目前语境下通常表示第三方难易度表，导入方式
 | SOUND - OUTPUT TYPE      | 音频输出方式[^output-type]             |
 | SOUND - Buffer size      | 音频缓冲区大小[^buffer-size]           |
 
-其它选项此处从略。
+其他选项此处从略。
 
 [asio4all]: https://www.asio4all.org
 
