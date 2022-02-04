@@ -33,7 +33,7 @@ hiddenFromSearch: false
 
 {{< image src="assets/left/play.webp" caption="PLAY OPTION" width="1280" >}}
 
-这些设置除了可以用鼠标点击来调整，也可以通过键盘 / 手台的对应按键调整（参考 IIDX）。
+这些选项除了可以用鼠标点击来调整，也可以通过键盘 / 手台的对应按键调整（参考 IIDX）。
 
 #### LANE OPTION
 
@@ -436,6 +436,8 @@ BGA 显示尺寸设置。
 
 {{< /style >}}
 
+这里最高分数、最大连击数、最小断连数都是**分别**统计的，取各自最好纪录。
+
 #### PLAY COUNT
 
 {{< style "table { min-width: 20rem; }" >}}
@@ -556,48 +558,73 @@ BGA 显示尺寸设置。
 
 ## 左下区
 
-下面的模式调整栏和 PLAY OPTION 面板的功能完全一样，这里不再赘述。
+{{< image src="assets/bottom-left.webp" caption="左下区" width="480" >}}
 
-上面的 SCORE DATA 就是选曲列表处的光标所指向曲目或段位的最佳成绩信息，其中各数据（EX SCORE、Max Combo、Miss Count、点灯情况）都是**分别**统计的，取各自最高纪录。IR Ranking 是当前的 IR 排名，但也并非随时保持同步的，有时网络连接不畅可能就不会更新。
+同 [PLAY OPTION](#play-option)。
 
 ## 中央区
 
-![LR2 / Select](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_center.jpg)
+{{< image src="assets/center.webp" caption="中央区" width="480" >}}
 
-上方是 BMS 谱面基本信息。由上至下分别为：Banner 图（如果有）、风格（Genre）、曲名、[差分](http://spiral.cside.com/pprc/beginner/step12.html)名、作者（曲师、谱师等）、BPM。
+### BMS 基本信息
 
-中间一栏从左到右依次是：Autoplay、Replay（如果有）、添加到 FAVORITE / IGNORE（别点，理由前文已说明）、判定难度（谱面属性，具体如下所示）。
+从上到下为：横幅图（如果有）、曲风、曲名、差分名、作者（音乐、BGA、谱面）、BPM。
 
-|  EASY   | NORMAL  |  HARD   | V.HARD |
-| :-----: | :-----: | :-----: | :----: |
-| ± 21 ms | ± 18 ms | ± 15 ms | ± 8 ms |
+### 工具栏
 
-（如果谱师 Judge Rank 留空没填，则这里默认显示为 V.HARD，但实际上是 NORMAL。）
+从左到右为：自动播放、回放（如果有）、FAVORITE / IGNORE 标记[^tag-editor]、判定难度[^judge-rank]（见下表）。
 
-下方是难度选择（筛选）。然而事实上这些难度都是谱师自己定的，基本没有参考价值。建议从难易度表内选曲，否则很容易踩雷。
+{{< style "table { min-width: 20rem; }" >}}
+
+| JUDGE RANK | PGREAT 区间 |
+| :--------- | :---------- |
+| EASY       | ± 21 ms     |
+| NORMAL     | ± 18 ms     |
+| HARD       | ± 15 ms     |
+| V.HARD     | ± 8 ms      |
+
+{{< /style >}}
+
+### DIFFICULTY
+
+难度选择。由于 BMS 谱面的标定等级没有参考价值，这个选项也没什么意义。
+
+### SCORE DATA
+
+同 [SCORE DETAIL](#score-detail)。其中 IR RANKING 是你的当前 IR 排名，不过由于网络原因，并不一定能随时保持同步。
+
+[^tag-editor]: 黄色 ★ 表示标记为 FAVORITE，红色 ★ 表示标记为 IGNORE，空心 ☆ 表示取消标记。
+[^judge-rank]: 如果谱面的 Judge Rank 未填写，则此处显示为 V.HARD，但实际判定难度为 NORMAL。
 
 ## 右侧区
 
-选曲列表。通过鼠标滚轮、键盘 `↑` `↓` 键、手台转皿（或键盘按皿键）均可滚动列表。
+{{< image src="assets/right.webp" caption="右侧区" width="480" >}}
 
-每行左端【 型的就是所谓的灯（Lamp），在启动器开启 Folder Lamp 选项后文件夹也会有大灯（文件夹内全曲最低 Clear 情况）。各颜色灯所对应的 Clear 情况如下所示：
+### 选曲列表
 
-| FAILED | EASY  | GROOVE | HARD  | FC / PA |
-| :----: | :---: | :----: | :---: | :-----: |
-|   坏   |  绿   |   黄   |  白   |   彩    |
+滚动鼠标滚轮 / 按键盘 :arrow_up: :arrow_down: 键 / 转动皿均可滚动选曲列表。
 
-每行左侧的数字是谱面等级。发狂表外显示的等级均为谱师自定等级（Level），同难度（Difficulty）一样没有参考价值；发狂表内显示的等级（EX Level）含义如下所示（SP 限定，DP 不太了解）：
+只要谱面里有长条 note，左边就会显示一个 `LN` 标记，当然这并不意味着这就是个 LN 谱。旁边的 **`[`** 就是我们 [之前](#groove-gauge) 提到的灯，像图中的白灯就表示 Hard Clear。
 
-|  01 ~ 25   |  31 ~ 42   |     43      |     44     |  99   |     52     |     53     |
-| :--------: | :--------: | :---------: | :--------: | :---: | :--------: | :--------: |
-| ★01 ~ ★25  | ☆01 ~ ☆12  |     ☆13     |     ☆X     | ★???  |     /      |     /      |
-| 发狂难易度 | 通常难易度 | 原 ☆12 升格 | 迫真艺术谱 | SB??? | 修正前差分 | 表内削除谱 |
+这里的数字就是谱面等级。发狂表外显示的等级是谱师自定的等级，和难度一样没有参考价值；发狂表内显示的等级是 EX Level，其含义见下表（SP 限定，DP 不太了解）。
 
-相关视频：
+{{< style "table { min-width: 30rem; }" >}}
 
-> [不知道 BMS 的真实难度？不知道 ☆ 和 ★ 说的是什么？BMS 难度大全兼难度参照合集](https://www.bilibili.com/video/BV1nT4y137G2)
+| EX Level | 等级      | 含义                       |
+| :------- | :-------- | :------------------------- |
+| 01 ~ 25  | ★01 ~ ★25 | 发狂难易度                 |
+| 31 ~ 42  | ☆01 ~ ☆12 | 通常难易度                 |
+| 43       | ☆13       | 原 ☆12 升格 :fearful:      |
+| 44       | ☆X        | 艺术谱 :question:          |
+| 99       | ★???      | 规格外 :thinking:          |
+| 52       |           | 修正前差分                 |
+| 53       |           | 表内削除谱 :do_not_litter: |
 
-如果谱内有长条 note，则最左侧会显示一个 `LN` 图标。当然，这并不意味着这就是 LN 谱。
+{{< /style >}}
+
+{{< admonition tip 参考 >}}
+[:(fas fa-play-circle):  不知道 BMS 的真实难度？不知道 ☆ 和 ★ 说的是什么？BMS 难度大全兼难度参照合集](https://www.bilibili.com/video/BV1nT4y137G2)
+{{< /admonition >}}
 
 ## 右上区
 
