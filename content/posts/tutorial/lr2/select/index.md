@@ -111,7 +111,7 @@ LR2 没有 ASSISTED‑EASY 和 EX‑HARD 模式。
 
 免盘开关，开启后皿就不用管了，既不影响血量也不算分。当然，最终分数也不保存。
 
-「皿曲是发狂表的一环，不爽不要玩」.jpg
+「皿曲是发狂表的一环，不爽不要玩」.jpg :wink:
 
 #### STYLE
 
@@ -148,7 +148,7 @@ LR2 没有 ASSISTED‑EASY 和 EX‑HARD 模式。
 
 设定目标后，在游玩界面[^ghost-position]和结算界面将显示与目标分数的分差。
 
-{{< admonition note 注意 >}}
+{{< admonition warning 注意 >}}
 [BATTLE](#battle) 模式下默认目标为对手的当前分数，此时本选项无效。
 {{< /admonition >}}
 
@@ -160,11 +160,11 @@ LR2 没有 ASSISTED‑EASY 和 EX‑HARD 模式。
 
 ##### G-BATTLE
 
-G-BATTLE 是一个独特且实用的对战模式。它可以通过 LR2IR 服务器上存储的纪录数据[^ir-record]，模拟一局和纪录持有者的实时对战，在游玩过程中你可以看到自己和对手的实时分差。更重要的是，对战使用和纪录**完全相同的谱面**和 [血槽设置](#groove-gauge)。这意味着你可以利用这个特性来借用别人（或自己）之前随机到的好型，而很多时候一个好型确实能省不少事，甚至能助你越级点灯[^why-random]。比如我在九段时绿的 [SP★14 orion ring -IR-][orion-ring]，就是 G-BATTLE @雪凛 点上的。还有像更著名的 SP★20 銀の風[^gin-no-kaze]：「你再把我随成对拍，我就要举报你了」.jpg
+G-BATTLE 是一个独特且实用的对战模式。它可以通过 LR2IR 服务器上存储的纪录数据[^ir-record]，模拟一局和纪录持有者的实时对战，在游玩过程中你可以看到自己和对手的实时分差。更重要的是，对战使用和纪录**完全相同的谱面**和 [血槽设置](#groove-gauge)。这意味着你可以利用这个特性来借用别人（或自己）之前随机到的好型，而很多时候一个好型确实能省不少事，甚至能助你越级点灯[^why-random]。比如我在九段时绿的 [SP★14 orion ring -IR-][orion-ring]，就是 G-BATTLE @雪凛 点上的。还有像更著名的 SP★20 銀の風[^gin-no-kaze]：「你再把我随成对拍，我就要举报你了」.jpg :rage:
 
 使用 G-BATTLE 首先需要连接到 IR 并开启这里的 G-BATTLE 选项，然后在选曲界面选择需要 G-BATTLE 的歌曲，尝试按住 4 号键[^key-4]调出 IR 排行榜，滚动列表选择需要 G-BATTLE 的玩家进入游戏，这样就进入 G-BATTLE 模式了。当然，这个先后顺序也可以反过来。你可以先添加需要 G-BATTLE 的玩家为 Rival，然后在选曲界面进入这位玩家的 Rival Folder[^rival-folder]，选择需要 G-BATTLE 的歌曲进入游戏。
 
-{{< admonition note 注意 >}}
+{{< admonition warning 注意 >}}
 G-BATTLE 模式下，游玩界面使用的是 BATTLE 模式的皮肤，需要另行设定。
 {{< /admonition >}}
 
@@ -421,103 +421,138 @@ BGA 显示尺寸设置。
 
 ### SCORE DETAIL
 
-![LR2 / Select - Score](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_left_Score.jpg)
-
-（因说明需要，这里起切回了自己的号。）
+{{< image src="assets/left/score.webp" caption="SCORE DETAIL" width="1280" >}}
 
 #### JUDGE COUNT
 
-当前歌曲最高纪录的判定分布情况、具体分数等统计信息一览。
+{{< style "table { min-width: 20rem; }" >}}
+
+| 名称            | 含义               |
+| :-------------- | :----------------- |
+| PGREAT ... POOR | 最高纪录的判定分布 |
+| EX SCORE        | 最高分数           |
+| MAX COMBO       | 最大连击数         |
+| MIN MISS        | 最小断连数         |
+
+{{< /style >}}
 
 #### PLAY COUNT
 
-由上至下分别为：当前歌曲的总游玩次数（TOTAL）、通过次数（CLEAR）、失败次数（FAILED）。
+{{< style "table { min-width: 20rem; }" >}}
+
+| 名称   | 含义         |
+| :----- | :----------- |
+| TOTAL  | 谱面游玩次数 |
+| CLEAR  | 通过次数     |
+| FAILED | 未通过次数   |
+
+{{< /style >}}
 
 #### OPTION HISTORY
 
-Clear 本曲所使用过的模式一览。
+通过本谱使用过的所有模式 / 选项。
 
 #### Internet Ranking
 
-IR 开启的情况下，点击本选项会在浏览器内打开该曲所在的 IR 页面。Select 界面下快捷键：`F5`。
+连接到 IR 时，点击跳转到本谱的 IR 页面。选曲界面下也可按 `F5` 键快速跳转。
 
 ### TAG EDITOR
 
-![LR2 / Select - Tag (Song)](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_left_Tag_Song.jpg)
+{{< image src="assets/left/tag-song.webp" caption="TAG EDITOR - 歌曲" width="1280" >}}
 
-选曲列表处的光标指向歌曲时，此处显示该 BMS 的相关信息。其中 TAG 以外的栏目一般不建议修改（除非你就是作者），否则之后上传成绩到 IR 时将被视作不同的谱，从而无法参与 IR 排名。
+选中歌曲时，这里显示此 BMS 谱面的相关信息。其中 TAG 以外的信息不建议修改，否则之后上传纪录到 IR 时将被视作不同的谱面，从而无法参与原谱的 IR 排名。
 
-下方的 DEFAULT 选项会使 BMS 信息恢复到初始状态，听说可以解决部分乱码问题，不过我没有试过。需注意初始化时也将清除 TAG 信息。
+下方的 DEFAULT 按钮将使所有信息恢复到初始状态（同时清除 TAG），据说能解决部分乱码问题，不过我没有试过。旁边的 FAVORITE 按钮第一次点击将本谱标记为 FAVORITE，第二次点击标记为 IGNORE（从选曲列表隐藏），第三次点击取消标记[^favorite-folder]。
 
-没事别点 FAVORITE 选项，否则选中歌曲将会被隐藏，只有到启动器 JUKEBOX2 栏开启 FAVORITE FOLDER 后才能在那个文件夹里找到。徒增麻烦，没有什么意义。
+{{< image src="assets/left/tag-folder.webp" caption="TAG EDITOR - 文件夹" width="1280" >}}
 
-![LR2 / Select - Tag (Folder)](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_left_Tag_Folder.jpg)
+选中文件夹时，这里显示此文件夹的相关信息。其中在 COMMAND 处根据谱面信息填写相应的 SQL 查询语句片段后，此文件夹就成为一个 Custom Folder，常用于自制难易度表。
 
-光标指向文件夹时，此处显示该文件夹的相关配置。其中的 Command 栏配合相关 BMS 的 TAG 栏合理设置后，该文件夹就可以成为一个 Custom Folder，常用于自制难易度表（如图中所示的「第 2 発狂難易度」）。实际上这里 TAG 就相当于是起到了一个筛选的作用。
+{{< admonition tip 参考 >}}
+[カスタムフォルダで BMS を仕分けしてみた - KasaBlog](https://www.kasacontent.com/musicgame/bms/1655)
+{{< /admonition >}}
 
-至于 TAG 和 Command 的详细配置语法就超出了本教程的范围，有兴趣的读者可以自（请）行（教）了（雪）解（凛）（[相关教程](http://www.kasacontent.com/musicgame/bms/1655)）。不过 TAG 信息一般并非手动添加，而是使用 BeMusicSeeker 或 GLAssist 等第三方辅助工具批量添加，具体会在之后的章节中讲到。
+不过我们一般很少自制难易度表，通常还是直接导入别人做好的难易度表。
 
-![LR2 / Select - Tag (Course)](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_left_Tag_Course.jpg)
+{{< image src="assets/left/tag-course.webp" caption="TAG EDITOR - Course" width="1280" >}}
 
-光标指向段位 / Course 时，TAG EDITOR 就变成了 COURSE EDITOR，可以调整对应 Course 的相关配置，如相邻两曲间的衔接方式等。需注意，一旦开启了 Internet Ranking，所有的选项将不能再作调整。
+选中段位 / Course 时，这里就变成了 COURSE EDITOR，可以调整此段位 / Course 的相关配置，常用于自制段位 / Course。
+
+{{< admonition warning 注意 >}}
+一旦开启 Internet Ranking 选项，所有配置均不能再作调整。
+{{< /admonition >}}
+
+[^favorite-folder]: 谱面将出现在 FAVORITE FOLDER / IGNORE FOLDER 里，参见 [启动器](../launcher/#jukebox2) 篇。
 
 ### EQ / FX (EFFECTOR)
 
-![LR2 / Select - EQ](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_left_EQ.jpg)
+{{< image src="assets/left/eq.webp" caption="EFFECTOR" width="1280" >}}
 
 #### VOLUME
 
-由上至下分别为：主音量、KEY 音的音量、背景音的音量。
+{{< style "table { min-width: 20rem; }" >}}
+
+| 名称   | 含义       |
+| :----- | :--------- |
+| MASTER | 主音量     |
+| KEY    | Key 音音量 |
+| BGM    | 背景音音量 |
+
+{{< /style >}}
 
 #### EQUALIZER
 
-LR2 自带的均衡器。~~这才叫音乐游戏，懂吗？~~
-
-使用前记得先点亮小标题右侧的开关，下同。
+内置的均衡器，使用前记得先打开标题右侧的小开关，下同。
 
 #### PITCH
 
-最振奋人心的功能来了！（x
+{{< style "table { min-width: 20rem; }" >}}
 
-1. FREQ：同时改变音高和速度，效果最佳
-2. PITCH：只改变音高
-3. SPEED：只改变速度
+| 名称  | 含义                         |
+| :---- | :--------------------------- |
+| FREQ  | 同时改变音高和速度，效果最好 |
+| PITCH | 只改变音高                   |
+| SPEED | 只改变速度                   |
 
-采用[十二平均律](https://en.wikipedia.org/wiki/Equal_temperament)，调速公式为：
+{{< /style >}}
 
-$$ \Large y = 2^{\frac x {12}} $$
+调速参照 [十二平均律][equal-temperament-wiki]，即 FREQ + $x$ 对应 $2^{x/12}$ 倍速。例如 osu!mania 的 DT 模式就约等于 FREQ + 7。
 
-表示 FREQ + x 对应 y 倍速（如 + 12 就是 2 倍速，- 12 就是 0.5 倍速）。
+{{< admonition warning 注意 >}}
 
-LR2 歌曲加减速的效果（音质）可能是所有音游里最好的，没有之一（虽说绝大多数音游其实根本没这功能…）。
+- 减速不保存分数，但加速会保存（无分数加成）。
+- 段位不允许加减速，但 Course 允许。
 
-[scode type="yellow"]注意：
+{{< /admonition >}}
 
-1. 减速不保存成绩，但加速会保存（当然，不会有分数加成）
-2. 段位不允许加减速（但 Course 可以）
+{{< admonition tip 提示 >}}
+开启后 BGM 也会变调哦～
+{{< /admonition >}}
 
-[/scode]
+[equal-temperament-wiki]: https://en.wikipedia.org/wiki/Equal_temperament
 
-开启后 Select 界面的 BGM 也会变调，超带感的！
+#### FX
 
-#### FX 1 / 2 / 3
-
-各种效果器，可以自行研究。
+各种内置的效果器。
 
 ### PLAYER INFO
 
-![LR2 / Select - INFO](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2018/12/Select_left_Info.jpg)
+{{< image src="assets/left/info.webp" caption="PLAYER INFO" width="1280" >}}
 
-玩家游玩信息一览（本地）。
+{{< style "table { min-width: 30rem; }" >}}
 
-1. TOTAL PLAY COUNT：总游玩次数
-2. TOTAL JUDGE COUNT：总判定分布情况
-3. RUNNING COMBO：连续 Combo 数（跨曲）
-4. TRIAL：没人用的可怜任务系统
+| 名称              | 含义                 |
+| :---------------- | :------------------- |
+| TOTAL PLAY COUNT  | 全局游玩次数         |
+| TOTAL JUDGE COUNT | 全局判定分布         |
+| RUNNING COMBO     | 跨曲连击数           |
+| TRIAL             | 并没有人用的任务系统 |
 
-因为是本地数据，更换 LR2 本体后（如果没有保留数据库文件）就会被清空。
+{{< /style >}}
 
-10000 PC 才只是刚刚开始，请继续努力！！！
+由于是本地数据，如果没有备份 [数据库文件](../directory-structure/#database)，更换 LR2 本体后就会清空。
+
+10000 PC 只是刚刚开始，请继续努力！
 
 ## 左下区
 

@@ -72,7 +72,7 @@ social:
   RSS: true
 
 page:
-  twemoji: true
+  twemoji: false
   lightgallery: true
   ruby: true
   fraction: true
