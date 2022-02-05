@@ -44,7 +44,7 @@ hiddenFromSearch: false
 | RANDOM      | 随机  | 是          | 键盘区谱面随机交换轨道顺序[^random]                     |
 | S‑RANDOM    | S‑RAN | 是          | 键盘区每个 note 随机出现在任意轨道[^s-ran]              |
 | H‑RANDOM    | H‑RAN | 否[^assist] | S‑RANDOM 基础上，尽可能避免纵连[^h-ran]                 |
-| ALL‑SCRATCH | 全皿  | 否          | RANDOM 基础上，将键盘区的 note 尽可能移进皿区[^all-scr] |
+| ALL‑SCRATCH | 全皿  | 否          | RANDOM 基础上，将键盘区的 note 尽可能移进皿轨[^all-scr] |
 
 一些隐藏选项参见 [进阶](#8k-lane-option) 部分。
 
@@ -275,7 +275,7 @@ HI-SPEED 就是游玩界面里 note 的下落速度[^hi-speed]。新手可以先
 
 {{< admonition tip 关于双指皿 >}}
 
-皿区只有一条轨道，为什么还要设置两个按键呢？
+皿只有一条轨道，为什么还要设置两个按键呢？
 
 这是因为有一种键型叫「连皿」，不知道什么是连皿可以参考 [SP☆12 灼熱 Beach Side Bunny (SPA)](https://www.bilibili.com/video/BV14b4y1v7Pe)。本来连皿是为 IIDX 控制器设计的，玩家可以来回搓皿。但键盘玩家只能戳按键，用单指硬抗长连皿显然比较困难。因此我们给皿设置两个按键，这样就可以用双指交互来应对连皿了，这种技巧也被称为「双指皿」。
 
@@ -560,6 +560,8 @@ BGA 显示尺寸设置。
 
 {{< image src="assets/bottom-left.webp" caption="左下区" width="480" >}}
 
+### 快捷 PLAY OPTION
+
 同 [PLAY OPTION](#play-option)。
 
 ## 中央区
@@ -570,7 +572,7 @@ BGA 显示尺寸设置。
 
 从上到下为：横幅图（如果有）、曲风、曲名、差分名、作者（音乐、BGA、谱面）、BPM。
 
-### 工具栏
+### 快速访问栏
 
 从左到右为：自动播放、回放（如果有）、FAVORITE / IGNORE 标记[^tag-editor]、判定难度[^judge-rank]（见下表）。
 
@@ -628,67 +630,95 @@ BGA 显示尺寸设置。
 
 ## 右上区
 
-不同于 IIDX，右上角的倒计时是不起作用的，到 0 也不会发生什么事情。可以视为装饰。
+{{< image src="assets/top-right.webp" caption="右上区" width="480" >}}
 
-左侧搜索栏可用于搜索曲目，英文 / 假名 / 罗马字均可。输入数字可筛选等级（虽然没什么意义，因为谱面自带等级是乱标的），如 `10+` 表示 Level 10 及以上。此外，搜索框也是个简易控制台，可键入以下命令进行相关操作：
+### 倒计时
 
-1. `/hash`：显示当前曲目的 MD5 值
-2. `/path`：显示当前谱面所在文件夹路径
-3. `/deletescore`：删除当前谱面本地成绩（对段位 / Course 无效是个 bug）
+毕竟不是街机游戏，右上角的倒计时自然是不起作用的，只是装饰。
 
-下方是一些筛选 / 排序选项，从左至右依次为排序方式、键数筛选、难度筛选。按需调整即可。
+### 搜索框
+
+- 输入曲名搜索曲目，支持英文 / 日文 / 罗马音
+- 输入数字筛选等级，例如 `9+` 表示 9 级及以上
+- 输入命令进行相应操作
+  - `/hash`：显示谱面的哈希值（MD5）
+  - `/path`：显示谱面的所在位置
+  - `/deletescore`：删除谱面的本地纪录
+
+{{< admonition bug >}}
+`/deletescore` 命令对段位 / Course 无效。
+{{< /admonition >}}
+
+### 排序 / 筛选
+
+从左到右为：排序方式（按分数、按通过情况等）、按 [游戏模式](#style) 筛选、按难度筛选。
 
 ## 右下区
 
-和 SYSTEM OPTION 里的设置完全一样，这里不再赘述。
+{{< image src="assets/bottom-right.webp" caption="右下区" width="480" >}}
 
-需要注意这里 SCORE SAVE 一般应为 OK（除非你知道自己在干什么），如果为 NO 则**不存成绩**，可能是因为开了像 CONSTANT、AUTO-SC 之类的特殊模式，在本文搜索（Ctrl + F）关键词「不存成绩」即可知道是哪些设置影响了成绩保存。
+### MODE
 
-IR 即 Internet Ranking 连接状况。
+按 [游戏模式](#style) 筛选。
+
+### 快捷 SYSTEM OPTION
+
+同 [SYSTEM OPTION](#system-option)。
+
+IR 即当前 Internet Ranking 的连接情况。
+
+{{< admonition warning 注意 >}}
+
+这里的 SCORE SAVE 正常情况下应显示 OK，否则**不保存分数**。
+
+如果这不符合预期，请在本文搜索关键词「存分」以查看可能是哪些选项影响了存分。
+
+{{< /admonition >}}
 
 ## 进阶
 
-[scode type="lblue"]以下内容为进阶部分，可以了解~~，但没必要~~[/scode]
+{{< admonition tip 提示 >}}
+以下内容为进阶部分，不了解也不影响游玩。
+{{< /admonition >}}
 
-欢迎补充。
+### Fn 功能键
 
-### F1 ~ F8 功能键
+| 按键 | 作用                                                                  |
+| :--- | :-------------------------------------------------------------------- |
+| `F1` | 查看功能键帮助                                                        |
+| `F2` | 用于游玩界面的各种神奇隐藏功能，可以自行探索体验[^f2] :kissing_heart: |
+| `F3` | 调整谱面难度和等级[^f3]，对于玩家没什么意义                           |
+| `F4` | 切换窗口 / 全屏模式                                                   |
+| `F5` | 连接到 IR 时，跳转到本谱的 IR 页面                                    |
+| `F6` | 游戏内截屏，截图保存到 LR2 根目录下                                   |
+| `F7` | 显示实时 FPS[^f7]                                                     |
+| `F8` | 当前目录检查曲包更新[^f8]                                             |
 
-- `F1`：功能键帮助*（会日语的话以下部分可以直接跳过）*
-- `F2`：各种各样的~~神经病~~隐藏功能，用于 Play 界面，可以自行研究，超好玩的！（雾）；按住 F2 键后，`↑` `↓` 键移动光标，`←` `→` 键调整选项，具体作用看下方日语说明；最后一个选项 LUNARIS 即 LUNAtic (rave) + tetRIS，你甚至可以在 LR2 玩《俄罗斯方块》，其他音游做得到吗？？（下落速度与 BPM 和 HI-SPEED 正相关，得分规则与一般的 Tetris 类似）
-- `F3`：按住 F3 键后，`↑` `↓` 键调整谱面难度（Difficulty），`←` `→` 键调整谱面等级（Level）；对于玩家没有什么意义
-- `F4`：切换窗口 / 全屏模式
-- `F5`：IR 开启的情况下，在浏览器内打开该曲所在的 IR 页面
-- `F6`：截屏，保存到 LR2 根目录
-- `F7`：显示 [FPS](https://en.wikipedia.org/wiki/Frame_rate)；由于没有帧数限制，LR2 基本会吃满 GPU，帧数往往成百上千~~，真实显卡跑分游戏~~；如果发现全屏后 FPS 锁定为 60 帧，见 [FAQ](https://hakula.xyz/tutorial/lr2_faq.html)
-- `F8`：当前文件夹重新加载曲包
+[lunaris]: https://www.bilibili.com/video/BV1Ms411w7ng
 
-相关视频：
-
-> [LR2 牛逼模式之俄罗斯方块 mode！](https://www.bilibili.com/video/av28178521)
+[^f2]: 按住 F2 键后，按 :arrow_up: :arrow_down: 键移动光标，:arrow_left: :arrow_right: 键调整选项，具体效果参见下方的日语说明。最后一个选项 LUNARIS 即 LUNAtic rave + tetRIS——你甚至可以 [在 LR2 里玩 Tetris][lunaris]！其他音游做得到吗？方块下落速度与 BPM 和 HI-SPEED 正相关。
+[^f3]: 按住 F3 键后，按 :arrow_up: :arrow_down: 键调整谱面难度，:arrow_left: :arrow_right: 键调整谱面等级。
+[^f7]: 由于没有 FPS 限制，LR2 基本会跑满 GPU，帧率上千不是梦，真实显卡跑分游戏。手机测评跑原神，以后咱 PC 就跑 LR2。如果发现全屏后 FPS 锁定为 60 帧，参见 [FAQ](../faq/#6-笔记本全屏锁帧)。
+[^f8]: 参见 [启动器](../launcher/#song-reload) 篇。
 
 ### EXTRA MODE
 
-打开 PLAY OPTION 面板，长按 2 号键（不是数字 2），发现 Select 界面背景变为红色，即进入了 LR2 里模式（EXTRA MODE）。
+打开 [PLAY OPTION](#play-option)，按住 2 号键直到选曲界面背景变成红色，就进入了 LR2 里模式（EXTRA MODE）。
 
-![LR2 / EXTRA MODE](https://hakula-1257872502.file.myqcloud.com/usr/uploads/2019/01/Select_EX.jpg)
+{{< image src="assets/extra-mode.webp" caption="EXTRA MODE" width="1280" >}}
 
-EXTRA MODE 的效果是将每个谱的背景 key 音塞到键区里（塞法可能是 H‑RANDOM），建议発狂六段以下的玩家不要在发狂表里尝试（
+EXTRA MODE 的效果是将谱面的背景 key 音塞进键盘区里（排列方式可能是 H‑RANDOM），建议発狂六段以下的玩家不要随意在发狂表内尝试（
 
-单独存灯，但不存成绩。可以作为练习。
+独立点灯，但不保存分数。可以作为练习。
 
 ### 8K LANE OPTION
 
-[scode type="red"]不推荐使用[/scode]
+本来，各种 [LANE OPTION](#lane-option) 都只针对键盘区，而 8K LANE OPTION 则是将 8 条轨道（包括皿轨）一起调整，在 IIDX 里被称为 RANDOM+。
 
-本来，各种 LANE OPTION 都只针对键区（7K），皿位的键是不会改变位置的，而 8K LANE OPTION 将键区和皿位（7K + 1）视为 8K 一起调整，也就是说可以将皿位的键随机到键区（相当于 IIDX 里的 RANDOM+）。
+{{< admonition tip 参考 >}}
+[:(fas fa-play-circle):  皿谱开全随机后会发生什么？](https://www.bilibili.com/video/BV1ns411V7Ze)
+{{< /admonition >}}
 
-效果视频：
+开启方法有点复杂。首先在 LANE OPTION 提前设置好选项（如 RANDOM / S-RANDOM），然后在选曲界面下**按住**一个白键进入曲目，在决定界面（选曲界面和游玩界面之间的过渡界面）**黑屏前**同时按一下 START 和 SELECT 键，最后一起放开。这个时机可以多试几次找找感觉。
 
-> [皿谱开全随机后会发生什么？](https://www.bilibili.com/video/av26171122)
-
-如果你玩过原谱的话，就会知道这里发生什么了（
-
-操作方法是在 Select 界面下**按住**一个白键（1 / 3 / 5 / 7 号键）进入曲目，然后在 Decide 界面（进入游玩界面前的过渡界面）**黑屏前**同时按一下 Start 和 Select 键，最后一起放开。具体时机可以自己多试几次找找感觉。当然，LANE OPTION 要提前先设置好（如 RANDOM 或 S‑RANDOM）。
-
-这个隐藏功能知道的人很少。因为开启后部分皿谱会变得异常简单（如 SP★★1 - Gun to Childhead），而且**能够正常保存成绩**，我个人认为有点作弊，不推荐使用。
+这个隐藏选项知道的人很少。由于开启后部分皿谱会变得异常简单（例如 SP★★1 Gun to Childhead），而且还能**正常保存成绩**，我个人认为有点作弊，不推荐使用。
