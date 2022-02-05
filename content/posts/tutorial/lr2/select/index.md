@@ -60,7 +60,7 @@ hiddenFromSearch: false
 上挡板开关，用于调节可视区域的范围，常用于变速谱中的低速段。我们将在 [Play](../play/#按键操作) 篇讲解挡板的使用方法。
 
 {{< admonition tip "To IIDX 玩家" >}}
-LR2 没有 HIDDEN+（下挡板）和 LIFT。毕竟 LR2 诞生时，IIDX 才刚出到 16 EMPRESS (2008)。
+LR2 没有 HIDDEN+（下挡板）和 LIFT。毕竟 LR2 诞生时，IIDX 才刚出到 16 EMPRESS (2008)。不过 LR2 有个类似 LIFT 的 [隐藏功能](../play/#进阶)。
 {{< /admonition >}}
 
 #### GROOVE GAUGE
