@@ -6,6 +6,10 @@
     }
 
     .table-wrapper {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       > table {
         min-width: 40rem;
 
@@ -14,5 +18,13 @@
         }
       }
     }
+  }
+}
+
+.katex-display {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
