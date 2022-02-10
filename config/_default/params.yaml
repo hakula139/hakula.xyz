@@ -87,6 +87,12 @@ page:
   math:
     enable: true
     copyTex: true
+  comment:
+    enable: true
+    twikoo:
+      enable: true
+      visitor: true
+      envId: 'https://twikoo-hakula-api.vercel.app'
 
 cdn:
   data: jsdelivr.yml
