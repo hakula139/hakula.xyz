@@ -4,7 +4,7 @@ date: 2018-09-09T10:37:00+08:00
 
 tags: [BMS]
 categories: [tutorial]
-featuredImage: /images/article-covers/70937229.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/70937229.webp
 license: CC BY-NC-SA 4.0
 
 hiddenFromHomePage: false

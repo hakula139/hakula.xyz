@@ -5,7 +5,7 @@ weight: 1
 
 tags: [BMS, LR2]
 categories: [tutorial]
-featuredImage: /images/article-covers/lr2.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/lr2.webp
 license: CC BY-NC-SA 4.0
 
 hiddenFromHomePage: false

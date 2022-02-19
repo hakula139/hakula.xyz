@@ -4,7 +4,7 @@ date: 2019-04-02T16:26:00+08:00
 
 tags: [BMS, LR2]
 categories: [tutorial]
-featuredImage: /images/article-covers/59288952.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/59288952.webp
 license: CC BY-NC-SA 4.0
 
 hiddenFromHomePage: false
