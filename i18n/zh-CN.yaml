@@ -1,2 +1,8 @@
+pageNotFound:
+  other: "页面未找到"
+
+pageNotFoundText:
+  other: "页面未找到，如果您确定地址无误，请联系站长"
+
 poweredBySome:
   other: "Powered by {{ .Hugo }} | Theme - {{ .Theme }}"
