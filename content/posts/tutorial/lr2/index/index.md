@@ -97,6 +97,14 @@ LR2，启动！怎么有这么多设置，怎么改啊？我想导入曲包和�
 [LR2 配置教程 - 注意事项](../notices)
 {{< /admonition >}}
 
+## 辅助工具
+
+推荐一些好用的辅助工具 / 网站。
+
+{{< admonition tip 阅读 >}}
+[LR2 配置教程 - 辅助工具](../tools)
+{{< /admonition >}}
+
 ## FAQ
 
 我遇到了一些问题，怎么解决？请先看看这里，如果没有找到答案，欢迎在评论区提问。
@@ -107,14 +115,6 @@ LR2，启动！怎么有这么多设置，怎么改啊？我想导入曲包和�
 
 {{< admonition question 提问前请先阅读 >}}
 [:(fas fa-book):  提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)
-{{< /admonition >}}
-
-## 辅助工具
-
-推荐一些好用的辅助工具 / 网站。
-
-{{< admonition tip 阅读 >}}
-[LR2 配置教程 - 辅助工具](../tools)
 {{< /admonition >}}
 
 ## 结语
