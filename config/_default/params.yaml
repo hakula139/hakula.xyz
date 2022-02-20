@@ -40,13 +40,13 @@ footer:
       target="_blank"
     >CC BY-NC-SA 4.0</a>
 
-sections:
-  paginate: 10
-  rss: 10
+section:
+  paginate: 16
+  rss: 16
 
 list:
-  paginate: 10
-  rss: 10
+  paginate: 16
+  rss: 16
 
 home:
   rss: 10
@@ -59,7 +59,7 @@ home:
     social: true
   posts:
     enable: true
-    paginate: 10
+    paginate: 6
 
 social:
   GitHub: hakula139
