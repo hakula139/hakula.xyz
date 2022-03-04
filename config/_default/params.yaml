@@ -93,6 +93,3 @@ page:
       enable: true
       visitor: true
       envId: 'https://twikoo-hakula-api.vercel.app'
-
-cdn:
-  data: jsdelivr.yml
