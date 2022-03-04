@@ -95,4 +95,4 @@ page:
       envId: 'https://twikoo-hakula-api.vercel.app'
 
 cdn:
-  data: loli.yml
+  data: hakula.yml
