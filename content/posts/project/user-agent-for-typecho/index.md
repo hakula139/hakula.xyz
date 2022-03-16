@@ -3,7 +3,7 @@ title: UserAgent for Typecho
 date: 2019-01-27T21:58:00+08:00
 
 tags: [PHP, Typecho]
-categories: [projects]
+categories: [project]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/39186698.webp
 license: CC BY-NC-SA 4.0
 
