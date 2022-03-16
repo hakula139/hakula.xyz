@@ -34,13 +34,16 @@ hiddenFromSearch: false
 | 选项                   | 含义                                   |
 | :--------------------- | :------------------------------------- |
 | back brightness        | 背景亮度（百分比越低，亮度越低）       |
-| Wallpaper              | 背景图[^1]                             |
+| Wallpaper              | 背景图[^bg]                            |
 | Wallpaper transparency | 背景图透明度（百分比越低，透明度越高） |
-| Movie                  | *不懂，欢迎评论区补充*                 |
+| Movie                  | 使用视频背景[^movie]                   |
 | Shutter                | 切换界面时的过渡动画                   |
 | Clock                  | 是否显示时钟（底端中间）               |
 | BEAM                   | 是否显示扫描线动画效果                 |
 | banner                 | 是否显示歌曲的横幅图（如果有）         |
+
+[^bg]: 自定义方式参见 [目录](../directory-structure/#wmix_hd) 篇 WMIX_HD 部分。
+[^movie]: 可能需要与 Wallpaper transparency 选项结合使用，感谢评论区 @MatrixSunny 指出！
 
 ## 游玩界面
 
@@ -57,7 +60,7 @@ hiddenFromSearch: false
 | loading ACTION       | 加载谱面时的动画                               |
 | LAST NOTE ACTION     | 谱面结束时的动画                               |
 | BGA Brightness       | BGA 亮度（百分比越低，亮度越低）               |
-| BG                   | 背景图[^1]                                     |
+| BG                   | 背景图[^bg]                                    |
 | FRAME BG             | 框架背景图                                     |
 | NOTES                | note 的样式                                    |
 | BOMB                 | 打击光效的样式                                 |
@@ -81,7 +84,7 @@ hiddenFromSearch: false
 
 | 选项       | 含义                           |
 | :--------- | :----------------------------- |
-| BG         | 背景图[^1]                     |
+| BG         | 背景图[^bg]                    |
 | STAGE FILE | 是否显示歌曲的封面图（如果有） |
 
 ## 结算界面
@@ -98,7 +101,7 @@ hiddenFromSearch: false
 | Shutter (EC‑SE)          | 无视（需 Endless Circulation 皮肤）     |
 | battle skin              | 是否启用 Battle 模式皮肤                |
 | Song data                | 是否显示 SONG DATA                      |
-| clear / failed image     | CLEAR / FAILED 的背景图[^1]             |
+| clear / failed image     | CLEAR / FAILED 的背景图[^bg]            |
 | A / AA / AAA clear       | A / AA / AAA 的背景图，将覆盖上一个设置 |
 | DJ LEVEL                 | 评价等级的样式                          |
 | NUMBER COLOR             | 数字的颜色                              |
@@ -115,11 +118,10 @@ hiddenFromSearch: false
 
 点击 SOUNDSET 标签进入音频设置。
 
-| 选项               | 含义                                    |
-| :----------------- | :-------------------------------------- |
-| SELECT BGM         | 选曲界面的背景音乐[^2]                  |
-| CLEAR / FAILED BGM | CLEAR / FAILED 时进入结算界面的音效[^3] |
+| 选项               | 含义                                            |
+| :----------------- | :---------------------------------------------- |
+| SELECT BGM         | 选曲界面的背景音乐[^bgm]                        |
+| CLEAR / FAILED BGM | CLEAR / FAILED 时进入结算界面的音效[^clear-bgm] |
 
-[^1]: 自定义方式参见 [目录](../directory-structure/#wmix_hd) 篇 WMIX_HD 部分。
-[^2]: 自定义方式参见 [目录](../directory-structure/#bgm) 篇 Bgm 部分。
-[^3]: 自定义方式参见 [目录](../directory-structure/#sound) 篇 Sound 部分。
+[^bgm]: 自定义方式参见 [目录](../directory-structure/#bgm) 篇 Bgm 部分。
+[^clear-bgm]: 自定义方式参见 [目录](../directory-structure/#sound) 篇 Sound 部分。
