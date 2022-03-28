@@ -15,6 +15,6 @@
   ],
   "theme_color": "#000a12",
   "background_color": "#263238",
-  "start_url": "https://hakula.xyz",
+  "start_url": "/",
   "display": "standalone"
 }
