@@ -97,5 +97,8 @@ page:
       visitor: true
       envId: 'https://twikoo-hakula-api.vercel.app'
 
+typeit:
+  duration: 0
+
 cdn:
   data: loli.yml
