@@ -23,7 +23,7 @@ hiddenFromSearch: false
 
 在 SYSTEM OPTION 页面下点击 SKIN · SOUNDSET 按钮进入皮肤 / 音频设置界面。
 
-{{< image src="assets/skin-customize.webp" caption="SKIN CUSTOMIZE" width="640" >}}
+{{< image src="assets/skin-customize.webp" caption="SKIN CUSTOMIZE" >}}
 
 在上方预览区域的左右侧各有一个小箭头，可以切换到其他皮肤。
 

@@ -212,7 +212,7 @@ PASS: Would have posted the following:
 
 ##### 1.4.4 运行结果
 
-{{< image src="assets/level-1.webp" caption="Level 1 运行结果" width="100%" >}}
+{{< image src="assets/level-1.webp" caption="Level 1 运行结果" >}}
 
 ### Level 2: Code Injection
 
@@ -403,7 +403,7 @@ PASS: Would have posted the following:
 
 ##### 2.4.6 运行结果
 
-{{< image src="assets/level-2.webp" caption="Level 2 运行结果" width="100%" >}}
+{{< image src="assets/level-2.webp" caption="Level 2 运行结果" >}}
 
 ### Level 3: Code Injection
 
@@ -587,7 +587,7 @@ PASS: Would have posted the following:
 
 ##### 3.4.7 运行结果
 
-{{< image src="assets/level-3.webp" caption="Level 3 运行结果" width="100%" >}}
+{{< image src="assets/level-3.webp" caption="Level 3 运行结果" >}}
 
 ### Level 4: Return-Oriented Programming
 
@@ -769,7 +769,7 @@ PASS: Would have posted the following:
 
 ##### 4.4.4 运行结果
 
-{{< image src="assets/level-4.webp" caption="Level 4 运行结果" width="100%" >}}
+{{< image src="assets/level-4.webp" caption="Level 4 运行结果" >}}
 
 ### Level 5: Return-Oriented Programming
 
@@ -1115,7 +1115,7 @@ PASS: Would have posted the following:
 
 ##### 5.4.5 运行结果
 
-{{< image src="assets/level-5.webp" caption="Level 5 运行结果" width="100%" >}}
+{{< image src="assets/level-5.webp" caption="Level 5 运行结果" >}}
 
 ## 测试环境
 

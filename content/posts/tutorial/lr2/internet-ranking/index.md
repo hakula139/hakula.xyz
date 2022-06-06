@@ -27,13 +27,13 @@ hiddenFromSearch: false
 
 LR2IR 实际上并不是 LR2 的官网，现在却起着官网的作用。至于官网在哪里？早就没啦！
 
-{{< image src="assets/lr2ir.webp" caption="LR2IR" width="1280" >}}
+{{< image src="assets/lr2ir.webp" caption="LR2IR" >}}
 
 ## 个人页面
 
 首先在顶栏输入你的 [LR2ID](../body/#进入游戏) 和 [密码](../launcher/#注册) 登录，然后点击导航栏的「マイページ」进入个人页面。
 
-{{< image src="assets/my-page.webp" caption="个人页面" width="1280" >}}
+{{< image src="assets/my-page.webp" caption="个人页面" >}}
 
 ### Player Status
 
@@ -97,7 +97,7 @@ LR2IR 会自动将留言里出现的 `[bmsid]` 转换为相应谱面的 IR 页�
 
 进入谱面的 IR 页面，点击成绩栏上方的「スコア削除」即可删除线上纪录，删除本地纪录的方法参见 [Select](../select/#搜索框) 篇。
 
-{{< image src="assets/score.webp" caption="删除纪录" width="1280" >}}
+{{< image src="assets/score.webp" caption="删除纪录" >}}
 
 初次删除纪录时，LR2IR 会提示需要先修改一次密码（点击页面顶栏的「パスワード変更」）。修改 IR 密码后，本地可能需要删除数据库[^database]并重新继承数据[^register]，否则 LR2 要么无法连接到 IR，要么无法访问数据库（如果你修改了本地密码）。当然，方便起见，你也可以选择修改成别的密码后再直接改回原密码，就无需进行上述操作。
 

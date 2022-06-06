@@ -21,7 +21,7 @@ hiddenFromSearch: false
 
 游玩结束，进入结算界面。按鼠标左键 / 键盘回车键 / 手台黑白键退出。
 
-{{< image src="assets/result.webp" caption="结算界面" width="1280" >}}
+{{< image src="assets/result.webp" caption="结算界面" >}}
 
 ## 成绩显示区域
 

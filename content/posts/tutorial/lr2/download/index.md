@@ -75,7 +75,7 @@ hiddenFromSearch: false
 
 如果 Locale Emulator 没有效果，可以通过控制面板将系统全局转到日本区。
 
-{{< image src="assets/system-locale.webp" caption="全局转区" width="100%" >}}
+{{< image src="assets/system-locale.webp" caption="全局转区" >}}
 
 全局转区的弊端是之后运行其他程序（例如记事本、汉化版 Galgame）时可能会出现乱码，不过我们可以再对这些程序使用 Locale Emulator 转回中国区，这样这个问题就解决了。
 

@@ -145,11 +145,11 @@ VNC 远程连接本身是未加密的，存在一定的安全风险，故推荐�
 
 右键属性，切换到 Connection > SSH > Tunneling 页面，点击 Add... 选项。
 
-{{< image src="assets/xshell/tunneling.webp" caption="Xshell 配置 - Connection > SSH > Tunneling" width="540" >}}
+{{< image src="assets/xshell/tunneling.webp" caption="Xshell 配置 - Connection > SSH > Tunneling" >}}
 
 如图所示，设定 Listening Port 为客户端端口、Destination Port 为服务端端口。其中端口号为桌面号加 `5900`，例如 `5905` 端口即对应 `5` 号桌面。如果 VPS 设置了防火墙，记得放行相应端口。
 
-{{< image src="assets/xshell/forwarding-rule.webp" caption="Xshell 配置 - Forwarding Rule" width="360" >}}
+{{< image src="assets/xshell/forwarding-rule.webp" caption="Xshell 配置 - Forwarding Rule" >}}
 
 此后 VNC 远程连接前需先建立 SSH 连接。
 
@@ -161,7 +161,7 @@ VNC 远程连接本身是未加密的，存在一定的安全风险，故推荐�
 
 `Ctrl` + `N` 新建配置，如图所示填写。其中桌面号为之前指定的客户端端口（Listening Port）号减 `5900`。若未进行 [加密 VNC 连接](#加密-vnc-连接) 步骤，则 VNC Server 栏填写 `<服务器 IP>:<服务端桌面号>`，如 `1.2.3.4:1`。
 
-{{< image src="assets/vnc-viewer-properties.webp" caption="VNC Viewer 配置" width="420" >}}
+{{< image src="assets/vnc-viewer-properties.webp" caption="VNC Viewer 配置" >}}
 
 Options 页面里调整 Picture quality 选项可指定画面质量，画质越高则反应速度越慢。
 
@@ -171,7 +171,7 @@ Options 页面里调整 Picture quality 选项可指定画面质量，画质越�
 
 点击左上角打开开始菜单，启动 Firefox 浏览器。
 
-{{< image src="assets/xfce.webp" caption="Xfce 桌面" width="720" >}}
+{{< image src="assets/xfce.webp" caption="Xfce 桌面" >}}
 
 进入设置（Preferences），切换到 Privacy & Security 页面。
 
@@ -179,11 +179,11 @@ Options 页面里调整 Picture quality 选项可指定画面质量，画质越�
 
 找到 History 栏，如图所示设置。
 
-{{< image src="assets/firefox/history.webp" caption="Firefox 设置 - History" width="720" >}}
+{{< image src="assets/firefox/history.webp" caption="Firefox 设置 - History" >}}
 
 点击 Settings...。
 
-{{< image src="assets/firefox/clear-history.webp" caption="Firefox 设置 - Settings for Clearing History" width="720" >}}
+{{< image src="assets/firefox/clear-history.webp" caption="Firefox 设置 - Settings for Clearing History" >}}
 
 如此使得 Firefox 在保留 Cookies 的同时清除历史记录。
 
@@ -191,7 +191,7 @@ Options 页面里调整 Picture quality 选项可指定画面质量，画质越�
 
 找到 Permissions 栏，如图所示设置。
 
-{{< image src="assets/firefox/permissions.webp" caption="Firefox 设置 - Permissions" width="720" >}}
+{{< image src="assets/firefox/permissions.webp" caption="Firefox 设置 - Permissions" >}}
 
 如此使得 Firefox 允许 YouTube 自动播放视频（否则会被判定为作弊），且允许 Vagex 插件自动弹窗（否则插件无法正常运行）。
 
@@ -203,7 +203,7 @@ Options 页面里调整 Picture quality 选项可指定画面质量，画质越�
 
 安装完插件后，点击插件按钮，输入 Vagex 账号密码登录。调整 Start with Firefox 选项为 true，使 Vagex 插件随 Firefox 自启动。此后点击 Start 启动插件，点击 Stop 停止插件。
 
-{{< image src="assets/vagex/firefox-viewer-start.webp" caption="Vagex 插件 - Firefox Viewer 启动" width="540" >}}
+{{< image src="assets/vagex/firefox-viewer-start.webp" caption="Vagex 插件 - Firefox Viewer 启动" >}}
 
 启动后会弹出 Google 的登录页面，建议使用小号登录。
 

@@ -35,7 +35,7 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 #### 2.0 总览
 
-{{< image src="assets/cpu.webp" caption="CPU 总览" width="100%" >}}
+{{< image src="assets/cpu.webp" caption="CPU 总览" >}}
 
 图示为流水线 MIPS CPU 的整体构造，与单周期 MIPS CPU 完全一致，区别在于 CPU 核心 `mips` 的实现。以下我们仅介绍与单周期 CPU 不同的部分，其余请参见单周期 CPU 的实验报告。
 
@@ -69,7 +69,7 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 #### 2.2 `fetch`
 
-{{< image src="assets/fetch.webp" caption="Fetch 阶段" width="100%" >}}
+{{< image src="assets/fetch.webp" caption="Fetch 阶段" >}}
 
 Fetch 阶段，通过 `pc_f` 输出指令地址 `pc` 到 `imem`，通过 `instr_f` 从 `imem` 读入指令 `instr`，存储到流水线寄存器 `decode_reg` 中，在下一个时钟上升沿到达时从 `instr_d` 输出。
 
@@ -81,7 +81,7 @@ Fetch 阶段，通过 `pc_f` 输出指令地址 `pc` 到 `imem`，通过 `instr_
 
 ##### 2.2.1 `fetch_reg`
 
-{{< image src="assets/fetch-reg.webp" caption="Fetch 阶段流水线寄存器" width="100%" >}}
+{{< image src="assets/fetch-reg.webp" caption="Fetch 阶段流水线寄存器" >}}
 
 Fetch 阶段流水线寄存器。结构很简单，就是将 PC 寄存器 `pc_reg` 封装了一下。但相较于单周期版本的 `flip_flop`，流水线版本做了一些调整。
 
@@ -89,7 +89,7 @@ Fetch 阶段流水线寄存器。结构很简单，就是将 PC 寄存器 `pc_re
 
 ###### 2.2.1.1 `flip_flop`
 
-{{< image src="assets/flip-flop.webp" caption="触发器" width="240" >}}
+{{< image src="assets/flip-flop.webp" caption="触发器" >}}
 
 这里只说与单周期版本的区别，其余请参见单周期的 [2.10](../single-cycle-mips-cpu/#210-flip_flop) 节。
 
@@ -99,7 +99,7 @@ Fetch 阶段流水线寄存器。结构很简单，就是将 PC 寄存器 `pc_re
 
 ##### 2.2.2 `decode_reg`
 
-{{< image src="assets/decode-reg.webp" caption="Decode 阶段流水线寄存器" width="100%" >}}
+{{< image src="assets/decode-reg.webp" caption="Decode 阶段流水线寄存器" >}}
 
 Fetch 阶段和 Decode 阶段之间的流水线寄存器，中转一下 `instr` 和 `pc_plus_4`。为什么需要用触发器中转数据？因为流水线上需要同时跑多条指令（这里是 5 条），需要控制每个阶段各自只在执行一条指令。
 
@@ -109,7 +109,7 @@ Fetch 阶段和 Decode 阶段之间的流水线寄存器，中转一下 `instr` 
 
 #### 2.3 `decode`
 
-{{< image src="assets/decode.webp" caption="Decode 阶段" width="100%" >}}
+{{< image src="assets/decode.webp" caption="Decode 阶段" >}}
 
 Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析，决定各个控制信号。此外，本阶段还需要完成相对寻址地址 `pc_branch_d` 的计算，然后交给下一条指令的 Fetch 阶段。
 
@@ -123,7 +123,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 ##### 2.3.1 `control_unit`
 
-{{< image src="assets/control-unit.webp" caption="控制单元" width="320" >}}
+{{< image src="assets/control-unit.webp" caption="控制单元" >}}
 
 流水线版本中，`control_unit` 新增了一个控制信号 $\textrm{SIGN}$，用于控制对立即数进行符号扩展还是无符号扩展，解决了新增测试样例 I-type 中遇到的一些问题。此外为了调试方便，本实现中将控制信号中的无关项 $\textrm{x}$ 都改成了 $0$，其余同单周期版本。主译码器中，新增信号的真值表如下：
 
@@ -150,7 +150,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 ##### 2.3.2 `equal_cmp`
 
-{{< image src="assets/equal-cmp.webp" caption="比较器" width="240" >}}
+{{< image src="assets/equal-cmp.webp" caption="比较器" >}}
 
 32 位比较器，用于比较两个数是否相等。
 
@@ -160,7 +160,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 ##### 2.3.3 `extend`
 
-{{< image src="assets/extend.webp" caption="扩展模块" width="280" >}}
+{{< image src="assets/extend.webp" caption="扩展模块" >}}
 
 扩展模块的作用是将 16 位的立即数扩展至 32 位。单周期版本中默认使用符号扩展，流水线版本中可以自行选择。
 
@@ -170,7 +170,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 ##### 2.3.4 `reg_file`
 
-{{< image src="assets/reg-file.webp" caption="寄存器文件" width="300" >}}
+{{< image src="assets/reg-file.webp" caption="寄存器文件" >}}
 
 流水线版本中，寄存器文件调整为在时钟**下降沿**将数据写入，其余同单周期版本。
 
@@ -178,7 +178,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 ##### 2.3.5 `execute_reg`
 
-{{< image src="assets/execute-reg.webp" caption="Execute 阶段流水线寄存器" width="420" >}}
+{{< image src="assets/execute-reg.webp" caption="Execute 阶段流水线寄存器" >}}
 
 Decode 阶段和 Execute 阶段之间的流水线寄存器，中转一下 `control`, `pc_plus_4`, `reg_data_1`, `reg_data_2`, `rs`, `rt`, `rd`, `shamt`, `ext_imm`，其中：
 
@@ -196,7 +196,7 @@ Decode 阶段和 Execute 阶段之间的流水线寄存器，中转一下 `contr
 
 #### 2.4 `execute`
 
-{{< image src="assets/execute.webp" caption="Execute 阶段" width="100%" >}}
+{{< image src="assets/execute.webp" caption="Execute 阶段" >}}
 
 Execute 阶段，对操作数 `src_a`, `src_b` 使用 ALU 执行计算。在单周期版本的基础上，新增了两个 `mux4` 用于转发逻辑。这里需要用到 Memory 阶段的数据 `alu_out_m` 和 Writeback 阶段的数据 `result_w` 以应对数据冒险，`read_reg_data`, `write_data`（分别为通常情况下的 `src_a`, `src_b`）取值的选择由 `forward_a_e`, `forward_b_e` 信号控制。
 
@@ -204,7 +204,7 @@ Execute 阶段，对操作数 `src_a`, `src_b` 使用 ALU 执行计算。在单�
 
 ##### 2.4.1 `memory_reg`
 
-{{< image src="assets/memory-reg.webp" caption="Memory 阶段流水线寄存器" width="420" >}}
+{{< image src="assets/memory-reg.webp" caption="Memory 阶段流水线寄存器" >}}
 
 Execute 阶段和 Memory 阶段之间的流水线寄存器，中转一下 `control`, `alu_out`, `write_data`, `write_reg`，其中：
 
@@ -217,7 +217,7 @@ Execute 阶段和 Memory 阶段之间的流水线寄存器，中转一下 `contr
 
 #### 2.5 `memory`
 
-{{< image src="assets/memory.webp" caption="Memory 阶段" width="100%" >}}
+{{< image src="assets/memory.webp" caption="Memory 阶段" >}}
 
 Memory 阶段，当 `mem_write` 为 `1` 时，在 `dmem` 的目标地址 `alu_out` 存储需要写入的数据 `write_data`。不过实际上这件事情并不是在 `memory` 模块内完成的，因为 `dmem` 在 `mips` 外面。因此实现中是在 `execute` 模块通过 `mem_write_m`, `alu_out_m`, `write_data_m` 将 `mem_write`, `alu_out`, `write_data` 直接输出到 `dmem`，在下一个时钟上升沿到达时（即 Memory 阶段）写入 `dmem`。`memory` 模块内则是通过 `read_data_m` 从 `dmem` 读入数据 `read_data`。
 
@@ -225,7 +225,7 @@ Memory 阶段，当 `mem_write` 为 `1` 时，在 `dmem` 的目标地址 `alu_ou
 
 ##### 2.5.1 `writeback_reg`
 
-{{< image src="assets/writeback-reg.webp" caption="Writeback 阶段流水线寄存器" width="420" >}}
+{{< image src="assets/writeback-reg.webp" caption="Writeback 阶段流水线寄存器" >}}
 
 Memory 阶段和 Writeback 阶段之间的流水线寄存器，中转一下 `control`, `alu_out`, `read_data`, `write_reg`，其中：
 
@@ -236,7 +236,7 @@ Memory 阶段和 Writeback 阶段之间的流水线寄存器，中转一下 `con
 
 #### 2.6 `writeback`
 
-{{< image src="assets/writeback.webp" caption="Writeback 阶段" width="100%" >}}
+{{< image src="assets/writeback.webp" caption="Writeback 阶段" >}}
 
 Writeback 阶段，由 `mem_to_reg` 信号控制 `result_mux2` 选择写入 `reg_file` 的数据为 `alu_out` 还是 `read_data`。写入逻辑放在了 `decode` 模块，参见 [2.3](#23-decode) 节。
 
@@ -244,7 +244,7 @@ Writeback 阶段，由 `mem_to_reg` 信号控制 `result_mux2` 选择写入 `reg
 
 #### 2.7 `hazard_unit`
 
-{{< image src="assets/hazard-unit.webp" caption="冲突单元" width="420" >}}
+{{< image src="assets/hazard-unit.webp" caption="冲突单元" >}}
 
 冲突单元根据传入的各阶段寄存器和控制信号，检查是否存在数据冲突或控制冲突，并输出相应的控制信号（forward, stall, flush）以处理冲突。
 
@@ -350,11 +350,11 @@ assign flush_d_o = pc_src_d_i || jump_d_i;
 
 #### 3.1 测试结果
 
-{{< image src="assets/test-1-3.webp" caption="测试 1 ~ 3" width="100%" >}}
+{{< image src="assets/test-1-3.webp" caption="测试 1 ~ 3" >}}
 
-{{< image src="assets/test-4-6.webp" caption="测试 4 ~ 6" width="100%" >}}
+{{< image src="assets/test-4-6.webp" caption="测试 4 ~ 6" >}}
 
-{{< image src="assets/test-7-10.webp" caption="测试 7 ~ 10" width="100%" >}}
+{{< image src="assets/test-7-10.webp" caption="测试 7 ~ 10" >}}
 
 #### 3.2 测试环境
 

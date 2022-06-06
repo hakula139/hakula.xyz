@@ -98,13 +98,13 @@ nop  : 0000 0000 0000 0000 0000 0000 0000 0000
 
 #### 2.0 总览
 
-{{< image src="assets/cpu.webp" caption="CPU 总览" width="100%" >}}
+{{< image src="assets/cpu.webp" caption="CPU 总览" >}}
 
 图示为单周期 MIPS CPU 的整体构造。直观起见，先只展示这几个模块。其中 `mips` 为 CPU 核心，`imem` 为指令储存器（Instruction Memory），`dmem` 为数据储存器（Data Memory）。
 
 #### 2.1 `imem`
 
-{{< image src="assets/imem.webp" caption="指令储存器" width="300" >}}
+{{< image src="assets/imem.webp" caption="指令储存器" >}}
 
 指令储存器内置了 64 个 32 位寄存器，用于储存指令。
 
@@ -114,7 +114,7 @@ nop  : 0000 0000 0000 0000 0000 0000 0000 0000
 
 #### 2.2 `dmem`
 
-{{< image src="assets/dmem.webp" caption="数据储存器" width="300" >}}
+{{< image src="assets/dmem.webp" caption="数据储存器" >}}
 
 数据储存器内置了 64 个 32 位寄存器，用于读写大量数据。其特点是容量大、读写速度慢（相较于寄存器）。
 
@@ -124,7 +124,7 @@ nop  : 0000 0000 0000 0000 0000 0000 0000 0000
 
 #### 2.3 `mips`
 
-{{< image src="assets/mips.webp" caption="CPU 核心" width="100%" >}}
+{{< image src="assets/mips.webp" caption="CPU 核心" >}}
 
 CPU 核心可分为两个部分：`control_unit` 和 `datapath`，分别表示控制单元和数据通路。
 
@@ -132,7 +132,7 @@ CPU 核心可分为两个部分：`control_unit` 和 `datapath`，分别表示�
 
 #### 2.4 `control_unit`
 
-{{< image src="assets/control-unit.webp" caption="控制单元" width="100%" >}}
+{{< image src="assets/control-unit.webp" caption="控制单元" >}}
 
 控制单元负责解析输入的指令，决定各个控制信号。
 
@@ -228,7 +228,7 @@ ALU 译码器，完整真值表如下：
 
 #### 2.5 `datapath`
 
-{{< image src="assets/datapath.webp" caption="数据通路" width="100%" >}}
+{{< image src="assets/datapath.webp" caption="数据通路" >}}
 
 数据通路的作用就是将所有这些部件连接起来，传递各种信号。
 
@@ -238,7 +238,7 @@ ALU 译码器，完整真值表如下：
 
 #### 2.6 `sign_ext`
 
-{{< image src="assets/sign-ext.webp" caption="符号扩展模块" width="320" >}}
+{{< image src="assets/sign-ext.webp" caption="符号扩展模块" >}}
 
 符号扩展模块的作用是将 16 位的立即数符号扩展至 32 位。
 
@@ -248,7 +248,7 @@ ALU 译码器，完整真值表如下：
 
 #### 2.7 `adder`
 
-{{< image src="assets/adder.webp" caption="加法器" width="300" >}}
+{{< image src="assets/adder.webp" caption="加法器" >}}
 
 32 位加法器，用于计算 PC 值及跳转地址。
 
@@ -258,9 +258,9 @@ ALU 译码器，完整真值表如下：
 
 #### 2.8 `mux2`, `mux4`
 
-{{< image src="assets/mux2.webp" caption="2:1 多路复用器" width="340" >}}
+{{< image src="assets/mux2.webp" caption="2:1 多路复用器" >}}
 
-{{< image src="assets/mux4.webp" caption="4:1 多路复用器" width="340" >}}
+{{< image src="assets/mux4.webp" caption="4:1 多路复用器" >}}
 
 多路复用器，用于数据多选一，操作数位数可改变。
 
@@ -291,7 +291,7 @@ ALU 译码器，完整真值表如下：
 
 #### 2.9 `reg_file`
 
-{{< image src="assets/reg-file.webp" caption="寄存器文件" width="300" >}}
+{{< image src="assets/reg-file.webp" caption="寄存器文件" >}}
 
 寄存器文件内置了 32 个 32 位寄存器，用于读写临时数据。
 
@@ -301,7 +301,7 @@ ALU 译码器，完整真值表如下：
 
 #### 2.10 `flip_flop`
 
-{{< image src="assets/flip-flop.webp" caption="触发器" width="240" >}}
+{{< image src="assets/flip-flop.webp" caption="触发器" >}}
 
 触发器，用于储存 PC。
 
@@ -311,7 +311,7 @@ ALU 译码器，完整真值表如下：
 
 #### 2.11 `alu`
 
-{{< image src="assets/alu.webp" caption="ALU" width="360" >}}
+{{< image src="assets/alu.webp" caption="ALU" >}}
 
 算术逻辑单元（ALU），用于加减、位运算等算术操作。
 
@@ -340,9 +340,9 @@ ALU 根据 $\textrm{ALU\\_CONTROL}$ 信号决定对操作数 $\textrm{A}$ 和 $\
 
 #### 3.1 测试结果
 
-{{< image src="assets/test-1-3.webp" caption="测试 1 ~ 3" width="100%" >}}
+{{< image src="assets/test-1-3.webp" caption="测试 1 ~ 3" >}}
 
-{{< image src="assets/test-4-6.webp" caption="测试 4 ~ 6" width="100%" >}}
+{{< image src="assets/test-4-6.webp" caption="测试 4 ~ 6" >}}
 
 #### 3.2 测试环境
 

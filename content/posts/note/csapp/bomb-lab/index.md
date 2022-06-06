@@ -2198,7 +2198,7 @@ Congratulations! You've defused the bomb!
 ./bomb
 ```
 
-{{< image src="assets/bomb.webp" caption="bomb 运行结果" width="560" >}}
+{{< image src="assets/bomb.webp" caption="bomb 运行结果" >}}
 
 ## 测试环境
 

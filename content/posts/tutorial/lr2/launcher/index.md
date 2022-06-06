@@ -25,23 +25,23 @@ hiddenFromSearch: false
 
 如果之前没有转区的话，从现在开始每一步都可能出现乱码。为了方便未转区的玩家，这里我提供每步操作的窗口截图，看得懂日语的话可以参考一下。
 
-{{< image src="assets/register-prompt.webp" caption="注册提示" width="430" >}}
+{{< image src="assets/register-prompt.webp" caption="注册提示" >}}
 
-{{< image src="assets/register.webp" caption="注册界面" width="380" >}}
+{{< image src="assets/register.webp" caption="注册界面" >}}
 
 ID 栏填写用户名，PASSWORD 栏填写密码。其中用户名只能包含英文和数字，否则会报错。
 
 下面这两项是用于 LR2IR 账号继承的，新玩家可以直接跳过。如果你换了新电脑 / 新本体，那这里可以勾选并填写你的 LR2IR ID，点击 OK，随后 LR2 就会自动将所有**已上传**到 LR2IR 的成绩数据下载到本地。当然，你需要确保填写的密码和原账号的密码一致。
 
-{{< image src="assets/register-success.webp" caption="注册成功" width="260" >}}
+{{< image src="assets/register-success.webp" caption="注册成功" >}}
 
 ## MAIN
 
 进入启动器界面。未转区的玩家会遇到乱码，我们点击左上角的 Language 选项将语言切换成 English。
 
-{{< image src="assets/switch-language.webp" caption="切换语言" width="260" >}}
+{{< image src="assets/switch-language.webp" caption="切换语言" >}}
 
-{{< image src="assets/main.webp" caption="MAIN" width="700" >}}
+{{< image src="assets/main.webp" caption="MAIN" >}}
 
 ### PLAYER
 
@@ -85,7 +85,7 @@ LR2IR 即 LR2 的在线排行榜，勾选表示连接到 LR2IR，本地成绩将
 
 不过这两个按钮在一开始是点不了的，点击后会触发以下错误提示：
 
-{{< image src="assets/ir-error.webp" caption="IR 错误提示" width="450" >}}
+{{< image src="assets/ir-error.webp" caption="IR 错误提示" >}}
 
 这是因为新玩家还没有 LR2IR ID。联网并勾选 LR2IR 选项，首次进入游戏后将自动获得 LR2IR ID，之后这两个按钮就可以点了。
 
@@ -93,7 +93,7 @@ LR2IR 即 LR2 的在线排行榜，勾选表示连接到 LR2IR，本地成绩将
 
 这里是我们导入曲包、段位 / Course 和 Custom Folder 的地方。
 
-{{< image src="assets/jukebox1.webp" caption="JUKEBOX1" width="700" >}}
+{{< image src="assets/jukebox1.webp" caption="JUKEBOX1" >}}
 
 图中的 `BMS` 是整合包预导入的测试用曲包根目录。你完全可以移除这个目录，导入其他曲包根目录。
 
@@ -124,7 +124,7 @@ Custom Folder 在目前语境下通常表示第三方难易度表，导入方式
 
 ## JUKEBOX2
 
-{{< image src="assets/jukebox2.webp" caption="JUKEBOX2" width="700" >}}
+{{< image src="assets/jukebox2.webp" caption="JUKEBOX2" >}}
 
 上面 8 个选项是 LR2 内置的 Custom Folder 开关，除了「発狂 BMS FOLDER」以外的选项意义都不太大，这里就不作介绍了，有兴趣的可以自行了解。
 
@@ -132,7 +132,7 @@ Custom Folder 在目前语境下通常表示第三方难易度表，导入方式
 
 ## OPTION
 
-{{< image src="assets/option.webp" caption="OPTION" width="700" >}}
+{{< image src="assets/option.webp" caption="OPTION" >}}
 
 | 选项                            | 含义                                                                                 |
 | :------------------------------ | :----------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ Custom Folder 在目前语境下通常表示第三方难易度表，导入方式
 
 ## SELECT
 
-{{< image src="assets/select.webp" caption="SELECT" width="700" >}}
+{{< image src="assets/select.webp" caption="SELECT" >}}
 
 | 选项    | 含义                                     |
 | :------ | :--------------------------------------- |
@@ -167,7 +167,7 @@ Custom Folder 在目前语境下通常表示第三方难易度表，导入方式
 
 ## SYSTEM
 
-{{< image src="assets/system.webp" caption="SYSTEM" width="700" >}}
+{{< image src="assets/system.webp" caption="SYSTEM" >}}
 
 | 选项                     | 含义                                   |
 | :----------------------- | :------------------------------------- |

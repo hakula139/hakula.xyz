@@ -488,7 +488,7 @@ unsigned float_twice(unsigned uf) {
 ./dlc bits.c -e
 ```
 
-{{< image src="assets/dlc.webp" caption="dlc 检查结果" width="450" >}}
+{{< image src="assets/dlc.webp" caption="dlc 检查结果" >}}
 
 ### btest
 
@@ -496,7 +496,7 @@ unsigned float_twice(unsigned uf) {
 ./btest
 ```
 
-{{< image src="assets/btest.webp" caption="btest 测试结果" width="400" >}}
+{{< image src="assets/btest.webp" caption="btest 测试结果" >}}
 
 ## 测试环境
 

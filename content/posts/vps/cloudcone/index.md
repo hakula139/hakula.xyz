@@ -35,7 +35,7 @@ CloudCone 于 2019-05 接入了 CN2 GIA 线路，这很大程度上改善了曾�
 
 总体来说，CloudCone 的性价比还是比较高的，我个人比较推荐这家。本站目前也是部署在这家的 VPS 上（配置：2 核 @ 2.6 GHz + 1 GB 内存 + 25 GB SSD + 5 TB 月流量的 SC2，年付 `$ 16.16`，来自 2020 年黑五特惠）。
 
-{{< image src="assets/instance.webp" caption="本站使用的 VPS 配置" width="100%" >}}
+{{< image src="assets/instance.webp" caption="本站使用的 VPS 配置" >}}
 
 ## 一些特性
 

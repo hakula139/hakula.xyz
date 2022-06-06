@@ -113,7 +113,7 @@ javascript: (function () {
 
 > [Hakula♪ の個人データ - 「リコメンド」 - walkure.net](http://walkure.net/hakkyou/recommended_mypage.html?playerid=122423)
 
-{{< image src="assets/walkure/my-page.webp" caption="Walkure - 个人页面" width="100%" >}}
+{{< image src="assets/walkure/my-page.webp" caption="Walkure - 个人页面" >}}
 
 「あなたの実力」就是你当前的实力值，表示 Walkure 认为你有 50% 的概率通过这个 [难度](#难度) 的谱面。下方的「リコメンド」和「逆リコメンド」分别表示「推荐」和「逆推荐」。
 
@@ -121,7 +121,7 @@ javascript: (function () {
 
 在「推荐」页面中，Walkure 根据其 [推荐度模型](#推荐度) 推荐了一些目标课题，右侧显示推定的通过概率（推荐度）。
 
-{{< image src="assets/walkure/recommendations.webp" caption="Walkure - 推荐" width="100%" >}}
+{{< image src="assets/walkure/recommendations.webp" caption="Walkure - 推荐" >}}
 
 ##### 逆推荐
 
@@ -129,7 +129,7 @@ javascript: (function () {
 
 这些基本属于 Walkure 不认为你能通过但你却神秘通过了的谱面，~~可以用来装逼 :sunglasses:（然后被人[骂]^(kuā) sb）~~。
 
-{{< image src="assets/walkure/reverse-recommendations.webp" caption="Walkure - 逆推荐" width="100%" >}}
+{{< image src="assets/walkure/reverse-recommendations.webp" caption="Walkure - 逆推荐" >}}
 
 ##### 推荐度
 
@@ -141,7 +141,7 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 
 其中，$p$ 为玩家通过谱面的概率，$\theta$ 为玩家的实力值，$a$ 为谱面的地力谱面度，$b$ 为谱面的难度。
 
-{{< image src="assets/walkure/irt.webp" caption="通过概率" width="540" >}}
+{{< image src="assets/walkure/irt.webp" caption="通过概率" >}}
 
 如图，横坐标为玩家的实力值 $\theta$，纵坐标为通过概率 $p(\theta)$。这里黑色线为 $(a,b) = (3,2)$ 时的曲线，灰色线为 $(a,b) = (3,1),\ (10,2)$ 时的曲线。
 
@@ -165,13 +165,13 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 
 除了发狂表外，Notepara 还支持各种第三方表。
 
-{{< image src="assets/lamps/notepara.webp" caption="Notepara" width="540" >}}
+{{< image src="assets/lamps/notepara.webp" caption="Notepara" >}}
 
 ### pasta-soft
 
 > [BMS Lamp Graph - pasta-soft](https://pasta-soft.com/bms/lamp.php?id=122423&type=insane)
 
-{{< image src="assets/lamps/pasta-soft.webp" caption="Notepara" width="100%" >}}
+{{< image src="assets/lamps/pasta-soft.webp" caption="Notepara" >}}
 
 ## 谱面预览
 
@@ -179,7 +179,7 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 
 BMS 谱面在线预览，支持上传谱面 / 搜索已上传的谱面。
 
-{{< image src="assets/score-viewer.webp" caption="谱面艺术欣赏" width="100%" >}}
+{{< image src="assets/score-viewer.webp" caption="谱面艺术欣赏" >}}
 
 ## BeMusicSeeker
 

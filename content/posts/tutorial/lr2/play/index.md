@@ -19,11 +19,11 @@ hiddenFromSearch: false
 [和洋折衷ライブラリー - @藤原](https://www.pixiv.net/artworks/61930743)
 {{< /admonition >}}
 
-{{< image src="assets/decide.webp" caption="决定界面" width="1280" >}}
+{{< image src="assets/decide.webp" caption="决定界面" >}}
 
 这是 WMIX 的决定界面。从现在起按键盘 `Esc` 键 / START + SELECT 键可以中途退出。
 
-{{< image src="assets/play.webp" caption="游玩界面" width="1280" >}}
+{{< image src="assets/play.webp" caption="游玩界面" >}}
 
 此后我们就进入了 WMIX 的游玩界面。你看到的界面很可能与图中有许多不同，这是因为 WMIX 有很多可以自定义的地方，详见 [WMIX](../wmix) 篇。
 
@@ -64,7 +64,7 @@ hiddenFromSearch: false
 | 双击 START             |               | 开关挡板[^sudden] |
 | START + SELECT         | `Esc`         | 退出游玩界面      |
 
-{{< image src="assets/tip.webp" caption="温馨小贴士" width="360" >}}
+{{< image src="assets/tip.webp" caption="温馨小贴士" >}}
 
 ## 进阶
 
@@ -96,11 +96,11 @@ DARK 模式可以隐藏画面里的部分素材，减少对读谱的干扰，十
 
 按住 `5` 键后，按一次 :arrow_right: 键进入 DARK 1 模式：
 
-{{< image src="assets/play-dark1.webp" caption="游玩界面（DARK 1）" width="1280" >}}
+{{< image src="assets/play-dark1.webp" caption="游玩界面（DARK 1）" >}}
 
 再按一次进入 DARK 2 模式：
 
-{{< image src="assets/play-dark2.webp" caption="游玩界面（DARK 2）" width="1280" >}}
+{{< image src="assets/play-dark2.webp" caption="游玩界面（DARK 2）" >}}
 
 我个人比较习惯使用 DARK 1 模式。
 

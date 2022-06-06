@@ -23,11 +23,11 @@ hiddenFromSearch: false
 
 终于可以进游戏了！点击左下角的「Play」按钮启动游戏。
 
-{{< image src="assets/start-page.webp" caption="启动画面" width="400" >}}
+{{< image src="assets/start-page.webp" caption="启动画面" >}}
 
 启动画面的左上角会显示你的 LR2ID，这个 ID 会在很多地方派上用场。暂时记不住也没事，只要连着 IR，每次启动都会显示。现在之前提到的 IR 个人页面就可以进去了，但要至少游玩一首歌才能激活账号。
 
-{{< image src="assets/ir-not-available.webp" caption="IR 暂不可用" width="1000" >}}
+{{< image src="assets/ir-not-available.webp" caption="IR 暂不可用" >}}
 
 关于 IR 的详细介绍参见 [之后](../internet-ranking) 的文章，我们先进行 LR2 的游戏内配置。按任意键进入游戏，之后按 `Esc` 键退出游戏。
 

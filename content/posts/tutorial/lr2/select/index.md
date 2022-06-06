@@ -19,9 +19,9 @@ hiddenFromSearch: false
 [あなたがいる世界に私も生きてる - @藤原](https://www.pixiv.net/artworks/65262289)
 {{< /admonition >}}
 
-{{< image src="assets/folder-list.webp" caption="目录列表" width="1280" >}}
+{{< image src="assets/folder-list.webp" caption="目录列表" >}}
 
-{{< image src="assets/song-list.webp" caption="选曲列表" width="1280" >}}
+{{< image src="assets/song-list.webp" caption="选曲列表" >}}
 
 这是 WMIX 的选曲界面。按鼠标左键 / 键盘 :arrow_right: 键 / 回车键 / 手台白键进入，按鼠标右键 / 键盘 :arrow_left: 键 / 手台 2 或 4 号键返回，按 `Esc` 键退出游戏。
 
@@ -31,7 +31,7 @@ hiddenFromSearch: false
 
 ### PLAY OPTION
 
-{{< image src="assets/left/play.webp" caption="PLAY OPTION" width="1280" >}}
+{{< image src="assets/left/play.webp" caption="PLAY OPTION" >}}
 
 这些选项除了可以用鼠标点击来调整，也可以通过键盘 / 手台的对应按键调整（参考 IIDX）。
 
@@ -215,7 +215,7 @@ HI-SPEED 就是游玩界面里 note 的下落速度[^hi-speed]。新手可以先
 
 ### SYSTEM OPTION
 
-{{< image src="assets/left/sys.webp" caption="SYSTEM OPTION" width="1280" >}}
+{{< image src="assets/left/sys.webp" caption="SYSTEM OPTION" >}}
 
 #### SKIN · SOUNDSET
 
@@ -227,7 +227,7 @@ HI-SPEED 就是游玩界面里 note 的下落速度[^hi-speed]。新手可以先
 
 点击进入键位设置界面。画面缩在左上角是正常现象，参见 [目录](../directory-structure/#theme) 篇的说明。
 
-{{< image src="assets/key-config.webp" caption="KEY CONFIG" width="640" >}}
+{{< image src="assets/key-config.webp" caption="KEY CONFIG" >}}
 
 这里我们以 7K 模式为例。推荐先按 `F2` 键清空原有的键位设置，防止莫名的键位冲突。在最上方标题的左右侧各有一个小箭头，可以切换到其他模式。
 
@@ -421,7 +421,7 @@ BGA 显示尺寸设置。
 
 ### SCORE DETAIL
 
-{{< image src="assets/left/score.webp" caption="SCORE DETAIL" width="1280" >}}
+{{< image src="assets/left/score.webp" caption="SCORE DETAIL" >}}
 
 #### JUDGE COUNT
 
@@ -460,13 +460,13 @@ BGA 显示尺寸设置。
 
 ### TAG EDITOR
 
-{{< image src="assets/left/tag-song.webp" caption="TAG EDITOR - 歌曲" width="1280" >}}
+{{< image src="assets/left/tag-song.webp" caption="TAG EDITOR - 歌曲" >}}
 
 选中歌曲时，这里显示此 BMS 谱面的相关信息。其中 TAG 以外的信息不建议修改，否则之后上传纪录到 IR 时将被视作不同的谱面，从而无法参与原谱的 IR 排名。
 
 下方的 DEFAULT 按钮将使所有信息恢复到初始状态（同时清除 TAG），据说能解决部分乱码问题，不过我没有试过。旁边的 FAVORITE 按钮第一次点击将本谱标记为 FAVORITE，第二次点击标记为 IGNORE（从选曲列表隐藏），第三次点击取消标记[^favorite-folder]。
 
-{{< image src="assets/left/tag-folder.webp" caption="TAG EDITOR - 文件夹" width="1280" >}}
+{{< image src="assets/left/tag-folder.webp" caption="TAG EDITOR - 文件夹" >}}
 
 选中文件夹时，这里显示此文件夹的相关信息。其中在 COMMAND 处根据谱面信息填写相应的 SQL 查询语句片段后，此文件夹就成为一个 Custom Folder，常用于自制难易度表。
 
@@ -476,7 +476,7 @@ BGA 显示尺寸设置。
 
 不过我们一般很少自制难易度表，通常还是直接导入别人做好的难易度表。
 
-{{< image src="assets/left/tag-course.webp" caption="TAG EDITOR - Course" width="1280" >}}
+{{< image src="assets/left/tag-course.webp" caption="TAG EDITOR - Course" >}}
 
 选中段位 / Course 时，这里就变成了 COURSE EDITOR，可以调整此段位 / Course 的相关配置，常用于自制段位 / Course。
 
@@ -488,7 +488,7 @@ BGA 显示尺寸设置。
 
 ### EQ / FX (EFFECTOR)
 
-{{< image src="assets/left/eq.webp" caption="EFFECTOR" width="1280" >}}
+{{< image src="assets/left/eq.webp" caption="EFFECTOR" >}}
 
 #### VOLUME
 
@@ -539,7 +539,7 @@ BGA 显示尺寸设置。
 
 ### PLAYER INFO
 
-{{< image src="assets/left/info.webp" caption="PLAYER INFO" width="1280" >}}
+{{< image src="assets/left/info.webp" caption="PLAYER INFO" >}}
 
 {{< style "table { min-width: 30rem; }" >}}
 
@@ -558,7 +558,7 @@ BGA 显示尺寸设置。
 
 ## 左下区
 
-{{< image src="assets/bottom-left.webp" caption="左下区" width="480" >}}
+{{< image src="assets/bottom-left.webp" caption="左下区" >}}
 
 ### 快捷 PLAY OPTION
 
@@ -566,7 +566,7 @@ BGA 显示尺寸设置。
 
 ## 中央区
 
-{{< image src="assets/center.webp" caption="中央区" width="480" >}}
+{{< image src="assets/center.webp" caption="中央区" >}}
 
 ### BMS 基本信息
 
@@ -600,7 +600,7 @@ BGA 显示尺寸设置。
 
 ## 右侧区
 
-{{< image src="assets/right.webp" caption="右侧区" width="480" >}}
+{{< image src="assets/right.webp" caption="右侧区" >}}
 
 ### 选曲列表
 
@@ -630,7 +630,7 @@ BGA 显示尺寸设置。
 
 ## 右上区
 
-{{< image src="assets/top-right.webp" caption="右上区" width="480" >}}
+{{< image src="assets/top-right.webp" caption="右上区" >}}
 
 ### 倒计时
 
@@ -655,7 +655,7 @@ BGA 显示尺寸设置。
 
 ## 右下区
 
-{{< image src="assets/bottom-right.webp" caption="右下区" width="480" >}}
+{{< image src="assets/bottom-right.webp" caption="右下区" >}}
 
 ### MODE
 
@@ -705,7 +705,7 @@ IR 即当前 Internet Ranking 的连接情况。
 
 打开 [PLAY OPTION](#play-option)，按住 2 号键直到选曲界面背景变成红色，就进入了 LR2 里模式（EXTRA MODE）。
 
-{{< image src="assets/extra-mode.webp" caption="EXTRA MODE" width="1280" >}}
+{{< image src="assets/extra-mode.webp" caption="EXTRA MODE" >}}
 
 EXTRA MODE 的效果是将谱面的背景 key 音塞进键盘区里（排列方式可能是 H‑RANDOM），建议発狂六段以下的玩家不要随意在发狂表内尝试（
 
