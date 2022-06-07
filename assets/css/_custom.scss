@@ -14,6 +14,14 @@
         }
       }
     }
+
+    .highlight {
+      .table-wrapper {
+        > table {
+          min-width: initial;
+        }
+      }
+    }
   }
 }
 
