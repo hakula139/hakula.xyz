@@ -143,7 +143,7 @@ COMMANDS:
       show history   Shows all records
 ```
 
-It's quite easy to understand how these commands work, nevertheless we're going to introduce them in details in the next chapter.
+It's quite easy to understand how these commands work, nevertheless we're going to introduce them in detail in the next chapter.
 
 ### 3 REST API
 
