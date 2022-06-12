@@ -1,26 +1,40 @@
-.single {
-  .content {
-    ul,
-    ol {
-      padding-left: 2rem;
-    }
+.single .content {
+  ul,
+  ol {
+    padding-left: 2rem;
+  }
 
+  > .table-wrapper {
+    > table {
+      min-width: 40rem;
+
+      thead {
+        white-space: pre;
+      }
+    }
+  }
+
+  .highlight > .chroma {
     .table-wrapper {
-      > table {
-        min-width: 40rem;
-
-        thead {
-          white-space: pre;
-        }
-      }
+      overflow: auto;
     }
 
-    .highlight {
+    &.open {
       .table-wrapper {
-        > table {
-          min-width: initial;
-        }
+        max-height: 42em;
       }
+    }
+  }
+}
+
+.details {
+  .details-content {
+    overflow: auto;
+  }
+
+  &.open {
+    .details-content {
+      max-height: 42em;
     }
   }
 }
