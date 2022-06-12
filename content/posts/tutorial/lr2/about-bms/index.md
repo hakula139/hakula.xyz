@@ -53,7 +53,7 @@ hiddenFromSearch: false
 
 以下是一些推荐的下载途径（欢迎补充）：
 
-{{< admonition example "QQ 群" >}}
+{{< admonition example "QQ 群" false >}}
 
 [:(fab fa-qq):  Be-Music Source (176763307)](https://jq.qq.com/?_wv=1027&k=5L8MRvF)
 
@@ -61,7 +61,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "本站 BMS 区 @ OneDrive" >}}
+{{< admonition example "本站 BMS 区 @ OneDrive" false >}}
 
 [:(fas fa-cloud):  HAKULA†BMS](https://bms.hakula.xyz)
 
@@ -75,7 +75,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "官方段位 - 散包 @ 百度云" >}}
+{{< admonition example "官方段位 - 散包 @ 百度云" false >}}
 
 [:(fas fa-cloud):  GENOCIDE 2018 段位认定 (SP + DP)](https://pan.baidu.com/s/1XuMVDMvDFbc1oaujVspORQ)
 
@@ -85,7 +85,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "段位 - Course 文件 @ GitHub" >}}
+{{< admonition example "段位 - Course 文件 @ GitHub" false >}}
 
 [:(fas fa-list-ul):  LR2IRCourses](https://github.com/MsrLab-org/LR2IRCourses)
 
@@ -95,7 +95,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "发狂表 - 合集包 @ 百度云" >}}
+{{< admonition example "发狂表 - 合集包 @ 百度云" false >}}
 
 [:(fas fa-cloud):  発狂 + 通常 BMS 難易度表 (SP)](https://pan.baidu.com/s/1QWE0CI_3Ko289BMSqyLcBA) - **fs2t**
 
@@ -105,7 +105,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "发狂表 - 散包 @ 百度云" >}}
+{{< admonition example "发狂表 - 散包 @ 百度云" false >}}
 
 [:(fas fa-cloud):  発狂 BMS 難易度表 (SP)](https://pan.baidu.com/s/1pLNgqBh) - **hcvn**
 
@@ -115,7 +115,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "Overjoy 表 - 散包 @ 百度云" >}}
+{{< admonition example "Overjoy 表 - 散包 @ 百度云" false >}}
 
 [:(fas fa-dizzy):  Overjoy 難易度表 (SP)](https://pan.baidu.com/s/1__S0VsK0sbfYWBNmwYCrpw)
 
@@ -126,7 +126,7 @@ hiddenFromSearch: false
 
 {{< /admonition >}}
 
-{{< admonition example "BMS 搜索引擎" >}}
+{{< admonition example "BMS 搜索引擎" false >}}
 
 [:(fas fa-search):  BMS Search Alternative](http://www.ribbit.xyz/bms/search)
 
