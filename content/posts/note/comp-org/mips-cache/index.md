@@ -108,7 +108,7 @@ Cache Controller 通过一个有限状态机（Finite State Machine, FSM）来�
 - `offset_sel`：此值为 `1` 时，Cache 与 CPU 交互，访问 line 的 block offset 由 CPU 输入的地址提供，写入 line 的数据（如果需要）为 CPU 输入的数据。此值为 `0` 时，Cache 与内存交互，访问 line 的 block offset 由当前访问的内存地址提供，写入 line 的数据为从内存读取的数据。
 - `mem_write_en`：是否对内存进行写操作。
 
-### 2.3 set
+### 2.3 Set
 
 得到控制信号的 set 需要判断读写及返回哪一个 line 的数据。本实现中，每个 line 自行检查 tag 是否匹配，并返回是否命中，命中的 line 将同时返回对应 block 的数据。如果存在命中的 line，set 就返回这个 line 的数据，否则由 Replace Controller 决定接下来应该写入（覆盖）哪一个 line。
 
