@@ -46,3 +46,30 @@
     display: none;
   }
 }
+
+.toc .toc-content {
+  ul {
+    text-indent: 0;
+    padding-left: 0;
+
+    ul {
+      padding-left: 1rem;
+    }
+
+    li {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+#toc-static .toc-content {
+  > nav > ul {
+    padding: 0.4rem 0.2rem;
+
+    ul {
+      padding-left: 1.5rem;
+    }
+  }
+}
