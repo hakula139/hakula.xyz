@@ -198,7 +198,7 @@ struct proc {
     char* kstack;             // Bottom of kernel stack for this process
     uint64_t sz;              // Size of process memory (bytes)
     uint64_t* pgdir;          // Page table
-    struct trap frame* tf;     // Trapframe for current syscall
+    struct trapframe* tf;     // Trapframe for current syscall
     struct context* context;  // swtch() here to run process
     char name[16];            // Process name (debugging)
 };
@@ -271,7 +271,7 @@ proc_alloc()
 
         // Leave room for trap frame.
         sp -= sizeof(*p->tf);
-        p->tf = (struct trap frame*)sp;
+        p->tf = (struct trapframe*)sp;
 
         // Set up new context to start executing at forkret.
         sp -= sizeof(*p->context);
@@ -554,7 +554,7 @@ sp = p->kstack + KSTACKSIZE;
 
 // Leave room for trap frame.
 sp -= sizeof *p->tf;
-p->tf = (struct trap frame*)sp;
+p->tf = (struct trapframe*)sp;
 
 // Set up new context to start executing at forkret,
 // which returns to trapret.
@@ -664,7 +664,7 @@ sched()
 
 需要注意的是，暂时我们为了省事，是直接在 `initproc` 里执行的用户程序代码。但显然我们并不应该这么做，因为这样在程序退出时，也就把这第一个用户程序 `initproc` 给退出了，之后就无法利用 `initproc` 启动新程序了。未来我们实现了文件系统和其他一些必要的函数（如 `fork`, `sleep`, `wait`），真正开始执行用户程序后，这里需要将第 14 行取消注释。
 
-```c {hl_lines=[14]}
+```c
 // kern/proc.c
 
 /*
@@ -711,7 +711,7 @@ exit(int status)
 // kern/trap.c
 
 void
-trap(struct trap frame* tf)
+trap(struct trapframe* tf)
 {
     struct proc* p = thiscpu->proc;
     int src = get32(IRQ_SRC_CORE(cpuid()));
