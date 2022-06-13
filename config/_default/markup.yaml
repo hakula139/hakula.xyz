@@ -3,8 +3,8 @@ highlight:
   guessSyntax: true
   lineNos: true
   lineNumbersInTable: true
+  anchorLineNos: true
   noClasses: false
-  style: rrt
   tabWidth: 2
 
 goldmark:
