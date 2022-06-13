@@ -25,11 +25,9 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 32 位单周期 MIPS 指令集 CPU，使用 SystemVerilog 编写。
 
-## 实验报告
+## 1 MIPS 指令集
 
-### 1 MIPS 指令集
-
-#### 1.1 实现指令集
+### 1.1 实现指令集
 
 ```asm
 add     $rd, $rs, $rt                   # [rd] = [rs] + [rt]
@@ -69,7 +67,7 @@ nop                                     # No operation
 | `JTA`       | 跳转目标地址：`{(PC + 4)[31:28], addr, 2'b0}` |
 | `BTA`       | 分支目标地址：`PC + 4 + (SignImm << 2)`       |
 
-#### 1.2 机器码格式
+### 1.2 机器码格式
 
 ```text
 add  : 0000 00ss ssst tttt dddd d--- --10 0000
@@ -94,15 +92,15 @@ bne  : 0001 01ss ssst tttt iiii iiii iiii iiii
 nop  : 0000 0000 0000 0000 0000 0000 0000 0000
 ```
 
-### 2 部件构成及分析
+## 2 部件构成及分析
 
-#### 2.0 总览
+### 2.0 总览
 
 {{< image src="assets/cpu.webp" caption="CPU 总览" >}}
 
 图示为单周期 MIPS CPU 的整体构造。直观起见，先只展示这几个模块。其中 `mips` 为 CPU 核心，`imem` 为指令储存器（Instruction Memory），`dmem` 为数据储存器（Data Memory）。
 
-#### 2.1 `imem`
+### 2.1 `imem`
 
 {{< image src="assets/imem.webp" caption="指令储存器" >}}
 
@@ -112,7 +110,7 @@ nop  : 0000 0000 0000 0000 0000 0000 0000 0000
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/imem.sv)。
 
-#### 2.2 `dmem`
+### 2.2 `dmem`
 
 {{< image src="assets/dmem.webp" caption="数据储存器" >}}
 
@@ -122,7 +120,7 @@ nop  : 0000 0000 0000 0000 0000 0000 0000 0000
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/dmem.sv)。
 
-#### 2.3 `mips`
+### 2.3 `mips`
 
 {{< image src="assets/mips.webp" caption="CPU 核心" >}}
 
@@ -130,7 +128,7 @@ CPU 核心可分为两个部分：`control_unit` 和 `datapath`，分别表示�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/mips.sv)。
 
-#### 2.4 `control_unit`
+### 2.4 `control_unit`
 
 {{< image src="assets/control-unit.webp" caption="控制单元" >}}
 
@@ -153,7 +151,7 @@ always_comb begin
 end
 ```
 
-##### 2.4.1 `main_dec`
+#### 2.4.1 `main_dec`
 
 主译码器，完整真值表如下[^about-nop]：
 
@@ -202,7 +200,7 @@ end
 
 [^about-nop]: `nop` 实际上只是 `sll` 的特例，这里就省略了。
 
-##### 2.4.2 `alu_dec`
+#### 2.4.2 `alu_dec`
 
 ALU 译码器，完整真值表如下：
 
@@ -226,7 +224,7 @@ ALU 译码器，完整真值表如下：
 
 {{< /style >}}
 
-#### 2.5 `datapath`
+### 2.5 `datapath`
 
 {{< image src="assets/datapath.webp" caption="数据通路" >}}
 
@@ -236,7 +234,7 @@ ALU 译码器，完整真值表如下：
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/datapath.sv)。
 
-#### 2.6 `sign_ext`
+### 2.6 `sign_ext`
 
 {{< image src="assets/sign-ext.webp" caption="符号扩展模块" >}}
 
@@ -246,7 +244,7 @@ ALU 译码器，完整真值表如下：
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/utils.sv)。
 
-#### 2.7 `adder`
+### 2.7 `adder`
 
 {{< image src="assets/adder.webp" caption="加法器" >}}
 
@@ -256,7 +254,7 @@ ALU 译码器，完整真值表如下：
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/utils.sv)。
 
-#### 2.8 `mux2`, `mux4`
+### 2.8 `mux2`, `mux4`
 
 {{< image src="assets/mux2.webp" caption="2:1 多路复用器" >}}
 
@@ -289,7 +287,7 @@ ALU 译码器，完整真值表如下：
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/utils.sv)。
 
-#### 2.9 `reg_file`
+### 2.9 `reg_file`
 
 {{< image src="assets/reg-file.webp" caption="寄存器文件" >}}
 
@@ -299,7 +297,7 @@ ALU 译码器，完整真值表如下：
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/reg_file.sv)。
 
-#### 2.10 `flip_flop`
+### 2.10 `flip_flop`
 
 {{< image src="assets/flip-flop.webp" caption="触发器" >}}
 
@@ -309,7 +307,7 @@ ALU 译码器，完整真值表如下：
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/flip_flop.sv)。
 
-#### 2.11 `alu`
+### 2.11 `alu`
 
 {{< image src="assets/alu.webp" caption="ALU" >}}
 
@@ -336,15 +334,15 @@ ALU 根据 $\textrm{ALU\\_CONTROL}$ 信号决定对操作数 $\textrm{A}$ 和 $\
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Single-Cycle/src/alu.sv)。
 
-### 3 样例测试
+## 3 样例测试
 
-#### 3.1 测试结果
+### 3.1 测试结果
 
 {{< image src="assets/test-1-3.webp" caption="测试 1 ~ 3" >}}
 
 {{< image src="assets/test-4-6.webp" caption="测试 4 ~ 6" >}}
 
-#### 3.2 测试环境
+### 3.2 测试环境
 
 - Windows 10 Version 2004 (OS Build 19041.172)
 - Vivado v2019.1

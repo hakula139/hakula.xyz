@@ -25,21 +25,19 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 32 位流水线 MIPS 指令集 CPU，使用 SystemVerilog 编写。
 
-## 实验报告
-
-### 1 MIPS 指令集
+## 1 MIPS 指令集
 
 同单周期，详见 [计组 - Lab 1: 单周期 MIPS CPU](../single-cycle-mips-cpu/#1-mips-指令集)。
 
-### 2 部件构成及分析
+## 2 部件构成及分析
 
-#### 2.0 总览
+### 2.0 总览
 
 {{< image src="assets/cpu.webp" caption="CPU 总览" >}}
 
 图示为流水线 MIPS CPU 的整体构造，与单周期 MIPS CPU 完全一致，区别在于 CPU 核心 `mips` 的实现。以下我们仅介绍与单周期 CPU 不同的部分，其余请参见单周期 CPU 的实验报告。
 
-#### 2.1 `mips`
+### 2.1 `mips`
 
 本流水线 CPU 的实现中，将 `datapath` 按照流水线的 5 个阶段划分为了 5 个模块（Fetch, Decode, Execute, Memory, Writeback），并增加了一个用于处理冲突的冲突单元（Hazard Unit）。其中各模块的作用如下：
 
@@ -67,7 +65,7 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/mips.sv)。
 
-#### 2.2 `fetch`
+### 2.2 `fetch`
 
 {{< image src="assets/fetch.webp" caption="Fetch 阶段" >}}
 
@@ -79,7 +77,7 @@ Fetch 阶段，通过 `pc_f` 输出指令地址 `pc` 到 `imem`，通过 `instr_
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_stages/fetch.sv)。
 
-##### 2.2.1 `fetch_reg`
+#### 2.2.1 `fetch_reg`
 
 {{< image src="assets/fetch-reg.webp" caption="Fetch 阶段流水线寄存器" >}}
 
@@ -87,7 +85,7 @@ Fetch 阶段流水线寄存器。结构很简单，就是将 PC 寄存器 `pc_re
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_registers/fetch_reg.sv)。
 
-###### 2.2.1.1 `flip_flop`
+##### 2.2.1.1 `flip_flop`
 
 {{< image src="assets/flip-flop.webp" caption="触发器" >}}
 
@@ -97,7 +95,7 @@ Fetch 阶段流水线寄存器。结构很简单，就是将 PC 寄存器 `pc_re
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/flip_flop.sv)。
 
-##### 2.2.2 `decode_reg`
+#### 2.2.2 `decode_reg`
 
 {{< image src="assets/decode-reg.webp" caption="Decode 阶段流水线寄存器" >}}
 
@@ -107,7 +105,7 @@ Fetch 阶段和 Decode 阶段之间的流水线寄存器，中转一下 `instr` 
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_registers/decode_reg.sv)。
 
-#### 2.3 `decode`
+### 2.3 `decode`
 
 {{< image src="assets/decode.webp" caption="Decode 阶段" >}}
 
@@ -121,7 +119,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_stages/decode.sv)。
 
-##### 2.3.1 `control_unit`
+#### 2.3.1 `control_unit`
 
 {{< image src="assets/control-unit.webp" caption="控制单元" >}}
 
@@ -148,7 +146,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/control_unit.sv)。
 
-##### 2.3.2 `equal_cmp`
+#### 2.3.2 `equal_cmp`
 
 {{< image src="assets/equal-cmp.webp" caption="比较器" >}}
 
@@ -158,7 +156,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/utils.sv)。
 
-##### 2.3.3 `extend`
+#### 2.3.3 `extend`
 
 {{< image src="assets/extend.webp" caption="扩展模块" >}}
 
@@ -168,7 +166,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/utils.sv)。
 
-##### 2.3.4 `reg_file`
+#### 2.3.4 `reg_file`
 
 {{< image src="assets/reg-file.webp" caption="寄存器文件" >}}
 
@@ -176,7 +174,7 @@ Decode 阶段，读入指令 `instr_d`，由控制单元 `control_unit` 解析�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/reg_file.sv)。
 
-##### 2.3.5 `execute_reg`
+#### 2.3.5 `execute_reg`
 
 {{< image src="assets/execute-reg.webp" caption="Execute 阶段流水线寄存器" >}}
 
@@ -194,7 +192,7 @@ Decode 阶段和 Execute 阶段之间的流水线寄存器，中转一下 `contr
 
 [^bundle]: 关于信号集合，参见单周期的 [2.4](../single-cycle-mips-cpu/#24-control_unit) 节。
 
-#### 2.4 `execute`
+### 2.4 `execute`
 
 {{< image src="assets/execute.webp" caption="Execute 阶段" >}}
 
@@ -202,7 +200,7 @@ Execute 阶段，对操作数 `src_a`, `src_b` 使用 ALU 执行计算。在单�
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_stages/execute.sv)。
 
-##### 2.4.1 `memory_reg`
+#### 2.4.1 `memory_reg`
 
 {{< image src="assets/memory-reg.webp" caption="Memory 阶段流水线寄存器" >}}
 
@@ -215,7 +213,7 @@ Execute 阶段和 Memory 阶段之间的流水线寄存器，中转一下 `contr
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_registers/memory_reg.sv)。
 
-#### 2.5 `memory`
+### 2.5 `memory`
 
 {{< image src="assets/memory.webp" caption="Memory 阶段" >}}
 
@@ -223,7 +221,7 @@ Memory 阶段，当 `mem_write` 为 `1` 时，在 `dmem` 的目标地址 `alu_ou
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_stages/memory.sv)。
 
-##### 2.5.1 `writeback_reg`
+#### 2.5.1 `writeback_reg`
 
 {{< image src="assets/writeback-reg.webp" caption="Writeback 阶段流水线寄存器" >}}
 
@@ -234,7 +232,7 @@ Memory 阶段和 Writeback 阶段之间的流水线寄存器，中转一下 `con
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_registers/writeback_reg.sv)。
 
-#### 2.6 `writeback`
+### 2.6 `writeback`
 
 {{< image src="assets/writeback.webp" caption="Writeback 阶段" >}}
 
@@ -242,7 +240,7 @@ Writeback 阶段，由 `mem_to_reg` 信号控制 `result_mux2` 选择写入 `reg
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/pipeline_stages/writeback.sv)。
 
-#### 2.7 `hazard_unit`
+### 2.7 `hazard_unit`
 
 {{< image src="assets/hazard-unit.webp" caption="冲突单元" >}}
 
@@ -250,7 +248,7 @@ Writeback 阶段，由 `mem_to_reg` 信号控制 `result_mux2` 选择写入 `reg
 
 代码见 [这里](https://github.com/hakula139/MIPS-CPU/blob/master/Pipeline/src/hazard_unit.sv)。
 
-##### 2.7.1 数据冲突
+#### 2.7.1 数据冲突
 
 当一条指令依赖于另一条指令的结果，而此结果还未写入寄存器文件时，将发生**写后读**（Read After Write, RAW）数据冲突。解决 RAW 冲突的方法如下：
 
@@ -259,7 +257,7 @@ Writeback 阶段，由 `mem_to_reg` 信号控制 `result_mux2` 选择写入 `reg
 
 需注意，`$0` 寄存器硬连接为 $0$，因此源寄存器为 `$0` 时不需要进行转发或阻塞。以下将阐述这两种方法的具体实现。
 
-###### 2.7.1.1 使用重定向解决冲突
+##### 2.7.1.1 使用重定向解决冲突
 
 当 Execute 阶段的源寄存器 `$rs` 或 `$rt` 与 Memory 阶段或 Writeback 阶段（即前两条指令）的写入目标寄存器 `write_reg` 相同，且其 `reg_write` 信号为 `1` 时（即需要写入目标寄存器），重定向对应的 `src_a` 或 `src_b`。
 
@@ -279,7 +277,7 @@ end
 
 需注意这里 Memory 阶段的优先级高于 Writeback 阶段，因为 Memory 阶段的指令后执行，阶段中的数据更新。
 
-###### 2.7.1.2 使用阻塞解决冲突
+##### 2.7.1.2 使用阻塞解决冲突
 
 对于指令 `lw`，因为它有两个周期的延迟，意味着其他指令至少要到两个周期后才能使用它的结果。如果指令 `lw` 后紧接着一个使用其结果的指令，则使用重定向无法解决这种冲突，此时需要阻塞流水线。现实中，编译器可能会针对这种情况做一定的优化，通过调整指令顺序，在发生数据冲突的两条指令间插入一条无关指令，从而避免这种冲突。
 
@@ -297,7 +295,7 @@ assign stall_f_o = stall_d_o;
 
 这里阻塞 Decode 阶段的同时也要阻塞 Fetch 阶段，并且刷新（flush）Execute 阶段，产生气泡（bubble）。
 
-##### 2.7.2 控制冲突
+#### 2.7.2 控制冲突
 
 当取下一条指令的时候还不能确定指令地址时，将发生控制冲突，此时 CPU 不知道应该取哪条指令。解决控制冲突的方法如下：
 
@@ -308,7 +306,7 @@ assign stall_f_o = stall_d_o;
 
 不幸的是，引入静态分支预测将导致新的 RAW 冲突，因此需要再次用到 [2.7.1](#271-数据冲突) 节里解决数据冲突的两种方法。
 
-###### 2.7.2.1 使用重定向解决冲突
+##### 2.7.2.1 使用重定向解决冲突
 
 如果指令的结果在 Writeback 阶段，则它将在前半周期写入寄存器，在后半周期进行读操作，此时不会产生冲突。如果指令的结果在 Memory 阶段，则可以将它重定向回 Decode 阶段的 `equal_cmp`。
 
@@ -318,7 +316,7 @@ assign stall_f_o = stall_d_o;
 assign forward_a_d_o = rs_d_i && rs_d_i == write_reg_m_i && reg_write_m_i;
 ```
 
-###### 2.7.2.2 使用阻塞解决冲突
+##### 2.7.2.2 使用阻塞解决冲突
 
 如果指令的结果在 Execute 阶段，或者指令 `lw` 的结果在 Memory 阶段，则需要阻塞流水线。
 
@@ -336,7 +334,7 @@ assign stall_f_o = stall_d_o;
 
 其中，`jump_d[1]` 信号为 `1` 时表示当前指令为 `jr`。
 
-###### 2.7.2.3 清除无效数据
+##### 2.7.2.3 清除无效数据
 
 当发生跳转时，需要清除跳转指令之后多读的一条无效指令，即刷新 Decode 阶段，产生气泡。
 
@@ -346,9 +344,9 @@ assign stall_f_o = stall_d_o;
 assign flush_d_o = pc_src_d_i || jump_d_i;
 ```
 
-### 3 样例测试
+## 3 样例测试
 
-#### 3.1 测试结果
+### 3.1 测试结果
 
 {{< image src="assets/test-1-3.webp" caption="测试 1 ~ 3" >}}
 
@@ -356,12 +354,12 @@ assign flush_d_o = pc_src_d_i || jump_d_i;
 
 {{< image src="assets/test-7-10.webp" caption="测试 7 ~ 10" >}}
 
-#### 3.2 测试环境
+### 3.2 测试环境
 
 - Windows 10 Version 2004 (OS Build 19041.207)
 - Vivado v2019.1
 
-#### 3.3 结果分析
+### 3.3 结果分析
 
 可以看到本实现的 CPI 偏高，经观察发现主要是 bubble sort 的样例 CPI 比较高（达到了 $1.8$），其余样例的 CPI 普遍在 $1.2$ 左右。分析原因可能是因为 bubble sort 的循环较多，而静态分支预测对循环不太友好，跳转指令的 CPI 通常为 $2$。如果引入动态分支预测，则跳转指令的 CPI 将更接近 $1$，从而改善整体的 CPI。
 
