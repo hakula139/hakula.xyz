@@ -1460,11 +1460,11 @@ auth: unauthorized
 
 ## Design
 
-### 1 Database schema
+### 4 Database schema
 
 There're currently 3 tables in database `library`, namely, `books`, `users` and `records`.
 
-#### 1.1 books
+#### 4.1 books
 
 {{< style "table { min-width: 25rem; }" >}}
 
@@ -1478,7 +1478,7 @@ There're currently 3 tables in database `library`, namely, `books`, `users` and 
 
 {{< /style >}}
 
-#### 1.2 users
+#### 4.2 users
 
 {{< style "table { min-width: 25rem; }" >}}
 
@@ -1491,7 +1491,7 @@ There're currently 3 tables in database `library`, namely, `books`, `users` and 
 
 {{< /style >}}
 
-#### 1.3 records
+#### 4.3 records
 
 {{< style "table { min-width: 27rem; }" >}}
 
