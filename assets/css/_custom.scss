@@ -40,10 +40,17 @@
 }
 
 .katex-display {
-  overflow-x: auto;
+  > .katex {
+    overflow: auto hidden;
 
-  &::-webkit-scrollbar {
-    display: none;
+    .glue {
+      min-width: 2rem;
+    }
+
+    .base,
+    .tag {
+      margin: 0.25em 0;
+    }
   }
 }
 
