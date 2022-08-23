@@ -372,9 +372,9 @@ size = 1000
 
 ##### 4.1.2 数据集
 
-{{< image src="assets/1-train.webp" caption="训练集" width="500" >}}
+{{< image src="assets/1-train.webp" caption="实验 1 - 训练集" width="500" >}}
 
-{{< image src="assets/1-test.webp" caption="测试集" width="500" >}}
+{{< image src="assets/1-test.webp" caption="实验 1 - 测试集" width="500" >}}
 
 ##### 4.1.3 预测准确率
 
@@ -436,9 +436,9 @@ size = 1000
 
 ##### 4.2.2 数据集
 
-{{< image src="assets/2-train.webp" caption="训练集" width="500" >}}
+{{< image src="assets/2-train.webp" caption="实验 2 - 训练集" width="500" >}}
 
-{{< image src="assets/2-test.webp" caption="测试集" width="500" >}}
+{{< image src="assets/2-test.webp" caption="实验 2 - 测试集" width="500" >}}
 
 ##### 4.2.3 预测准确率
 
@@ -500,9 +500,9 @@ size = 1000
 
 ##### 4.3.2 数据集
 
-{{< image src="assets/3-train.webp" caption="训练集" width="500" >}}
+{{< image src="assets/3-train.webp" caption="实验 3 - 训练集" width="500" >}}
 
-{{< image src="assets/3-test.webp" caption="测试集" width="500" >}}
+{{< image src="assets/3-test.webp" caption="实验 3 - 测试集" width="500" >}}
 
 ##### 4.3.3 预测准确率
 
