@@ -69,6 +69,11 @@
       text-overflow: ellipsis;
     }
   }
+
+  code {
+    font-size: var(--code-font-size);
+    font-family: var(--code-font-family);
+  }
 }
 
 #toc-static .toc-content {
