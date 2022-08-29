@@ -1,5 +1,5 @@
 ---
-title: CS:APP - Bomb Lab 实验报告
+title: CS:APP - Bomb Lab
 date: 2019-10-23T01:27:00+08:00
 
 tags: [CS:APP, 汇编]

@@ -1,5 +1,5 @@
 ---
-title: CS:APP - Attack Lab 实验报告
+title: CS:APP - Attack Lab
 date: 2019-10-26T22:16:00+08:00
 
 tags: [CS:APP, 汇编, 缓冲区溢出]
