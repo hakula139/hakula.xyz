@@ -32,7 +32,7 @@ REALMS Establishes A Library Management System, written in Go, using a MySQL dat
 To set up the environment, you need to have the following dependencies installed.
 
 - [Go][go] 1.14 or later
-- [GNU make][make] 4.0 or later
+- [GNU Make][make] 4.0 or later
 - [MySQL][mysql] 5.7 or later / [MariaDB][mariadb] 10.4 or later
 
 For Windows, try [MinGW-w64][mingw].
