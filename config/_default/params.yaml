@@ -95,7 +95,7 @@ page:
     twikoo:
       enable: true
       visitor: true
-      envId: 'https://twikoo-hakula-api.vercel.app'
+      envId: 'https://twikoo-api.hakula.xyz'
 
 typeit:
   duration: 0
