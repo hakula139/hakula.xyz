@@ -19,8 +19,18 @@ main:
     title: 关于我
     url: /about/
     weight: 4
+  - identifier: monitor
+    title: 状态监控
+    pre: <i class="fas fa-heart-pulse"></i>
+    url: https://status.hakula.xyz
+    weight: 5
+  - identifier: uptime
+    title: 服务监控
+    pre: <i class="fas fa-chart-simple"></i>
+    url: https://stats.uptimerobot.com/r9PvBclkw
+    weight: 6
   - identifier: github
     title: 网站源码
     pre: <i class="fab fa-github"></i>
     url: https://github.com/hakula139/hakula.xyz
-    weight: 5
+    weight: 10
