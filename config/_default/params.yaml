@@ -59,7 +59,7 @@ home:
     social: true
   posts:
     enable: true
-    paginate: 6
+    paginate: 8
 
 social:
   GitHub: hakula139
