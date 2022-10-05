@@ -769,7 +769,7 @@ decl:
 
 这里 `$$->set_loc(@$)` 的作用即更新当前节点的 location。需要注意的是，这里 `decls` 和 `decl` 的语义值类型均为 `std::shared_ptr<Decls>`。
 
-其他规则基本上就大同小异了，这里不做赘述。具体代码可以参见 [`src/parser.yy`][parser.yy]。
+其他规则基本上就大同小异了，这里不作赘述。具体代码可以参见 [`src/parser.yy`][parser.yy]。
 
 [parser.yy]: https://github.com/hakula139/pcat_parser/blob/master/src/parser.yy
 
@@ -1459,7 +1459,7 @@ std::string WriteExpr::value() const {
 
 因为用了 C++17 的高级语法，看起来非常抽象。实际上这个 `WriteExpr` 类干的是这样一个事情：传入一个类型可能是 `SPtr<String>` 也可能是 `SPtr<Expr>` 的参数，并保存在同一个变量 `p_write_expr_` 里。调用时，动态判断实际保存的是哪一个类型，并进行相应的操作。
 
-没错，`p_write_expr_` 的本质约等于是一个 C 语言的 union。但 union 大概只能用于 POD 类型（或许存在一些奇技淫巧），因此这里我们使用了 C++17 的 `std::variant` 类型，提供了对非 POD 类型的支持。至于 `std::visit`，就是访问这个 `std::variant` 的手段了，具体建议参考 [cppreference][visit-cppref]，这里不做赘述。
+没错，`p_write_expr_` 的本质约等于是一个 C 语言的 union。但 union 大概只能用于 POD 类型（或许存在一些奇技淫巧），因此这里我们使用了 C++17 的 `std::variant` 类型，提供了对非 POD 类型的支持。至于 `std::visit`，就是访问这个 `std::variant` 的手段了，具体建议参考 [cppreference][visit-cppref]，这里不作赘述。
 
 为什么要这样设计？没办法嘛，产生式就是这样写的。正常来说，应该要让 `String` 和 `Expr` 都继承 `WriteExpr`，这样就可以将 `String` 和 `Expr` 的指针赋值给 `WriteExpr` 的指针了。但显然不是那么回事，`WriteExpr` 在语义上当然不能是 `String` 或者 `Expr` 的基类，所以只能这样写了。
 
