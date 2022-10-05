@@ -27,10 +27,10 @@ Compilers @ Fudan University, fall 2021.
 
 ## 1 Flex 使用方法
 
-一个 Flex 词法分析程序分为三个部分[^flex-6]：
+一个 Flex 词法分析程序分为三个部分[^flex-man-6]：
 
 - 定义区（definitions）：包含所有 token 和初始状态（start condition）的声明，以及一些 Flex 的设置。
-- 规则区（rules）：定义了 Flex 在扫描时遇到相应 pattern 时需要采取的操作。
+- 规则区（rules）：定义了 Flex 在扫描时匹配到相应 pattern 时需要采取的操作。
 - 用户代码区（user code）：（可选）用户可以在这里定义一些 Flex 扫描时需要用到的辅助函数，此部分代码会被直接复制到 Flex 自动生成的 C/C++ 代码里（本项目中为 `src/lexer.cpp`）。
 
 三个部分之间使用一个单行的 `%%` 分隔。
@@ -44,6 +44,10 @@ Compilers @ Fudan University, fall 2021.
 ```
 
 下面我们展开讲讲本项目中这三个部分是如何实现的。
+
+[flex-man-6]: https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_node/flex_6.html
+
+[^flex-man-6]: 参见 Flex 文档的 [Format of the input file][flex-man-6] 章节。
 
 ### 1.1 定义区
 
@@ -148,8 +152,8 @@ COMMENTS_END          "*)"
 - `NEWLINE`：换行符。`\r?\n` 表示匹配 LF (`\n`) 或 CRLF (`\r\n`) 两种格式的换行符。
 
 - `DIGIT`：数字。`[0-9]` 表示匹配 $0$ ~ $9$ 中的任一数字。
-- `INTEGER`：整数，注意 PCAT 语法下将 `INTEGER` 规定为不超过 $2^{31}-1$ 的**非负**整数[^pcat]。`{DIGIT}+` 表示匹配一个或多个数字（也就是先前定义的 `DIGIT`）。由于 `INTEGER` 一定非负，因此不需要检查开头是否有负号，这里我们将整数是否越界的判断逻辑留到了用户代码部分。
-- `REAL`：浮点数（实数），注意 PCAT 语法下将 `REAL` 规定为没有精度限制的**非负**实数[^pcat]。`{DIGIT}+"."{DIGIT}*` 表示匹配一个包含小数点 `.` 的浮点数，其中小数点前为一个或多个数字，小数点后为零个或多个数字。
+- `INTEGER`：整数，注意 PCAT 语法下将 `INTEGER` 规定为不超过 $2^{31}-1$ 的**非负**整数[^pcat-2.1]。`{DIGIT}+` 表示匹配一个或多个数字（也就是先前定义的 `DIGIT`）。由于 `INTEGER` 一定非负，因此不需要检查开头是否有负号，这里我们将整数是否越界的判断逻辑留到了用户代码部分。
+- `REAL`：浮点数（实数），注意 PCAT 语法下将 `REAL` 规定为没有精度限制的**非负**实数[^pcat-2.1]。`{DIGIT}+"."{DIGIT}*` 表示匹配一个包含小数点 `.` 的浮点数，其中小数点前为一个或多个数字，小数点后为零个或多个数字。
 - `LETTER`：字母。`[A-Za-z]` 表示匹配任一大写或小写字母。
 - `STRING`：（单行）字符串。`\"[^\n"]*\")` 表示匹配一个开头和结尾均为双引号 `"` 的字符串，引号之间包含零个或多个非换行字符 (`\n`) 的任意字符。
 - `UNTERM_STRING`：（单行）未闭合的字符串。实际上就是缺少了右引号的 `STRING`，用于后续报错功能的实现。
@@ -161,6 +165,8 @@ COMMENTS_END          "*)"
 
 - `COMMENTS_BEGIN`：（多行）注释开始，即 `(*`。
 - `COMMENTS_END`：（多行）注释结束，即 `*)`。
+
+[^pcat-2.1]: 参见 [PCAT 标准文档][pcat] 的 2.1 节。
 
 ### 1.2 规则区
 
@@ -275,7 +281,7 @@ auto [type, error_msg] =
 
 #### 1.3.3 实现报错功能
 
-一个 PCAT 程序中可能出现以下几种词法错误[^pcat]：
+一个 PCAT 程序中可能出现以下几种词法错误[^pcat-2.1]：
 
 - 整数大小超过 $2^{31}-1$
 - 字符串常量的长度（不含引号）超过 $255$
@@ -417,14 +423,18 @@ switch (t) {
 
 至此，所有词法错误的报错功能就实现完了。
 
-## 2 运行代码
+[yytext-so]: https://stackoverflow.com/questions/14418560/using-flex-how-can-i-keep-yytext-contents-when-eof-is-reached-and-input-is-prov
+
+[^yytext-so]: [Using flex, how can I keep yytext contents when EOF is reached and input is provided via YY_INPUT? - Stack Overflow][yytext-so]
+
+## 2 运行本项目
 
 ### 2.1 构建与运行
 
 本项目使用 C++17 编写，构建前需要先安装以下依赖：
 
 - [GCC][gcc] 9.0 或以上
-- [GNU make][make] 4.0 或以上
+- [GNU Make][make] 4.0 或以上
 - [Flex][flex] 2.6.4（其他版本未测试）
 
 执行 `make` 即可构建并运行本项目，默认是进入命令行交互模式，按 `CTRL` + `D` 键退出。如果需要从文件中读入，则执行 `make INPUT=<path>`，其中 `<path>` 即为指定的文件路径。例如：
@@ -435,9 +445,13 @@ make INPUT="tests/case_1.pcat"
 
 输出文件将默认保存在 `output` 目录下。
 
+[gcc]: https://gcc.gnu.org/releases.html
+[make]: https://www.gnu.org/software/make
+[flex]: https://github.com/westes/flex
+
 ### 2.2 测试
 
-本项目自带了 14 个 PCAT 语言测试样例，位于 `tests` 目录下。测试时依次使用上述命令处理即可，或者你也可以编写一个简单的 bash 脚本。
+本项目自带了 14 个 PCAT 语言测试样例，位于 `tests` 目录下。测试时依次通过上述命令处理即可，或者你也可以编写一个简单的 bash 脚本。
 
 例如对于这样的输入（`tests/case_1.pcat`）：
 
@@ -519,10 +533,3 @@ Total: 50 tokens, 0 errors
 
 [flex-man]: https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_mono/flex.html
 [pcat]: http://web.cecs.pdx.edu/~harry/compilers/PCATLangSpec.pdf
-[gcc]: https://gcc.gnu.org/releases.html
-[make]: https://www.gnu.org/software/make
-[flex]: https://github.com/westes/flex
-
-[^flex-6]: 参见 Flex 文档中的 [Format of the input file](https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_node/flex_6.html) 章节。
-[^pcat]: 参见 [PCAT 标准文档][pcat] 中的 2.1 节。
-[^yytext-so]: [Using flex, how can I keep yytext contents when EOF is reached and input is provided via YY_INPUT? - Stack Overflow](https://stackoverflow.com/questions/14418560/using-flex-how-can-i-keep-yytext-contents-when-eof-is-reached-and-input-is-prov)  
