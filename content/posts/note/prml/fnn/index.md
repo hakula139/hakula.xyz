@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+本次作业完成了选题 1 的实验内容，利用 NumPy 实现了一个 FNN 模型，并在 MNIST 数据集上进行了训练。
+
 Pattern Recognition and Machine Learning (H) @ Fudan University, spring 2021.
 
 <!--more-->
@@ -22,8 +24,6 @@ Pattern Recognition and Machine Learning (H) @ Fudan University, spring 2021.
 {{< admonition success 源码地址 >}}
 [:(fab fa-git-alt):  Hakula / prml-21-spring / assignment-2](https://gitee.com/hakula139/prml-21-spring/tree/master/assignment-2/submission/18307130003)
 {{< /admonition >}}
-
-本次作业完成了选题 1 的实验内容，利用 NumPy 实现了一个 FNN 模型，并在 MNIST 数据集上进行了训练。
 
 ## 实验简介
 

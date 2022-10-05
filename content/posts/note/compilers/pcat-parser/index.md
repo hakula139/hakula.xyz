@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+本项目利用 Bison 和 Flex，实现了对给定 PCAT 语言样例的语法分析。
+
 Compilers @ Fudan University, fall 2021.
 
 <!--more-->
@@ -22,8 +24,6 @@ Compilers @ Fudan University, fall 2021.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / pcat_parser](https://github.com/hakula139/pcat_parser)
 {{< /admonition >}}
-
-本项目利用 Bison 和 Flex，实现了对给定 PCAT 语言样例的语法分析。
 
 ## 1 项目结构总览
 

@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+本次作业利用 NumPy 实现了一个 KNN 模型。
+
 Pattern Recognition and Machine Learning (H) @ Fudan University, spring 2021.
 
 <!--more-->

@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+Naive-FTP is a simple FTP server & client, written in Python and TypeScript.
+
 Computer Networks @ Fudan University, fall 2020.
 
 <!--more-->
@@ -22,8 +24,6 @@ Computer Networks @ Fudan University, fall 2020.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / Naive-FTP](https://github.com/hakula139/Naive-FTP)
 {{< /admonition >}}
-
-Naive-FTP is a simple FTP server & client, written in Python and TypeScript.
 
 {{< image src="assets/gui.webp" caption="Naive-FTP" >}}
 

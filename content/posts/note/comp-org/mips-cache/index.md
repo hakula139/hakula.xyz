@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+32 位 256 bytes 4 路组相联（参数可调节）高速缓存，使用 SystemVerilog 编写。
+
 Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 <!--more-->
@@ -22,8 +24,6 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / MIPS-CPU / Cache](https://github.com/hakula139/MIPS-CPU/tree/master/Cache)
 {{< /admonition >}}
-
-32 位 256 bytes 4 路组相联（参数可调节）高速缓存，使用 SystemVerilog 编写。
 
 ## 1 参数
 

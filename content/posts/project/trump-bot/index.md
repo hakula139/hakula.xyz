@@ -14,6 +14,8 @@ code:
   maxShownLines: 10
 ---
 
+一个模仿特朗普 Twitter 账号 [@realDonaldTrump][trump-twitter] 语言风格的简易文本生成 AI，基于 GRU 模型实现。
+
 Natural Language Processing (H) @ Fudan University, fall 2020.
 
 <!--more-->
@@ -25,8 +27,6 @@ Natural Language Processing (H) @ Fudan University, fall 2020.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / Trump-bot](https://github.com/hakula139/Trump-bot)
 {{< /admonition >}}
-
-一个模仿特朗普 Twitter 账号 [@realDonaldTrump][trump-twitter] 语言风格的简易文本生成 AI，基于 GRU 模型实现。
 
 ## 1 选题动机
 

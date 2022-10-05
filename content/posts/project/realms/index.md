@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+REALMS Establishes A Library Management System, written in Go, using a MySQL database.
+
 Introduction to Database Systems (H) @ Fudan University, spring 2020.
 
 <!--more-->
@@ -22,8 +24,6 @@ Introduction to Database Systems (H) @ Fudan University, spring 2020.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / REALMS](https://github.com/hakula139/REALMS)
 {{< /admonition >}}
-
-REALMS Establishes A Library Management System, written in Go, using a MySQL database.
 
 ## Getting started
 

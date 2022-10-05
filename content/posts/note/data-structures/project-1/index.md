@@ -11,7 +11,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
-Data Structure (H) @ Fudan University, fall 2019.
+Data Structures (H) @ Fudan University, fall 2019.
 
 <!--more-->
 

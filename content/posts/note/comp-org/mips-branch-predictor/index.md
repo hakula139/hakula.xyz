@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+动态分支预测器，实现了一个 2 位 Tournament Predictor，其中包含一个 Global Predictor、一个 Local Predictor 和一个 Static Predictor，使用 SystemVerilog 编写。
+
 Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 
 <!--more-->
@@ -22,8 +24,6 @@ Introduction to Computer Systems II (H) @ Fudan University, spring 2020.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / MIPS-CPU / Branch-Predictor](https://github.com/hakula139/MIPS-CPU/tree/master/Branch-Predictor)
 {{< /admonition >}}
-
-动态分支预测器，实现了一个 2 位 Tournament Predictor，其中包含一个 Global Predictor、一个 Local Predictor 和一个 Static Predictor，使用 SystemVerilog 编写。
 
 ## 1 参数
 

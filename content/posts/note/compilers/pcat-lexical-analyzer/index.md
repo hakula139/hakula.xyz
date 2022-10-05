@@ -11,6 +11,8 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 ---
 
+本项目利用 Flex (fast lexical analyzer generator)，实现了对给定 PCAT 语言样例的词法分析。
+
 Compilers @ Fudan University, fall 2021.
 
 <!--more-->
@@ -22,8 +24,6 @@ Compilers @ Fudan University, fall 2021.
 {{< admonition success 源码地址 >}}
 [:(fab fa-github):  hakula139 / pcat_lexical_analyzer](https://github.com/hakula139/pcat_lexical_analyzer)
 {{< /admonition >}}
-
-本项目利用 Flex (fast lexical analyzer generator)，实现了对给定 PCAT 语言样例的词法分析。
 
 ## 1 Flex 使用方法
 
