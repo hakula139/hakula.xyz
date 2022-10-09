@@ -4,7 +4,7 @@
     padding-left: 2rem;
   }
 
-  > .table-wrapper {
+  .table-wrapper {
     > table {
       min-width: 40rem;
 
@@ -17,6 +17,10 @@
   .highlight > .chroma {
     .table-wrapper {
       overflow: auto;
+
+      > table {
+        min-width: initial;
+      }
     }
 
     &.open {
