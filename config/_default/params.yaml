@@ -84,7 +84,7 @@ page:
     auto: true
   code:
     copy: true
-    maxShownLines: 24
+    maxShownLines: 40
   math:
     enable: true
     copyTex: true
