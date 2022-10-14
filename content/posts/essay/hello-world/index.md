@@ -33,7 +33,7 @@ hiddenFromSearch: false
 
 ## 建站流程
 
-{{< admonition note 说明 >}}
+{{< admonition quote "笔者注（2020-01-25）" >}}
 原文写于 2018-08-23，那时候其实基本啥都不会。在进入本科学习一年半后，有了一些新的理解，对此部分内容进行了大幅修改。
 {{< /admonition >}}
 
@@ -65,15 +65,13 @@ hiddenFromSearch: false
 
 市面上常见的几家 VPS 其实早被国人用烂了，线路基本都很差。目前 [CN2 线路][cn2-wiki] 要好一点，当然价格也相对贵很多，还是自己看需求和预算。
 
-我自己选择的服务商是 [CloudCone][cloudcone-cn]，主要还是因为便宜，而且姑且还算靠谱，但线路确实比较一般。不过反正最后也要套 CDN 的，建站的话一般优先考虑稳定性和价格，速度并不很关键。
+我自己选择的服务商是 [CloudCone]，主要还是因为便宜，而且姑且还算靠谱，但线路确实比较一般。不过反正最后也要套 CDN 的，建站的话一般优先考虑稳定性和价格，速度并不很关键。
 
 [cn2-wiki]: https://www.vultrblog.com/what-is-a-cn2-line
-[cloudcone-cn]: https://app.cloudcone.com.cn/signup?ref=1722
+[CloudCone]: /links/cloudcone-cn
 
 {{< admonition tip 参考 >}}
-
-- [分享我对于 VPS 主机的一些经验给入坑萌新 - 初行博客](https://www.zrj96.com/post-762.html)
-
+[分享我对于 VPS 主机的一些经验给入坑萌新 - 初行博客](https://www.zrj96.com/post-762.html)
 {{< /admonition >}}
 
 #### 1.3 VPS 系统选择
@@ -84,51 +82,47 @@ hiddenFromSearch: false
 
 #### 1.4 如何连接到 VPS
 
-Windows 下推荐使用 [Xshell][xshell]，免费的 Home & School 版其实就完全够用了。macOS 下可以试试 [Termius][termius]。
+Windows 下推荐使用 [Xshell]，免费的 Home & School 版其实就完全够用了。macOS 下可以试试 [Termius]。
 
-[xshell]: https://www.netsarang.com/products/xsh_overview.html
-[termius]: https://termius.com
+[Xshell]: https://www.netsarang.com/products/xsh_overview.html
+[Termius]: https://termius.com
 
 {{< admonition tip 参考 >}}
-
-- [Xshell 6 安装和使用教程 - CSDN](https://blog.csdn.net/qq_32653877/article/details/81984745)
-
+[Xshell 6 安装和使用教程 - CSDN](https://blog.csdn.net/qq_32653877/article/details/81984745)
 {{< /admonition >}}
 
 ### 2 获得域名
 
-不推荐国内域名商，**强烈**不推荐 Freenom（切记，**免费的永远是最贵的**）。推荐使用 [Cloudflare Registrar][cf-registrar]，仅收取 [ICANN](https://www.icann.org) 的成本价，十分良心。你也可以考虑先在其他地方注册（例如 [namecheap][namecheap] 和 [namesilo][namesilo]），蹭个首年优惠，然后再迁移到 Cloudflare。
+不推荐国内域名商，**强烈**不推荐 Freenom（切记，**免费的永远是最贵的**）。推荐使用 [Cloudflare Registrar][cf-registrar]，仅收取 [ICANN] 的成本价，十分良心。你也可以考虑先在其他地方注册（例如 [namecheap] 和 [namesilo]），蹭个首年优惠，然后再迁移到 Cloudflare。
 
 {{< admonition warning 关于付款方式>}}
 目前 Cloudflare 不支持支付宝，可以使用 [PayPal](https://www.paypal.com/us/home)，然后绑定国内银行卡。注意别注册成国内版的 贝宝。
 {{< /admonition >}}
 
 [cf-registrar]: https://www.cloudflare.com/products/registrar
+[ICANN]: https://www.icann.org
 [namecheap]: https://www.namecheap.com
 [namesilo]: https://www.namesilo.com
 
 ### 3 配置 CDN
 
-想提高国内访问速度（而且有钱）就上国内 CDN，想提高全球（除中国大陆以外地区）访问速度就上 [Cloudflare](https://www.cloudflare.com)。
+想提高国内访问速度（而且有钱）就上国内 CDN，想提高全球（除中国大陆以外地区）访问速度就上 [Cloudflare]。
 
 本文推荐使用 Cloudflare，主要是因为免费、配置方便、功能全面（可以说是一条龙服务了）。实际上对于个人网站来说，Cloudflare 的免费套餐已经完全够用：**无限** CDN 流量、自带抗 DDoS 防护、自带 SSL 证书。而且因为是海外服务，不需要备案。只能说，Cloudflare yyds！
 
 {{< admonition tip 参考 >}}
-
-- [创建 Cloudflare 帐户并添加网站 – Cloudflare Support](https://support.cloudflare.com/hc/zh-cn/articles/201720164-%E5%88%9B%E5%BB%BA-Cloudflare-%E5%B8%90%E6%88%B7%E5%B9%B6%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99)
-- [开始使用 Cloudflare – Cloudflare Support](https://support.cloudflare.com/hc/zh-cn/articles/360027989951)
-
+[Set up Cloudflare - Cloudflare Fundamentals docs](https://developers.cloudflare.com/fundamentals/get-started/setup)
 {{< /admonition >}}
+
+[Cloudflare]: https://www.cloudflare.com
 
 ### 4 开始建站
 
 {{< admonition tip 阅读 >}}
-
-- [极限建站 - YangMame](https://blog.yangmame.org/%E6%9E%81%E9%99%90%E5%BB%BA%E7%AB%99.html)
-
+[极限建站 - YangMame](https://blog.yangmame.org/%E6%9E%81%E9%99%90%E5%BB%BA%E7%AB%99.html)
 {{< /admonition >}}
 
-这里就不重复造轮子了，我当时建站就是参考的这篇教程，个人感觉是写得比较好的一篇。本文假定你选择了 [NGINX][nginx] + [MariaDB][mariadb] + [PHP][php] + [Typecho][typecho] 方案，如果你需要使用其他方案请自行灵性修改。
+这里就不重复造轮子了，我当时建站就是参考的这篇教程，个人感觉是写得比较好的一篇。本文假定你选择了 [NGINX] + [MariaDB] + [PHP] + [Typecho] 方案，如果你需要使用其他方案请自行灵性修改。
 
 在此教程中，你主要需要关注以下章节：
 
@@ -141,13 +135,13 @@ Windows 下推荐使用 [Xshell][xshell]，免费的 Home & School 版其实就�
 
 其余章节可以根据需要阅读（如 Nextcloud, qBittorrent 等），不是建站的必要环节。
 
-文中提到的 [V2Ray][v2ray] 是新一代梯子，有兴趣的话推荐 [了解一下][v2ray-guide]。为避免引火烧身，本站不提供相关教程。
+文中提到的 [V2Ray] 是新一代梯子，有兴趣的话推荐 [了解一下][v2ray-guide]。为避免引火烧身，本站不提供相关教程。
 
-[nginx]: https://www.nginx.com
-[mariadb]: https://mariadb.org
-[php]: https://www.php.net
-[typecho]: https://typecho.org
-[v2ray]: https://www.v2ray.com
+[NGINX]: https://www.nginx.com
+[MariaDB]: https://mariadb.org
+[PHP]: https://www.php.net
+[Typecho]: https://typecho.org
+[V2Ray]: https://www.v2ray.com
 [v2ray-guide]: https://github.com/ToutyRater/v2ray-guide
 
 ## 结语
