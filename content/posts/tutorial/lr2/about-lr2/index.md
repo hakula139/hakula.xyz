@@ -23,11 +23,11 @@ hiddenFromSearch: false
 
 有了 BMS 曲包，接下来就需要一个能游玩 BMS 的游戏载体（本体）。
 
-Lunatic Rave 2 是目前使用人数最多的 BMS 本体。尽管，它未必是功能最完善的，甚至它的开发者 [@lavalse][lavalse] 也在 2012 年不知去向。由于没有开源，这也意味着这个游戏一直以来没有人维护，目前 LR2 的最新版本还是 2010 年的 `100201 beta 3`，遗留有大大小小的 [各种问题](../notices)。然而，由于 [LR2 Internet Ranking](../internet-ranking) 庞大的玩家基数、海量的现存成绩数据以及其衍生出的各种 [实用功能](../tools)，目前来看 LR2 在短期内还很难被取代。
+Lunatic Rave 2 是目前使用人数最多的 BMS 本体。尽管，它未必是功能最完善的，甚至它的开发者 [@lavalse] 也在 2012 年不知去向。由于没有开源，这也意味着这个游戏一直以来没有人维护，目前 LR2 的最新版本还是 2010 年的 `100201 beta 3`，遗留有大大小小的 [各种问题](../notices)。然而，由于 [LR2 Internet Ranking](../internet-ranking) 庞大的玩家基数、海量的现存成绩数据以及其衍生出的各种 [实用功能](../tools)，目前来看 LR2 在短期内还很难被取代。
 
-至于未来 [beatoraja][beatoraja] 能否成为 LR2 的接替者，还有待时间来验证。有兴趣的玩家可以参见 Scely 的 [Beatoraja 使用教程][beatoraja-guide]。
+至于未来 [beatoraja] 能否成为 LR2 的接替者，还有待时间来验证。有兴趣的玩家可以参见 Scely 的 [Beatoraja 使用教程][beatoraja-guide]。
 
-[lavalse]: https://twitter.com/lavalse_
+[@lavalse]: https://twitter.com/lavalse_
 [beatoraja]: https://github.com/exch-bms2/beatoraja
 [beatoraja-guide]: https://scelym.github.io/post/beatoraja-guide
 

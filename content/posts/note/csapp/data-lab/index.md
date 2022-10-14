@@ -510,12 +510,12 @@ unsigned float_twice(unsigned uf) {
 
 ## 参考资料
 
-1. [codinfox / 15213-labs / datalab / bits.c - GitHub][codinfox]
+1. [codinfox / 15213-labs / datalab / bits.c - GitHub][bits.c]
 2. [Single-precision floating-point format - Wikipedia][float-wiki]
 
-[codinfox]: https://github.com/codinfox/15213-labs/blob/master/datalab/bits.c
+[bits.c]: https://github.com/codinfox/15213-labs/blob/master/datalab/bits.c
 [float-wiki]: https://en.wikipedia.org/wiki/Single-precision_floating-point_format
 
-[^codinfox]: 参考了 [@codinfox][codinfox] 的思路。
+[^codinfox]: 参考了 [@codinfox][bits.c] 的思路。
 [^float-wiki]: 参见 [IEEE 二进制浮点数算术标准][float-wiki]。
 [^float-twice]: 无需担心溢出到 exponent bits 的问题，这是 IEEE 标准所保证的。

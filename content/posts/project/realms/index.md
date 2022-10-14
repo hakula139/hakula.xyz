@@ -167,9 +167,9 @@ Enter Password:
 
 You'll be required to enter your username and password (FYI, the password is invisible while typing). There's no `signup` in REALMS, so a user account can only be acquired from an admin.
 
-To authenticate a user's credentials, REALMS uses the session. In the implementation of realms, a session cookie is used to store the essential information, and the cookies are handled by [cookiejar][cookiejar].
+To authenticate a user's credentials, REALMS uses the session. In the implementation of realms, a session cookie is used to store the essential information, and the cookies are handled by [cookiejar].
 
-On the server-side, the password will be hashed using [bcrypt][bcrypt] before save.
+On the server-side, the password will be hashed using [bcrypt] before save.
 
 [cookiejar]: https://golang.org/pkg/net/http/cookiejar
 [bcrypt]: https://en.wikipedia.org/wiki/Bcrypt
@@ -334,7 +334,7 @@ ISBN (optional): 978-0134092669
 
 You'll be required to input the necessary information of the book, and the `title` field should not be blank, or an error will be returned. To skip an optional field in realms, simply press Enter.
 
-On the server-side, the following message will be written to log using [zap][zap]. The default path to the log file is `./logs/realmsd.log`, which can be modified in the config file `./configs/log_config.json`.
+On the server-side, the following message will be written to log using [zap]. The default path to the log file is `./logs/realmsd.log`, which can be modified in the config file `./configs/log_config.json`.
 
 ```json
 {"level":"info","time":"2020-05-04T01:19:11.206+0800","msg":"Added book 20"}
@@ -1506,14 +1506,6 @@ There're currently 3 tables in database `library`, namely, `books`, `users` and 
 
 {{< /style >}}
 
-## TODO
+## TODOs
 
 - [ ] Add unit tests
-
-## Contributors
-
-- [**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)> - Fudan University
-
-## License
-
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/hakula139/REALMS/blob/master/LICENSE) file for details.

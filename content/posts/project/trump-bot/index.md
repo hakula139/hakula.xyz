@@ -14,7 +14,7 @@ code:
   maxShownLines: 10
 ---
 
-一个模仿特朗普 Twitter 账号 [@realDonaldTrump][trump-twitter] 语言风格的简易文本生成 AI，基于 GRU 模型实现。
+一个模仿特朗普 Twitter 账号 [@realDonaldTrump] 语言风格的简易文本生成 AI，基于 GRU 模型实现。
 
 Natural Language Processing (H) @ Fudan University, fall 2020.
 
@@ -50,7 +50,7 @@ Natural Language Processing (H) @ Fudan University, fall 2020.
 
 ## 3 数据处理
 
-接下来，我们需要将这些 JSON 格式的数据进一步处理，从而得到一个可以进行训练的语料库。在 [corpus.py][corpus.py] 中，我们定义了两个类 `dictionary` 和 `corpus`。其中，`dictionary` 用于维护一个词典，保存了数据集中出现过的所有单词，以及相应的索引和出现频率；`corpus` 用于维护一个语料库，以 `List[str]` 类型按顺序保存了完整的数据集，并提供了将 JSON 格式数据转化为 text 格式数据的处理方法，以及 text 格式数据的读取方法。
+接下来，我们需要将这些 JSON 格式的数据进一步处理，从而得到一个可以进行训练的语料库。在 [`corpus.py`][corpus.py] 中，我们定义了两个类 `dictionary` 和 `corpus`。其中，`dictionary` 用于维护一个词典，保存了数据集中出现过的所有单词，以及相应的索引和出现频率；`corpus` 用于维护一个语料库，以 `List[str]` 类型按顺序保存了完整的数据集，并提供了将 JSON 格式数据转化为 text 格式数据的处理方法，以及 text 格式数据的读取方法。
 
 具体来说，首先 `corpus` 利用函数 `get_text_data` 读取 JSON 格式的数据，遍历并提取所有推特对象的 `text` 字段（也就是推特的文本内容）。然后我们利用 [spaCy][spacy] 库将每条文本进行分词处理，包括将各种标点符号与单词分开，以及将 `n't`, `'s` 等常用缩写从单词上分离。最后将处理后的数据以 text 格式保存在 `data/text` 文件夹下。
 
@@ -58,7 +58,7 @@ Natural Language Processing (H) @ Fudan University, fall 2020.
 
 在进行训练时，我们将每个单词替换为它在词典中的索引，这样一个句子就可以表示为一个张量了。对于测试集中出现的不在词典里的未知单词，我们将其标记为 `<unk>`（unknown），并在转化为张量时随机指派一个索引。
 
-完整代码可参见 [corpus.py](https://github.com/hakula139/Trump-bot/blob/main/trump_bot/corpus.py)，其中主要代码如下：
+完整代码可参见 [`corpus.py`][corpus.py]，其中主要代码如下：
 
 ```python
 # trump_bot/corpus.py
@@ -291,13 +291,13 @@ class corpus():
 
 更具体地，对于每一个神经元：
 
-1. 输入 `input` 先经过一层 [Embedding][embedding]，它的作用是将我们的输入词（所对应的张量，取决于它在词典中的索引）转化为一个词向量，相当于一个编码器。
-2. Embedding 后的 `input` 再经过一层 [Dropout][dropout]，它的作用是随机屏蔽一部分输入，以尽量抑制过拟合现象，减小训练损失（training loss）和验证损失（validation loss）间的差距。
-3. Dropout 后的 `input` 和上一层的 hidden state 一起传入 [GRU][gru]，计算得到输出 `output` 和更新后的 hidden state。
+1. 输入 `input` 先经过一层 [Embedding]，它的作用是将我们的输入词（所对应的张量，取决于它在词典中的索引）转化为一个词向量，相当于一个编码器。
+2. Embedding 后的 `input` 再经过一层 [Dropout]，它的作用是随机屏蔽一部分输入，以尽量抑制过拟合现象，减小训练损失（training loss）和验证损失（validation loss）间的差距。
+3. Dropout 后的 `input` 和上一层的 hidden state 一起传入 [GRU]，计算得到输出 `output` 和更新后的 hidden state。
 4. 输出 `output` 再经过一层 Dropout，作用同 2。
-5. Dropout 后的 `output` 最后经过一层 [Linear][linear]，它的作用是将我们的输出词向量还原为相应的输出词（所对应的张量），相当于一个解码器。
+5. Dropout 后的 `output` 最后经过一层 [Linear]，它的作用是将我们的输出词向量还原为相应的输出词（所对应的张量），相当于一个解码器。
 
-模型利用 [PyTorch][pytorch] 框架建立，完整代码可参见 [model.py][model.py]，其中主要代码如下：
+模型利用 [PyTorch][pytorch] 框架建立，完整代码可参见 [`model.py`][model.py]，其中主要代码如下：
 
 ```python
 # trump_bot/model.py
@@ -367,9 +367,9 @@ class rnn(nn.Module):
 
 ## 5 训练模型
 
-整体的训练思路是，每次从训练集中随机抽取一个固定长度的片段 $S$，不妨设总共有 $n$ 个词，将 $S$ 中前 $n-1$ 个词作为输入 $I$，后 $n-1$ 个词作为目标 $T$。遍历 $I$，模型根据每个输入词 $I_j$ 和当前的 hidden state 预测一个输出词 $O_j$ 作为 $I_j$ 可能的后继词。然后将输出词 $O_j$ 和目标词 $T_j$ 进行比对，使用交叉熵（cross entropy）计算损失（loss），并利用梯度下降法尝试降低损失。这里我们使用 [Adam][adam] 优化器进行梯度下降，它可以自适应地调节学习率（learning rate）。
+整体的训练思路是，每次从训练集中随机抽取一个固定长度的片段 $S$，不妨设总共有 $n$ 个词，将 $S$ 中前 $n-1$ 个词作为输入 $I$，后 $n-1$ 个词作为目标 $T$。遍历 $I$，模型根据每个输入词 $I_j$ 和当前的 hidden state 预测一个输出词 $O_j$ 作为 $I_j$ 可能的后继词。然后将输出词 $O_j$ 和目标词 $T_j$ 进行比对，使用交叉熵（cross entropy）计算损失（loss），并利用梯度下降法尝试降低损失。这里我们使用 [Adam] 优化器进行梯度下降，它可以自适应地调节学习率（learning rate）。
 
-具体代码可参见 [main.py][main.py] 的 `train_model` 函数，其中主要代码如下：
+具体代码可参见 [`main.py`][main.py] 的 `train_model` 函数，其中主要代码如下：
 
 ```python
 # trump_bot/main.py
@@ -504,7 +504,7 @@ def validate(inp: Tensor, tar: Tensor) -> float:
 
 生成文本的本质就是利用训练好的模型进行预测。具体来说，先从测试集中随机选取若干个（参数可调节）连续单词，然后以这几个单词为开头，利用模型逐一预测接下来的单词，从而组成一个句子。
 
-具体代码可参见 [main.py][main.py] 的 `generate` 函数，其中主要代码如下：
+具体代码可参见 [`main.py`][main.py] 的 `generate` 函数，其中主要代码如下：
 
 ```python
 # trump_bot/main.py
@@ -642,13 +642,13 @@ python -m spacy download en_core_web_sm
 python ./trump_bot/main.py
 ```
 
-目前暂时不支持传递参数，因此需要手动在 [main.py][main.py] 里进行调整。
+目前暂时不支持传递参数，因此需要手动在 [`main.py`][main.py] 里进行调整。
 
 使用测试集生成的文本位于 `output/output.txt`，模型的学习曲线位于 `assets/loss.png`。
 
 ## 8 实验结果
 
-训练过程中的训练损失和验证损失如图所示（使用 [main.py][main.py] 中定义的默认参数）：
+训练过程中的训练损失和验证损失如图所示（使用 [`main.py`][main.py] 中定义的默认参数）：
 
 {{< image src="assets/loss.webp" caption="模型的学习曲线" >}}
 
@@ -715,26 +715,17 @@ I have n't think the Federal Party are doing such being important in their stone
 
 不过调参的过程真就炼丹，其实到最后也没能调出一个非常好看的学习曲线，毕竟对深度学习还是缺乏经验。期末季也实在抽不出时间，从刚开始 RNN、PyTorch 之类的什么都不会到几天内能做出一个成品，已经不容易了。从 12 月中旬一直持续每天工作 12 小时左右到 1 月下旬就没歇过，遭不住。
 
-## 贡献者
-
-- [**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)> - 复旦大学
-
-## 许可协议
-
-本项目遵循 GNU General Public License v3.0 许可协议，详情参见 [LICENSE][license] 文件。
-
-[trump-twitter]: https://twitter.com/realDonaldTrump
+[@realDonaldTrump]: https://twitter.com/realDonaldTrump
 [trump-archive]: https://www.thetrumparchive.com
 [spacy]: https://spacy.io
 [pytorch]: https://pytorch.org
-[embedding]: https://pytorch.org/docs/stable/generated/torch.nn.Embedding.html
-[dropout]: https://pytorch.org/docs/stable/generated/torch.nn.Dropout.html
-[gru]: https://pytorch.org/docs/stable/generated/torch.nn.GRU.html
-[linear]: https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
-[adam]: https://pytorch.org/docs/stable/optim.html#torch.optim.Adam
+[Embedding]: https://pytorch.org/docs/stable/generated/torch.nn.Embedding.html
+[Dropout]: https://pytorch.org/docs/stable/generated/torch.nn.Dropout.html
+[GRU]: https://pytorch.org/docs/stable/generated/torch.nn.GRU.html
+[Linear]: https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
+[Adam]: https://pytorch.org/docs/stable/optim.html#torch.optim.Adam
 [corpus.py]: https://github.com/hakula139/Trump-bot/blob/main/trump_bot/corpus.py
 [model.py]: https://github.com/hakula139/Trump-bot/blob/main/trump_bot/model.py
 [main.py]: https://github.com/hakula139/Trump-bot/blob/main/trump_bot/main.py
 [anaconda]: https://www.anaconda.com/products/individual
 [cuda]: https://developer.nvidia.com/cuda-10.1-download-archive-base
-[license]: https://github.com/hakula139/Trump-bot/blob/main/LICENSE

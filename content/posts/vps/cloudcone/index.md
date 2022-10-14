@@ -41,10 +41,10 @@ CloudCone 于 2019-05 接入了 CN2 GIA 线路，这很大程度上改善了曾�
 
 {{< admonition success 特性 >}}
 
-- 采用 [KVM][kvm] 架构，支持 [BBR][bbr] 加速；
-- 提供免费按需抗 1 Tb/s DDoS 防护，可升级至实时抗 1 Tb/s DDoS 防护，详见 [这里][ddos]；
-- 非优惠套餐按小时计费，关机状态仅收取部分费用，中途删除服务器直接按剩余时间退款（月付 / 年付套餐不适用，详见 [这里][sc2-billing] 和 [这里][vps-billing]）;
-- 支持支付宝、PayPal、信用卡三种支付途径；
+- 采用 [KVM][kvm] 架构，支持 [BBR][bbr] 加速。
+- 提供免费按需抗 1 Tb/s DDoS 防护，可升级至实时抗 1 Tb/s DDoS 防护，详见 [这里][ddos]。
+- 非优惠套餐按小时计费，关机状态仅收取部分费用，中途删除服务器直接按剩余时间退款（月付 / 年付套餐不适用，详见 [这里][sc2-billing] 和 [这里][vps-billing]）。
+- 支持支付宝、PayPal、信用卡三种支付途径。
 - 支持公网 IPv6（需手动启用）。
 
 [kvm]: https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine

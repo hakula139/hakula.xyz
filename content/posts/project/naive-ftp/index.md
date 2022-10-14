@@ -45,7 +45,7 @@ To set up the environment, you need to have the following dependencies installed
 
 - [Python][python] 3.7 or later
 - [Node.js][nodejs] 13 or later
-- [Yarn][yarn]
+- [yarn]
 
 [python]: https://www.python.org/downloads
 [nodejs]: https://nodejs.org/en/download
@@ -83,13 +83,13 @@ python -m pip install --upgrade setuptools
 
 A graphical user interface (GUI) is optional for Naive-FTP, so if you prefer to use a command-line interface (CLI), you can safely skip this step.
 
-Here we use [yarn][yarn] to build the client GUI. It may take some time, so perhaps there's time for you to make yourself a cup of coffee... if you like.
+Here we use [yarn] to build the client GUI. It may take some time, so perhaps there's time for you to make yourself a cup of coffee... if you like.
 
 ```bash
 cd app && yarn && yarn build && cd ..
 ```
 
-Besides, the following dependencies are required for the API server, which exposes the essential APIs for the client GUI to communicate with the server. Install these packages using [pip][pip].
+Besides, the following dependencies are required for the API server, which exposes the essential APIs for the client GUI to communicate with the server. Install these packages using [pip].
 
 ```bash
 pip install flask waitress
@@ -285,7 +285,7 @@ You may try [Postman][postman] to inspect how the API works.
 
 [postman]: https://www.postman.com
 
-## TODO
+## TODOs
 
 - Support more features
   - [ ] Rename files / directories.
@@ -294,11 +294,3 @@ You may try [Postman][postman] to inspect how the API works.
   - [ ] Upload a directory to server.
   - [ ] Batch upload files / directories to server.
   - [ ] Upload through selecting a file instead of manually inputting a path.
-
-## Contributors
-
-- [**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)> - Fudan University
-
-## License
-
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/hakula139/Naive-FTP/blob/master/LICENSE) file for details.
