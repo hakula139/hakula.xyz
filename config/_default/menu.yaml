@@ -14,21 +14,28 @@ main:
     title: 所有分类
     url: /categories/
     weight: 3
-  - identifier: about
+  - identifier: about-me
     pre: <i class="fas fa-address-card"></i>
     title: 关于我
-    url: /about/
+    url: /about-me/
     weight: 4
+  - identifier: about-site
+    pre: <i class="fas fa-house"></i>
+    title: 关于本站
+    url: /about-site/
+    weight: 5
+
+external:
   - identifier: monitor
     title: 状态监控
     pre: <i class="fas fa-heart-pulse"></i>
     url: https://status.hakula.xyz
-    weight: 5
+    weight: 1
   - identifier: uptime
     title: 服务监控
     pre: <i class="fas fa-chart-simple"></i>
     url: https://stats.uptimerobot.com/r9PvBclkw
-    weight: 6
+    weight: 2
   - identifier: github
     title: 网站源码
     pre: <i class="fab fa-github"></i>
