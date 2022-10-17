@@ -1,26 +1,26 @@
 main:
   - identifier: posts
-    pre: <i class="fas fa-archive"></i>
+    pre: <i class="fas fa-archive fa-fw"></i>
     title: 所有文章
     url: /posts/
     weight: 1
   - identifier: tags
-    pre: <i class="fas fa-tag"></i>
+    pre: <i class="fas fa-tag fa-fw"></i>
     title: 所有标签
     url: /tags/
     weight: 2
   - identifier: categories
-    pre: <i class="fas fa-th"></i>
+    pre: <i class="fas fa-th fa-fw"></i>
     title: 所有分类
     url: /categories/
     weight: 3
   - identifier: about-me
-    pre: <i class="fas fa-address-card"></i>
+    pre: <i class="fas fa-address-card fa-fw"></i>
     title: 关于我
     url: /about-me/
     weight: 4
   - identifier: about-site
-    pre: <i class="fas fa-house"></i>
+    pre: <i class="fas fa-house fa-fw"></i>
     title: 关于本站
     url: /about-site/
     weight: 5
@@ -28,16 +28,16 @@ main:
 external:
   - identifier: monitor
     title: 状态监控
-    pre: <i class="fas fa-heart-pulse"></i>
+    pre: <i class="fas fa-heart-pulse fa-fw"></i>
     url: https://status.hakula.xyz
     weight: 1
   - identifier: uptime
     title: 服务监控
-    pre: <i class="fas fa-chart-simple"></i>
+    pre: <i class="fas fa-chart-simple fa-fw"></i>
     url: https://stats.uptimerobot.com/r9PvBclkw
     weight: 2
   - identifier: github
     title: 网站源码
-    pre: <i class="fab fa-github"></i>
+    pre: <i class="fab fa-github fa-fw"></i>
     url: https://github.com/hakula139/hakula.xyz
     weight: 10
