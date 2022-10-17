@@ -59,18 +59,17 @@ $$\textrm{总评} = \textrm{剧本}\times 70\\% + \textrm{系统}\times 15\\% + 
 
 文字和背景的颜色是我自行设定的，标准如下：
 
-<!-- markdownlint-disable-next-line MD038 -->
 {{< style `
-  table {
-    min-width: 30rem;
-    tr:nth-child(1) > td:nth-child(1) { color: silver; background: white; }
-    tr:nth-child(2) > td:nth-child(1) { color: black; background: white; }
-    tr:nth-child(3) > td:nth-child(1) { color: red; background: white; }
-    tr:nth-child(4) > td:nth-child(1) { color: red; background: white; font-weight: 700; }
-    tr:nth-child(5) > td:nth-child(1) { color: red; background: yellow; font-weight: 700; }
-    tr:nth-child(6) > td:nth-child(1) { color: black; background: red; font-weight: 700; }
-    tr:nth-child(7) > td:nth-child(1) { color: red; background: black; font-weight: 700; }
-  }
+table {
+  min-width: 30rem;
+  tr:nth-child(1) > td:nth-child(1) { color: silver; background: white; }
+  tr:nth-child(2) > td:nth-child(1) { color: black; background: white; }
+  tr:nth-child(3) > td:nth-child(1) { color: red; background: white; }
+  tr:nth-child(4) > td:nth-child(1) { color: red; background: white; font-weight: 700; }
+  tr:nth-child(5) > td:nth-child(1) { color: red; background: yellow; font-weight: 700; }
+  tr:nth-child(6) > td:nth-child(1) { color: black; background: red; font-weight: 700; }
+  tr:nth-child(7) > td:nth-child(1) { color: red; background: black; font-weight: 700; }
+}
 ` >}}
 
 | 分级  | 含义                              |
