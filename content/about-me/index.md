@@ -70,11 +70,20 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 [{{< image src="assets/icons/apple.svg" alt="macOS" width="50" height="50" linked=false >}}](https://www.apple.com/macos)
 [{{< image src="assets/icons/vscode.svg" alt="VS Code" width="50" height="50" linked=false >}}](https://code.visualstudio.com)
 
-### 主力设备
+## :desktop_computer: 设备
 
-- MacBook Pro (16-inch, Apple M1 Pro, 2021)
-- NiZ Plum x108 EC-Bluetooth 35G Black
-- CORSAIR Gaming K70 - Cherry MX Red
+{{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
+
+| 硬件   | 设备                                      |
+| :----- | :---------------------------------------- |
+| PC     | MacBook Pro (16-inch, Apple M1 Pro, 2021) |
+| 键盘   | NiZ Plum x108 EC-Bluetooth 35G Black      |
+| 键盘   | CORSAIR Gaming K70 - Cherry MX Red        |
+| 鼠标   | Logitech G304 Lightspeed                  |
+| 显示器 | DELL P2721Q                               |
+| 显示器 | Philips 278B1                             |
+
+{{< /style >}}
 
 ## :video_game: 游戏
 
