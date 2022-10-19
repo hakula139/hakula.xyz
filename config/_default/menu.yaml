@@ -24,6 +24,11 @@ main:
     title: 关于本站
     url: /about-site/
     weight: 5
+  - identifier: comments
+    pre: <i class="fas fa-comment fa-fw"></i>
+    title: 留言板
+    url: /comments/
+    weight: 6
 
 external:
   - identifier: monitor
