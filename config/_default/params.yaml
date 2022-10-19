@@ -1,7 +1,10 @@
 version: 0.2.X
-description: Welcome to Hakula's personal website!
+title: HAKULA†CHANNEL
+description: Hakula 的个人站！
 defaultTheme: dark
 gitRepo: https://github.com/hakula139/hakula.xyz
+images:
+  - /images/hotlink-ok/avatar-lite.webp
 
 app:
   title: Hakula
@@ -95,7 +98,7 @@ page:
     twikoo:
       enable: true
       visitor: true
-      envId: 'https://twikoo-api.hakula.xyz'
+      envId: https://twikoo-api.hakula.xyz
 
 typeit:
   duration: 0
