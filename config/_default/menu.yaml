@@ -29,6 +29,11 @@ main:
     title: 留言板
     url: /comments/
     weight: 6
+  - identifier: sites
+    pre: <i class="fas fa-link fa-fw"></i>
+    title: 链接库
+    url: /sites/
+    weight: 7
 
 external:
   - identifier: monitor
