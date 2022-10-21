@@ -3,14 +3,14 @@
 {{- $desc := cond .IsNamedParams (.Get "desc") (.Get 2) | default $name -}}
 {{- $logo := cond .IsNamedParams (.Get "logo") (.Get 3) | default "/images/default-avatar.webp" -}}
 
-<a href="{{ $url | safeURL }}" title="{{ $name }}" target="_blank" rel="noopener" class="site-link">
+<a href="{{ $url | safeURL }}"{{ with $name }} title="{{ printf "%v - %v" $name $desc }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener" target="_blank"{{ end }} class="site-link">
     <div class="site-card">
         <div class="site-logo-wrapper">
             {{- dict "Src" $logo "Alt" $name "Width" "100%" "Height" "100%" "Class" "site-logo" | partial "plugin/img.html" -}}
         </div>
         <div class="site-content-wrapper">
-            <div class="site-name">{{ $name }}</div>
-            <div class="site-desc">{{ $desc }}</div>
+            <div class="site-name">{{ with $name }}{{ . }}{{ end }}</div>
+            <div class="site-desc">{{ with $desc }}{{ . }}{{ end }}</div>
         </div>
     </div>
 </a>
