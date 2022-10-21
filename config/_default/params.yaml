@@ -65,6 +65,13 @@ home:
     paginate: 8
 
 social:
+  QQ:
+    Weight: -1
+    Url: /images/social/qq.webp
+    Title: QQ
+    Newtab: true
+    Icon:
+      Class: fab fa-qq fa-fw
   GitHub: hakula139
   Linkedin: hakula
   Telegram: hakulaTG
