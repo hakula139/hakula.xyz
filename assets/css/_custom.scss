@@ -43,6 +43,14 @@
   }
 }
 
+.post-footer {
+  .post-nav {
+    & a.next {
+      text-align: right;
+    }
+  }
+}
+
 .katex-display {
   > .katex {
     overflow: auto hidden;
@@ -153,19 +161,29 @@
   }
 }
 
-.tk-comment .tk-content {
-  @include link(false, false);
+.tk-comment {
+  .tk-content {
+    @include link(false, false);
 
-  a {
-    @include overflow-wrap(break-word);
+    a {
+      @include overflow-wrap(break-word);
 
-    [theme=dark] & b, [theme=dark] & strong {
-      color: $single-link-color-dark;
+      [theme=dark] & b,
+      [theme=dark] & strong {
+        color: $single-link-color-dark;
+      }
+    }
+
+    [theme=dark] a:hover b,
+    [theme=dark] a:hover strong {
+      color: $single-link-hover-color-dark;
     }
   }
 
-  [theme=dark] a:hover b, [theme=dark] a:hover strong {
-    color: $single-link-hover-color-dark;
+  .tk-time,
+  &:hover .tk-actions {
+    display: inline-block !important;
+    margin: 0 1em 0 0;
   }
 }
 
