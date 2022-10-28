@@ -22,7 +22,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | VPS  | [腾讯云 Lighthouse][Lighthouse] & [CloudCone] |
 | DNS  | [Cloudflare]                                  |
 | CDN  | [Cloudflare]                                  |
-| 图床 | [腾讯云 COS][COS]                             |
+| 图床 | [腾讯云 COS][COS] & [兰空图床][Lsky]          |
 | 网盘 | [OneDrive] & [h5ai]                           |
 | 监控 | [Netdata] & [UptimeRobot]                     |
 
@@ -34,6 +34,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 [Hugo]: https://gohugo.io
 [Lighthouse]: https://cloud.tencent.com/product/lighthouse
 [LoveIt]: https://hugoloveit.com
+[Lsky]: https://www.lsky.pro
 [Netdata]: https://www.netdata.cloud
 [OneDrive]: https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business
 [Twikoo]: https://twikoo.js.org
@@ -45,6 +46,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 日期           | 更新内容                                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| 2022‑10‑28     | 使用 [兰空图床][Lsky] 自建图床，实现评论区图片上传功能。                                                                                 |
 | 2022‑10‑24     | 原站所有评论迁移完毕。                                                                                                                   |
 | 2022‑10‑14     | 原站所有文章迁移并审校完毕。                                                                                                             |
 | 2022‑09‑29     | 使用 [Netdata] 实现服务器各项指标的实时监控。                                                                                            |
@@ -85,6 +87,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 [Hugo]: https://gohugo.io
 [Lighthouse]: https://cloud.tencent.com/product/lighthouse
 [LoveKKComment]: https://github.com/ylqjgm/LoveKKComment
+[Lsky]: https://www.lsky.pro
 [Netdata]: https://www.netdata.cloud
 [Nextcloud]: https://nextcloud.com
 [OneDrive]: https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business
