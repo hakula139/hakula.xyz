@@ -1,3 +1,9 @@
+// ========== Global ========== //
+// Color of the card background
+$global-card-background-color: rgba(darken($global-background-color, 3%), 0.8) !default;
+$global-card-background-color-dark: rgba(darken($global-background-color-dark, 3%), 0.8) !default;
+// ========== Global ========== //
+
 // ========== Code ========== //
 // Color of the code
 $code-color: #546e7a;
