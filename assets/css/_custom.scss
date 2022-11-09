@@ -2,9 +2,9 @@
   .summary {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    height: 20rem;
+    height: 22rem;
     padding: 0;
     margin: 2rem 0;
     background-color: $global-card-background-color;
@@ -18,7 +18,7 @@
 
     .featured-image-preview {
       position: absolute;
-      height: 20rem;
+      height: 22rem;
       padding: 0;
       margin: 0 auto;
       overflow: hidden;
@@ -31,8 +31,18 @@
       }
     }
 
+    .dummy {
+      padding: 1rem;
+    }
+
+    .single-title {
+      font-size: 1.375rem;
+      text-align: center;
+    }
+
     .post-meta,
     .content {
+      margin: .75rem 0;
       color: $global-font-color;
       @include link(true, true);
 
