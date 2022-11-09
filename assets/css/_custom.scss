@@ -27,7 +27,7 @@
       
       img {
         @include border-radius(1rem);
-        // @include filter(blur(5px));
+        @include filter(blur(3px));
       }
     }
 
@@ -35,7 +35,14 @@
       padding: 1rem;
     }
 
+    .post-summary-wrapper {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 1rem;
+    }
+
     .single-title {
+      padding: 1rem;
       font-size: 1.375rem;
       text-align: center;
     }
