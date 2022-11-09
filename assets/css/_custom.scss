@@ -1,10 +1,15 @@
 .home[data-home=posts] {
   .summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 20rem;
     padding: 0;
-    margin: 1rem 0;
+    margin: 2rem 0;
     background-color: $global-card-background-color;
     @include border-radius(1rem);
-    @include box-shadow(0 .125rem .25rem rgba(0, 0, 0, .1));
+    @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
 
     [theme=dark] & {
       background-color: $global-card-background-color-dark;
@@ -12,15 +17,28 @@
     }
 
     .featured-image-preview {
+      position: absolute;
+      height: 20rem;
+      padding: 0;
       margin: 0 auto;
-
+      overflow: hidden;
+      z-index: -1;
+      @include border-radius(1rem);
+      
       img {
-        @include border-radius(1rem 1rem 0 0);
+        @include border-radius(1rem);
+        // @include filter(blur(5px));
       }
     }
 
-    .post-summary-wrapper {
-      padding: .6rem 1rem;
+    .post-meta,
+    .content {
+      color: $global-font-color;
+      @include link(true, true);
+
+      [theme=dark] & {
+        color: $global-font-color-dark;
+      }
     }
   }
 }
