@@ -8,6 +8,7 @@
     padding: 0;
     margin: 1.5rem 0;
     background-color: $card-background-color;
+    border: none;
     @include border-radius($card-border-radius);
     @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
 
@@ -28,7 +29,7 @@
       img {
         @include border-radius($card-border-radius);
         @include filter(blur(3px));
-        @include transition(all 1s ease);
+        @include transition(all 0.8s ease);
       }
     }
 
@@ -89,12 +90,34 @@
         }
       }
 
+      .single-title {
+        position: absolute;
+        margin: 10rem auto;
+        font-size: 1.5rem;
+        @include transition(transform 0.4s ease);
+      }
+
+      .post-summary-wrapper {
+        opacity: 0;
+        @include transform(translateY(-1rem));
+        @include transition(all 0.4s ease);
+      }
+
       &:hover {
         .featured-image-preview {
           img {
             @include transform(scale(1.375));
             @include filter(blur(5px));
           }
+        }
+
+        .single-title {
+          @include transform(translateY(-5rem));
+        }
+
+        .post-summary-wrapper {
+          opacity: 1;
+          @include transform(translateY(0));
         }
       }
     }
