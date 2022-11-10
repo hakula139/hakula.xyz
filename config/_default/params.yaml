@@ -114,5 +114,5 @@ typeit:
 cdn:
   data: loli.yml
 
-prefetch:
+preconnect:
   - https://hakula-1257872502.file.myqcloud.com
