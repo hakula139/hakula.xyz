@@ -4,29 +4,29 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 22rem;
+    height: $card-height;
     padding: 0;
     margin: 1.5rem 0;
-    background-color: $global-card-background-color;
-    @include border-radius(20px);
+    background-color: $card-background-color;
+    @include border-radius($card-border-radius);
     @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
 
     [theme=dark] & {
-      background-color: $global-card-background-color-dark;
+      background-color: $card-background-color-dark;
       border: none;
     }
 
     .featured-image-preview {
       position: absolute;
-      height: 22rem;
+      height: $card-height;
       padding: 0;
       margin: 0 auto;
       overflow: hidden;
       z-index: -1;
-      @include border-radius(20px);
-      
+      @include border-radius($card-border-radius);
+
       img {
-        @include border-radius(20px);
+        @include border-radius($card-border-radius);
         @include filter(blur(3px));
         @include transition(all 1s ease);
       }
@@ -36,27 +36,46 @@
       padding: 1rem;
     }
 
-    .post-summary-wrapper {
-      box-sizing: border-box;
-      width: 100%;
-      padding: 1rem;
+    .floating-text {
+      z-index: 10;
     }
 
     .single-title {
-      padding: .5rem;
+      margin: 1rem .5rem;
       font-size: 1.375rem;
       text-align: center;
     }
 
-    .post-meta,
-    .content {
-      margin: .75rem 0;
-      color: $global-font-color;
-      @include link(true, true);
+    .post-summary-wrapper {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 1rem;
 
-      [theme=dark] & {
-        color: $global-font-color-dark;
+      .post-meta {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
       }
+
+      .post-meta,
+      .content {
+        margin: .75rem 0;
+        color: $global-font-color;
+        @include link(true, true);
+
+        [theme=dark] & {
+          color: $global-font-color-dark;
+        }
+      }
+    }
+
+    .post-link-cover {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: $card-height;
+      @include border-radius($card-border-radius);
     }
   }
 }
@@ -72,9 +91,8 @@
 
       &:hover {
         .featured-image-preview {
-          
           img {
-            @include transform(scale(1.3));
+            @include transform(scale(1.375));
             @include filter(blur(5px));
           }
         }

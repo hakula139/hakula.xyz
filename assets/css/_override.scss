@@ -1,8 +1,14 @@
-// ========== Global ========== //
+// ========== Card ========== //
+// Height of the card
+$card-height: 22rem !default;
+
+// Border radius of the card
+$card-border-radius: 20px !default;
+
 // Color of the card background
-$global-card-background-color: rgba(darken($global-background-color, 6%), 0.7) !default;
-$global-card-background-color-dark: rgba(darken($global-background-color-dark, 6%), 0.7) !default;
-// ========== Global ========== //
+$card-background-color: rgba(darken($global-background-color, 6%), 0.7) !default;
+$card-background-color-dark: rgba(darken($global-background-color-dark, 6%), 0.7) !default;
+// ========== Card ========== //
 
 // ========== Code ========== //
 // Color of the code
