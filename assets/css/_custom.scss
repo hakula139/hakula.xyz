@@ -6,7 +6,7 @@
     align-items: center;
     height: 22rem;
     padding: 0;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     background-color: $global-card-background-color;
     @include border-radius(1rem);
     @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
@@ -42,7 +42,7 @@
     }
 
     .single-title {
-      padding: 1rem;
+      padding: .5rem;
       font-size: 1.375rem;
       text-align: center;
     }
