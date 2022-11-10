@@ -113,3 +113,6 @@ typeit:
 
 cdn:
   data: loli.yml
+
+prefetch:
+  - https://hakula-1257872502.file.myqcloud.com
