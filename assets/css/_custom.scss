@@ -8,7 +8,7 @@
     padding: 0;
     margin: 1.5rem 0;
     background-color: $global-card-background-color;
-    @include border-radius(1rem);
+    @include border-radius(20px);
     @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
 
     [theme=dark] & {
@@ -23,11 +23,12 @@
       margin: 0 auto;
       overflow: hidden;
       z-index: -1;
-      @include border-radius(1rem);
+      @include border-radius(20px);
       
       img {
-        @include border-radius(1rem);
+        @include border-radius(20px);
         @include filter(blur(3px));
+        @include transition(all 1s ease);
       }
     }
 
@@ -55,6 +56,28 @@
 
       [theme=dark] & {
         color: $global-font-color-dark;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .home[data-home=posts] {
+    .summary {
+      .featured-image-preview {
+        img {
+          @include filter(blur(0));
+        }
+      }
+
+      &:hover {
+        .featured-image-preview {
+          
+          img {
+            @include transform(scale(1.3));
+            @include filter(blur(5px));
+          }
+        }
       }
     }
   }
