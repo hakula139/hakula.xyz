@@ -11,6 +11,7 @@
     border: none;
     @include border-radius($card-border-radius);
     @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
+    @include transition(background-color 0.8s ease);
 
     [theme=dark] & {
       background-color: $card-background-color-dark;
@@ -105,6 +106,12 @@
       }
 
       &:hover {
+        background-color: lighten($card-background-color, 6%);
+
+        [theme=dark] & {
+          background-color: darken($card-background-color-dark, 6%);
+        }
+
         .featured-image-preview {
           img {
             @include transform(scale(1.375));
