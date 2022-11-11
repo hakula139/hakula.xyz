@@ -94,13 +94,13 @@
         position: absolute;
         margin: 10rem auto;
         font-size: 1.5rem;
-        line-height: 1;
-        @include transition(transform 0.4s ease);
+        line-height: 1em;
+        @include transition(margin 0.4s ease);
       }
 
       .post-summary-wrapper {
         opacity: 0;
-        @include transform(translateY(-1rem));
+        margin-bottom: 1rem;
         @include transition(all 0.4s ease);
       }
 
@@ -113,12 +113,12 @@
         }
 
         .single-title {
-          @include transform(translateY(-5rem));
+          margin: 5rem auto 15rem;
         }
 
         .post-summary-wrapper {
           opacity: 1;
-          @include transform(translateY(0));
+          margin-bottom: 0;
         }
       }
     }
