@@ -46,6 +46,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 日期           | 更新内容                                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| **2022‑11‑13** | [LoveIt] 主题魔改基本完毕。新站迁移计划完成，总耗时 346 小时。                                                                           |
 | 2022‑10‑28     | 使用 [兰空图床][Lsky] 自建图床，实现评论区图片上传功能。                                                                                 |
 | 2022‑10‑24     | 原站所有评论迁移完毕。                                                                                                                   |
 | 2022‑10‑14     | 原站所有文章迁移并审校完毕。                                                                                                             |
@@ -86,6 +87,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 [handsome]: https://www.ihewro.com/archives/489
 [Hugo]: https://gohugo.io
 [Lighthouse]: https://cloud.tencent.com/product/lighthouse
+[LoveIt]: https://hugoloveit.com
 [LoveKKComment]: https://github.com/ylqjgm/LoveKKComment
 [Lsky]: https://www.lsky.pro
 [Netdata]: https://www.netdata.cloud
