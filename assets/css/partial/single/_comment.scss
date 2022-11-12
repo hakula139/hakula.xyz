@@ -36,10 +36,18 @@
       }
 
       .tk-time,
-      &:hover .tk-actions {
+      .tk-actions {
         display: inline-block !important;
         margin: 0 1em 0 0;
       }
+
+      .tk-action-link {
+        white-space: nowrap;
+      }
+    }
+
+    .tk-expand {
+      width: initial;
     }
   }
 
