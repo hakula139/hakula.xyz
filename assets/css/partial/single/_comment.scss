@@ -1,4 +1,14 @@
 #comments {
+  padding: 1.5rem;
+  margin: 1rem auto;
+  background-color: $card-background-color;
+  @include border-radius($card-border-radius);
+  @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
+
+  [theme=dark] & {
+    background-color: $card-background-color-dark;
+  }
+
   #twikoo {
     .tk-preview-container {
       img {
@@ -41,5 +51,11 @@
       color: $global-font-color-dark;
       background-color: lighten($global-background-color-dark, 3%);
     }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  #comments {
+    padding: 1rem;
   }
 }
