@@ -46,6 +46,11 @@
       margin: 1rem .5rem;
       font-size: 1.375rem;
       text-align: center;
+      text-shadow: 0 0 2px #fff;
+
+      [theme=dark] & {
+        text-shadow: 0 0 2px #000;
+      }
     }
 
     .post-summary-wrapper {
@@ -106,10 +111,10 @@
       }
 
       &:hover {
-        background-color: lighten($card-background-color, 6%);
+        background-color: lighten($card-background-color, 10%);
 
         [theme=dark] & {
-          background-color: darken($card-background-color-dark, 6%);
+          background-color: darken($card-background-color-dark, 10%);
         }
 
         .featured-image-preview {
