@@ -1,0 +1,45 @@
+#comments {
+  #twikoo {
+    .tk-preview-container {
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .tk-comment {
+      .tk-content {
+        @include link(false, false);
+
+        a {
+          @include overflow-wrap(break-word);
+
+          [theme=dark] & b,
+          [theme=dark] & strong {
+            color: $single-link-color-dark;
+          }
+        }
+
+        [theme=dark] a:hover b,
+        [theme=dark] a:hover strong {
+          color: $single-link-hover-color-dark;
+        }
+      }
+
+      .tk-time,
+      &:hover .tk-actions {
+        display: inline-block !important;
+        margin: 0 1em 0 0;
+      }
+    }
+  }
+
+  .OwO.OwO-open .OwO-body {
+    color: $global-font-color;
+    background-color: darken($global-background-color, 3%);
+
+    [theme=dark] & {
+      color: $global-font-color-dark;
+      background-color: lighten($global-background-color-dark, 3%);
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.home[data-home=posts] {
+  .summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: $card-height;
+    padding: 0;
+    margin: 1.5rem 0;
+    background-color: $card-background-color;
+    border: none;
+    @include border-radius($card-border-radius);
+    @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
+    @include transition(background-color 0.8s ease);
+
+    [theme=dark] & {
+      background-color: $card-background-color-dark;
+      border: none;
+    }
+
+    .featured-image-preview {
+      position: absolute;
+      height: $card-height;
+      padding: 0;
+      margin: 0 auto;
+      overflow: hidden;
+      z-index: -1;
+      @include border-radius($card-border-radius);
+
+      img {
+        @include border-radius($card-border-radius);
+        @include filter(blur(3px));
+        @include transition(all 0.8s ease);
+      }
+    }
+
+    .dummy {
+      padding: 1rem;
+    }
+
+    .floating-text {
+      z-index: 10;
+    }
+
+    .single-title {
+      margin: 1rem .5rem;
+      font-size: 1.375rem;
+      text-align: center;
+    }
+
+    .post-summary-wrapper {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 1rem;
+
+      .post-meta {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .post-meta,
+      .content {
+        margin: .75rem 0;
+        color: $global-font-color;
+        @include link(true, true);
+
+        [theme=dark] & {
+          color: $global-font-color-dark;
+        }
+      }
+    }
+
+    .post-link-cover {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: $card-height;
+      @include border-radius($card-border-radius);
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .home[data-home=posts] {
+    .summary {
+      .featured-image-preview {
+        img {
+          @include filter(blur(0));
+        }
+      }
+
+      .single-title {
+        position: absolute;
+        margin: 10rem auto;
+        font-size: 1.5rem;
+        line-height: 1em;
+        @include transition(margin 0.4s ease);
+      }
+
+      .post-summary-wrapper {
+        opacity: 0;
+        margin-bottom: 1rem;
+        @include transition(all 0.4s ease);
+      }
+
+      &:hover {
+        background-color: lighten($card-background-color, 6%);
+
+        [theme=dark] & {
+          background-color: darken($card-background-color-dark, 6%);
+        }
+
+        .featured-image-preview {
+          img {
+            @include transform(scale(1.375));
+            @include filter(blur(5px));
+          }
+        }
+
+        .single-title {
+          margin: 5rem auto 15rem;
+        }
+
+        .post-summary-wrapper {
+          opacity: 1;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

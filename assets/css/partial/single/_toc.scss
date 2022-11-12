@@ -1,0 +1,31 @@
+.toc .toc-content {
+  ul {
+    text-indent: 0;
+    padding-left: 0;
+
+    ul {
+      padding-left: 1rem;
+    }
+
+    li {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  code {
+    font-size: var(--code-font-size);
+    font-family: var(--code-font-family);
+  }
+}
+
+#toc-static .toc-content {
+  > nav > ul {
+    padding: .4rem .2rem;
+
+    ul {
+      padding-left: 1.5rem;
+    }
+  }
+}

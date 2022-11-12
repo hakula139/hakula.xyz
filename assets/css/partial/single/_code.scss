@@ -1,0 +1,17 @@
+.highlight {
+  > .chroma {
+    .table-wrapper {
+      overflow: auto;
+
+      > table {
+        min-width: initial;
+      }
+    }
+
+    &.open {
+      .table-wrapper {
+        max-height: 42em;
+      }
+    }
+  }
+}

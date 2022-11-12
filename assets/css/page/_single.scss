@@ -1,0 +1,80 @@
+@import "../partial/single/toc";
+
+.single {
+  .single-card {
+    padding: 1.5rem;
+    margin: 1rem auto;
+    background-color: $card-background-color;
+    @include border-radius($card-border-radius);
+    @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
+  
+    [theme=dark] & {
+      background-color: $card-background-color-dark;
+    }
+
+    &[data-image=true] {
+      margin-top: 0;
+      @include border-radius(0 0 $card-border-radius $card-border-radius);
+    }
+  }
+
+  .featured-image {
+    display: flex;
+    aspect-ratio: 21 / 9;
+    @include object-fit(cover);
+    margin: 2rem auto 0;
+    overflow: hidden;
+    background-color: lighten($card-background-color, 2%);
+    @include border-radius($card-border-radius $card-border-radius 0 0);
+
+    [theme=dark] & {
+      background-color: darken($card-background-color-dark, 2%);
+    }
+
+    img {
+      &.lazyloaded {
+        @include object-fit(cover);
+      }
+    }
+  }
+
+  .single-title {
+    margin: .5rem 0;
+  }
+
+  .content {
+    ul,
+    ol {
+      padding-left: 2rem;
+    }
+
+    .table-wrapper {
+      > table {
+        min-width: 40rem;
+
+        thead {
+          white-space: pre;
+        }
+      }
+    }
+
+    @import "../partial/single/code";
+  }
+
+  @import "../partial/single/footer";
+  @import "../partial/single/comment";
+  @import "../partial/single/katex";
+  @import "../partial/single/site-card";
+}
+
+@media only screen and (max-width: 680px) {
+  .wrapper main .container {
+    padding: 0 .5rem;
+  }
+
+  .single {
+    .single-card {
+      padding: 1rem;
+    }
+  }
+}

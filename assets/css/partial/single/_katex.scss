@@ -1,0 +1,14 @@
+.katex-display {
+  > .katex {
+    overflow: auto hidden;
+
+    .glue {
+      min-width: 2rem;
+    }
+
+    .base,
+    .tag {
+      margin: .25em 0;
+    }
+  }
+}

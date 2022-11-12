@@ -1,0 +1,62 @@
+.site-card {
+  display: inline-block;
+  box-sizing: border-box;
+  width: calc(50% - .75rem);
+  padding: 1rem;
+  margin: .25rem;
+  overflow: hidden;
+  color: $global-font-color;
+  background-color: darken($global-background-color, 3%);
+  @include border-radius(10px);
+  @include transition(transform 0.25s ease-out);
+
+  [theme=dark] & {
+    color: $global-font-color-dark;
+    background-color: darken($global-background-color-dark, 3%);
+  }
+
+  .site-logo-wrapper {
+    float: left;
+    margin-right: 10%;
+    width: 4rem;
+    height: 4rem;
+
+    .site-logo {
+      @include border-radius(100%);
+      @include transition(transform 0.25s ease-out);
+    }
+  }
+
+  &:hover {
+    @include transform(scale(1.02));
+
+    .site-logo {
+      @include transform(rotate(30deg));
+    }
+  }
+
+  .site-content-wrapper {
+    .site-name {
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 1.125rem;
+      margin: .25rem 0 .5rem;
+    }
+
+    .site-desc {
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: .875rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .site-card {
+    width: 100%;
+  }
+}

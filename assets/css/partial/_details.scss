@@ -1,0 +1,11 @@
+.details {
+  .details-content {
+    overflow: auto;
+  }
+
+  &.open {
+    .details-content {
+      max-height: 42em;
+    }
+  }
+}
