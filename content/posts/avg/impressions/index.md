@@ -18,7 +18,7 @@ hiddenFromSearch: false
 
 ## 评测数据
 
-{{< image src="assets/20200720.webp" caption="评测数据（截至 2020-07-20）" width="100%" >}}
+{{< image src="assets/2022-11-27.webp" caption="评测数据（截至 2022-11-27）" width="100%" >}}
 
 主观评价，仅供参考。已抛弃作品不会出现在表中。
 
