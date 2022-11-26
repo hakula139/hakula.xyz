@@ -24,7 +24,7 @@
     @include object-fit(cover);
     margin: 2rem auto 0;
     overflow: hidden;
-    background-color: lighten($card-background-color, 2%);
+    background-color: darken($card-background-color, 2%);
     @include border-radius($card-border-radius $card-border-radius 0 0);
 
     [theme=dark] & {

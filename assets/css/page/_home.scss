@@ -29,8 +29,8 @@
 
       img {
         @include border-radius($card-border-radius);
-        @include filter(blur(3px));
-        @include transition(all 0.8s ease);
+        @include filter(blur(12px));
+        @include transition(all 1s ease);
       }
     }
 
@@ -46,10 +46,10 @@
       margin: 1rem .5rem;
       font-size: 1.375rem;
       text-align: center;
-      text-shadow: 0 0 2px #fff;
+      text-shadow: 0 1px 4px rgba(255, 255, 255, .3);
 
       [theme=dark] & {
-        text-shadow: 0 0 2px #000;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, .3);
       }
     }
 
@@ -120,7 +120,7 @@
         .featured-image-preview {
           img {
             @include transform(scale(1.375));
-            @include filter(blur(5px));
+            @include filter(blur(8px));
           }
         }
 
