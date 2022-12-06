@@ -22,6 +22,7 @@
     height: 4rem;
 
     .site-logo {
+      @include object-fit(cover);
       @include border-radius(100%);
       @include transition(transform 0.25s ease-out);
     }
