@@ -18,6 +18,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "Ramen" "https://blog.lxdlam.com" "Ramen's Box" "https://cravatar.cn/avatar/4d675e65920d5b1eca1f5b9079ea3bf5?s=200&d=identicon" >}}
 
+{{< site "Izumi" "https://izumimorin.xyz" "Izumi 的个人主页" "/images/links/izumi.webp" >}}
+
 ## 本站链接
 
 {{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区，感谢各位支持！" "/images/links/94964162.webp" >}}
