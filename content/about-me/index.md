@@ -73,16 +73,30 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## :desktop_computer: 设备
 
+### 家用
+
+{{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
+
+| 硬件   | 设备                                      |
+| :----- | :---------------------------------------- |
+| PC     | MacBook Pro (14-inch, Apple M1 Pro, 2021) |
+| 键盘   | CORSAIR Gaming K70 - Cherry MX Red        |
+| 鼠标   | Razer Basilisk V3                         |
+| 显示器 | LG 27GP95R                                |
+
+{{< /style >}}
+
+### 公司
+
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
 | 硬件   | 设备                                      |
 | :----- | :---------------------------------------- |
 | PC     | MacBook Pro (16-inch, Apple M1 Pro, 2021) |
 | 键盘   | NiZ Plum x108 EC-Bluetooth 35G Black      |
-| 键盘   | CORSAIR Gaming K70 - Cherry MX Red        |
 | 鼠标   | Logitech G304 Lightspeed                  |
 | 显示器 | DELL P2721Q                               |
-| 显示器 | Philips 278B1                             |
+| 显示器 | PHILIPS 278B1                             |
 
 {{< /style >}}
 
