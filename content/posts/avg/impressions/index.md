@@ -18,11 +18,11 @@ hiddenFromSearch: false
 
 ## 评测数据
 
-{{< image src="assets/2022-11-27.webp" caption="评测数据（截至 2022-11-27）" width="100%" >}}
+{{< image src="assets/2022-12-18.webp" caption="评测数据" width="100%" >}}
 
 主观评价，仅供参考。已抛弃作品不会出现在表中。
 
-当然，数据是冰冷的，也就图一乐。具体评测文章可以参见我的 [B 站专栏][avg-bilibili] 和 QQ 空间，不过很多以前写的文章已经佚失了。
+当然，数据是冰冷的，也就图一乐。具体评测文章可以参见我的 [Bilibili 专栏][avg-bilibili] 和 QQ 空间，不过很多以前写的文章已经佚失了。
 
 [avg-bilibili]: https://www.bilibili.com/read/readlist/rl228822
 
