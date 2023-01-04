@@ -109,3 +109,11 @@ table {
 [egs-backup]: https://files.hakula.xyz/%E6%89%B9%E8%A9%95%E7%A9%BA%E9%96%93/
 
 [^egs-bgm]: [请问如何登陆批评空间 - Bangumi](https://bgm.tv/group/topic/360497)
+
+## 关于 BGM 评分
+
+{{< admonition info 数据来源 >}}
+[Bangumi 番组计划](https://bgm.tv/game/tag/galgame/?sort=rank)
+{{< /admonition >}}
+
+统计时要求评价数**不低于 500**，否则判定为无效数据（使用灰色字表示）。
