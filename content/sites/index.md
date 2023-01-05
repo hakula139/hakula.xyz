@@ -20,6 +20,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "Izumi" "https://izumimorin.xyz" "Izumi 的个人主页" "/images/links/izumi.webp" >}}
 
+{{< site "Pakiknowledge" "https://pakiknowledge.pages.dev" "帕琪的小屋" "https://pakiknowledge.pages.dev/img/FlEQiGPaAAEqovl.jpg" >}}
+
 ## 本站链接
 
 {{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区，感谢各位支持！" "/images/links/94964162.webp" >}}
