@@ -81,7 +81,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | :----- | :---------------------------------------- |
 | PC     | MacBook Pro (14-inch, Apple M1 Pro, 2021) |
 | 键盘   | CORSAIR Gaming K70 - Cherry MX Red        |
-| 鼠标   | Razer Basilisk V3                         |
+| 鼠标   | Logitech G304 Lightspeed                  |
 | 显示器 | LG 27GP95R                                |
 
 {{< /style >}}
@@ -94,7 +94,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | :----- | :---------------------------------------- |
 | PC     | MacBook Pro (16-inch, Apple M1 Pro, 2021) |
 | 键盘   | NiZ Plum x108 EC-Bluetooth 35G Black      |
-| 鼠标   | Logitech G304 Lightspeed                  |
+| 鼠标   | Razer Basilisk V3                         |
 | 显示器 | DELL P2721Q                               |
 | 显示器 | PHILIPS 278B1                             |
 
