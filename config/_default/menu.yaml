@@ -39,7 +39,7 @@ external:
   - identifier: monitor
     title: 状态监控
     pre: <i class="fas fa-heart-pulse fa-fw"></i>
-    url: https://status.hakula.xyz
+    url: https://status-sg.hakula.xyz
     weight: 1
   - identifier: uptime
     title: 服务监控
