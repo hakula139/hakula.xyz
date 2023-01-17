@@ -136,7 +136,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 游戏名               | ID                              | 段位                      |           时间 |
 | :------------------- | :------------------------------ | :------------------------ | -------------: |
-| [雀魂 (CN)][majsoul] | [Hakula (68993162)][majsoul-me] | 四麻 雀圣一 / 三麻 雀豪一 | 2019-01 ~ 至今 |
+| [雀魂 (CN)][majsoul] | [Hakula (68993162)][majsoul-me] | 四麻 雀圣一 / 三麻 雀豪二 | 2019-01 ~ 至今 |
 
 [majsoul]: https://www.maj-soul.net
 [majsoul-me]: https://amae-koromo.sapk.ch/player/697658
