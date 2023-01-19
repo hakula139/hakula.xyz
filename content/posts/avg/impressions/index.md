@@ -18,7 +18,7 @@ hiddenFromSearch: false
 
 ## 评测数据
 
-{{< image src="assets/2023-01-14.webp" caption="AVG 评测数据" width="100%" >}}
+{{< image src="assets/2023-01-19.webp" caption="AVG 评测数据" width="100%" >}}
 
 主观评价，仅供参考。已抛弃作品不会出现在表中。
 
