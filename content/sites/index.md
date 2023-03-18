@@ -14,13 +14,11 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "依田萌绘" "https://yoro.xyz" "依田萌绘的故事屋" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
 
-{{< site "Ikitsu" "https://ikitsu.moe" "Magic Shop of Raspberry" "https://ikitsu.moe/images/avatar.png" >}}
-
 {{< site "Ramen" "https://blog.lxdlam.com" "Ramen's Box" "https://cravatar.cn/avatar/4d675e65920d5b1eca1f5b9079ea3bf5?s=200&d=identicon" >}}
 
 {{< site "Izumi" "https://izumimorin.xyz" "Izumi 的个人主页" "/images/links/izumi.webp" >}}
 
-{{< site "Pakiknowledge" "https://pakiknowledge.pages.dev" "帕琪的小屋" "https://pakiknowledge.pages.dev/img/FlEQiGPaAAEqovl.jpg" >}}
+{{< site "帕琪 knowledge" "https://pakiknowledge.pages.dev" "帕琪的小屋" "https://pakiknowledge.pages.dev/img/FlEQiGPaAAEqovl.jpg" >}}
 
 ## 本站链接
 
