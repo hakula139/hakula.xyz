@@ -20,7 +20,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "帕琪的小屋" "https://pakiknowledge.pages.dev" "不为所动，做更专业的自己" "https://pakiknowledge.pages.dev/img/FlEQiGPaAAEqovl.jpg" >}}
 
-{{< site "Cyorage's Blog" "https://ohayo.cyoragex.top" "君の夢のために。" "https://cravatar.cn/avatar/2720a87a7d01cfd6834de39d5735b73a?s=200&d=identicon" >}}
+{{< site "Cyorage's Blog" "https://ohayo.cyorage.xyz" "君の夢のために。" "https://cravatar.cn/avatar/2720a87a7d01cfd6834de39d5735b73a?s=200&d=identicon" >}}
 
 ## 本站链接
 
