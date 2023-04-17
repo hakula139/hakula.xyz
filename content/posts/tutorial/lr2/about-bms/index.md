@@ -53,25 +53,27 @@ hiddenFromSearch: false
 
 以下是一些推荐的下载途径（欢迎补充）：
 
-{{< admonition example "QQ 群" false >}}
-
-[:(fab fa-qq):  Be-Music Source (176763307)](https://jq.qq.com/?_wv=1027&k=5L8MRvF)
-
-见 群文件 - BMS 下载资源集合，遇到问题可以在群里提问。注意言辞，别做伸手党。
-
-{{< /admonition >}}
-
 {{< admonition example "本站 BMS 区 @ OneDrive" false >}}
 
 [:(fas fa-cloud):  HAKULA†BMS](https://bms.hakula.xyz)
 
 感谢 @anshi 提供网盘支持，感谢 BMS 社群所有资源整理者的付出！:heart:
 
+一些资源可能没人更新了，可以到 [这里](https://djkuroakari.github.io) 查看跟进更新。
+
 不存在限速 / 限流问题。部分地区如访问速度较慢，可以试试 [镜像站](https://bms.cosmiccat.top)（不定时更新、不保证可用性）。
 
 不建议使用 OneDrive 自带的批量打包下载功能，下载速度通常会很慢，而且中途下载失败或者下完后文件损坏就要全部重下，也违背了分卷压缩的初衷。建议使用 [IDM](https://www.internetdownloadmanager.com) / [FDM](https://www.freedownloadmanager.org) 等下载工具在镜像站里抓取全部链接，然后再批量下载。注意限制线程数。
 
 如果不知道下什么，推荐下载：**Satellite + 通常难易度 + 发狂难易度** 的 **分卷大包** 和 **更新**，基本可以涵盖你的整个 BMS 生涯。
+
+{{< /admonition >}}
+
+{{< admonition example "QQ 群" false >}}
+
+[:(fab fa-qq):  Be-Music Source (176763307)](https://jq.qq.com/?_wv=1027&k=5L8MRvF)
+
+见 群文件 - BMS 下载资源集合，遇到问题可以在群里提问。注意言辞，别做伸手党。
 
 {{< /admonition >}}
 
@@ -92,16 +94,6 @@ hiddenFromSearch: false
 由 @MsrButterfly 整理，最后更新：2021-09-28
 
 要想使用段位，除了需要下载曲包，还需要下载相应的 Course 文件。
-
-{{< /admonition >}}
-
-{{< admonition example "发狂表 - 合集包 @ 百度云" false >}}
-
-[:(fas fa-cloud):  発狂 + 通常 BMS 難易度表 (SP)](https://pan.baidu.com/s/1QWE0CI_3Ko289BMSqyLcBA) - **fs2t**
-
-由 @Scely 整合，最后更新：2017-12-06
-
-在之前 发狂表包 的基础上所作的更新。如果你不想打包下载 Satellite 表 的话，可以下载这个包。
 
 {{< /admonition >}}
 
