@@ -112,7 +112,7 @@ typeit:
   duration: 0
 
 cdn:
-  data: loli.yml
+  data: jsdelivr.yml
 
 preconnect:
   - https://hakula-1257872502.file.myqcloud.com
