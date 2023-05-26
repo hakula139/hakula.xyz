@@ -6,7 +6,7 @@ draft: true
 
 tags: [动画, 评测]
 categories: [anime]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/ghost-in-the-shell-sac.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/95611645.webp
 license: CC BY-NC-SA 4.0
 
 hiddenFromHomePage: false
@@ -16,6 +16,10 @@ hiddenFromSearch: false
 个人看过的动画评测数据。客观？不存在的。
 
 <!--more-->
+
+{{< admonition info 封面出处 >}}
+[月のある地底界 - @輪廻狐（りんねこ）](https://www.pixiv.net/artworks/95611645)
+{{< /admonition >}}
 
 ## 评测数据
 
@@ -52,7 +56,7 @@ $$\textrm{总评} = \textrm{剧本}\times 55\\% + \textrm{画面}\times 30\\% + 
 |   E   | **垃圾** - 在整体平庸的基础上，到处都是令人无法忍受的致命缺陷，但我姑且还能看完并且愿意给个评分。                                         |
 |   F   | **地雷** - 我得闲到什么程度才会把这种评级的作品看完？早扔了好吧。                                                                         |
 
-由于动画缺少一个「系统」的关键扣分项，整体评分相较 AVG 虚高，因此评分并不能直接对照，请以评级为准。
+由于动画缺少一个「系统」的关键扣分项，总评分不能与 AVG 直接对照（单项评分可以），请以评级为准。
 
 ## 关于 BGM 评分
 
