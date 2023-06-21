@@ -111,7 +111,7 @@
       }
 
       &:hover {
-        background-color: lighten($card-background-color, 10%);
+        background-color: opacify($card-background-color, 0.2);
 
         [theme=dark] & {
           background-color: darken($card-background-color-dark, 10%);
@@ -121,6 +121,7 @@
           img {
             @include transform(scale(1.375));
             @include filter(blur(8px));
+            will-change: transform, filter;
           }
         }
 
