@@ -22,7 +22,7 @@ hiddenFromSearch: false
 
 ## 评测数据
 
-{{< image src="assets/2023-06-18.webp" caption="动画评测数据" width="100%" >}}
+{{< image src="assets/2023-06-29.webp" caption="动画评测数据" width="100%" >}}
 
 心血来潮，参照 [AVG 个人评测数据](/posts/avg/impressions/) 做了一个动画版的评分表。主观评价，仅供参考。已抛弃作品不会出现在表中。
 
