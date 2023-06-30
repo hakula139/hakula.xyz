@@ -7,9 +7,6 @@ tags: [BMS, LR2]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/lr2.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Lunatic Rave 2（简称 LR2）是具有相当历史地位的音乐游戏，然而可能是由于比较核心向，在音游玩家中的知名度竟然并不是很高。目前网上关于 LR2 的教程与资料大多有些年代了，因此打算重新写一篇教程，请多指教。

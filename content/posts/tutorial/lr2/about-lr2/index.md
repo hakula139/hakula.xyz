@@ -6,9 +6,6 @@ tags: [LR2]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/70624369.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本部分将对 LR2 作一个简单的介绍，并提供一些皮肤的示例。

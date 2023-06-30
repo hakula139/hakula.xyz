@@ -6,9 +6,6 @@ tags: [数据库, MySQL, Go, REST]
 categories: [project]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/69321889.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 REALMS Establishes A Library Management System, written in Go, using a MySQL database.

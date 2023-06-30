@@ -7,9 +7,6 @@ tags: [动画, 评测]
 categories: [anime]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/95611645.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 个人看过的动画评测数据。客观？不存在的。

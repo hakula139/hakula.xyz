@@ -6,9 +6,6 @@ tags: [VPS, Vagex, 挂机]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/74046731.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 近些天折腾了会儿 Vagex，本文整理了一下部署的过程，并解释为什么不建议继续使用 Vagex 挂机。

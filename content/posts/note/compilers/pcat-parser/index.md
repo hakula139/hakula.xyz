@@ -6,9 +6,6 @@ tags: [编译, 语法分析, Bison, Flex, AST, PCAT, C++]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/94538258.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本项目利用 Bison 和 Flex，实现了对给定 PCAT 语言样例的语法分析。

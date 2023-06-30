@@ -6,9 +6,6 @@ tags: [操作系统, ARM, 中断, C]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/71199279.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Operating Systems (H) @ Fudan University, fall 2020.

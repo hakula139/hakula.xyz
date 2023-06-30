@@ -6,9 +6,6 @@ tags: [VPS]
 categories: [vps]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/cloudcone.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本站选择的 VPS 商家。低配机年付 15 刀，月流量 1 TB 起，1 Gbps 端口，部署于洛杉矶 Multacom 机房，CN2 GIA 线路，支持支付宝。

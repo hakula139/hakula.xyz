@@ -6,9 +6,6 @@ tags: [CS:APP, 汇编, 缓冲区溢出]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/csapp.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Introduction to Computer Systems I (H) @ Fudan University, fall 2019.

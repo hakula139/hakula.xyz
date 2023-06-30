@@ -6,9 +6,6 @@ tags: [数字信号处理, 语谱图, Python]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/102257565.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本实验中，我们利用之前实现的 FFT 算法，生成了不同语音片段在不同窗口宽度下的语谱图。

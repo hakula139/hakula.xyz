@@ -6,9 +6,6 @@ tags: [LR2]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/62549069.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本部分将介绍 LR2 的皮肤设置（WMIX）。

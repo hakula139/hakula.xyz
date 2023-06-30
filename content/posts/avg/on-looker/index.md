@@ -6,9 +6,6 @@ tags: [AVG, Galgame, 评测]
 categories: [avg]
 featuredImage: assets/cg-mzy-te.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 「不是命运把我推回了你的身边，是我自己走过来的。」

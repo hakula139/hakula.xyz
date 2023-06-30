@@ -6,9 +6,6 @@ tags: [PRML, 机器学习, 深度学习, FNN, NumPy, Python]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/88775351.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本次作业完成了选题 1 的实验内容，利用 NumPy 实现了一个 FNN 模型，并在 MNIST 数据集上进行了训练。

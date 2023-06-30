@@ -6,9 +6,6 @@ tags: [计网, FTP, Socket 编程, Python, Vue, TypeScript]
 categories: [project]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/86286793.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Naive-FTP is a simple FTP server & client, written in Python and TypeScript.

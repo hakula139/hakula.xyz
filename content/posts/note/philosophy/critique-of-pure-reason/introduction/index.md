@@ -7,9 +7,6 @@ tags: [哲学, 康德]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/critique-of-pure-reason.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 <!--more-->

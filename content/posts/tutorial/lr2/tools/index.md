@@ -6,9 +6,6 @@ tags: [BMS, LR2]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/72296053.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 一些辅助工具 / 网站的介绍及使用说明。

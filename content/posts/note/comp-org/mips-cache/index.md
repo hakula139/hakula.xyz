@@ -6,9 +6,6 @@ tags: [计组, MIPS, Cache, SystemVerilog]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/78302689.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 32 位 256 bytes 4 路组相联（参数可调节）高速缓存，使用 SystemVerilog 编写。

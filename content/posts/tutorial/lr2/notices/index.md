@@ -6,9 +6,6 @@ tags: [LR2]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/75778049.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 一些你或许有必要了解的注意事项，包括 LR2 的各种 bug，以及 Beatmania IIDX 相关的版权问题。

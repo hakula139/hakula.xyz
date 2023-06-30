@@ -6,9 +6,6 @@ tags: [操作系统, ARM, 进程, 系统调用, C]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/85995104.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Operating Systems (H) @ Fudan University, fall 2020.

@@ -6,9 +6,6 @@ tags: [分布式系统, 倒排索引, Hadoop, MapReduce, Java]
 categories: [project]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/94278235.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本项目利用 Hadoop MapReduce，构建了对 Wikipedia 语料库的倒排索引，并实现了一个简易的搜索引擎，可根据检索的关键词返回相应的索引信息，使用 Java 编写。

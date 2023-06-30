@@ -6,9 +6,6 @@ tags: [算法, 编辑距离, Myers, 差分算法, C++]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/90380296.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Algorithms (H) @ Fudan University, spring 2021.

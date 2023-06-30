@@ -7,9 +7,6 @@ tags: [AVG, Galgame, 评测]
 categories: [avg]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/kira-kira.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 <!--more-->

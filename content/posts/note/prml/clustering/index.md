@@ -6,9 +6,6 @@ tags: [PRML, 机器学习, 无监督学习, K-Means, GMM, 聚类算法, NumPy, P
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/87631904.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本次作业利用 NumPy 实现了一个 K-Means 模型和一个 GMM 模型，并利用 Gap Statistic 方法实现了数据集中聚簇数量的自动推测。

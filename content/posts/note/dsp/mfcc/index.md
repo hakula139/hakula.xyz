@@ -6,9 +6,6 @@ tags: [数字信号处理, 端点检测, MFCC, Python]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/95680357.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本实验中，我们实现了一个端点检测算法，并构造了一个 Mel 滤波器组处理信号的能量谱，最后利用离散余弦变换（DCT）得到了信号的 MFCC 系数。

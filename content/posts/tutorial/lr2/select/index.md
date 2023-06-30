@@ -6,9 +6,6 @@ tags: [LR2]
 categories: [tutorial]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/65262289.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本部分将介绍 LR2 的选曲界面。很大一部分游戏内设置都位于这个界面，其中也包括游玩界面的键位设置。

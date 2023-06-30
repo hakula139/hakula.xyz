@@ -6,9 +6,6 @@ tags: [数据结构, 排序]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/77359441.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Data Structures (H) @ Fudan University, fall 2019.

@@ -6,9 +6,6 @@ tags: [可视化, HTML5, Canvas, TypeScript]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/82818849.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本项目利用 HTML5 Canvas，实现了对音乐旋律的可视化，使用 TypeScript 编写。

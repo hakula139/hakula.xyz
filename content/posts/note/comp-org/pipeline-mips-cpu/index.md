@@ -6,9 +6,6 @@ tags: [计组, MIPS, CPU, SystemVerilog]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/75293213.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 32 位流水线 MIPS 指令集 CPU，使用 SystemVerilog 编写。

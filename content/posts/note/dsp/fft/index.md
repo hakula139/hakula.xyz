@@ -6,9 +6,6 @@ tags: [数字信号处理, FFT, Python]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/102184125.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本实验中，我们实现了一个基础的 FFT 算法，使用 Python 编写。

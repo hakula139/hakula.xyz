@@ -6,9 +6,6 @@ tags: [算法, 模糊匹配, C++]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/89979147.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 Algorithms (H) @ Fudan University, spring 2021.

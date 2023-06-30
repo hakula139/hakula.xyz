@@ -7,9 +7,6 @@ categories: [project]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/87013646.webp
 license: CC BY-NC-SA 4.0
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 code:
   maxShownLines: 10
 ---

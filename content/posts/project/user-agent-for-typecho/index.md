@@ -6,9 +6,6 @@ tags: [PHP, Typecho]
 categories: [project]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/39186698.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 一个 Typecho 插件，用于在评论区显示用户使用的操作系统、浏览器信息及相应图标。自己动手，丰衣足食！

@@ -6,9 +6,6 @@ tags: [PRML, 机器学习, KNN, NumPy, Python]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/90743556.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本次作业利用 NumPy 实现了一个 KNN 模型。

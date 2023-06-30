@@ -7,9 +7,6 @@ tags: [AVG, Galgame, 评测]
 categories: [avg]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/yuki.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 个人推过的 AVG 评测数据。客观？不存在的。

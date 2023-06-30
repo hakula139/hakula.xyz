@@ -6,9 +6,6 @@ tags: [数字信号处理, 语音识别, 深度学习, CNN, PyTorch, Python]
 categories: [note]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/94819769.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 本项目实现了一个基础的语音识别系统，可以从 20 个给定单词中识别一段语音是其中的哪个单词。识别系统基于深度学习，以音频信号的 Mel 频率倒谱系数（MFCC）作为特征，通过一个卷积神经网络（CNN）进行训练。

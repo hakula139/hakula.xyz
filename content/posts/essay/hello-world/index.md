@@ -6,9 +6,6 @@ tags: [建站, VPS]
 categories: [essay]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/66372748.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 建站以来第一篇文章，主要是建站后的一点感想，以及建站的整个大致流程。

@@ -6,9 +6,6 @@ tags: [动画, 文艺批评]
 categories: [anime]
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/btr.webp
 license: CC BY-NC-SA 4.0
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 ---
 
 这个时代，我们到底需要怎样的文艺作品？
