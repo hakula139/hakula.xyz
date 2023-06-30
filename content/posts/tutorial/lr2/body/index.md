@@ -36,24 +36,24 @@ license: CC BY-NC-SA 4.0
 
 ## 选曲界面
 
-{{< admonition tip 阅读 >}}
-[LR2 配置教程 - Select](../select)
+{{< admonition abstract 章节 >}}
+[LR2 配置教程 - Select](../select/)
 {{< /admonition >}}
 
 ## 游玩界面
 
-{{< admonition tip 阅读 >}}
-[LR2 配置教程 - Play](../play)
+{{< admonition abstract 章节 >}}
+[LR2 配置教程 - Play](../play/)
 {{< /admonition >}}
 
 ## 结算界面
 
-{{< admonition tip 阅读 >}}
-[LR2 配置教程 - Result](../result)
+{{< admonition abstract 章节 >}}
+[LR2 配置教程 - Result](../result/)
 {{< /admonition >}}
 
 ## 皮肤设置 - WMIX
 
-{{< admonition tip 阅读 >}}
-[LR2 配置教程 - WMIX](../wmix)
+{{< admonition abstract 章节 >}}
+[LR2 配置教程 - WMIX](../wmix/)
 {{< /admonition >}}

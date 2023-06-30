@@ -20,7 +20,7 @@ license: CC BY-NC-SA 4.0
 ## 导言
 
 {{< admonition abstract 章节 >}}
-[《纯粹理性批判》笔记 - 导言](../introduction)
+[《纯粹理性批判》笔记 - 导言](./introduction/)
 {{< /admonition >}}
 
 ## 一、先验要素论
@@ -28,7 +28,7 @@ license: CC BY-NC-SA 4.0
 ### 第一部分 先验感性论
 
 {{< admonition abstract 章节 >}}
-[《纯粹理性批判》笔记 - 先验感性论](../transcendental-aesthetic)
+[《纯粹理性批判》笔记 - 先验感性论](./transcendental-aesthetic/)
 {{< /admonition >}}
 
 ### 第二部分 先验逻辑
@@ -36,7 +36,7 @@ license: CC BY-NC-SA 4.0
 #### 导言 先验逻辑的理念
 
 {{< admonition abstract 章节 >}}
-[《纯粹理性批判》笔记 - 先验逻辑 导言](../transcendental-logic-introduction)
+[《纯粹理性批判》笔记 - 先验逻辑 导言](./transcendental-logic-introduction/)
 {{< /admonition >}}
 
 #### 第一编 先验分析论
