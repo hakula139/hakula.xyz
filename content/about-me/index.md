@@ -12,10 +12,10 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## :briefcase: 工作经历
 
-| 公司                  | 岗位             |              时间 |
-| :-------------------- | :--------------- | ----------------: |
-| 腾讯 / IEG / 天美 T1  | 后台开发         |    2021-07 ~ 至今 |
-| 字节跳动 / 飞书 / RTC | 后台开发（实习） | 2021-03 ~ 2021-06 |
+| 公司 / 部门           | 岗位             | Base |              时间 |
+| :-------------------- | :--------------- | :--- | ----------------: |
+| 腾讯 / IEG / 天美 T1  | 后台开发         | 上海 |    2021-07 ~ 至今 |
+| 字节跳动 / 飞书 / RTC | 后台开发（实习） | 上海 | 2021-03 ~ 2021-06 |
 
 ## :mortar_board: 教育经历
 
@@ -26,10 +26,10 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## :star2: 一些成绩
 
-| 竞赛 / 测试   | 名次 / 分数           |    时间 |
-| :------------ | :-------------------- | ------: |
-| CET-6         | 678 = 249 + 243 + 186 | 2019-06 |
-| 第 34 届 CPhO | 上海赛区 省一 #16     | 2017-09 |
+| 竞赛 / 测试 | 名次 / 分数           |    时间 |
+| :---------- | :-------------------- | ------: |
+| CET-6       | 678 = 249 + 243 + 186 | 2019-06 |
+| #34 CPhO    | 上海赛区 省一 #16     | 2017-09 |
 
 ## :hammer_and_wrench: 技术
 
@@ -95,8 +95,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | PC     | MacBook Pro (16-inch, Apple M1 Pro, 2021) |
 | 键盘   | NiZ Plum x108 EC-Bluetooth 35G Black      |
 | 鼠标   | Razer Basilisk V3                         |
-| 显示器 | DELL P2721Q                               |
-| 显示器 | PHILIPS 278B1                             |
+| 显示器 | DELL P2721Q + PHILIPS 278B1               |
 
 {{< /style >}}
 
@@ -111,7 +110,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | 游戏名                 | ID                             | 水平                                                |              时间 |
 | :--------------------- | :----------------------------- | :-------------------------------------------------- | ----------------: |
 | [発狂 BMS][lr2ir]      | [Hakula♪ (122423)][lr2ir-me]   | SP★05 / 実力: [★13.26][walkure] / [点灯情况][lamps] | 2016-09 ~ 2019-02 |
-| [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率约 95%                    | 2015-11 ~ 2018-01 |
+| [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                    | 2015-11 ~ 2018-01 |
 | [BeatStage][beatstage] | [hakula_1234567][beatstage-me] | 最高 #1                                             | 2013-08 ~ 2018-08 |
 
 [lr2ir]: http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=search&type=insane
@@ -134,9 +133,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 游戏名               | ID                              | 段位                      |           时间 |
-| :------------------- | :------------------------------ | :------------------------ | -------------: |
-| [雀魂 (CN)][majsoul] | [Hakula (68993162)][majsoul-me] | 四麻 雀圣一 / 三麻 雀豪二 | 2019-01 ~ 至今 |
+| 游戏名               | ID                              | 段位                      |              时间 |
+| :------------------- | :------------------------------ | :------------------------ | ----------------: |
+| [雀魂 (CN)][majsoul] | [Hakula (68993162)][majsoul-me] | 四麻 雀圣一 / 三麻 雀豪二 | 2019-01 ~ 2022-10 |
 
 [majsoul]: https://www.maj-soul.net
 [majsoul-me]: https://amae-koromo.sapk.ch/player/697658
@@ -147,9 +146,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 游戏名                      | ID             |           时间 |
-| :-------------------------- | :------------- | -------------: |
-| [明日方舟 (CN, 官服)][arkn] | Hakula (#2397) | 2019-06 ~ 至今 |
+| 游戏名                     | ID             |           时间 |
+| :------------------------- | :------------- | -------------: |
+| [明日方舟 (CN 官服)][arkn] | Hakula (#2397) | 2019-06 ~ 至今 |
 
 [arkn]: https://ak.hypergryph.com
 
