@@ -15,11 +15,11 @@ license: CC BY-NC-SA 4.0
 
 ## 评测数据
 
-{{< image src="assets/2023-05-21.webp" caption="AVG 评测数据" width="100%" >}}
+{{< image src="assets/2023-07-09.webp" caption="AVG 评测数据" width="100%" >}}
 
 主观评价，仅供参考。已抛弃作品不会出现在表中。
 
-当然，数据是冰冷的，还是文字更有参考价值，更能详尽地阐述作品的方方面面。具体评测文章可以参见我的 [B 站专栏][avg-bilibili]，一些吐槽性质的随笔可以关注我的 [B 站动态][posts-bilibili]。
+当然，评分本身不那么重要，具体长评可参见我的 [B 站专栏][avg-bilibili]，偏吐槽性质的短评可关注我的 [B 站动态][posts-bilibili]。
 
 [avg-bilibili]: https://www.bilibili.com/read/readlist/rl228822
 [posts-bilibili]: https://space.bilibili.com/3507112/dynamic
