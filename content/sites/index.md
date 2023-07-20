@@ -32,7 +32,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "HAKULA†UPTIME" "https://stats.uptimerobot.com/r9PvBclkw" "👀 本站服务上线时间监控 - UptimeRobot" "/images/links/92260989.webp" >}}
 
-{{< site "HAKULA†STATUS" "https://status-sg.hakula.xyz" "🇸🇬 本站服务器状态监控 - 腾讯云" "/images/links/98722302.webp" >}}
+{{< site "HAKULA†STATUS (US)" "https://status.hakula.xyz" "🇺🇸 本站服务器状态监控 - CloudCone" "/images/links/78435677.webp" >}}
+
+{{< site "HAKULA†STATUS (SG)" "https://status-sg.hakula.xyz" "🇸🇬 本站服务器状态监控 - 腾讯云" "/images/links/98722302.webp" >}}
 
 ## 其他
 
