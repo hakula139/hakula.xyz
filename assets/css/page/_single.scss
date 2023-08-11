@@ -43,8 +43,13 @@
   }
 
   .content {
+    p {
+      margin: 1rem 0;
+    }
+
     ul,
     ol {
+      margin: 1rem 0;
       padding-left: 2rem;
     }
 
