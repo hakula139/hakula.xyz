@@ -10,6 +10,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 [私だけの舞台 - @MISSILE228](https://www.pixiv.net/artworks/95120332)
 {{< /admonition >}}
 
+<!-- markdownlint-disable MD034 -->
+
 ## 友情链接
 
 {{< site "依田萌绘的故事屋" "https://yoro.xyz" "「桃子汽水味的夏天女孩」" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
@@ -21,6 +23,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 {{< site "帕琪的小屋" "https://pakiknowledge.pages.dev" "不为所动，做更专业的自己" "https://pakiknowledge.pages.dev/img/FlEQiGPaAAEqovl.jpg" >}}
 
 {{< site "Cyorage's Blog" "https://ohayo.cyorage.xyz" "君の夢のために。" "https://cravatar.cn/avatar/2720a87a7d01cfd6834de39d5735b73a?s=200&d=identicon" >}}
+
+{{< site "迷鹿屋" "https://lostdeer.xyz" "一个思想中转站" "https://lostdeer.xyz/wp-content/uploads/2023/08/鹿.png" >}}
 
 ## 本站链接
 
