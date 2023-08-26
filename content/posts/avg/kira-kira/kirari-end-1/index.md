@@ -53,7 +53,7 @@ license: CC BY-NC-SA 4.0
 
 {{< music server="tencent" type="song" id="001uNBU61aHbN4" >}}
 
-{{< admonition note 歌词 >}}
+{{< admonition note "A Song for..." >}}
 
 ♪ 朦胧的世界 / 在屏住呼吸的黑暗里  
 ♪ 只有真实划破天际  
