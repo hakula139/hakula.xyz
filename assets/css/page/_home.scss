@@ -28,9 +28,16 @@
       @include border-radius($card-border-radius);
 
       img {
+        opacity: 0;
         @include border-radius($card-border-radius);
         @include filter(blur(12px));
         @include transition(all 1s ease);
+
+        &.lazyloaded {
+          opacity: 1;
+          @include transform(scale(1.025));
+          will-change: transform;
+        }
       }
     }
 
@@ -119,7 +126,7 @@
 
         .featured-image-preview {
           img {
-            @include transform(scale(1.375));
+            @include transform(scale(1.4));
             @include filter(blur(8px));
             will-change: transform, filter;
           }
