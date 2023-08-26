@@ -30,7 +30,6 @@ outputs:
   page: [HTML, Markdown]
   section: [HTML, RSS]
   taxonomy: [HTML, RSS]
-  taxonomyTerm: [HTML]
 
 privacy:
   twitter:
