@@ -44,12 +44,11 @@
 
   .content {
     p {
-      margin: 1rem 0;
+      margin: .75rem 0;
     }
 
     ul,
     ol {
-      margin: 1rem 0;
       padding-left: 2rem;
     }
 
@@ -64,6 +63,11 @@
     }
 
     @import "../partial/single/code";
+    @import "../partial/single/admonition";
+
+    hr {
+      margin: 1.75rem 0;
+    }
   }
 
   @import "../partial/single/footer";
