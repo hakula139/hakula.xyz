@@ -36,17 +36,12 @@ Lunatic Rave 2 是目前使用人数最多的 BMS 本体。尽管，它未必是
 
 {{< admonition example >}}
 
-[:(fas fa-play-circle):  WMIX - @MsrButterfly 改](https://www.bilibili.com/video/BV1Sx411b7uH)
-
-[:(fas fa-play-circle):  WMIX - @Ennea 改](https://www.bilibili.com/video/BV1hs411L7YY)
-
-[:(fas fa-play-circle):  蓝白块 - @雪凛 制作](https://www.bilibili.com/video/BV1d44y1Y7sC)
-
-[:(fas fa-play-circle):  Seraphic + REMI-S](https://www.bilibili.com/video/BV15s411J7oi)
-
-[:(fas fa-play-circle):  LITONE](https://www.bilibili.com/video/BV1Q4411n7gv)
-
-[:(fas fa-play-circle):  RED BELT](https://www.bilibili.com/video/BV1RW411N7yh)
+- [:(fas fa-play-circle):  WMIX - @MsrButterfly 改](https://www.bilibili.com/video/BV1Sx411b7uH)
+- [:(fas fa-play-circle):  WMIX - @Ennea 改](https://www.bilibili.com/video/BV1hs411L7YY)
+- [:(fas fa-play-circle):  蓝白块 - @雪凛 制作](https://www.bilibili.com/video/BV1d44y1Y7sC)
+- [:(fas fa-play-circle):  Seraphic + REMI-S](https://www.bilibili.com/video/BV15s411J7oi)
+- [:(fas fa-play-circle):  LITONE](https://www.bilibili.com/video/BV1Q4411n7gv)
+- [:(fas fa-play-circle):  RED BELT](https://www.bilibili.com/video/BV1RW411N7yh)
 
 {{< /admonition >}}
 

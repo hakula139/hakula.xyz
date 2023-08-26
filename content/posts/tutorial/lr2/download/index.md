@@ -22,9 +22,8 @@ license: CC BY-NC-SA 4.0
 
 {{< admonition success "LR2 整合包" >}}
 
-[:(fas fa-download):  本地下载](https://files.hakula.xyz/LR2)
-
-[:(fas fa-cloud):  百度云](https://pan.baidu.com/s/17J8SD82VemKUS0OW2c3y-w) - **fcn6**
+- [:(fas fa-download):  本地下载](https://files.hakula.xyz/LR2)
+- [:(fas fa-cloud):  百度云](https://pan.baidu.com/s/17J8SD82VemKUS0OW2c3y-w) - **fcn6**
 
 由 @Hakula 整合，最后更新：2018-09-23
 
