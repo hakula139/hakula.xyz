@@ -115,11 +115,10 @@ cdn:
   data: jsdelivr.yml
 
 preconnect:
-  - https://cdn.jsdelivr.net
   - https://cravatar.cn
+  - https://fastly.jsdelivr.net
   - https://hakula-1257872502.file.myqcloud.com
   - https://twikoo-api.hakula.xyz
 
 prefetch:
-  - https://cdn.staticfile.org
   - https://thirdqq.qlogo.cn
