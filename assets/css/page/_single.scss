@@ -62,6 +62,11 @@
       }
     }
 
+    blockquote {
+      border-left-width: .25rem;
+      padding: .25rem 1rem;
+    }
+
     @import "../partial/single/code";
     @import "../partial/single/admonition";
 
