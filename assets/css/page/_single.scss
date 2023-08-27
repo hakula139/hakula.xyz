@@ -32,8 +32,12 @@
     }
 
     img {
+      @include transition(all 1.25s ease);
+
       &.lazyloaded {
+        @include transform(scale(1.025));
         @include object-fit(cover);
+        will-change: transform;
       }
     }
   }

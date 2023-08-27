@@ -1,0 +1,11 @@
+img {
+  @include transition(opacity 0.5s ease);
+
+  &.lazyload, &.lazyloading {
+    opacity: 0;
+  }
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}

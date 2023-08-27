@@ -24,12 +24,12 @@
     .site-logo {
       @include object-fit(cover);
       @include border-radius(100%);
-      @include transition(transform 0.25s ease-out);
+      @include transition(all 0.25s ease-out);
     }
   }
 
   &:hover {
-    @include transform(scale(1.02));
+    @include transform(scale(1.025));
 
     .site-logo {
       @include transform(rotate(30deg));
