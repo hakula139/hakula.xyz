@@ -334,7 +334,7 @@ Fast / Slow 指示开启后，默认显示位置为 TYPE_A。
 背景动画开关。
 
 {{< admonition bug >}}
-如果你确定谱面有自带 BGA，但显示为黑屏，参见 [FAQ](../faq/#8-bga-黑屏或报错)。
+如果你确定谱面有自带 BGA，但显示为黑屏，参见 [FAQ](../faq/#26-bga-黑屏或报错)。
 {{< /admonition >}}
 
 #### BGA SIZE
@@ -412,7 +412,7 @@ BGA 显示尺寸设置。
 {{< admonition bug >}}
 
 - [G-BATTLE](#g-battle) 模式下回放可能保存失败。
-- 段位 / Course 的回放可能保存失败，解决方案参见 [FAQ](../faq/#5-段位回放没有保存)。
+- 段位 / Course 的回放可能保存失败，解决方案参见 [FAQ](../faq/#23-段位回放没有保存)。
 
 {{< /admonition >}}
 
@@ -695,7 +695,7 @@ IR 即当前 Internet Ranking 的连接情况。
 
 [^f2]: 按住 F2 键后，按 :arrow_up: :arrow_down: 键移动光标，:arrow_left: :arrow_right: 键调整选项，具体效果参见下方的日语说明。最后一个选项 LUNARIS 即 LUNAtic rave + tetRIS——你甚至可以 [在 LR2 里玩 Tetris][lunaris]！其他音游做得到吗？方块下落速度与 BPM 和 HI-SPEED 正相关。
 [^f3]: 按住 F3 键后，按 :arrow_up: :arrow_down: 键调整谱面难度，:arrow_left: :arrow_right: 键调整谱面等级。
-[^f7]: 由于没有 FPS 限制，LR2 基本会跑满 GPU，帧率上千不是梦，真实显卡跑分游戏。手机测评跑原神，以后咱 PC 就跑 LR2。如果发现全屏后 FPS 锁定为 60 帧，参见 [FAQ](../faq/#6-笔记本全屏锁帧)。
+[^f7]: 由于没有 FPS 限制，LR2 基本会跑满 GPU，帧率上千不是梦，真实显卡跑分游戏。手机测评跑原神，以后咱 PC 就跑 LR2。如果发现全屏后 FPS 锁定为 60 帧，参见 [FAQ](../faq/#24-笔记本全屏锁帧)。
 [^f8]: 参见 [启动器](../launcher/#song-reload) 篇。
 
 ### EXTRA MODE
