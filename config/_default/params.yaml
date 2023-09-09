@@ -66,21 +66,28 @@ home:
     paginate: 8
 
 social:
-  QQ:
-    Weight: -1
-    Url: /images/social/qq.webp
-    Title: QQ
-    Newtab: true
-    Icon:
-      Class: fab fa-qq fa-fw
-  GitHub: hakula139
-  Linkedin: hakula
-  Telegram: hakulaTG
-  Steam: hakula139
-  Zhihu: hakula139
-  Bilibili: 3507112
-  Email: i@hakula.xyz
-  RSS: true
+  qq:
+    weight: -1
+    url: /images/social/qq.webp
+    title: QQ
+    newtab: true
+    icon:
+      class: fab fa-qq fa-fw
+  github: hakula139
+  linkedin: hakula
+  telegram: hakulaTG
+  steam: hakula139
+  zhihu: hakula139
+  bilibili: 3507112
+  neodb:
+    weight: 56
+    id: hakula139@mastodon.social
+    prefix: https://neodb.social/users/
+    title: NeoDB
+    icon:
+      class: fab fa-mastodon fa-fw
+  email: i@hakula.xyz
+  rss: true
 
 page:
   twemoji: false
