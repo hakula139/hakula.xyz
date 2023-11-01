@@ -267,14 +267,18 @@ sudo swapon -s
 
 #### 创建 Swap 文件
 
-输入以下命令创建并启用 Swap 文件（1 GB）：
+输入以下命令创建并启用 Swap 文件（4 GB）：
 
 ```bash
-sudo fallocate -l 1G /swapfile
+sudo dd if=/dev/zero of=/swapfile count=4 bs=1G
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 ```
+
+{{< admonition warning 注意 >}}
+创建 Swap 文件建议使用 `dd` 命令，而不要使用 `fallocate` 命令，否则生成的 Swap 文件可能有洞。参见 [swapon(8) § Files with holes - Arch manual pages](https://man.archlinux.org/man/swapon.8#Files_with_holes)。
+{{< /admonition >}}
 
 查看效果：
 
@@ -302,7 +306,7 @@ sudo rm -rf /swapfile
 同时移除 `/etc/fstab` 文件里之前附加的内容（如果有）。
 
 {{< admonition tip 参考 >}}
-[Swap - ArchWiki](https://wiki.archlinux.org/index.php/Swap)
+[Swap - ArchWiki](https://wiki.archlinux.org/title/Swap)
 {{< /admonition >}}
 
 ## 一些限制
