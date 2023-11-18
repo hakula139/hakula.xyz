@@ -78,7 +78,7 @@ social:
   telegram: hakulaTG
   steam: hakula139
   zhihu: hakula139
-  bilibili: 3507112
+  douban: hakula139
   neodb:
     weight: 56
     id: hakula139@mastodon.social
@@ -86,6 +86,7 @@ social:
     title: NeoDB
     icon:
       class: fab fa-mastodon fa-fw
+  bilibili: 3507112
   email: i@hakula.xyz
   rss: true
 
