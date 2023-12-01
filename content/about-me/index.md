@@ -156,4 +156,6 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## :headphones: 音乐
 
+- [我喜欢 - QQ 音乐](https://y.qq.com/n/ryqq/profile/like/song?uin=oK457i-Powol7c**)
+
 {{< music server="tencent" type="playlist" id="2528927373" list-max-height="330px" >}}
