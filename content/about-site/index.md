@@ -56,7 +56,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | 2022‑02‑10     | 接入 [Twikoo] 评论系统，原站所有评论待转移。                                                                                             |
 | 2022‑01‑25     | 接入 [Algolia] 实现站内搜索功能。                                                                                                        |
 | 2022‑01‑24     | 接入 [Cloudflare Pages][cf-pages] 实现网站 Serverless 部署。                                                                             |
-| 2022‑01‑17     | 新站迁移计划启动，弃用 [Typecho]，改用 [Hugo] 框架。所有文章重新审校并优化排版。                                                         |
+| **2022‑01‑17** | 新站迁移计划启动，弃用 [Typecho]，改用 [Hugo] 框架。所有文章重新审校并优化排版。                                                         |
 | 2021‑09‑01     | 由于被 Pixiv 官方封禁，现停止维护 Pixiv 镜像站。                                                                                         |
 | 2020‑12‑29     | 服务器迁移完毕。CPU 配置从 1 核升级至 2 核，年付 `$ 16`。弃用 [gdrive]，改用 [rclone] 定期全量备份到 [腾讯云 COS][COS]。                 |
 | 2020‑01‑14     | 由于免费域名 .ml 被 Freenom 回收，且兴趣已过，现停止维护 Google 和 Wikipedia 镜像站，仅维护 Pixiv 镜像站。                               |
