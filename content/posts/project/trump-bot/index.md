@@ -27,7 +27,7 @@ Natural Language Processing (H) @ Fudan University, fall 2020.
 
 ## 1 选题动机
 
-文本生成（Text Generation）是自然语言处理（Natural Language Processing, NLP）的一个重要研究领域，有着广阔的应用前景。根据文本数据集的特征，我们可以训练 AI 生成有着特定风格的文本。这里我们选择以第 45 任美国总统特朗普（Donald Trump）的推特账号 [@realDonaldTrump][trump-twitter] 作为模仿对象，有以下四点原因：
+文本生成（Text Generation）是自然语言处理（Natural Language Processing, NLP）的一个重要研究领域，有着广阔的应用前景。根据文本数据集的特征，我们可以训练 AI 生成有着特定风格的文本。这里我们选择以第 45 任美国总统特朗普（Donald Trump）的推特账号 [@realDonaldTrump] 作为模仿对象，有以下四点原因：
 
 1. 特朗普的推特发送频率非常之高，有充足的文本数据用于训练。
 2. 特朗普的所有推特数据有公开的获取渠道，可以直接下载使用。
