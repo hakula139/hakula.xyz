@@ -24,7 +24,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "Cyorage's Blog" "https://ohayo.cyorage.xyz" "君の夢のために。" "https://cravatar.cn/avatar/2720a87a7d01cfd6834de39d5735b73a?s=200&d=identicon" >}}
 
-{{< site "迷鹿屋" "https://lostdeer.xyz" "一个思想中转站" "https://lostdeer.xyz/wp-content/uploads/2023/08/鹿.png" >}}
+{{< site "迷鹿屋" "https://lostdeer.xyz" "一个思想中转站" "/images/links/lostdeer.webp" >}}
 
 ## 本站链接
 
