@@ -9,13 +9,13 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 license: CC BY-NC-SA 4.0
 ---
 
-个人推过的 AVG 评测数据。客观？不存在的。
+个人推过的 AVG 评测数据。
 
 <!--more-->
 
 ## 评测数据
 
-{{< image src="assets/2023-11-26.webp" caption="AVG 评测数据" width="100%" >}}
+{{< image src="assets/2024-01-15.webp" caption="AVG 评测数据" width="100%" >}}
 
 主观评价，仅供参考。已抛弃作品不会出现在表中。
 

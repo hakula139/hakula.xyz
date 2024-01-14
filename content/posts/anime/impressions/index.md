@@ -9,7 +9,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 license: CC BY-NC-SA 4.0
 ---
 
-个人看过的动画评测数据。客观？不存在的。
+个人看过的动画评测数据。
 
 <!--more-->
 
