@@ -155,7 +155,7 @@ void swtch(struct context**, struct context*);
 与 trap frame 对比，请说明为什么 trap frame 需要存储这么多信息？
 {{< /admonition >}}
 
-因为 trap 过程不是函数调用，没有 caller 和 callee 的说法，不遵循也无法遵循 PCS。例如系统中断时，内核可以直接中断用户程序，用户程序并不会有机会提前保存所谓的 caller-saved 寄存器，但这些数据同样不应该在 trap 后被内核程序损坏。因此 trap frame 需要存储所有通用寄存器，才能保证之后回到用户态时可以正确还原用户程序的数据。
+因为 trap 过程不是函数调用，没有 caller 和 callee 的说法，不遵循也无法遵循 PCS。例如系统中断时，内核可以直接中断用户程序，用户程序并不会有机会提前保存所谓的 callee-saved 寄存器，但这些数据同样不应该在 trap 后被内核程序损坏。因此 trap frame 需要存储所有通用寄存器，才能保证之后回到用户态时可以正确还原用户程序的数据。
 
 ##### 1.3.4 问题四
 
