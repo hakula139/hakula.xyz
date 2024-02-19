@@ -16,13 +16,13 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "依田萌绘的故事屋" "https://yoro.xyz" "「桃子汽水味的夏天女孩」" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
 
-{{< site "Ramen's Box" "https://blog.lxdlam.com" "Hi, here is Ramen!" "https://cravatar.cn/avatar/4d675e65920d5b1eca1f5b9079ea3bf5?s=200&d=identicon" >}}
+{{< site "Ramen's Box" "https://blog.lxdlam.com" "Hi, here is Ramen!" "https://cdn.sep.cc/avatar/4d675e65920d5b1eca1f5b9079ea3bf5?s=200&d=identicon" >}}
 
 {{< site "Izumi 的个人主页" "https://izumimorin.xyz" "Izumi 的个人主页" "/images/links/izumi.webp" >}}
 
 {{< site "帕琪的小屋" "https://pakiknowledge.pages.dev" "不为所动，做更专业的自己" "https://pakiknowledge.pages.dev/img/FlEQiGPaAAEqovl.jpg" >}}
 
-{{< site "Cyorage's Blog" "https://ohayo.cyorage.xyz" "君の夢のために。" "https://cravatar.cn/avatar/2720a87a7d01cfd6834de39d5735b73a?s=200&d=identicon" >}}
+{{< site "Cyorage's Blog" "https://ohayo.cyorage.xyz" "君の夢のために。" "https://cdn.sep.cc/avatar/2720a87a7d01cfd6834de39d5735b73a?s=200&d=identicon" >}}
 
 {{< site "迷鹿屋" "https://lostdeer.xyz" "一个思想中转站" "/images/links/lostdeer.webp" >}}
 
