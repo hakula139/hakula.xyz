@@ -270,7 +270,7 @@ sudo swapon -s
 输入以下命令创建并启用 Swap 文件（4 GB）：
 
 ```bash
-sudo dd if=/dev/zero of=/swapfile count=4 bs=1G
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4k status=progress
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -299,8 +299,8 @@ sudo free -h
 之后如果想禁用 Swap，可输入以下命令删除并禁用 Swap 文件：
 
 ```bash
-sudo swapoff -a
-sudo rm -rf /swapfile
+sudo swapoff /swapfile
+sudo rm -f /swapfile
 ```
 
 同时移除 `/etc/fstab` 文件里之前附加的内容（如果有）。
