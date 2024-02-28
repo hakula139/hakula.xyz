@@ -64,7 +64,7 @@ license: CC BY-NC-SA 4.0
 在打开游戏前，推荐先使用 Locale Emulator 将 LR2 转到日本区（可选）。
 
 {{< admonition tip 参考 >}}
-[Locale Emulator 使用教程](https://pooi.moe/Locale-Emulator)
+[Locale Emulator 使用教程](https://xupefei.github.io/Locale-Emulator)
 {{< /admonition >}}
 
 ### 全局转区
