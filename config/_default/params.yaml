@@ -4,8 +4,6 @@ description: Hakula 的个人站！
 defaultTheme: dark
 gitRepo: https://github.com/hakula139/hakula.xyz
 fingerprint: sha256
-images:
-  - /images/hotlink-ok/avatar-lite.webp
 
 app:
   title: Hakula
