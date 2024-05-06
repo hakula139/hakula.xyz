@@ -30,7 +30,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区，感谢各位支持！" "/images/links/94964162.webp" >}}
 
-{{< site "HAKULA†BMS (Mirror)" "https://bms.cosmiccat.top" "🎶 本站 BMS 区的镜像站 - @anshi" "/images/links/98202873.webp" >}}
+{{< site "HAKULA†BMS (Mirror)" "https://bms.iidx.ca" "🎶 本站 BMS 区的镜像站 - @anshi" "/images/links/98202873.webp" >}}
 
 {{< site "HAKULA†DRIVE" "https://files.hakula.xyz" "📦 本站文件库，放置了一些杂物 - h5ai" "/images/links/94991375.webp" >}}
 

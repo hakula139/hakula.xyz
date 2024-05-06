@@ -58,7 +58,7 @@ license: CC BY-NC-SA 4.0
 
 一些资源可能没人更新了，可以到 [这里](https://djkuroakari.github.io) 查看跟进更新。
 
-不存在限速 / 限流问题。部分地区如访问速度较慢，可以试试 [镜像站](https://bms.cosmiccat.top)（不定时更新、不保证可用性）。
+不存在限速 / 限流问题。部分地区如访问速度较慢，可以试试 [镜像站](https://bms.iidx.ca)（不定时更新、不保证可用性）。
 
 不建议使用 OneDrive 自带的批量打包下载功能，下载速度通常会很慢，而且中途下载失败或者下完后文件损坏就要全部重下，也违背了分卷压缩的初衷。建议使用 [IDM](https://www.internetdownloadmanager.com) / [FDM](https://www.freedownloadmanager.org) 等下载工具在镜像站里抓取全部链接，然后再批量下载。注意限制线程数。
 
