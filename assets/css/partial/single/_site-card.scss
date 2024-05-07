@@ -1,9 +1,14 @@
+.site-link {
+  font-size: 0;
+  line-height: 1.25rem;
+}
+
 .site-card {
   display: inline-block;
   box-sizing: border-box;
-  width: calc(50% - .75rem);
+  width: calc(50% - 1rem);
   padding: 1rem;
-  margin: .25rem;
+  margin: .25rem .5rem;
   overflow: hidden;
   color: $global-font-color;
   background-color: darken($global-background-color, 6%);
@@ -43,7 +48,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       font-size: 1.125rem;
-      line-height: 1.5em;
+      line-height: 1.5rem;
       margin: .25rem 0 .5rem;
     }
 
@@ -53,7 +58,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       font-size: .875rem;
-      line-height: 1.5em;
+      line-height: 1.5rem;
     }
   }
 }
@@ -61,5 +66,6 @@
 @media only screen and (max-width: 680px) {
   .site-card {
     width: 100%;
+    margin: .25rem 0;
   }
 }
