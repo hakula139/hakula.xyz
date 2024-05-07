@@ -73,17 +73,7 @@ SP 発狂 BMS 玩家限定，「实力值推定」需要达成至少一个 SP★
 
 #### 更新数据
 
-使用本功能前需要先更新 IR 数据，以下提供两种方案。
-
-##### 一键更新
-
-> [リコメンド更新 URL 発行 - pasta-soft](https://pasta-soft.com/bms/recommend.php)
-
-输入 LR2ID 后，点击 Show 即可。
-
-##### Bookmarklet
-
-首先将以下内容保存为浏览器书签：
+使用本功能前需要先更新 IR 数据。首先将以下内容保存为浏览器书签：
 
 ```js
 javascript: (function () {
@@ -154,21 +144,13 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 
 ## 点灯情况
 
-一些网站能够很直观地统计展示玩家各个等级的歌曲通过情况。
-
-### Notepara
+一些网站能够很直观地统计展示玩家各个等级的点灯情况，例如 Notepara：
 
 > [SP Insane 1 - Notepara](https://www.notepara.com/bms_table/insane1/122423)
 
 除了发狂表外，Notepara 还支持各种第三方表。
 
-{{< image src="assets/lamps/notepara.webp" caption="Notepara" >}}
-
-### pasta-soft
-
-> [BMS Lamp Graph - pasta-soft](https://pasta-soft.com/bms/lamp.php?id=122423&type=insane)
-
-{{< image src="assets/lamps/pasta-soft.webp" caption="Notepara" >}}
+{{< image src="assets/notepara.webp" caption="Notepara" >}}
 
 ## 谱面预览
 

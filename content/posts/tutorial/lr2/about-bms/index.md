@@ -54,7 +54,7 @@ license: CC BY-NC-SA 4.0
 
 [:(fas fa-cloud):  HAKULA†BMS](https://bms.hakula.xyz)
 
-感谢 @anshi 提供网盘支持，感谢 BMS 社群所有资源整理者的付出！:heart:
+感谢 @anshi 提供网盘支持，感谢 BMS 社区所有资源整理者的付出！:heart:
 
 一些资源可能没人更新了，可以到 [这里](https://djkuroakari.github.io) 查看跟进更新。
 
