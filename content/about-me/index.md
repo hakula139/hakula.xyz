@@ -14,7 +14,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 公司 / 部门           | 岗位             | Base |              时间 |
 | :-------------------- | :--------------- | :--- | ----------------: |
-| 腾讯 / IEG / 天美 T1  | 后台开发         | 上海 |    2021-07 ~ 至今 |
+| 佳期投资              | DevOps           | 上海 |    2024-05 ~ 至今 |
+| 腾讯 / IEG / 天美 T1  | 后台开发         | 上海 | 2021-07 ~ 2024-05 |
 | 字节跳动 / 飞书 / RTC | 后台开发（实习） | 上海 | 2021-03 ~ 2021-06 |
 
 ## :mortar_board: 教育经历
@@ -92,10 +93,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 硬件   | 设备                                      |
 | :----- | :---------------------------------------- |
-| PC     | MacBook Pro (16-inch, Apple M1 Pro, 2021) |
 | 键盘   | NiZ Plum x108 EC-Bluetooth 35G Black      |
 | 鼠标   | Razer Basilisk V3                         |
-| 显示器 | DELL P2721Q + PHILIPS 278B1               |
 
 {{< /style >}}
 
