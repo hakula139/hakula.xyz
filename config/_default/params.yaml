@@ -121,7 +121,7 @@ cdn:
   data: jsdelivr.yml
 
 preconnect:
-  - https://cdn.sep.cc
+  - https://gravatar.loli.net
   - https://fastly.jsdelivr.net
   - https://hakula-1257872502.file.myqcloud.com
   - https://twikoo-api.hakula.xyz
