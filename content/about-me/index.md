@@ -25,9 +25,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | 复旦大学       | 计算机科学与技术（拔尖计划） | 2018-09 ~ 2022-07 |
 | 华东师大二附中 | 基础科学试验班               | 2015-09 ~ 2018-06 |
 
-## :star2: 一些成绩
+## :star2: 历史成绩
 
-| 竞赛 / 测试 | 名次 / 分数           |    时间 |
+| 竞赛 / 测试 | 名次 / 成绩           |    时间 |
 | :---------- | :-------------------- | ------: |
 | CET-6       | 678 = 249 + 243 + 186 | 2019-06 |
 | #34 CPhO    | 上海赛区 省一 #16     | 2017-09 |
@@ -40,11 +40,10 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 [{{< image src="assets/icons/cpp.svg" alt="C++" width="50" height="50" linked=false >}}](https://www.cplusplus.com)
 [{{< image src="assets/icons/c.svg" alt="C" width="50" height="50" linked=false >}}](https://www.iso.org/standard/74528.html)
-[{{< image src="assets/icons/ts.svg" alt="TypeScript" width="50" height="50" linked=false >}}](https://www.typescriptlang.org)
-[{{< image src="assets/icons/js.svg" alt="JavaScript" width="50" height="50" linked=false >}}](https://www.javascript.com)
 [{{< image src="assets/icons/python.svg" alt="Python" width="50" height="50" linked=false >}}](https://www.python.org)
 [{{< image src="assets/icons/go.svg" alt="Go" width="50" height="50" linked=false >}}](https://golang.org)
-[{{< image src="assets/icons/protobuf.svg" alt="Protobuf" width="50" height="50" linked=false >}}](https://developers.google.com/protocol-buffers)
+[{{< image src="assets/icons/ts.svg" alt="TypeScript" width="50" height="50" linked=false >}}](https://www.typescriptlang.org)
+[{{< image src="assets/icons/js.svg" alt="JavaScript" width="50" height="50" linked=false >}}](https://www.javascript.com)
 [{{< image src="assets/icons/java.svg" alt="Java" width="50" height="50" linked=false >}}](https://www.java.com)
 [{{< image src="assets/icons/csharp.svg" alt="C#" width="50" height="50" linked=false >}}](https://docs.microsoft.com/en-us/dotnet/csharp)
 [{{< image src="assets/icons/sv.svg" alt="SystemVerilog" width="50" height="50" linked=false >}}](https://ieeexplore.ieee.org/document/8299595)
@@ -91,10 +90,10 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 硬件   | 设备                                      |
-| :----- | :---------------------------------------- |
-| 键盘   | NiZ Plum x108 EC-Bluetooth 35G Black      |
-| 鼠标   | Razer Basilisk V3                         |
+| 硬件 | 设备                                 |
+| :--- | :----------------------------------- |
+| 键盘 | NiZ Plum x108 EC-Bluetooth 35G Black |
+| 鼠标 | Razer Basilisk V3                    |
 
 {{< /style >}}
 
@@ -106,16 +105,16 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 游戏名                 | ID                             | 水平                                                |              时间 |
-| :--------------------- | :----------------------------- | :-------------------------------------------------- | ----------------: |
-| [発狂 BMS][lr2ir]      | [Hakula♪ (122423)][lr2ir-me]   | SP★05 / 実力: [★13.26][walkure] / [点灯情况][lamps] | 2016-09 ~ 2019-02 |
-| [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                    | 2015-11 ~ 2018-01 |
-| [BeatStage][beatstage] | [hakula_1234567][beatstage-me] | 最高 #1                                             | 2013-08 ~ 2018-08 |
+| 游戏名                 | ID                             | 段位 / 实力                                               |              时间 |
+| :--------------------- | :----------------------------- | :-------------------------------------------------------- | ----------------: |
+| [発狂 BMS][lr2ir]      | [Hakula♪ (122423)][lr2ir-me]   | 准 SP★06 / Walkure: [★13.26][walkure] / [点灯情况][lamps] | 2016-09 ~ 2019-02 |
+| [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                          | 2015-11 ~ 2018-01 |
+| [BeatStage][beatstage] | [hakula_1234567][beatstage-me] | 最高 #1                                                   | 2013-08 ~ 2018-08 |
 
 [lr2ir]: http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=search&type=insane
 [lr2ir-me]: http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=mypage&playerid=122423
 [walkure]: http://walkure.net/hakkyou/recommended_mypage.html?playerid=122423
-[lamps]: http://www.notepara.com/bms_table/insane1/122423
+[lamps]: https://www.notepara.com/bms_table/insane1/122423
 [llsif]: https://lovelive-sif.bushimo.jp
 [beatstage]: https://www.beatstage.com
 [beatstage-me]: https://www.beatstage.com/profile/16666
@@ -156,5 +155,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 ## :headphones: 音乐
 
 - [我喜欢 - QQ 音乐](https://y.qq.com/n/ryqq/profile/like/song?uin=oK457i-Powol7c**)
+
+{{< admonition warning 注意 >}}
+部分曲目由于需要 VIP，无法正常播放。暂无解决方案。
+{{< /admonition >}}
 
 {{< music server="tencent" type="playlist" id="2528927373" list-max-height="330px" >}}
