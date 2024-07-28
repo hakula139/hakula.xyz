@@ -152,14 +152,6 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 
 {{< image src="assets/notepara.webp" caption="Notepara" >}}
 
-## 谱面预览
-
-> [BMS Score Viewer](http://www.ribbit.xyz/bms/score)
-
-BMS 谱面在线预览，支持上传谱面 / 搜索已上传的谱面。
-
-{{< image src="assets/score-viewer.webp" caption="谱面艺术欣赏" >}}
-
 ## BeMusicSeeker
 
 BeMusicSeeker 是一个用于管理 BMS 曲包、导入第三方表的辅助工具。别再用 GLAssist 啦！

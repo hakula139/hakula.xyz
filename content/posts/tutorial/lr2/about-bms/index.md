@@ -115,11 +115,11 @@ license: CC BY-NC-SA 4.0
 
 {{< /admonition >}}
 
-{{< admonition example "BMS 搜索引擎" false >}}
+{{< admonition example "Konmai 音游下载站" false >}}
 
-[:(fas fa-search):  BMS Search Alternative](http://www.ribbit.xyz/bms/search)
+[:(fas fa-magnifying-glass):  BMS Package Downloader](https://616.sb/bms)
 
-在 LR2IR 里检索。如果这里也找不到的话，一般可能就较难下载到了。入手困難 :cry:
+由知名网站 [616.sb](https://616.sb) 提供的 BMS 散包搜索下载站（试运行），可用于查漏补缺。遇到问题可联系 [@Konmai音游下载站](https://space.bilibili.com/1227019768)。
 
 {{< /admonition >}}
 
