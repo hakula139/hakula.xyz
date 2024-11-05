@@ -14,7 +14,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 公司 / 部门           | 岗位             | Base |              时间 |
 | :-------------------- | :--------------- | :--- | ----------------: |
-| 佳期投资              | DevOps           | 上海 |    2024-05 ~ 至今 |
+| 佳期投资 / Tech       | DevOps           | 上海 |    2024-05 ~ 至今 |
 | 腾讯 / IEG / 天美 T1  | 后台开发         | 上海 | 2021-07 ~ 2024-05 |
 | 字节跳动 / 飞书 / RTC | 后台开发（实习） | 上海 | 2021-03 ~ 2021-06 |
 
@@ -39,37 +39,33 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 ### 编程语言
 
 [{{< image src="assets/icons/cpp.svg" alt="C++" width="50" height="50" linked=false >}}](https://www.cplusplus.com)
-[{{< image src="assets/icons/c.svg" alt="C" width="50" height="50" linked=false >}}](https://www.iso.org/standard/74528.html)
 [{{< image src="assets/icons/python.svg" alt="Python" width="50" height="50" linked=false >}}](https://www.python.org)
 [{{< image src="assets/icons/go.svg" alt="Go" width="50" height="50" linked=false >}}](https://golang.org)
 [{{< image src="assets/icons/ts.svg" alt="TypeScript" width="50" height="50" linked=false >}}](https://www.typescriptlang.org)
-[{{< image src="assets/icons/js.svg" alt="JavaScript" width="50" height="50" linked=false >}}](https://www.javascript.com)
 [{{< image src="assets/icons/java.svg" alt="Java" width="50" height="50" linked=false >}}](https://www.java.com)
-[{{< image src="assets/icons/csharp.svg" alt="C#" width="50" height="50" linked=false >}}](https://docs.microsoft.com/en-us/dotnet/csharp)
-[{{< image src="assets/icons/sv.svg" alt="SystemVerilog" width="50" height="50" linked=false >}}](https://ieeexplore.ieee.org/document/8299595)
 
 ### 技术栈
 
 [{{< image src="assets/icons/vue.svg" alt="Vue" width="50" height="50" linked=false >}}](https://vuejs.org)
 [{{< image src="assets/icons/tailwindcss.svg" alt="Tailwind CSS" width="50" height="50" linked=false >}}](https://tailwindcss.com)
 [{{< image src="assets/icons/nodejs.svg" alt="Node.js" width="50" height="50" linked=false >}}](https://nodejs.org)
-[{{< image src="assets/icons/flask.svg" alt="Flask" width="50" height="50" linked=false >}}](https://flask.palletsprojects.com)
 [{{< image src="assets/icons/mysql.svg" alt="MySQL" width="50" height="50" linked=false >}}](https://www.mysql.com)
 [{{< image src="assets/icons/mongodb.svg" alt="MongoDB" width="50" height="50" linked=false >}}](https://www.mongodb.com)
 [{{< image src="assets/icons/redis.svg" alt="Redis" width="50" height="50" linked=false >}}](https://redis.io)
+[{{< image src="assets/icons/docker.svg" alt="Docker" width="50" height="50" linked=false >}}](https://www.docker.com)
+[{{< image src="assets/icons/kubernetes.svg" alt="Kubernetes" width="50" height="50" linked=false >}}](https://kubernetes.io)
 [{{< image src="assets/icons/socketio.svg" alt="Socket.IO" width="50" height="50" linked=false >}}](https://socket.io)
-[{{< image src="assets/icons/unity.svg" alt="Unity" width="50" height="50" linked=false >}}](https://unity.com)
-[{{< image src="assets/icons/pytorch.svg" alt="PyTorch" width="50" height="50" linked=false >}}](https://pytorch.org)
 [{{< image src="assets/icons/elastic.svg" alt="Elasticsearch" width="50" height="50" linked=false >}}](https://www.elastic.co)
 [{{< image src="assets/icons/prometheus.svg" alt="Prometheus" width="50" height="50" linked=false >}}](https://prometheus.io)
 [{{< image src="assets/icons/grafana.svg" alt="Grafana" width="50" height="50" linked=false >}}](https://grafana.com)
+[{{< image src="assets/icons/pytorch.svg" alt="PyTorch" width="50" height="50" linked=false >}}](https://pytorch.org)
+[{{< image src="assets/icons/unity.svg" alt="Unity" width="50" height="50" linked=false >}}](https://unity.com)
 
 ### 开发环境
 
-[{{< image src="assets/icons/debian.svg" alt="Debian" width="50" height="50" linked=false >}}](https://www.debian.org)
-[{{< image src="assets/icons/centos.svg" alt="CentOS" width="50" height="50" linked=false >}}](https://www.centos.org)
+[{{< image src="assets/icons/ubuntu.svg" alt="Ubuntu" width="50" height="50" linked=false >}}](https://ubuntu.com)
 [{{< image src="assets/icons/apple.svg" alt="macOS" width="50" height="50" linked=false >}}](https://www.apple.com/macos)
-[{{< image src="assets/icons/vscode.svg" alt="VS Code" width="50" height="50" linked=false >}}](https://code.visualstudio.com)
+[{{< image src="assets/icons/vscode.svg" alt="Visual Studio Code" width="50" height="50" linked=false >}}](https://code.visualstudio.com)
 
 ## :desktop_computer: 设备
 
@@ -108,10 +104,12 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 游戏名                 | ID                             | 段位 / 实力                                               |              时间 |
 | :--------------------- | :----------------------------- | :-------------------------------------------------------- | ----------------: |
+| [Arcaea][arcaea]       | Hakula (047 570 647)           | ptt: 11.87 (不定期更新)                                   |    2024-07 ~ 至今 |
 | [発狂 BMS][lr2ir]      | [Hakula♪ (122423)][lr2ir-me]   | 准 SP★06 / Walkure: [★13.26][walkure] / [点灯情况][lamps] | 2016-09 ~ 2019-02 |
 | [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                          | 2015-11 ~ 2018-01 |
 | [BeatStage][beatstage] | [hakula_1234567][beatstage-me] | 最高 #1                                                   | 2013-08 ~ 2018-08 |
 
+[arcaea]: https://arcaea.lowiro.com
 [lr2ir]: http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=search&type=insane
 [lr2ir-me]: http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=mypage&playerid=122423
 [walkure]: http://walkure.net/hakkyou/recommended_mypage.html?playerid=122423
