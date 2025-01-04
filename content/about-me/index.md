@@ -104,7 +104,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 游戏名                 | ID                             | 段位 / 实力                                               |              时间 |
 | :--------------------- | :----------------------------- | :-------------------------------------------------------- | ----------------: |
-| [Arcaea][arcaea]       | Hakula (047 570 647)           | ptt: 11.87 (不定期更新)                                   |    2024-07 ~ 至今 |
+| [Arcaea][arcaea]       | Hakula (047 570 647)           | ptt: 12.00 (2025-01-04)                                   |    2024-07 ~ 至今 |
 | [発狂 BMS][lr2ir]      | [Hakula♪ (122423)][lr2ir-me]   | 准 SP★06 / Walkure: [★13.26][walkure] / [点灯情况][lamps] | 2016-09 ~ 2019-02 |
 | [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                          | 2015-11 ~ 2018-01 |
 | [BeatStage][beatstage] | [hakula_1234567][beatstage-me] | 最高 #1                                                   | 2013-08 ~ 2018-08 |
