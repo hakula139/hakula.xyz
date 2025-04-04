@@ -10,11 +10,6 @@ enableGitInfo: true
 enableRobotsTXT: true
 hasCJKLanguage: true
 
-author:
-  name: Hakula
-  email: i@hakula.xyz
-  link: https://hakula.xyz
-
 mediaTypes:
   text/plain:
     suffixes: [md]
@@ -32,7 +27,7 @@ outputs:
   taxonomy: [HTML, RSS]
 
 privacy:
-  twitter:
+  x:
     enableDNT: true
   youtube:
     privacyEnhanced: true

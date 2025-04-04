@@ -5,6 +5,11 @@ defaultTheme: dark
 gitRepo: https://github.com/hakula139/hakula.xyz
 fingerprint: sha256
 
+author:
+  name: Hakula
+  email: i@hakula.xyz
+  link: https://hakula.xyz
+
 app:
   title: Hakula
   themeColor: "#000a12"
