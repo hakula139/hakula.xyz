@@ -18,6 +18,12 @@
     }
   }
 
+  .post-meta {
+    .author {
+      font-size: 1rem;
+    }
+  }
+
   .featured-image {
     display: flex;
     aspect-ratio: 21 / 9;
@@ -56,13 +62,21 @@
       padding-left: 2rem;
     }
 
-    table {
-      min-width: 40rem;
+    .table-wrapper {
+      overflow-x: auto;
       margin: 1rem 0;
 
-      thead {
-        white-space: pre;
+      > table {
+        min-width: 40rem;
+
+        thead {
+          white-space: pre;
+        }
       }
+    }
+
+    figure {
+      margin: 1rem 0;
     }
 
     blockquote {

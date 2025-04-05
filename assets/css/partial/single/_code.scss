@@ -11,6 +11,7 @@ pre {
   &.open {
     .highlight {
       max-height: 42em;
+      overflow: auto;
     }
   }
 }

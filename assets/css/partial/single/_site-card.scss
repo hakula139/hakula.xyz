@@ -43,7 +43,7 @@
 
   .site-content-wrapper {
     .site-name {
-      -webkit-line-clamp: 1;
+      @include line-clamp(1);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -53,7 +53,7 @@
     }
 
     .site-desc {
-      -webkit-line-clamp: 1;
+      @include line-clamp(1);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
