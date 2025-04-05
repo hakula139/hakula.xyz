@@ -1,4 +1,4 @@
-@import "../partial/single/toc";
+@import '../partial/single/toc';
 
 .single {
   .single-card {
@@ -6,13 +6,13 @@
     margin: 1rem auto;
     background-color: $card-background-color;
     @include border-radius($card-border-radius);
-    @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
-  
-    [theme=dark] & {
+    @include box-shadow(0 0.25rem 1rem rgba(0, 0, 0, 0.2));
+
+    [theme='dark'] & {
       background-color: $card-background-color-dark;
     }
 
-    &[data-image=true] {
+    &[data-image='true'] {
       margin-top: 0;
       @include border-radius(0 0 $card-border-radius $card-border-radius);
     }
@@ -27,7 +27,7 @@
     background-color: darken($card-background-color, 2%);
     @include border-radius($card-border-radius $card-border-radius 0 0);
 
-    [theme=dark] & {
+    [theme='dark'] & {
       background-color: darken($card-background-color-dark, 2%);
     }
 
@@ -43,12 +43,12 @@
   }
 
   .single-title {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 
   .content {
     p {
-      margin: .75rem 0;
+      margin: 0.75rem 0;
     }
 
     ul,
@@ -56,38 +56,37 @@
       padding-left: 2rem;
     }
 
-    .table-wrapper {
-      > table {
-        min-width: 40rem;
+    table {
+      min-width: 40rem;
+      margin: 1rem 0;
 
-        thead {
-          white-space: pre;
-        }
+      thead {
+        white-space: pre;
       }
     }
 
     blockquote {
-      border-left-width: .25rem;
-      padding: .25rem 1rem;
+      border-left-width: 0.25rem;
+      padding: 0.25rem 1rem;
     }
 
-    @import "../partial/single/code";
-    @import "../partial/single/admonition";
+    @import '../partial/single/code';
+    @import '../partial/single/admonition';
 
     hr {
       margin: 1.75rem 0;
     }
   }
 
-  @import "../partial/single/footer";
-  @import "../partial/single/comment";
-  @import "../partial/single/katex";
-  @import "../partial/single/site-card";
+  @import '../partial/single/footer';
+  @import '../partial/single/comment';
+  @import '../partial/single/katex';
+  @import '../partial/single/site-card';
 }
 
 @media only screen and (max-width: 680px) {
   .wrapper main .container {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
   }
 
   .single {

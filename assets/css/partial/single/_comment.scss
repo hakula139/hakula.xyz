@@ -3,9 +3,9 @@
   margin: 1rem auto;
   background-color: $card-background-color;
   @include border-radius($card-border-radius);
-  @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
+  @include box-shadow(0 0.25rem 1rem rgba(0, 0, 0, 0.2));
 
-  [theme=dark] & {
+  [theme='dark'] & {
     background-color: $card-background-color-dark;
   }
 
@@ -23,14 +23,14 @@
         a {
           @include overflow-wrap(break-word);
 
-          [theme=dark] & b,
-          [theme=dark] & strong {
+          [theme='dark'] & b,
+          [theme='dark'] & strong {
             color: $single-link-color-dark;
           }
         }
 
-        [theme=dark] a:hover b,
-        [theme=dark] a:hover strong {
+        [theme='dark'] a:hover b,
+        [theme='dark'] a:hover strong {
           color: $single-link-hover-color-dark;
         }
       }
@@ -55,7 +55,7 @@
     color: $global-font-color;
     background-color: darken($global-background-color, 3%);
 
-    [theme=dark] & {
+    [theme='dark'] & {
       color: $global-font-color-dark;
       background-color: lighten($global-background-color-dark, 3%);
     }

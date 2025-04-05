@@ -1,17 +1,16 @@
-.highlight {
-  > .chroma {
-    .table-wrapper {
-      overflow: auto;
+pre {
+  code {
+    line-height: 1.5em;
+  }
+}
 
-      > table {
-        min-width: initial;
-      }
-    }
+.code-block {
+  line-height: 1.5em;
+  margin: 1rem 0;
 
-    &.open {
-      .table-wrapper {
-        max-height: 42em;
-      }
+  &.open {
+    .highlight {
+      max-height: 42em;
     }
   }
 }

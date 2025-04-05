@@ -1,4 +1,4 @@
-.home[data-home=posts] {
+.home[data-home='posts'] {
   .summary {
     display: flex;
     flex-direction: column;
@@ -10,10 +10,10 @@
     background-color: $card-background-color;
     border: none;
     @include border-radius($card-border-radius);
-    @include box-shadow(0 .25rem 1rem rgba(0, 0, 0, .2));
+    @include box-shadow(0 0.25rem 1rem rgba(0, 0, 0, 0.2));
     @include transition(background-color 0.8s ease);
 
-    [theme=dark] & {
+    [theme='dark'] & {
       background-color: $card-background-color-dark;
       border: none;
     }
@@ -48,13 +48,13 @@
     }
 
     .single-title {
-      margin: 1rem .5rem;
+      margin: 1rem 0.5rem;
       font-size: 1.375rem;
       text-align: center;
-      text-shadow: 0 1px 4px rgba(255, 255, 255, .3);
+      text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
 
-      [theme=dark] & {
-        text-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+      [theme='dark'] & {
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
       }
     }
 
@@ -72,11 +72,11 @@
 
       .post-meta,
       .content {
-        margin: .75rem 0;
+        margin: 0.75rem 0;
         color: $global-font-color;
         @include link(true, true);
 
-        [theme=dark] & {
+        [theme='dark'] & {
           color: $global-font-color-dark;
         }
       }
@@ -93,7 +93,7 @@
 }
 
 @media only screen and (min-width: 1280px) {
-  .home[data-home=posts] {
+  .home[data-home='posts'] {
     .summary {
       .featured-image-preview {
         img {
@@ -118,7 +118,7 @@
       &:hover {
         background-color: opacify($card-background-color, 0.2);
 
-        [theme=dark] & {
+        [theme='dark'] & {
           background-color: darken($card-background-color-dark, 10%);
         }
 
