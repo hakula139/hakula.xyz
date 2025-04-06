@@ -42,7 +42,7 @@ int bitAnd(int x, int y) {
 ### 2 getByte
 
 {{< admonition quote 题目 >}}
-Extract byte $n$ from word $x$.  
+Extract byte $n$ from word $x$.
 Bytes numbered from $0$ (LSB) to $3$ (MSB).
 {{< /admonition >}}
 
@@ -62,7 +62,7 @@ int getByte(int x, int n) {
 ### 3 logicalShift
 
 {{< admonition quote 题目 >}}
-Shift $x$ to the right by $n$, using a logical shift.  
+Shift $x$ to the right by $n$, using a logical shift.
 Can assume that $0\le n\le 31$.
 {{< /admonition >}}
 
@@ -207,7 +207,7 @@ int fitsBits(int x, int n) {
 ### 8 divpwr2
 
 {{< admonition quote 题目 >}}
-Compute $x / 2^n$, for $0\le n\le 30$.  
+Compute $x / 2^n$, for $0\le n\le 30$.
 Round toward zero.
 {{< /admonition >}}
 
