@@ -80,6 +80,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | 鼠标   | Logitech G304 Lightspeed                  |
 | 显示器 | LG 27GP95R                                |
 | 音响   | Dynaudio Emit 20 + NAD C 338              |
+| 椅子   | Herman Miller Aeron 2                     |
 
 {{< /style >}}
 
