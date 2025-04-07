@@ -27,6 +27,8 @@
     height: 4rem;
 
     .site-logo {
+      width: 4rem;
+      height: 4rem;
       @include object-fit(cover);
       @include border-radius(100%);
       @include transition(all 0.25s ease-out);
@@ -43,7 +45,6 @@
 
   .site-content-wrapper {
     .site-name {
-      @include line-clamp(1);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -53,7 +54,6 @@
     }
 
     .site-desc {
-      @include line-clamp(1);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

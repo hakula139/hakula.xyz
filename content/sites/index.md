@@ -14,7 +14,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## 友情链接
 
-{{< site "依田萌绘的故事屋" "https://yoro.xyz" "「桃子汽水味的夏天女孩」" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
+{{< site "Hanaki 花期语织" "https://yoro.xyz" "「桃子汽水味的夏天女孩」" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
 
 {{< site "Ramen's Box" "https://blog.lxdlam.com" "Hi, here is Ramen!" "https://gravatar.loli.net/avatar/4d675e65920d5b1eca1f5b9079ea3bf5?s=200&d=identicon" >}}
 
