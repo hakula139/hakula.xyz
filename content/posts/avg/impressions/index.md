@@ -15,7 +15,7 @@ license: CC BY-NC-SA 4.0
 
 ## 评测数据
 
-{{< image src="assets/2025-04-05.webp" caption="AVG 评测数据" width="100%" >}}
+{{< image src="assets/2025-04-13.webp" caption="AVG 评测数据" width="100%" >}}
 
 主观评价，仅供参考。已抛弃作品不会出现在表中。
 
