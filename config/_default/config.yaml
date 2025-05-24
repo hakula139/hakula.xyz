@@ -10,6 +10,9 @@ enableGitInfo: true
 enableRobotsTXT: true
 hasCJKLanguage: true
 
+permalinks:
+  posts: ":contentbasename"
+
 mediaTypes:
   text/plain:
     suffixes: [md]
