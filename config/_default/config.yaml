@@ -11,7 +11,7 @@ enableRobotsTXT: true
 hasCJKLanguage: true
 
 permalinks:
-  posts: ":contentbasename"
+  posts: ":sections[2:]"
 
 mediaTypes:
   text/plain:
