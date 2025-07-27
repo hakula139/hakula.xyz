@@ -14,7 +14,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## 友情链接
 
-{{< site "Hanaki 花期语织" "https://yoro.xyz" "「桃子汽水味的夏天女孩」" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
+{{< site "Hanaki 花期语织" "https://yoro.xyz" "桃子汽水味的夏天女孩" "https://yoro.xyz/image/YodaMoe_v2.png" >}}
 
 {{< site "Ramen's Box" "https://blog.lxdlam.com" "Hi, here is Ramen!" "https://gravatar.loli.net/avatar/4d675e65920d5b1eca1f5b9079ea3bf5?s=200&d=identicon" >}}
 
@@ -28,20 +28,29 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 ## 本站链接
 
-{{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区，感谢各位支持！" "/images/links/94964162.webp" >}}
+{{< admonition note 本站信息 >}}
+
+- **名称：** HAKULA†CHANNEL
+- **描述：** 让我们一直谈论变革，以确保事实上什么都没改变。
+- **链接：** <https://hakula.xyz>
+- **图标：** <https://hakula.xyz/images/hotlink-ok/avatar-lite.webp>
+
+{{< /admonition >}}
+
+{{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区，探索迁移方案中" "/images/links/94964162.webp" >}}
 
 {{< site "HAKULA†BMS (Mirror)" "https://bms.iidx.ca" "🎶 本站 BMS 区的镜像站 - @anshi" "/images/links/98202873.webp" >}}
 
-{{< site "HAKULA†DRIVE" "https://files.hakula.xyz" "📦 本站文件库，放置了一些杂物 - h5ai" "/images/links/94991375.webp" >}}
+{{< site "HAKULA†CLOUD" "https://files.hakula.xyz" "📦 本站文件库 - Cloudreve" "/images/links/94991375.webp" >}}
 
-{{< site "HAKULA†UPTIME" "https://stats.uptimerobot.com/r9PvBclkw" "👀 本站服务上线时间监控 - UptimeRobot" "/images/links/92260989.webp" >}}
+{{< site "HAKULA†UPTIME" "https://uptime.hakula.xyz" "👀 本站服务在线情况监控 - UptimeRobot" "/images/links/92260989.webp" >}}
 
-{{< site "HAKULA†STATUS (US)" "https://status.hakula.xyz" "🇺🇸 本站服务器状态监控 - CloudCone" "/images/links/78435677.webp" >}}
+{{< site "HAKULA†STATUS (US)" "https://status.hakula.xyz" "🇺🇸 本站服务器状态监控 - CloudCone" "/images/links/98722302.webp" >}}
 
-{{< site "HAKULA†STATUS (SG)" "https://status-sg.hakula.xyz" "🇸🇬 本站服务器状态监控 - 腾讯云" "/images/links/98722302.webp" >}}
+{{< site "HAKULA†STATUS (SG)" "https://status-sg.hakula.xyz" "🇸🇬 本站服务器状态监控 - 腾讯云" "/images/links/78435677.webp" >}}
 
 ## 其他
 
-{{< site "赞助本站" "https://afdian.net/a/hakula" "如果本站对你有帮助的话 😙" "/images/links/100018857.webp" >}}
+{{< site "赞助本站" "https://afdian.com/a/hakula" "如果本站对你有帮助的话 😙" "/images/links/100018857.webp" >}}
 
-{{< site "提问的智慧" "https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md" "如果你没有看过，那提问前推荐看看" "/images/links/95578205.webp" >}}
+{{< site "提问的智慧" "https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md" "如果你还没看过，那提问前建议先看看" "/images/links/95578205.webp" >}}

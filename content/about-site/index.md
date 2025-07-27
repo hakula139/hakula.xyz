@@ -23,12 +23,14 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | DNS  | [Cloudflare]                                  |
 | CDN  | [Cloudflare]                                  |
 | 图床 | [腾讯云 COS][COS] & [兰空图床][Lsky]          |
-| 网盘 | [OneDrive] & [h5ai]                           |
+| 网盘 | [Cloudreve] & [Backblaze B2][B2]              |
 | 监控 | [Netdata] & [UptimeRobot]                     |
 
 [@Dillon]: https://github.com/dillonzq
+[B2]: https://www.backblaze.com/cloud-storage
 [CloudCone]: /links/cloudcone-cn
 [Cloudflare]: https://www.cloudflare.com
+[Cloudreve]: https://cloudreve.org
 [COS]: https://cloud.tencent.com/product/cos
 [h5ai]: https://larsjung.de/h5ai
 [Hugo]: https://gohugo.io
@@ -46,6 +48,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 | 日期           | 更新内容                                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| 2025‑07‑28     | 文件库迁移至 [Cloudreve] 方案，底层使用 [Backblaze B2][B2] 对象存储。                                                                    |
 | 2025‑04‑07     | [LoveIt] sync upstream 至 v0.3.0 版本，Hugo 升级至 v0.145.0 版本，解决各种兼容性问题。                                                   |
 | **2022‑11‑13** | [LoveIt] 主题魔改基本完毕。新站迁移计划完成，总耗时 346 小时。                                                                           |
 | 2022‑10‑28     | 使用 [兰空图床][Lsky] 自建图床，实现评论区图片上传功能。                                                                                 |
@@ -79,8 +82,10 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 | **2018‑08‑20** | HAKULA†CHANNEL 诞生，域名：[hakula.xyz]，框架：[Typecho]，主题：[handsome]。                                                             |
 
 [Algolia]: https://www.algolia.com
+[B2]: https://www.backblaze.com/cloud-storage
 [cf-pages]: https://pages.cloudflare.com
 [CloudCone]: /links/cloudcone-cn
+[Cloudreve]: https://cloudreve.org
 [COS]: https://cloud.tencent.com/product/cos
 [gdrive]: https://github.com/prasmussen/gdrive
 [h5ai]: https://larsjung.de/h5ai
