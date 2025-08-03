@@ -79,6 +79,13 @@ social:
   github: hakula139
   linkedin: hakula
   telegram: hakulaTG
+  listenbrainz:
+    weight: 34
+    id: Hakula
+    prefix: https://listenbrainz.org/user/
+    title: ListenBrainz
+    icon:
+      class: fas fa-music fa-fw
   steam: hakula139
   zhihu: hakula139
   douban: hakula139

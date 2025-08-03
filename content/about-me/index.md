@@ -154,10 +154,4 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 ## :headphones: 音乐
 
-- [我喜欢 - QQ 音乐](https://y.qq.com/n/ryqq/profile/like/song?uin=oK457i-Powol7c**)
-
-{{< admonition warning 注意 >}}
-部分曲目由于需要 VIP，无法正常播放。暂无解决方案。
-{{< /admonition >}}
-
-{{< music server="tencent" type="playlist" id="2528927373" list-max-height="330px" >}}
+- [听歌记录 - ListenBrainz](https://listenbrainz.org/user/Hakula/)
