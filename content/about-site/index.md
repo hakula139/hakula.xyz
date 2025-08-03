@@ -22,8 +22,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 | VPS  | [腾讯云 Lighthouse][Lighthouse] & [CloudCone] |
 | DNS  | [Cloudflare]                                  |
 | CDN  | [Cloudflare]                                  |
-| 图床 | [腾讯云 COS][COS] & [兰空图床][Lsky]          |
 | 网盘 | [Cloudreve] & [Backblaze B2][B2]              |
+| 图床 | [兰空图床][Lsky] & [腾讯云 COS][COS]          |
 | 监控 | [Netdata] & [UptimeRobot]                     |
 
 [@Dillon]: https://github.com/dillonzq
