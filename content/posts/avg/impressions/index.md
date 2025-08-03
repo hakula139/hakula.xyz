@@ -114,9 +114,9 @@ table {
 
 评分采用**中央値**，统计时要求评价数**不低于 500**，否则判定为无效数据（使用灰色字表示）。
 
-由于批评空间的站长会随缘封禁访客的 IP，很多情况下即使科学上网也无法正常访问批评空间[^egs-bgm]，因此我在 [这里][egs-backup] 放了一份批评空间「統計表（中央値順）」的备份，不定时更新。
+由于批评空间的站长会随缘封禁访客的 IP，很多情况下即使科学上网也无法正常访问批评空间[^egs-bgm]，因此我在 [这里][hakula-cloud] 放了一份批评空间「統計表（中央値順）」的备份，不定时更新。
 
-[egs-backup]: https://files.hakula.xyz/%E6%89%B9%E8%A9%95%E7%A9%BA%E9%96%93/
+[hakula-cloud]: https://files.hakula.xyz
 
 [^egs-bgm]: [请问如何登陆批评空间 - Bangumi](https://bgm.tv/group/topic/360497)
 

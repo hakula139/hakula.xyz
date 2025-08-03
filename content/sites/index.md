@@ -37,7 +37,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< /admonition >}}
 
-{{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区，探索迁移方案中" "/images/links/94964162.webp" >}}
+{{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区 - Cloudreve" "/images/links/94964162.webp" >}}
 
 {{< site "HAKULA†BMS (Mirror)" "https://bms.iidx.ca" "🎶 本站 BMS 区的镜像站 - @anshi" "/images/links/98202873.webp" >}}
 

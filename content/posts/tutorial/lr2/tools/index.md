@@ -157,7 +157,7 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 BeMusicSeeker 是一个用于管理 BMS 曲包、导入第三方表的辅助工具。别再用 GLAssist 啦！
 
 {{< admonition success 安装包 >}}
-[:(fas fa-download):  本地下载](https://files.hakula.xyz/LR2/%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/BeMusicSeeker.exe)
+[:(fas fa-download):  本地下载](https://bms.hakula.xyz) - 新人请进 /【启动器】Lunatic Rave 2 / 相关资源 / BeMusicSeeker.exe
 {{< /admonition >}}
 
 {{< admonition tip 阅读 >}}
