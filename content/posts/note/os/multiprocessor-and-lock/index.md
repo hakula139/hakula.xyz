@@ -4,7 +4,7 @@ date: 2020-11-15T23:54:00+08:00
 
 tags: [操作系统, ARM, 锁, C]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/69514736.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/db6e53df-2657-4baf-a488-cad00a5f1bcf_69514736.webp
 license: CC BY-NC-SA 4.0
 ---
 

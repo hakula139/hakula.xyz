@@ -4,7 +4,7 @@ date: 2021-11-05T14:57:00+08:00
 
 tags: [编译, 词法分析, Flex, PCAT, C++]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/88865174.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/f1e75217-9fa7-4af4-8760-8b66d4373af5_88865174.webp
 license: CC BY-NC-SA 4.0
 ---
 

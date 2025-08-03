@@ -4,7 +4,7 @@ date: 2019-11-25T00:22:00+08:00
 
 tags: [数据结构, 排序]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/77359441.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/46498178-d30b-4493-8558-7a06e906b5ff_77359441.webp
 license: CC BY-NC-SA 4.0
 ---
 

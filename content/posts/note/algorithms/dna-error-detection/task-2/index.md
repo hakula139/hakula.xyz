@@ -4,7 +4,7 @@ date: 2021-06-28T23:59:00+08:00
 
 tags: [算法, 模糊匹配, C++]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/89979147.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/bedbbd30-894e-407d-8a7f-02a665b60bdf_89979147.webp
 license: CC BY-NC-SA 4.0
 ---
 

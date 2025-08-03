@@ -4,7 +4,7 @@ date: 2020-10-31T18:19:00+08:00
 
 tags: [操作系统, ARM, 中断, C]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/71199279.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/8394d690-73e8-45c7-854a-47e27d2b45af_71199279.webp
 license: CC BY-NC-SA 4.0
 ---
 

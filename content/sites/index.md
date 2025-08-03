@@ -3,7 +3,7 @@ title: 链接库
 date: 2018-11-15T18:46:00+08:00
 weight: -4
 
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/95120332.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/a80eff06-e4b3-404c-b453-6d67d83a168c_95120332.webp
 ---
 
 {{< admonition info 封面出处 >}}

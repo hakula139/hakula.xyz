@@ -5,7 +5,7 @@ date: 2023-01-27T22:33:00+08:00
 
 tags: [AVG, Galgame, 评测]
 categories: [avg]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/kira-kira.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/da2fc714-0aa1-47be-87af-06d897037e47_kira-kira.webp
 license: CC BY-NC-SA 4.0
 ---
 

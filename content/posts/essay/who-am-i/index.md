@@ -4,7 +4,7 @@ date: 2025-06-25T22:26:00+08:00
 
 tags: [AI, LLM, Gemini, 荣格八维, 拉康, 精神分析]
 categories: [essay]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/123273147.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/314642b3-b328-4520-b4b9-aae9ab7f5baa_123273147.webp
 license: 禁止转载
 ---
 

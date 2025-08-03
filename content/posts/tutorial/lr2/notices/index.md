@@ -4,7 +4,7 @@ date: 2019-07-19T02:29:00+08:00
 
 tags: [LR2]
 categories: [tutorial]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/75778049.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/2f3f9778-cfcf-4b8e-8dbf-f4cb25f38a67_75778049.webp
 license: CC BY-NC-SA 4.0
 ---
 

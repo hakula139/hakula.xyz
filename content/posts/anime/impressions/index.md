@@ -5,7 +5,7 @@ weight: 3
 
 tags: [动画, 评测]
 categories: [anime]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/95611645.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/434b840c-cdb3-4cf0-8181-653a0c097a85_95611645.webp
 license: CC BY-NC-SA 4.0
 ---
 

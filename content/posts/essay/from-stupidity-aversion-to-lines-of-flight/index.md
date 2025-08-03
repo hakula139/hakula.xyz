@@ -4,7 +4,7 @@ date: 2025-07-19T19:54:00+08:00
 
 tags: [AI, LLM, Gemini, 荣格八维, 葛兰西, 后现代主义]
 categories: [essay]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/91419407.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/5266dfef-54dd-4c19-b257-29092ec750c4_91419407.webp
 license: CC BY-NC-SA 4.0
 ---
 

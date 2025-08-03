@@ -4,7 +4,7 @@ date: 2021-04-02T01:50:00+08:00
 
 tags: [PRML, 机器学习, KNN, NumPy, Python]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/90743556.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/0e3a490d-a7f0-4fea-97dd-1bc9db5cbfbf_90743556.webp
 license: CC BY-NC-SA 4.0
 ---
 

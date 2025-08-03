@@ -5,7 +5,7 @@ weight: 2
 
 tags: [AVG, Galgame, 评测]
 categories: [avg]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/yuki.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/2a3d1542-e872-4a6b-9b4c-4cf898469e0a_yuki.webp
 license: CC BY-NC-SA 4.0
 ---
 

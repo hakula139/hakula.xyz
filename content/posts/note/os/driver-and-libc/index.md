@@ -4,7 +4,7 @@ date: 2021-01-24T00:26:00+08:00
 
 tags: [操作系统, ARM, 驱动, C]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/60181142.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/d0473c63-e1f2-4929-98ac-7bc549318069_60181142.webp
 license: CC BY-NC-SA 4.0
 ---
 

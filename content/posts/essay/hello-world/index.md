@@ -4,7 +4,7 @@ date: 2018-08-23T12:15:00+08:00
 
 tags: [建站, VPS]
 categories: [essay]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/66372748.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/1874e576-7075-4a62-9a7b-a79952080dd3_66372748.webp
 license: CC BY-NC-SA 4.0
 ---
 

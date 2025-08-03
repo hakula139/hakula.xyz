@@ -4,7 +4,7 @@ date: 2021-12-07T02:16:00+08:00
 
 tags: [编译, 语法分析, Bison, Flex, AST, PCAT, C++]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/94538258.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/eff4b84a-7563-4d31-a7ff-5b8681d5cbdb_94538258.webp
 license: CC BY-NC-SA 4.0
 ---
 

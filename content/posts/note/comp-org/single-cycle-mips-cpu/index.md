@@ -4,7 +4,7 @@ date: 2020-04-07T23:14:00+08:00
 
 tags: [计组, MIPS, CPU, SystemVerilog]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/78398601.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/06449c5c-93cb-4fe9-b158-5ea714ce2fec_78398601.webp
 license: CC BY-NC-SA 4.0
 ---
 

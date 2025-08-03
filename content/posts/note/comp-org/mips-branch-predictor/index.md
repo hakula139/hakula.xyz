@@ -4,7 +4,7 @@ date: 2020-06-08T05:46:00+08:00
 
 tags: [计组, MIPS, CPU, 分支预测, SystemVerilog]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/78954079.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/36cb9956-2a49-4784-a3a3-785afe0f5af1_78954079.webp
 license: CC BY-NC-SA 4.0
 ---
 

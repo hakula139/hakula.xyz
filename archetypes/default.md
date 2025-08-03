@@ -5,7 +5,7 @@ draft: true
 
 tags: []
 categories: []
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/path/to/cover.webp
 license: CC BY-NC-SA 4.0
 ---
 

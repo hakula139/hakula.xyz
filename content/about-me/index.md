@@ -3,7 +3,7 @@ title: 关于我
 date: 2019-04-16T00:05:00+08:00
 weight: -1
 
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/64035231.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/6812f313-b403-405a-935a-dba056687a0e_64035231.webp
 ---
 
 {{< admonition info 封面出处 >}}

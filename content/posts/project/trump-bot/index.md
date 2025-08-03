@@ -4,7 +4,7 @@ date: 2021-01-19T03:28:00+08:00
 
 tags: [NLP, 文本生成, 深度学习, GRU, PyTorch, Python]
 categories: [project]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/87013646.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/24a5e969-09b5-4da6-95a4-06984cde5c6f_87013646.webp
 license: CC BY-NC-SA 4.0
 
 code:

@@ -5,7 +5,7 @@ date: 2023-04-19T20:59:00+08:00
 
 tags: [哲学, 康德]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/critique-of-pure-reason.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/2c0575e9-e0f2-4a07-b2a0-288e5149eb75_critique-of-pure-reason.webp
 license: CC BY-NC-SA 4.0
 ---
 

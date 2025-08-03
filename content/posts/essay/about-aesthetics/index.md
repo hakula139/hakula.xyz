@@ -4,7 +4,7 @@ date: 2023-12-22T19:18:00+08:00
 
 tags: [美学]
 categories: [essay]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/94175799.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/700d66b1-1f97-4c6b-9b12-af5369e409e3_94175799.webp
 license: CC BY-NC-SA 4.0
 ---
 

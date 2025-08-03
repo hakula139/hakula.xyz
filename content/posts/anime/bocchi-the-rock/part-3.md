@@ -4,7 +4,7 @@ date: 2023-03-05T00:14:04+08:00
 
 tags: [动画, 文艺批评]
 categories: [anime]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/btr.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/0bb913d8-a8e5-467b-837e-3bb79f09904e_btr.webp
 license: CC BY-NC-SA 4.0
 ---
 

@@ -4,7 +4,7 @@ date: 2023-08-10T22:17:00+08:00
 
 tags: [意识形态批判]
 categories: [essay]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/104923272.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/f1af6c7b-9845-426b-ab92-dd86af3f8d75_104923272.webp
 license: CC BY-NC-SA 4.0
 ---
 

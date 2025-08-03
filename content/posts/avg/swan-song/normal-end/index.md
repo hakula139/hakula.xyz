@@ -5,7 +5,7 @@ date: 2023-06-23T22:53:00+08:00
 
 tags: [AVG, Galgame, 评测, 文艺批评]
 categories: [avg]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/swan-song.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/0c151388-d0b5-4c84-84f0-766cdd22967c_swan-song.webp
 license: CC BY-NC-SA 4.0
 ---
 

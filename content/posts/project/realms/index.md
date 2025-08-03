@@ -4,7 +4,7 @@ date: 2020-05-12T22:37:00+08:00
 
 tags: [数据库, MySQL, Go, REST]
 categories: [project]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/69321889.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/ff66eaed-bccb-4863-9583-ad1b1ec3ce3a_69321889.webp
 license: CC BY-NC-SA 4.0
 ---
 

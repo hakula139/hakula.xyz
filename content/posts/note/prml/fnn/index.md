@@ -4,7 +4,7 @@ date: 2021-05-02T19:30:00+08:00
 
 tags: [PRML, 机器学习, 深度学习, FNN, NumPy, Python]
 categories: [note]
-featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/88775351.webp
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/b61460f5-786b-4041-9aae-bb993a1011c1_88775351.webp
 license: CC BY-NC-SA 4.0
 ---
 
