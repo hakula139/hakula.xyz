@@ -19,7 +19,10 @@ license: CC BY-NC-SA 4.0
 ## BMS 介绍
 
 {{< admonition quote 参考 >}}
-[Be-Music Source - Wikipedia](https://en.wikipedia.org/wiki/Be-Music_Source)
+
+- [BMS - 萌娘百科](https://zh.moegirl.org.cn/BMS)
+- [Be-Music Source - Wikipedia](https://en.wikipedia.org/wiki/Be-Music_Source)
+
 {{< /admonition >}}
 
 简单来说，BMS（Be-Music Source）是一个非商业音乐游戏的通用谱面格式，通过纯文本定义了谱面的标题、作者、[BPM][bpm-wiki]、判定难度、总回血量、每个音符的位置及触发时播放的声音等各种信息，具体可以参见上面的链接。起初 BMS 是为 PC 上的 [Beatmania][bm-wiki] 模拟器 BM98 所研发，不过随着 BMS 几十年的发展，如今 BMS 有着海量的原创曲目和自己的生态圈，早已和 Beatmania 没有什么关系，认为 BMS 只是对 Beatmania 的模拟或者将两者混为一谈都是不合适的。
@@ -50,43 +53,37 @@ license: CC BY-NC-SA 4.0
 
 以下是一些推荐的下载途径（欢迎补充）：
 
-{{< admonition example "本站 BMS 区 @ OneDrive" false >}}
+{{< admonition example "本站 BMS 区 @ Cloudreve" >}}
 
 [:(fas fa-cloud):  HAKULA†BMS](https://bms.hakula.xyz)
 
-感谢 @anshi 提供网盘支持，感谢 BMS 社区所有资源整理者的付出！:heart:
+感谢 BMS 社区所有资源整理者的付出！:heart:  
 
-一些资源可能没人更新了，可以到 [这里](https://djkuroakari.github.io) 查看跟进更新。
+基于 Cloudreve & Backblaze B2 自建，不限流量、不限速。部分地区如访问速度较慢，可以试试 @anshi 维护的 [镜像站](https://bms.iidx.ca)（不定时更新、不保证可用性）。
 
-不存在限速 / 限流问题。部分地区如访问速度较慢，可以试试 [镜像站](https://bms.iidx.ca)（不定时更新、不保证可用性）。
-
-不建议使用 OneDrive 自带的批量打包下载功能，下载速度通常会很慢，而且中途下载失败或者下完后文件损坏就要全部重下，也违背了分卷压缩的初衷。建议使用 [IDM](https://www.internetdownloadmanager.com) / [FDM](https://www.freedownloadmanager.org) 等下载工具在镜像站里抓取全部链接，然后再批量下载。注意限制线程数。
-
-如果不知道下什么，推荐下载：**Satellite + 通常难易度 + 发狂难易度** 的 **分卷大包** 和 **更新**，基本可以涵盖你的整个 BMS 生涯。
+**不建议**使用文件夹打包下载功能，通常会比较慢，而且中途下载失败或者下完后文件损坏就要全部重下，也违背了分卷压缩的初衷。建议使用 [IDM](https://www.internetdownloadmanager.com) / [FDM](https://www.freedownloadmanager.org) 等下载工具导入全部链接，然后批量下载。
 
 {{< /admonition >}}
 
-{{< admonition example "QQ 群" false >}}
+{{< admonition example "Konmai 音游下载站" >}}
+
+[:(fas fa-magnifying-glass):  BMS Package Downloader](https://616.sb/bms)
+
+由知名网站 [616.sb](https://616.sb) 提供的 BMS 散包搜索下载站（试运行），可用于查漏补缺。遇到问题可联系 [@Konmai音游下载站](https://space.bilibili.com/1227019768)。
+
+{{< /admonition >}}
+
+{{< admonition example "QQ 群" >}}
 
 [:(fab fa-qq):  Be-Music Source (176763307)](https://jq.qq.com/?_wv=1027&k=5L8MRvF)
 
-见 群文件 - BMS 下载资源集合，遇到问题可以在群里提问。注意言辞，别做伸手党。
-
-{{< /admonition >}}
-
-{{< admonition example "官方段位 - 散包 @ 百度云" false >}}
-
-[:(fas fa-cloud):  GENOCIDE 2018 段位认定 (SP + DP)](https://pan.baidu.com/s/1XuMVDMvDFbc1oaujVspORQ)
-
-由 @FrozenFog 整理，最后更新：2018-05-02
-
-这个包比较小，如果不确定自己是否会长期玩下去，非常推荐先下载这个包体验一下，否则很可能会出现游玩时长 < 下载时长的情形。
+见 群文件 - BMS 下载资源集合，遇到问题可以在群里提问。
 
 {{< /admonition >}}
 
 {{< admonition example "段位 - Course 文件 @ GitHub" false >}}
 
-[:(fas fa-list-ul):  LR2IRCourses](https://github.com/MsrLab-org/LR2IRCourses)
+[:(fas fa-list):  LR2IRCourses](https://github.com/MsrLab-org/LR2IRCourses)
 
 由 @MsrButterfly 整理，最后更新：2021-09-28
 
@@ -115,11 +112,11 @@ license: CC BY-NC-SA 4.0
 
 {{< /admonition >}}
 
-{{< admonition example "Konmai 音游下载站" false >}}
+{{< admonition example "更多社区资源" false >}}
 
-[:(fas fa-magnifying-glass):  BMS Package Downloader](https://616.sb/bms)
+[:(fas fa-list):  BMS Community Resources](https://bms-community.github.io/resources/)
 
-由知名网站 [616.sb](https://616.sb) 提供的 BMS 散包搜索下载站（试运行），可用于查漏补缺。遇到问题可联系 [@Konmai音游下载站](https://space.bilibili.com/1227019768)。
+由外网社区维护的资源列表，作为一个详尽的补充。
 
 {{< /admonition >}}
 
@@ -145,7 +142,7 @@ license: CC BY-NC-SA 4.0
 
 `DEPRECATED` :(fas fa-project-diagram):  Insane BMS Torrent
 
-包括与其相关的压缩包，俗称 18 G 或 55 G 包（可以通过压缩包的大小大致判别，创建时间大约在 2013 ~ 2014 年），贴吧里应该很容易遇见它。
+包括与其相关的压缩包，俗称 18G 或 55G 包（可以通过压缩包的大小大致判别，创建时间大约在 2013 ~ 2014 年），贴吧里应该很容易遇见它。
 
 这个包存在复杂的编码问题，不推荐下载。不过这个包里有一些入手困难的远古时期的冷门资源，如果你喜欢考古的话也不是不能下载，下载后请务必使用 Bandizip 选择以 **韩语** 编码解压。但即使这样还是会有很多乱码文件夹，无法正常读取，你需要将它们重命名为全半角字符的文件名。
 
