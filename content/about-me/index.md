@@ -107,7 +107,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 | :--------------------- | :----------------------------- | :-------------------------------------------------------- | ----------------: |
 | [Arcaea][arcaea]       | Hakula (047 570 647)           | ptt: 12.00                                                | 2024-07 ~ 2025-01 |
 | [発狂 BMS][lr2ir]      | [Hakula♪ (122423)][lr2ir-me]   | 准 SP★06 / Walkure: [★13.26][walkure] / [点灯情况][lamps] | 2016-09 ~ 2019-02 |
-| [LLSIF (JP)][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                          | 2015-11 ~ 2018-01 |
+| [LLSIF :jp:][llsif]    | はくら (235609666)             | 全曲无判 FC，☆12 平均 P 率 ≈ 95%                          | 2015-11 ~ 2018-01 |
 | [BeatStage][beatstage] | [hakula_1234567][beatstage-me] | 最高 #1                                                   | 2013-08 ~ 2018-08 |
 
 [arcaea]: https://arcaea.lowiro.com
@@ -133,7 +133,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 | 游戏名               | ID                              | 段位                      |              时间 |
 | :------------------- | :------------------------------ | :------------------------ | ----------------: |
-| [雀魂 (CN)][majsoul] | [Hakula (68993162)][majsoul-me] | 四麻 雀圣一 / 三麻 雀豪二 | 2019-01 ~ 2022-10 |
+| [雀魂 :cn:][majsoul] | [Hakula (68993162)][majsoul-me] | 四麻 雀圣一 / 三麻 雀豪二 | 2019-01 ~ 2022-10 |
 
 [majsoul]: https://www.maj-soul.net
 [majsoul-me]: https://amae-koromo.sapk.ch/player/697658
@@ -144,9 +144,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 游戏名                     | ID             |           时间 |
-| :------------------------- | :------------- | -------------: |
-| [明日方舟 (CN 官服)][arkn] | Hakula (#2397) | 2019-06 ~ 至今 |
+| 游戏名                       | ID             |           时间 |
+| :--------------------------- | :------------- | -------------: |
+| [明日方舟 :cn: (官服)][arkn] | Hakula (#2397) | 2019-06 ~ 至今 |
 
 [arkn]: https://ak.hypergryph.com
 
@@ -154,4 +154,16 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 ## :headphones: 音乐
 
-- [听歌记录 - ListenBrainz](https://listenbrainz.org/user/Hakula/)
+{{< apple-music name="favorite-songs" id="pl.u-47UaNA0ayR" country="jp" >}}
+
+{{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
+
+| 平台             | 账号                     |
+| :--------------- | :----------------------- |
+| Apple Music :jp: | [hakula139][apple-music] |
+| ListenBrainz     | [Hakula][listenbrainz]   |
+
+[apple-music]: https://music.apple.com/profile/hakula139
+[listenbrainz]: https://listenbrainz.org/user/Hakula
+
+{{< /style >}}
