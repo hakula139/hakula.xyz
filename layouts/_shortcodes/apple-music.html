@@ -2,16 +2,22 @@
 {{- $id := cond .IsNamedParams (.Get "id") (.Get 1) -}}
 {{- $country := cond .IsNamedParams (.Get "country") (.Get 2) | default "cn" -}}
 {{- $type := cond .IsNamedParams (.Get "type") (.Get 3) | default "playlist" -}}
-{{- $theme := cond .IsNamedParams (.Get "theme") (.Get 4) | default "auto" -}}
+{{- $theme := cond .IsNamedParams (.Get "theme") (.Get 4) -}}
 {{- $height := cond .IsNamedParams (.Get "height") (.Get 5) | default "450" -}}
-{{- $url := printf "https://embed.music.apple.com/%s/%s/%s/%s?theme=%s" $country $type $name $id $theme -}}
+{{- $baseUrl := printf "https://embed.music.apple.com/%s/%s/%s/%s" $country $type $name $id -}}
+
+{{- $iframeAttrs := `
+    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+    frameborder="0"
+    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+` -}}
 
 <div class="apple-music">
-    <iframe
-        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-        frameborder="0"
-        height="{{ $height }}"
-        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-        src="{{ $url }}"
-    ></iframe>
+    {{- if $theme -}}
+        <iframe {{ $iframeAttrs | safeHTMLAttr }} height="{{ $height }}" src="{{ $baseUrl }}?theme={{ $theme }}"></iframe>
+    {{- else -}}
+        {{- range slice "light" "dark" -}}
+            <iframe class="apple-music-{{ . }}" {{ $iframeAttrs | safeHTMLAttr }} height="{{ $height }}" src="{{ $baseUrl }}?theme={{ . }}"></iframe>
+        {{- end -}}
+    {{- end -}}
 </div>
