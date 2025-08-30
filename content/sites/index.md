@@ -6,11 +6,11 @@ weight: -4
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/a80eff06-e4b3-404c-b453-6d67d83a168c_95120332.webp
 ---
 
+<!-- markdownlint-disable MD034 -->
+
 {{< admonition info 封面出处 >}}
 [私だけの舞台 - @MISSILE228](https://www.pixiv.net/artworks/95120332)
 {{< /admonition >}}
-
-<!-- markdownlint-disable MD034 -->
 
 ## 友情链接
 

@@ -14,6 +14,8 @@ license: 禁止转载
 
 <!--more-->
 
+<!-- markdownlint-disable MD024 -->
+
 {{< admonition info 封面出处 >}}
 [「さよなら…」- @MISSILE228](https://www.pixiv.net/artworks/123273147)
 {{< /admonition >}}
