@@ -6,6 +6,8 @@ weight: -2
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/4010eeb1-bb77-4b22-a57d-1faeeaff57f8_70180757.webp
 ---
 
+<!-- markdownlint-disable MD053 -->
+
 {{< admonition info 封面出处 >}}
 [Prism Castle - @c.c.R](https://www.pixiv.net/artworks/70180757)
 {{< /admonition >}}

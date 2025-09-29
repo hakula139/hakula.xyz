@@ -15,6 +15,8 @@ license: CC BY-NC-SA 4.0
 
 <!--more-->
 
+<!-- markdownlint-disable MD024 -->
+
 {{< admonition info 封面出处 >}}
 [無人列車 - @ワベマ](https://www.pixiv.net/artworks/91419407)
 {{< /admonition >}}
