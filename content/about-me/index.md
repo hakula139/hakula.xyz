@@ -167,3 +167,13 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [listenbrainz]: https://listenbrainz.org/user/Hakula
 
 {{< /style >}}
+
+## :crystal_ball: 赛博算命
+
+### 荣格八维
+
+> [荣格八维认知动力测试 - Totypes](https://totypes.com)
+
+{{< image src="assets/mbti/intj.webp" alt="表层 MBTI - INTJ" >}}
+
+{{< image src="assets/mbti/jungian-cognitive-functions.webp" alt="荣格八维" >}}
