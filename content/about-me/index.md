@@ -40,8 +40,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 [{{< image src="assets/icons/cpp.svg" alt="C++" width="50" height="50" linked=false >}}](https://www.cplusplus.com)
 [{{< image src="assets/icons/python.svg" alt="Python" width="50" height="50" linked=false >}}](https://www.python.org)
-[{{< image src="assets/icons/go.svg" alt="Go" width="50" height="50" linked=false >}}](https://golang.org)
 [{{< image src="assets/icons/ts.svg" alt="TypeScript" width="50" height="50" linked=false >}}](https://www.typescriptlang.org)
+[{{< image src="assets/icons/go.svg" alt="Go" width="50" height="50" linked=false >}}](https://golang.org)
 [{{< image src="assets/icons/java.svg" alt="Java" width="50" height="50" linked=false >}}](https://www.java.com)
 
 ### 技术栈
@@ -50,6 +50,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [{{< image src="assets/icons/tailwindcss.svg" alt="Tailwind CSS" width="50" height="50" linked=false >}}](https://tailwindcss.com)
 [{{< image src="assets/icons/nodejs.svg" alt="Node.js" width="50" height="50" linked=false >}}](https://nodejs.org)
 [{{< image src="assets/icons/mysql.svg" alt="MySQL" width="50" height="50" linked=false >}}](https://www.mysql.com)
+[{{< image src="assets/icons/duckdb.svg" alt="DuckDB" width="50" height="50" linked=false >}}](https://duckdb.org)
 [{{< image src="assets/icons/mongodb.svg" alt="MongoDB" width="50" height="50" linked=false >}}](https://www.mongodb.com)
 [{{< image src="assets/icons/redis.svg" alt="Redis" width="50" height="50" linked=false >}}](https://redis.io)
 [{{< image src="assets/icons/docker.svg" alt="Docker" width="50" height="50" linked=false >}}](https://www.docker.com)
@@ -63,9 +64,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 ### 开发环境
 
+[{{< image src="assets/icons/cursor.svg" alt="Cursor" width="50" height="50" linked=false >}}](https://cursor.com)
 [{{< image src="assets/icons/ubuntu.svg" alt="Ubuntu" width="50" height="50" linked=false >}}](https://ubuntu.com)
 [{{< image src="assets/icons/apple.svg" alt="macOS" width="50" height="50" linked=false >}}](https://www.apple.com/macos)
-[{{< image src="assets/icons/vscode.svg" alt="Visual Studio Code" width="50" height="50" linked=false >}}](https://code.visualstudio.com)
 
 ## :desktop_computer: 设备
 
