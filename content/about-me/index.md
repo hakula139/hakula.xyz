@@ -155,7 +155,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 ## :headphones: 音乐
 
-{{< apple-music name="favorite-songs" id="pl.u-47UaNA0ayR" country="jp" >}}
+{{< apple-music name="favorite-songs" id="pl.u-AkAmPlpf2YvL2d9" country="jp" >}}
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
