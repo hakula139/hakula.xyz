@@ -9,6 +9,19 @@
     background-color: $card-background-color-dark;
   }
 
+  blockquote {
+    display: block;
+    border-left: 0.25rem solid $blockquote-color;
+    background-color: rgba($blockquote-color, 0.2);
+    padding: 0.25rem 1rem;
+    margin: 1rem 0;
+
+    [theme='dark'] & {
+      border-left-color: $blockquote-color-dark;
+      background-color: rgba($blockquote-color-dark, 0.2);
+    }
+  }
+
   #twikoo {
     .tk-preview-container {
       img {
