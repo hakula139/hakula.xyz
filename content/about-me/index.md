@@ -78,7 +78,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 | :----- | :---------------------------------------- |
 | PC     | MacBook Pro (14-inch, Apple M1 Pro, 2021) |
 | 键盘   | NiZ S104 EC 35G White                     |
-| 鼠标   | Logitech G304 Lightspeed                  |
+| 鼠标   | Razer Basilisk V3 35K                     |
 | 显示器 | LG 27GP95R                                |
 | 音响   | Dynaudio Emit 20 + NAD C 338              |
 | 椅子   | Herman Miller Aeron 2                     |
