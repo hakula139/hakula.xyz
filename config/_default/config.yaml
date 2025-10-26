@@ -10,12 +10,22 @@ enableGitInfo: true
 enableRobotsTXT: true
 hasCJKLanguage: true
 
+ignoreFiles:
+  - CLAUDE.md
+  - _
+
 permalinks:
-  posts: ":sections[2:]"
+  posts: ':sections[2:]'
 
 mediaTypes:
   text/plain:
     suffixes: [md]
+
+module:
+  mounts:
+    - source: 'content'
+      target: 'content'
+      excludeFiles: ['**/_*/**']
 
 outputFormats:
   Markdown:
