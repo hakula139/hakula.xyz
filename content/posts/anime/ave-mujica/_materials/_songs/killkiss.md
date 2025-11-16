@@ -49,7 +49,7 @@ KiLLKiSS judy.., KiLLKiSS jude.., KiLLKiSS juda..,
 'cuz we're all alone  
 'cuz we're all alone
 
-alone, 噛み締めても まだ痛むなら  
+噛み締めても まだ痛むなら  
 倘若细品仍旧疼痛
 
 手を挙げ 希え  
