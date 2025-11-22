@@ -21,7 +21,7 @@ license: CC BY-NC-SA 4.0
 
 ## 00:00 - 01:10
 
-{{< image src="assets/01.10.webp" caption="月光下的人偶" >}}
+{{< image src="assets/01.10.avif" caption="月光下的人偶" >}}
 
 开幕就不得不提及一个意象：月亮。为什么是月亮？
 
@@ -41,7 +41,7 @@ license: CC BY-NC-SA 4.0
 
 ### KiLLKiSS
 
-{{< image src="assets/02.06.webp" caption="KiLLKiSS" >}}
+{{< image src="assets/02.07.avif" caption="KiLLKiSS" >}}
 
 {{< music server="tencent" type="song" id="002SQaDu4fwPiG" >}}
 
