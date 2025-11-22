@@ -12,7 +12,6 @@ hasCJKLanguage: true
 
 ignoreFiles:
   - CLAUDE.md
-  - _
 
 permalinks:
   posts: ':sections[2:]'
