@@ -39,15 +39,11 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 {{< site "HAKULA†BMS" "https://bms.hakula.xyz" "🎶 本站 BMS 区 - Cloudreve" "/images/links/94964162.webp" >}}
 
-{{< site "HAKULA†BMS (Mirror)" "https://bms.iidx.ca" "🎶 本站 BMS 区的镜像站 - @anshi" "/images/links/98202873.webp" >}}
-
 {{< site "HAKULA†CLOUD" "https://files.hakula.xyz" "📦 本站文件库 - Cloudreve" "/images/links/94991375.webp" >}}
 
-{{< site "HAKULA†UPTIME" "https://uptime.hakula.xyz" "👀 本站服务在线情况监控 - UptimeRobot" "/images/links/92260989.webp" >}}
+{{< site "HAKULA†METRICS (US)" "https://metrics-us.hakula.xyz" "🇺🇸 本站服务器资源监控 - CloudCone" "/images/links/98722302.webp" >}}
 
-{{< site "HAKULA†STATUS (US)" "https://status.hakula.xyz" "🇺🇸 本站服务器状态监控 - CloudCone" "/images/links/98722302.webp" >}}
-
-{{< site "HAKULA†STATUS (SG)" "https://status-sg.hakula.xyz" "🇸🇬 本站服务器状态监控 - 腾讯云" "/images/links/78435677.webp" >}}
+{{< site "HAKULA†STATUS" "https://status.hakula.xyz" "👀 本站服务可用性监控 - UptimeRobot" "/images/links/92260989.webp" >}}
 
 ## 其他
 

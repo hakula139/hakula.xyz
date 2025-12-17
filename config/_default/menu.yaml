@@ -36,15 +36,15 @@ main:
     weight: 7
 
 external:
-  - identifier: monitor
-    title: 状态监控
+  - identifier: status
+    title: 可用性监控
     pre: <i class="fas fa-heart-pulse fa-fw"></i>
-    url: https://status-sg.hakula.xyz
+    url: https://status.hakula.xyz
     weight: 1
-  - identifier: uptime
-    title: 服务监控
+  - identifier: metrics
+    title: 资源监控
     pre: <i class="fas fa-chart-simple fa-fw"></i>
-    url: https://stats.uptimerobot.com/r9PvBclkw
+    url: https://metrics-us.hakula.xyz
     weight: 2
   - identifier: github
     title: 网站源码
