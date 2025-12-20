@@ -56,8 +56,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [{{< image src="assets/icons/mongodb.svg" alt="MongoDB" width="50" height="50" linked=false >}}](https://www.mongodb.com)
 [{{< image src="assets/icons/redis.svg" alt="Redis" width="50" height="50" linked=false >}}](https://redis.io)
 [{{< image src="assets/icons/docker.svg" alt="Docker" width="50" height="50" linked=false >}}](https://www.docker.com)
+[{{< image src="assets/icons/podman.svg" alt="Podman" width="50" height="50" linked=false >}}](https://podman.io)
 [{{< image src="assets/icons/kubernetes.svg" alt="Kubernetes" width="50" height="50" linked=false >}}](https://kubernetes.io)
-[{{< image src="assets/icons/socketio.svg" alt="Socket.IO" width="50" height="50" linked=false >}}](https://socket.io)
 [{{< image src="assets/icons/elasticsearch.svg" alt="Elasticsearch" width="50" height="50" linked=false >}}](https://www.elastic.co)
 [{{< image src="assets/icons/prometheus.svg" alt="Prometheus" width="50" height="50" linked=false >}}](https://prometheus.io)
 [{{< image src="assets/icons/grafana.svg" alt="Grafana" width="50" height="50" linked=false >}}](https://grafana.com)
@@ -67,9 +67,12 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 ### 开发环境
 
 [{{< image src="assets/icons/cursor.svg" alt="Cursor" width="50" height="50" linked=false >}}](https://cursor.com)
+[{{< image src="assets/icons/claude.svg" alt="Claude" width="50" height="50" linked=false >}}](https://claude.ai)
 [{{< image src="assets/icons/nixos.svg" alt="NixOS" width="50" height="50" linked=false >}}](https://nixos.org)
 [{{< image src="assets/icons/ubuntu.svg" alt="Ubuntu" width="50" height="50" linked=false >}}](https://ubuntu.com)
 [{{< image src="assets/icons/apple.svg" alt="macOS" width="50" height="50" linked=false >}}](https://www.apple.com/macos)
+[{{< image src="assets/icons/zsh.svg" alt="Zsh" width="50" height="50" linked=false >}}](https://zsh.sourceforge.io)
+[{{< image src="assets/icons/starship.svg" alt="Starship" width="50" height="50" linked=false >}}](https://starship.rs)
 
 ## :desktop_computer: 设备
 
