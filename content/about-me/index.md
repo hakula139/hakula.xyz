@@ -65,6 +65,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 ### 开发环境
 
 [{{< image src="assets/icons/cursor.svg" alt="Cursor" width="50" height="50" linked=false >}}](https://cursor.com)
+[{{< image src="assets/icons/nixos.svg" alt="NixOS" width="50" height="50" linked=false >}}](https://nixos.org)
 [{{< image src="assets/icons/ubuntu.svg" alt="Ubuntu" width="50" height="50" linked=false >}}](https://ubuntu.com)
 [{{< image src="assets/icons/apple.svg" alt="macOS" width="50" height="50" linked=false >}}](https://www.apple.com/macos)
 
