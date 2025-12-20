@@ -36,17 +36,19 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 [{{< image src="https://wakatime.com/badge/user/f4a35a1f-0e29-4093-a647-e66aad164737.svg" alt="wakatime" height="20" linked=false >}}](https://wakatime.com/@f4a35a1f-0e29-4093-a647-e66aad164737)
 
+<!-- Icons downloaded from https://raw.githubusercontent.com/devicons/devicon/master/icons/{name}/{name}-original.svg -->
+
 ### 编程语言
 
-[{{< image src="assets/icons/cpp.svg" alt="C++" width="50" height="50" linked=false >}}](https://www.cplusplus.com)
+[{{< image src="assets/icons/cplusplus.svg" alt="C++" width="50" height="50" linked=false >}}](https://www.cplusplus.com)
 [{{< image src="assets/icons/python.svg" alt="Python" width="50" height="50" linked=false >}}](https://www.python.org)
-[{{< image src="assets/icons/ts.svg" alt="TypeScript" width="50" height="50" linked=false >}}](https://www.typescriptlang.org)
+[{{< image src="assets/icons/typescript.svg" alt="TypeScript" width="50" height="50" linked=false >}}](https://www.typescriptlang.org)
 [{{< image src="assets/icons/go.svg" alt="Go" width="50" height="50" linked=false >}}](https://golang.org)
 [{{< image src="assets/icons/java.svg" alt="Java" width="50" height="50" linked=false >}}](https://www.java.com)
 
 ### 技术栈
 
-[{{< image src="assets/icons/vue.svg" alt="Vue" width="50" height="50" linked=false >}}](https://vuejs.org)
+[{{< image src="assets/icons/vuejs.svg" alt="Vue" width="50" height="50" linked=false >}}](https://vuejs.org)
 [{{< image src="assets/icons/tailwindcss.svg" alt="Tailwind CSS" width="50" height="50" linked=false >}}](https://tailwindcss.com)
 [{{< image src="assets/icons/nodejs.svg" alt="Node.js" width="50" height="50" linked=false >}}](https://nodejs.org)
 [{{< image src="assets/icons/mysql.svg" alt="MySQL" width="50" height="50" linked=false >}}](https://www.mysql.com)
@@ -56,7 +58,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [{{< image src="assets/icons/docker.svg" alt="Docker" width="50" height="50" linked=false >}}](https://www.docker.com)
 [{{< image src="assets/icons/kubernetes.svg" alt="Kubernetes" width="50" height="50" linked=false >}}](https://kubernetes.io)
 [{{< image src="assets/icons/socketio.svg" alt="Socket.IO" width="50" height="50" linked=false >}}](https://socket.io)
-[{{< image src="assets/icons/elastic.svg" alt="Elasticsearch" width="50" height="50" linked=false >}}](https://www.elastic.co)
+[{{< image src="assets/icons/elasticsearch.svg" alt="Elasticsearch" width="50" height="50" linked=false >}}](https://www.elastic.co)
 [{{< image src="assets/icons/prometheus.svg" alt="Prometheus" width="50" height="50" linked=false >}}](https://prometheus.io)
 [{{< image src="assets/icons/grafana.svg" alt="Grafana" width="50" height="50" linked=false >}}](https://grafana.com)
 [{{< image src="assets/icons/pytorch.svg" alt="PyTorch" width="50" height="50" linked=false >}}](https://pytorch.org)
