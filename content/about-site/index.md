@@ -16,18 +16,18 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 项目   | 方案                                 |
-| :----- | :----------------------------------- |
-| 框架   | [Hugo]                               |
-| 主题   | [LoveIt] - [@Dillon]                 |
-| 评论   | [Twikoo]                             |
-| VPS    | [CloudCone]                          |
-| DNS    | [Cloudflare]                         |
-| CDN    | [Cloudflare]                         |
-| 部署   | [Cloudflare Pages]                   |
-| 云存储 | [Cloudreve] & [Backblaze B2][B2]     |
-| 图床   | [兰空图床][Lsky] & [腾讯云 COS][COS] |
-| 监控   | [Netdata] & [Better Stack]           |
+| 项目   | 方案                             |
+| :----- | :------------------------------- |
+| 框架   | [Hugo]                           |
+| 主题   | [LoveIt] - [@Dillon]             |
+| 评论   | [Twikoo]                         |
+| VPS    | [CloudCone]                      |
+| DNS    | [Cloudflare]                     |
+| CDN    | [Cloudflare]                     |
+| 部署   | [Cloudflare Pages]               |
+| 云存储 | [Cloudreve] & [Backblaze B2][B2] |
+| 图床   | [PicList] & [腾讯云 COS][COS]    |
+| 监控   | [Netdata] & [Better Stack]       |
 
 [@Dillon]: https://github.com/dillonzq
 [B2]: https://www.backblaze.com/cloud-storage
@@ -37,13 +37,10 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [Cloudflare Pages]: https://pages.cloudflare.com
 [Cloudreve]: https://cloudreve.org
 [COS]: https://cloud.tencent.com/product/cos
-[h5ai]: https://larsjung.de/h5ai
 [Hugo]: https://gohugo.io
-[Lighthouse]: https://cloud.tencent.com/product/lighthouse
 [LoveIt]: https://hugoloveit.com
-[Lsky]: https://www.lsky.pro
 [Netdata]: https://www.netdata.cloud
-[OneDrive]: https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business
+[PicList]: https://piclist.cn
 [Twikoo]: https://twikoo.js.org
 
 {{< /style >}}
@@ -54,6 +51,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
 | **2025‑12‑24** | 服务器迁移完毕：[腾讯云 :singapore:][Lighthouse] → [CloudCone :us:][CloudCone]、Ubuntu 22.04 → NixOS 25.11、CPU 2 → 3 核，年付 \$ 25。 |
 | 2025-12-24     | 改用 [Restic] 每日备份至 [Backblaze B2][B2]，弃用 [Rclone]。                                                                           |
+| 2025-12-23     | 图床迁移至 [PicList] 方案，弃用 [兰空图床][Lsky]。                                                                                     |
 | 2025‑12‑19     | 服务可用性监控迁移至 [Better Stack] 方案，弃用 [UptimeRobot]。                                                                         |
 | **2025‑07‑28** | 私有云存储迁移至 [Cloudreve] 方案，底层使用 [Backblaze B2][B2] 对象存储。                                                              |
 | 2025‑04‑07     | [LoveIt] 更新至 v0.3.0 版本，Hugo 更新至 v0.145.0 版本，解决各种兼容性问题。                                                           |
@@ -102,6 +100,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [LoveIt]: https://hugoloveit.com
 [LoveKKComment]: https://github.com/ylqjgm/LoveKKComment
 [Lsky]: https://www.lsky.pro
+[PicList]: https://piclist.cn
 [Netdata]: https://www.netdata.cloud
 [Nextcloud]: https://nextcloud.com
 [OneDrive]: https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business
