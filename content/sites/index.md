@@ -43,9 +43,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 {{< site "HAKULA†METRICS (US-1)" "https://metrics-us-1.hakula.xyz" "🇺🇸 本站服务器资源监控 - CloudCone" "/images/links/98722302.webp" >}}
 
-{{< site "HAKULA†METRICS (US-2)" "https://metrics-us-2.hakula.xyz" "🇺🇸 本站服务器资源监控 - CloudCone" "/images/links/78435677.webp" >}}
-
-{{< site "HAKULA†STATUS" "https://status.hakula.xyz" "👀 本站服务可用性监控 - Better Stack" "/images/links/92260989.webp" >}}
+{{< site "HAKULA†STATUS" "https://status.hakula.xyz" "👀 本站服务可用性监控 - Better Stack" "/images/links/78435677.webp" >}}
 
 ## 其他
 
