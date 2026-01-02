@@ -65,14 +65,6 @@ license: CC BY-NC-SA 4.0
 
 {{< /admonition >}}
 
-{{< admonition example "Konmai 音游下载站" >}}
-
-[:(fas fa-magnifying-glass):  BMS Package Downloader](https://616.sb/bms)
-
-由知名网站 [616.sb](https://616.sb) 提供的 BMS 散包搜索下载站（试运行），可用于查漏补缺。遇到问题可联系 [@Konmai音游下载站](https://space.bilibili.com/1227019768)。
-
-{{< /admonition >}}
-
 {{< admonition example "QQ 群" >}}
 
 [:(fab fa-qq):  Be-Music Source (176763307)](https://jq.qq.com/?_wv=1027&k=5L8MRvF)
