@@ -59,9 +59,9 @@ license: CC BY-NC-SA 4.0
 
 感谢 BMS 社区所有资源整理者的付出！:heart:  
 
-基于 Cloudreve & Backblaze B2 自建，不限流量、不限速。部分地区如访问速度较慢，可以试试 @anshi 维护的 [镜像站](https://bms.iidx.ca)（不定时更新、不保证可用性）。
+基于 Cloudreve & Backblaze B2 自建，不限流量、不限速。
 
-**不建议**使用文件夹打包下载功能，通常会比较慢，而且中途下载失败或者下完后文件损坏就要全部重下，也违背了分卷压缩的初衷。建议使用 [IDM](https://www.internetdownloadmanager.com) / [FDM](https://www.freedownloadmanager.org) 等下载工具导入全部链接，然后批量下载。
+**不建议**使用文件夹打包下载功能，通常会比较慢，而且中途下载失败或者下完后文件损坏就要全部重下，也违背了分卷压缩的初衷。建议使用 [IDM](https://www.internetdownloadmanager.com) / [FDM](https://www.freedownloadmanager.org) 等下载工具批量下载。
 
 {{< /admonition >}}
 

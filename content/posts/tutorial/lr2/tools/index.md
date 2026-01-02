@@ -165,7 +165,7 @@ BMS 谱面在线预览，支持上传谱面 / 搜索已上传的谱面。
 BeMusicSeeker 是一个用于管理 BMS 曲包、导入第三方表的辅助工具。别再用 GLAssist 啦！
 
 {{< admonition success 安装包 >}}
-[:(fas fa-download):  本地下载](https://bms.hakula.xyz) - 新人请进 /【启动器】Lunatic Rave 2 / 相关资源 / BeMusicSeeker.exe
+[:(fas fa-download):  本地下载](https://cloud.hakula.xyz/f/d/jZ5I1/BeMusicSeeker.exe)
 {{< /admonition >}}
 
 {{< admonition tip 阅读 >}}
