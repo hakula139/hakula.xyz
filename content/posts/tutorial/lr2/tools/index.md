@@ -154,8 +154,7 @@ $$ p(\theta) = \frac{1}{1+e^{-a(\theta-b)}} $$
 
 ## 谱面预览
 
-> [上传谱面 - Konmai Academy](https://616.sb/bms/upload)  
-> [搜索已上传的谱面 - Konmai Academy](https://616.sb/bms/download)
+> [谱面预览](https://bms-score-viewer.pages.dev)
 
 BMS 谱面在线预览，支持上传谱面 / 搜索已上传的谱面。
 
