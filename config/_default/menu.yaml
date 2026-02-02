@@ -44,7 +44,7 @@ external:
   - identifier: metrics
     title: 资源监控
     pre: <i class="fas fa-chart-simple fa-fw"></i>
-    url: https://metrics-us-1.hakula.xyz
+    url: https://metrics-us-4.hakula.xyz
     weight: 2
   - identifier: github
     title: 网站源码

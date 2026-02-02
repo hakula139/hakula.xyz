@@ -21,7 +21,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 | 框架   | [Hugo]                           |
 | 主题   | [LoveIt] - [@Dillon]             |
 | 评论   | [Twikoo]                         |
-| VPS    | [CloudCone]                      |
+| VPS    | [DMIT]                           |
 | DNS    | [Cloudflare]                     |
 | CDN    | [Cloudflare]                     |
 | 部署   | [Cloudflare Pages]               |
@@ -32,11 +32,11 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [@Dillon]: https://github.com/dillonzq
 [B2]: https://www.backblaze.com/cloud-storage
 [Better Stack]: https://betterstack.com
-[CloudCone]: /links/cloudcone-cn
 [Cloudflare]: https://www.cloudflare.com
 [Cloudflare Pages]: https://pages.cloudflare.com
 [Cloudreve]: https://cloudreve.org
 [COS]: https://cloud.tencent.com/product/cos
+[DMIT]: /links/dmit
 [Hugo]: https://gohugo.io
 [LoveIt]: https://hugoloveit.com
 [Netdata]: https://www.netdata.cloud
@@ -49,6 +49,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 | 日期           | 更新内容                                                                                                                               |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-02-02     | 服务器迁移完毕：[CloudCone :us:][CloudCone] → [DMIT :us:][DMIT] (Premium, CN2 GIA)，月付 \$ 15。                                       |
 | **2025‑12‑24** | 服务器迁移完毕：[腾讯云 :singapore:][Lighthouse] → [CloudCone :us:][CloudCone]、Ubuntu 22.04 → NixOS 25.11、CPU 2 → 3 核，年付 \$ 25。 |
 | 2025-12-24     | 改用 [Restic] 每日备份至 [Backblaze B2][B2]，弃用 [Rclone]。                                                                           |
 | 2025-12-23     | 图床迁移至 [PicList] 方案，弃用 [兰空图床][Lsky]。                                                                                     |
@@ -91,6 +92,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [CloudCone]: /links/cloudcone-cn
 [Cloudreve]: https://cloudreve.org
 [COS]: https://cloud.tencent.com/product/cos
+[DMIT]: /links/dmit
 [Gdrive]: https://github.com/prasmussen/gdrive
 [h5ai]: https://larsjung.de/h5ai
 [hakula.xyz]: https://www.whois.com/whois/hakula.xyz
