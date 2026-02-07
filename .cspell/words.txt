@@ -1,0 +1,4 @@
+ffmpeg
+ffprobe
+libaom
+vstack
