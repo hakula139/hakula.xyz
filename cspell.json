@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "language": "en,en-GB,de,fr",
+  "language": "en,en-GB,de,fr,grc,la",
   "useGitignore": true,
   "allowCompoundWords": true,
   "dictionaryDefinitions": [
