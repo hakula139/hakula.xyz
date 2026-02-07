@@ -1,5 +1,6 @@
 acgn
 ave
+bocchi
 bowlby
 chan
 chihaya
@@ -10,6 +11,7 @@ epoché
 ffmpeg
 ffprobe
 hatsune
+intj
 iser
 jauss
 juda
