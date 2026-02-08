@@ -35,6 +35,7 @@ katex
 kiyotsugu
 libaom
 lunr
+magick
 mhchem
 mihaly
 misumi
