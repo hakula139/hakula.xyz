@@ -4,7 +4,9 @@
       "Bash(ffmpeg *)",
       "Bash(ffprobe *)",
       "Bash(hugo *)",
-      "Skill(combine-screenshots)"
+      "Bash(magick *)",
+      "Skill(combine-screenshots)",
+      "Skill(view-avif)"
     ]
   }
 }

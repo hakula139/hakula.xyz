@@ -60,6 +60,7 @@ llms
 llmstxt
 lstrip
 lunr
+magick
 mhchem
 mihaly
 misumi
