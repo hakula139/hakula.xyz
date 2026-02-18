@@ -7,8 +7,10 @@ asyncio
 ave
 baldr
 bangumi
+baphomet
 bocchi
 bowlby
+cazotte
 chan
 chihaya
 clannad
@@ -23,6 +25,7 @@ dmit
 doki
 elif
 epoché
+erich
 erogame
 errorf
 esac
@@ -46,12 +49,14 @@ intj
 iser
 izumi
 jauss
+jouissance
 jsonify
 juda
 jude
 judy
 karpathy
 katex
+kierkegaard
 kiyotsugu
 libaom
 llms
@@ -89,6 +94,7 @@ shfmt
 shiina
 shirobako
 slavoj
+søren
 soyo
 soyorin
 statix
