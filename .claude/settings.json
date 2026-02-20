@@ -1,8 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ffmpeg:*)",
-      "Bash(ffprobe:*)",
+      "Bash(ffmpeg *)",
+      "Bash(ffprobe *)",
+      "Bash(hugo *)",
       "Skill(combine-screenshots)"
     ]
   }

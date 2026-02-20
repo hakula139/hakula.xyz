@@ -6,8 +6,8 @@
 
   iframe {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    @include border-radius(10px);
+    @include box-shadow(0 4px 16px rgba(0, 0, 0, 0.1));
   }
 
   .apple-music-light {
@@ -18,11 +18,11 @@
     display: none;
   }
 
-  [theme=dark] & {
+  [theme='dark'] & {
     .apple-music-light {
       display: none;
     }
-    
+
     .apple-music-dark {
       display: block;
     }

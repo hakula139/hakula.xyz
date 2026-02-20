@@ -1,0 +1,217 @@
+{{- $src := cond .IsNamedParams (.Get "src") (.Get 0) -}}
+{{- $csv := .Page.Resources.GetMatch $src -}}
+{{- if not $csv -}}
+    {{- errorf "score-table: resource %q not found in %s" $src .Page.File.Path -}}
+{{- end -}}
+
+{{- /* Parse CSV */ -}}
+{{- $data := $csv.Content | transform.Unmarshal (dict "delimiter" ",") -}}
+{{- $headers := index $data 0 -}}
+{{- $rows := after 1 $data -}}
+
+{{- /* Column type registry */ -}}
+{{- $colTypes := dict
+    "作品名称" "text"
+    "年份" "number"
+    "剧本" "score"
+    "系统" "score"
+    "画面" "score"
+    "音乐" "score"
+    "总评" "score"
+    "评级" "rating"
+    "个人差" "heatmap"
+    "分级" "age-rating"
+    "EGS" "ext-score"
+    "BGM" "ext-score"
+    "Δ" "delta"
+    "完成日期" "date"
+    "初次完成日期" "date"
+-}}
+
+{{- /* Column type → CSS class */ -}}
+{{- $colClasses := dict
+    "text" "col-title"
+    "number" "col-number"
+    "score" "col-score"
+    "rating" "col-rating"
+    "heatmap" "col-heatmap"
+    "age-rating" "col-age-rating"
+    "ext-score" "col-ext-score"
+    "delta" "col-delta"
+    "date" "col-date"
+-}}
+
+{{- /* Score bar colors */ -}}
+{{- $colColors := dict
+    "剧本" "0,176,240"
+    "系统" "255,182,40"
+    "画面" "99,195,132"
+    "音乐" "99,142,198"
+    "总评" "255,85,90"
+-}}
+
+{{- /* Find 总评 column index for rating cells */ -}}
+{{- $totalIdx := -1 -}}
+{{- range $i, $h := $headers -}}
+    {{- if eq $h "总评" }}{{ $totalIdx = $i }}{{ end -}}
+{{- end -}}
+
+<div class="score-table-wrapper">
+    <table class="score-table">
+        <thead>
+            <tr>
+                <th class="col-rownum">#</th>
+                {{- range $i, $h := $headers -}}
+                    {{- $type := index $colTypes $h | default "text" -}}
+                    {{- $cls := index $colClasses $type | default "col-text" -}}
+                    <th
+                        class="{{ $cls }}"
+                        data-col-type="{{ $type }}"
+                        data-sort-value="{{ $h }}"
+                    >
+                        {{ $h }}
+                    </th>
+                {{- end -}}
+            </tr>
+        </thead>
+
+        <tbody>
+            {{- range $row := $rows -}}
+                <tr>
+                    <td class="col-rownum"></td>
+
+                    {{- range $colIdx, $val := $row -}}
+                        {{- $header := index $headers $colIdx -}}
+                        {{- $type := index $colTypes $header | default "text" -}}
+                        {{- $cls := index $colClasses $type | default "col-text" -}}
+
+                        {{- /* text — title column (sticky) */ -}}
+                        {{- if eq $type "text" -}}
+                            <td
+                                class="{{ $cls }}"
+                                title="{{ $val }}"
+                                data-sort-value="{{ $val }}"
+                            >
+                                {{ $val }}
+                            </td>
+
+                        {{- /* score — bar chart cell */ -}}
+                        {{- else if eq $type "score" -}}
+                            {{- $color := index $colColors $header -}}
+                            {{- $num := float $val -}}
+                            {{- $pct := math.Min $num 100.0 -}}
+                            <td
+                                class="{{ $cls }}"
+                                style="background: linear-gradient(to right, rgba({{ $color }}, 0.4) {{ printf "%.1f" $pct }}%, transparent {{ printf "%.1f" $pct }}%)"
+                                data-sort-value="{{ $val }}"
+                            >
+                                {{ $val }}
+                            </td>
+
+                        {{- /* rating — colored badge driven by 总评 */ -}}
+                        {{- else if eq $type "rating" -}}
+                            {{- $totalVal := "" -}}
+                            {{- if ge $totalIdx 0 -}}
+                                {{- $totalVal = index $row $totalIdx -}}
+                            {{- end -}}
+                            <td
+                                class="{{ $cls }}"
+                                data-type="rating"
+                                data-score="{{ $totalVal }}"
+                                data-sort-value="{{ $val }}"
+                            >
+                                {{ $val }}
+                            </td>
+
+                        {{- /* heatmap — 个人差 */ -}}
+                        {{- else if eq $type "heatmap" -}}
+                            <td
+                                class="{{ $cls }}"
+                                data-type="heatmap"
+                                data-score="{{ $val }}"
+                                data-sort-value="{{ $val }}"
+                            >
+                                {{ $val }}
+                            </td>
+
+                        {{- /* age-rating — 分级 (tier * 100 + age for sorting) */ -}}
+                        {{- else if eq $type "age-rating" -}}
+                            {{- $display := $val -}}
+                            {{- $tier := 0 -}}
+                            {{- if strings.HasSuffix $val "G!!" -}}
+                                {{- $display = strings.TrimSuffix "G!!" $val -}}
+                                {{- $tier = 6 -}}
+                            {{- else if strings.HasSuffix $val "G!" -}}
+                                {{- $display = strings.TrimSuffix "G!" $val -}}
+                                {{- $tier = 5 -}}
+                            {{- else if strings.HasSuffix $val "G" -}}
+                                {{- $display = strings.TrimSuffix "G" $val -}}
+                                {{- $tier = 4 -}}
+                            {{- else if strings.HasSuffix $val "!!" -}}
+                                {{- $display = strings.TrimSuffix "!!" $val -}}
+                                {{- $tier = 3 -}}
+                            {{- else if strings.HasSuffix $val "!" -}}
+                                {{- $display = strings.TrimSuffix "!" $val -}}
+                                {{- $tier = 2 -}}
+                            {{- end -}}
+                            {{- $age := 0 -}}
+                            {{- if strings.HasSuffix $display "+" -}}
+                                {{- $age = int (strings.TrimSuffix "+" $display) -}}
+                            {{- end -}}
+                            {{- if and (eq $tier 0) (ge $age 18) -}}
+                                {{- $tier = 1 -}}
+                            {{- end -}}
+                            {{- $sortVal := add (mul $tier 100) $age -}}
+                            <td
+                                class="{{ $cls }}"
+                                data-type="age-rating"
+                                data-tier="{{ $tier }}"
+                                data-sort-value="{{ $sortVal }}"
+                            >
+                                {{ $display }}
+                            </td>
+
+                        {{- /* ext-score — EGS / BGM (gray if approximate) */ -}}
+                        {{- else if eq $type "ext-score" -}}
+                            {{- $isApprox := hasPrefix $val "~" -}}
+                            {{- $sortVal := $val -}}
+                            {{- if $isApprox -}}
+                                {{- $sortVal = strings.TrimPrefix "~" $val -}}
+                            {{- end -}}
+                            <td
+                                class="{{ $cls }}{{ if $isApprox }} ext-score-approx{{ end }}"
+                                data-sort-value="{{ $sortVal }}"
+                            >
+                                {{ $val }}
+                            </td>
+
+                        {{- /* delta — signed difference */ -}}
+                        {{- else if eq $type "delta" -}}
+                            {{- $sortVal := strings.TrimPrefix "+" $val -}}
+                            <td
+                                class="{{ $cls }}"
+                                data-type="delta"
+                                data-score="{{ $sortVal }}"
+                                data-sort-value="{{ $sortVal }}"
+                            >
+                                {{ $val }}
+                            </td>
+
+                        {{- /* number / date / fallback */ -}}
+                        {{- else -}}
+                            <td
+                                class="{{ $cls }}"
+                                data-sort-value="{{ $val }}"
+                            >
+                                {{ $val }}
+                            </td>
+                        {{- end -}}
+                    {{- end -}}
+                </tr>
+            {{- end -}}
+        </tbody>
+    </table>
+</div>
+
+{{- $fingerprint := .Page.Scratch.Get "fingerprint" -}}
+{{- dict "Source" "js/score-table.js" "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Page.Scratch "Data" | partial "scratch/script.html" -}}
