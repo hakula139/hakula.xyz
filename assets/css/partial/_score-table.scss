@@ -148,6 +148,18 @@
     [theme='dark'] & {
       background: $table-background-color-dark;
     }
+
+    @media only screen and (max-width: 768px) {
+      position: static;
+      z-index: auto;
+      min-width: 10rem;
+      max-width: none;
+      background: transparent;
+
+      [theme='dark'] & {
+        background: transparent;
+      }
+    }
   }
 
   thead .col-rownum,
@@ -157,6 +169,12 @@
 
     [theme='dark'] & {
       background: $table-thead-color-dark;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    thead .col-title {
+      z-index: 2;
     }
   }
 
