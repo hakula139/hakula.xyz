@@ -20,7 +20,7 @@ license: CC BY-NC-SA 4.0
 ## 评测数据
 
 {{< admonition tip 提示 >}}
-可使用 `Shift` + `鼠标滚轮` 横向滚动。
+使用 `Shift` + `鼠标滚轮` 横向滚动，点击表头进行排序。
 {{< /admonition >}}
 
 {{< score-table "scores.csv" >}}

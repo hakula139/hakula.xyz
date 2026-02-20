@@ -134,31 +134,38 @@
                                 {{ $val }}
                             </td>
 
-                        {{- /* age-rating — 分级 (with encoding) */ -}}
+                        {{- /* age-rating — 分级 (tier * 100 + age for sorting) */ -}}
                         {{- else if eq $type "age-rating" -}}
                             {{- $display := $val -}}
-                            {{- $sortVal := "0" -}}
+                            {{- $tier := 0 -}}
                             {{- if strings.HasSuffix $val "G!!" -}}
                                 {{- $display = strings.TrimSuffix "G!!" $val -}}
-                                {{- $sortVal = "6" -}}
+                                {{- $tier = 6 -}}
                             {{- else if strings.HasSuffix $val "G!" -}}
                                 {{- $display = strings.TrimSuffix "G!" $val -}}
-                                {{- $sortVal = "5" -}}
+                                {{- $tier = 5 -}}
                             {{- else if strings.HasSuffix $val "G" -}}
                                 {{- $display = strings.TrimSuffix "G" $val -}}
-                                {{- $sortVal = "4" -}}
+                                {{- $tier = 4 -}}
                             {{- else if strings.HasSuffix $val "!!" -}}
                                 {{- $display = strings.TrimSuffix "!!" $val -}}
-                                {{- $sortVal = "3" -}}
+                                {{- $tier = 3 -}}
                             {{- else if strings.HasSuffix $val "!" -}}
                                 {{- $display = strings.TrimSuffix "!" $val -}}
-                                {{- $sortVal = "2" -}}
-                            {{- else if eq $val "18+" -}}
-                                {{- $sortVal = "1" -}}
+                                {{- $tier = 2 -}}
                             {{- end -}}
+                            {{- $age := 0 -}}
+                            {{- if strings.HasSuffix $display "+" -}}
+                                {{- $age = int (strings.TrimSuffix "+" $display) -}}
+                            {{- end -}}
+                            {{- if and (eq $tier 0) (ge $age 18) -}}
+                                {{- $tier = 1 -}}
+                            {{- end -}}
+                            {{- $sortVal := add (mul $tier 100) $age -}}
                             <td
                                 class="{{ $cls }}"
                                 data-type="age-rating"
+                                data-tier="{{ $tier }}"
                                 data-sort-value="{{ $sortVal }}"
                             >
                                 {{ $display }}

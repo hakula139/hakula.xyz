@@ -18,6 +18,7 @@ ffmpeg
 ffprobe
 flcl
 hatsune
+hsl
 hugo
 intj
 iser

@@ -170,7 +170,7 @@
   }
 
   td[data-type='age-rating'] {
-    &[data-sort-value='0'] {
+    &[data-tier='0'] {
       color: $global-font-secondary-color;
 
       [theme='dark'] & {
@@ -178,32 +178,32 @@
       }
     }
 
-    &[data-sort-value='2'] {
+    &[data-tier='2'] {
       color: $age-red;
     }
 
-    &[data-sort-value='3'] {
+    &[data-tier='3'] {
       font-weight: 700;
       color: $age-red;
     }
 
-    &[data-sort-value='4'] {
+    &[data-tier='4'] {
       font-weight: 700;
       color: $age-red;
       background: #fff3a0;
 
       [theme='dark'] & {
-        background: #665c00;
+        background: #443e00;
       }
     }
 
-    &[data-sort-value='5'] {
+    &[data-tier='5'] {
       font-weight: 700;
       color: #000;
       background: $age-red;
     }
 
-    &[data-sort-value='6'] {
+    &[data-tier='6'] {
       font-weight: 700;
       color: $age-red;
       background: #1a1a1a;
