@@ -165,10 +165,6 @@
   }
 
   // Data cell styles
-  td[data-type='rating'] {
-    font-weight: 700;
-  }
-
   td[data-type='age-rating'] {
     &[data-tier='0'] {
       color: $global-font-secondary-color;

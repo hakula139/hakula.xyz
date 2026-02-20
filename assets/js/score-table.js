@@ -15,9 +15,24 @@
     });
   };
 
+  // Grade rank: base letter * 3 + modifier (+/none/-)
+  const gradeBase = { F: 0, E: 1, D: 2, C: 3, B: 4, A: 5, S: 6, SS: 7 };
+  const gradeRank = (g) => {
+    let mod = 1;
+    if (g.endsWith('+')) {
+      mod = 2;
+      g = g.slice(0, -1);
+    } else if (g.endsWith('-')) {
+      mod = 0;
+      g = g.slice(0, -1);
+    }
+    return (gradeBase[g] || 0) * 3 + mod;
+  };
+
   const comparators = {
     text: (a, b) => a.localeCompare(b, 'ja'),
     date: (a, b) => a.localeCompare(b),
+    rating: (a, b) => gradeRank(a) - gradeRank(b),
   };
   const numericCmp = (a, b) => (parseFloat(a) || 0) - (parseFloat(b) || 0);
 
@@ -80,7 +95,12 @@
 
         const rows = Array.from(tbody.querySelectorAll('tr'));
         rows.sort((a, b) => {
-          const cmp = compare(getCellValue(a, domIdx), getCellValue(b, domIdx));
+          let cmp = compare(getCellValue(a, domIdx), getCellValue(b, domIdx));
+          if (cmp === 0) {
+            const sa = parseFloat(a.cells[domIdx].getAttribute('data-score')) || 0;
+            const sb = parseFloat(b.cells[domIdx].getAttribute('data-score')) || 0;
+            cmp = sa - sb;
+          }
           return isAsc ? cmp : -cmp;
         });
 
