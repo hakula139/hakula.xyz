@@ -214,4 +214,4 @@
 </div>
 
 {{- $fingerprint := .Page.Scratch.Get "fingerprint" -}}
-{{- dict "Source" "js/score-table.js" "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Page.Scratch "Data" | partial "scratch/script.html" -}}
+{{- .Page.Store.SetInMap "shortcodeScripts" "score-table" (dict "Source" "js/score-table.js" "Minify" true "Fingerprint" $fingerprint) -}}

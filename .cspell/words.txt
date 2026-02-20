@@ -1,4 +1,6 @@
 acgn
+algoliasearch
+aplayer
 ave
 baldr
 bangumi
@@ -17,17 +19,23 @@ errorf
 ffmpeg
 ffprobe
 flcl
+glcss
+gljs
 hatsune
 hsl
 hugo
 intj
 iser
 jauss
+jsonify
 juda
 jude
 judy
+katex
 kiyotsugu
 libaom
+lunr
+mhchem
 mihaly
 misumi
 morfonica
@@ -45,6 +53,7 @@ rushkoff
 sadaharu
 sakiko
 schecter
+segmentit
 shiina
 shirobako
 slavoj
@@ -54,6 +63,7 @@ taki
 textrm
 togawa
 tomori
+typeit
 uika
 umiri
 unmarshal
