@@ -4,8 +4,10 @@ aplayer
 ave
 baldr
 bangumi
+baphomet
 bocchi
 bowlby
+cazotte
 chan
 chihaya
 clannad
@@ -14,6 +16,7 @@ différance
 diggy
 doki
 epoché
+erich
 erogame
 errorf
 ffmpeg
@@ -27,14 +30,17 @@ hugo
 intj
 iser
 jauss
+jouissance
 jsonify
 juda
 jude
 judy
 katex
+kierkegaard
 kiyotsugu
 libaom
 lunr
+magick
 mhchem
 mihaly
 misumi
@@ -57,6 +63,7 @@ segmentit
 shiina
 shirobako
 slavoj
+søren
 soyo
 soyorin
 taki
