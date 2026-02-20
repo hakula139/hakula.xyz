@@ -43,7 +43,7 @@ license: CC BY-NC-SA 4.0
 
 {{< image src="assets/02.07.avif" caption="KiLLKiSS" >}}
 
-{{< music server="tencent" type="song" id="002SQaDu4fwPiG" >}}
+{{< music server="netease" type="song" id="2653641752" >}}
 
 {{< admonition note "KiLLKiSS - 歌词" false >}}
 
