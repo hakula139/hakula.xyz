@@ -1,0 +1,220 @@
+.score-table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.single .content .score-table {
+  $border-color: darken($table-thead-color, 2%);
+  $border-color-dark: darken($table-thead-color-dark, 2%);
+  $age-red: #e53935;
+  $row-num-w: 3rem;
+
+  $col-sizes: (
+    'col-rownum': $row-num-w,
+    'col-number': 3.5rem,
+    'col-score': 5rem,
+    'col-rating': 3.5rem,
+    'col-heatmap': 3.5rem,
+    'col-age-rating': 3.5rem,
+    'col-ext-score': 3.5rem,
+    'col-delta': 3.5rem,
+    'col-date': 6rem,
+  );
+
+  width: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  counter-reset: row-num;
+  background: $table-background-color;
+
+  [theme='dark'] & {
+    background: $table-background-color-dark;
+  }
+
+  th,
+  td {
+    padding: 0.3rem 0.5rem;
+    border: 0;
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    text-align: center;
+    vertical-align: middle;
+
+    [theme='dark'] & {
+      border-color: $border-color-dark;
+    }
+  }
+
+  thead {
+    background: $table-thead-color;
+
+    [theme='dark'] & {
+      background: $table-thead-color-dark;
+    }
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-top: 1px solid $border-color;
+    font-weight: 700;
+    background: $table-thead-color;
+    cursor: pointer;
+    user-select: none;
+
+    &[data-sort]::after {
+      font-size: 0.6rem;
+    }
+
+    &[data-sort='asc']::after {
+      content: ' \25B2';
+    }
+
+    &[data-sort='desc']::after {
+      content: ' \25BC';
+    }
+
+    [theme='dark'] & {
+      background: $table-thead-color-dark;
+    }
+  }
+
+  // Sticky columns have their own background that covers the tr shadow,
+  // so apply the same inset shadow directly on them.
+  tbody tr {
+    counter-increment: row-num;
+
+    &:hover {
+      &,
+      .col-rownum,
+      .col-title {
+        @include box-shadow(inset 0 0 0 9999px rgba(0, 0, 0, 0.04));
+
+        [theme='dark'] & {
+          @include box-shadow(inset 0 0 0 9999px rgba(255, 255, 255, 0.04));
+        }
+      }
+    }
+  }
+
+  // Column sizing
+  @each $col, $w in $col-sizes {
+    .#{$col} {
+      width: $w;
+      min-width: $w;
+    }
+  }
+
+  .col-score {
+    text-align: left;
+  }
+
+  .col-date {
+    text-align: right;
+  }
+
+  // Sticky columns
+  .col-rownum {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    border-right: 0;
+    border-left: 1px solid $border-color;
+    background: $table-background-color;
+
+    [theme='dark'] & {
+      background: $table-background-color-dark;
+    }
+  }
+
+  .col-title {
+    position: sticky;
+    left: $row-num-w;
+    z-index: 1;
+    overflow: hidden;
+    min-width: 18rem;
+    max-width: 20rem;
+    border-left: 1px solid $border-color;
+    text-align: left;
+    text-overflow: ellipsis;
+    background: $table-background-color;
+
+    [theme='dark'] & {
+      background: $table-background-color-dark;
+    }
+  }
+
+  thead .col-rownum,
+  thead .col-title {
+    z-index: 3;
+    background: $table-thead-color;
+
+    [theme='dark'] & {
+      background: $table-thead-color-dark;
+    }
+  }
+
+  td.col-rownum::before {
+    content: counter(row-num);
+  }
+
+  // Data cell styles
+  td[data-type='rating'] {
+    font-weight: 700;
+  }
+
+  td[data-type='age-rating'] {
+    &[data-sort-value='0'] {
+      color: $global-font-secondary-color;
+
+      [theme='dark'] & {
+        color: $global-font-secondary-color-dark;
+      }
+    }
+
+    &[data-sort-value='2'] {
+      color: $age-red;
+    }
+
+    &[data-sort-value='3'] {
+      font-weight: 700;
+      color: $age-red;
+    }
+
+    &[data-sort-value='4'] {
+      font-weight: 700;
+      color: $age-red;
+      background: #fff3a0;
+
+      [theme='dark'] & {
+        background: #665c00;
+      }
+    }
+
+    &[data-sort-value='5'] {
+      font-weight: 700;
+      color: #000;
+      background: $age-red;
+    }
+
+    &[data-sort-value='6'] {
+      font-weight: 700;
+      color: $age-red;
+      background: #1a1a1a;
+    }
+  }
+
+  .ext-score-approx {
+    color: $global-font-secondary-color;
+
+    [theme='dark'] & {
+      color: $global-font-secondary-color-dark;
+    }
+  }
+}

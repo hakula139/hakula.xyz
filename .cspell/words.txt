@@ -13,6 +13,7 @@ diggy
 doki
 epoché
 erogame
+errorf
 ffmpeg
 ffprobe
 flcl
@@ -38,6 +39,7 @@ nyamu
 ptsd
 rāna
 rikki
+rownum
 rushkoff
 sadaharu
 sakiko
@@ -53,6 +55,7 @@ togawa
 tomori
 uika
 umiri
+unmarshal
 vndb
 vstack
 vtuber
