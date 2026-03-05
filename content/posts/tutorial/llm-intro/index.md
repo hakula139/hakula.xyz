@@ -77,16 +77,22 @@ The question is no longer "can an LLM do this?". Most things that can be express
 
 ## Why Claude Code
 
-The 2026 landscape for AI coding tools is crowded. Here is an honest comparison of the major options:
+The 2026 landscape for AI coding tools is crowded. Here is an opinionated comparison of the major options[^tool-ratings]:
 
-| Tool             | Philosophy                                         | Best for                               |
-| ---------------- | -------------------------------------------------- | -------------------------------------- |
-| Claude Code      | CLI-first, local control, deep agent orchestration | Multi-file agentic tasks, architecture |
-| Cursor           | IDE-native (VS Code fork)                          | Daily coding, inline completion        |
-| OpenAI Codex CLI | Cloud sandboxes, async delegation                  | Autonomous task automation             |
-| GitHub Copilot   | Editor integration, lightweight                    | Line-level completion                  |
+|              | Claude Code | Codex CLI | Gemini CLI | OpenCode | Cursor     |
+| ------------ | ----------- | --------- | ---------- | -------- | ---------- |
+| Intelligence | ★★★★★       | ★★★★★     | ★★★        | ★★★★     | ★★★★       |
+| Tool Using   | ★★★★★       | ★★★★      | ★★         | ★★★      | ★★★        |
+| Reliability  | ★★★★★       | ★★★★      | ★★★        | ★★★      | ★★★        |
+| Ecosystem    | ★★★★★       | ★★        | ★★         | ★★★★     | ★★★★       |
+| Speed        | ★★★★★       | ★★★       | ★★★★       | ★★★★★    | ★★★★★      |
+| Cost         | ＄＄＄＄    | ＄        | ＄         | Depends  | ＄＄＄＄＄ |
 
-Claude Code is a terminal application. You run it in your shell, and it operates on your local filesystem with the permissions you grant it. There is no IDE dependency, no cloud sandbox, no intermediate layer between the agent and your codebase. This has consequences, both positive and negative.
+[^tool-ratings]: Ratings reflect practical experience across multiple production setups. Intelligence and reliability depend on the model: OpenCode with Opus 4.6 or GPT 5.3 Codex approaches top-tier reasoning, but tool calling reliability suffers compared to native integrations. Gemini's model is capable on paper, but tool calling and code generation lag behind in practice.
+
+The tools differ not just in capability but in philosophy. **Claude Code** advocates full automation: you describe the goal, the agent executes end-to-end, and you review the result. Anthropic calls this "vibe coding" and it is the default interaction model for CLI agents. **Codex CLI** takes a more supervised approach: the agent runs locally with OS-level sandboxing and checks in at key decision points, emphasizing human oversight over full autonomy. **Cursor** has agentic capabilities too, but its design philosophy centers on the programmer reviewing diffs: the agent proposes changes, you read the diff, accept or reject, and iterate. It also has the best tab completion on the market, which alone makes it nearly the only viable IDE choice alongside Copilot for developers who rely on inline suggestions while typing. **OpenCode** has a different philosophy: decouple the agent from the model. The tool is provider-agnostic, so you can swap models without switching workflows. But this decoupling comes at a cost: tool calling reliability varies across providers, and the plugin ecosystem is sparse compared to first-party integrations. **Gemini CLI** has the most generous free tier, but the tool calling and code editing quality are far enough behind that it is difficult to recommend for production work.
+
+Claude Code is arguably the best CLI agent on the market today, so it is where we will spend the rest of this article. It operates on your local filesystem with the permissions you grant it. There is no IDE dependency, no cloud sandbox, no intermediate layer between the agent and your codebase. This has consequences, both positive and negative.
 
 The positive side is depth of control. Claude Code supports a full configuration hierarchy (CLAUDE.md files at global, project, and directory levels), lifecycle hooks that enforce rules through shell commands, reusable skill definitions, a subagent system for focused delegation, and full agent teams with peer-to-peer communication and shared task management. It supports multiple model tiers (opus for deep reasoning, sonnet for balanced tasks, haiku for fast lookups) and lets you assign different models to different agents based on task complexity. An internal analysis by Anthropic found Claude Code to be 5.5x more token-efficient than Cursor for equivalent multi-file tasks, largely because it manages context programmatically rather than loading entire files into an editor context.
 
@@ -94,7 +100,7 @@ The negative side is real. The learning curve is steeper than an IDE plugin. The
 
 {{< admonition tip "Tool selection" >}}
 
-These tools are not mutually exclusive. Many practitioners use Copilot for line-level completion in their editor and Claude Code for multi-file tasks, architecture decisions, and agent orchestration from the terminal. The question is not "which one" but "which one for what".
+These tools are not mutually exclusive. Many practitioners use Copilot for line-level completion in their editor and Claude Code for multi-file tasks, architecture decisions, and agent orchestration from the terminal. The question is not "which one" but "which one for what". If Claude Code access is difficult to obtain, Codex CLI is a strong fallback with comparable reasoning; OpenCode with a capable model (GPT-5.3 or Opus) is another option, though with a weaker ecosystem.
 
 {{< /admonition >}}
 
