@@ -27,6 +27,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 | 部署   | [Cloudflare Pages]               |
 | 云存储 | [Cloudreve] & [Backblaze B2][B2] |
 | 图床   | [PicList] & [腾讯云 COS][COS]    |
+| 流媒体 | [PeerTube]                       |
 | 监控   | [Netdata] & [Better Stack]       |
 
 [@Dillon]: https://github.com/dillonzq
@@ -40,6 +41,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [Hugo]: https://gohugo.io
 [LoveIt]: https://hugoloveit.com
 [Netdata]: https://www.netdata.cloud
+[PeerTube]: https://joinpeertube.org
 [PicList]: https://piclist.cn
 [Twikoo]: https://twikoo.js.org
 
@@ -49,6 +51,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 
 | 日期           | 更新内容                                                                                                                               |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-03-07     | 基于 [PeerTube] 方案部署视频站。                                                                                                       |
 | 2026-02-02     | 服务器迁移完毕：[CloudCone :us:][CloudCone] → [DMIT :us:][DMIT] (Premium, CN2 GIA)，月付 \$ 15。                                       |
 | **2025‑12‑24** | 服务器迁移完毕：[腾讯云 :singapore:][Lighthouse] → [CloudCone :us:][CloudCone]、Ubuntu 22.04 → NixOS 25.11、CPU 2 → 3 核，年付 \$ 25。 |
 | 2025-12-24     | 改用 [Restic] 每日备份至 [Backblaze B2][B2]，弃用 [Rclone]。                                                                           |
@@ -107,6 +110,7 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-cove
 [Nextcloud]: https://nextcloud.com
 [OneDrive]: https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business
 [OneIndex]: https://github.com/0oVicero0/oneindex
+[PeerTube]: https://joinpeertube.org
 [PyOne]: https://github.com/abbeyokgo/PyOne
 [Rclone]: https://rclone.org
 [Restic]: https://restic.net
