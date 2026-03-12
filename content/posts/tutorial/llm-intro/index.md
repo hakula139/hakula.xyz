@@ -414,90 +414,181 @@ CLAUDE.md tells the agent what to do, but these are instructions, not constraint
 
 ## Hooks
 
-[Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) are shell commands triggered at specific lifecycle events in the agent's operation. They run _outside_ the model: the model does not decide whether a hook fires, and it cannot override a hook's decision. This is the difference between a suggestion and an enforcement mechanism.
+[Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) are actions triggered at specific lifecycle events in the agent's operation — shell commands, HTTP endpoints, or even LLM prompts. They run _outside_ the model: the model does not decide whether a hook fires, and it cannot override a hook's decision. This is the difference between a suggestion and an enforcement mechanism.
 
-### Hook types
+### Hook events
+
+Claude Code defines 17 lifecycle events. Here are the ones you will use most often:
 
 - **PreToolUse**: fires before a tool is executed. Can approve, deny, or modify the call.
-- **PostToolUse**: fires after a tool completes. Can inspect and act on the result.
-- **Notification**: fires when the agent needs user attention.
+- **PostToolUse** / **PostToolUseFailure**: fires after a tool call succeeds or fails. Can inspect and act on the result.
+- **UserPromptSubmit**: fires when you submit a prompt, before Claude processes it. Can block or transform it.
 - **PermissionRequest**: fires when the agent requests permission for a restricted operation.
 - **Stop**: fires when the agent finishes responding.
-- **SessionStart**: fires at the beginning of a session.
-- **TeammateIdle**: fires when a teammate goes idle (agent teams).
-- **TaskCompleted**: fires when a teammate marks a task as completed.
+- **SessionStart** / **SessionEnd**: fires at the beginning or end of a session.
+- **Notification**: fires when the agent needs user attention.
+
+And these are more specialized:
+
+- **SubagentStart** / **SubagentStop**: fires when a subagent is spawned or finishes.
+- **TeammateIdle** / **TaskCompleted**: fires when a teammate goes idle or marks a task as completed (agent teams).
+- **InstructionsLoaded**: fires when a CLAUDE.md or rules file is loaded into context.
+- **ConfigChange**: fires when a configuration file changes during a session.
+- **WorktreeCreate** / **WorktreeRemove**: fires when a git worktree is created or removed (for subagent isolation).
+- **PreCompact**: fires before context compaction.
 
 ### Real examples
 
-Here are two hooks from my production configuration, implemented in NixOS[^hooks-nix].
+Hooks can be defined at global scope (`~/.claude/settings.json`) or project scope (`.claude/settings.json`). Project-scope hooks can be committed to the repo and shared with your team. Here are three examples from my configuration.
 
-[^hooks-nix]: Full source at [hooks/default.nix](https://github.com/hakula139/nixos-config/blob/main/home/modules/claude-code/hooks/default.nix).
+**Auto-formatting (PostToolUse):** After every file edit or write, this hook runs [Prettier](https://prettier.io) on the changed file:
 
-**Auto-formatting (PostToolUse):** After every file edit or write, this hook automatically runs formatters on the changed files:
-
-```nix
-PostToolUse = [
-  {
-    matcher = "Edit|Write";
-    hooks = [{
-      type = "command";
-      command = ''
-        for file in $CLAUDE_FILE_PATHS; do
-          if [[ "$file" == *.sh ]]; then
-            shfmt -w "$file" 2>/dev/null || true
-            shellcheck "$file" || true
-          fi
-        done
-      '';
-    }];
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write"
+          }
+        ]
+      }
+    ]
   }
-  {
-    matcher = "Edit|Write";
-    hooks = [{
-      type = "command";
-      command = ''
-        for file in $CLAUDE_FILE_PATHS; do
-          if [[ "$file" == *.nix ]]; then
-            nix fmt "$file" 2>/dev/null || true
-          fi
-        done
-      '';
-    }];
-  }
-];
+}
 ```
 
-Shell scripts get formatted with `shfmt` and linted with `shellcheck`. Nix files get formatted with `nix fmt`. The model never needs to think about formatting; it happens automatically, every time, with zero context window cost.
+The model never needs to think about formatting; it happens automatically, every time, with zero context window cost.
 
-This is context engineering through subtraction: instead of writing "always format your code" in CLAUDE.md and hoping the model complies, the hook makes formatting automatic and invisible. The instruction is replaced by infrastructure.
+This is context engineering through subtraction: instead of writing "always format your code", duplicating the formatting logic in CLAUDE.md and hoping the model complies, the hook makes formatting automatic and invisible. The instruction is replaced by infrastructure.
+
+**Enforce MCP (PreToolUse):** This hook blocks Bash commands that have MCP equivalents, forcing the agent to use structured MCP tools instead:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/enforce-mcp.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+```bash
+#!/usr/bin/env bash
+# .claude/hooks/enforce-mcp.sh
+COMMAND=$(jq -r '.tool_input.command')
+
+deny() {
+  jq -n --arg reason "$1" '{
+    hookSpecificOutput: {
+      hookEventName: "PreToolUse",
+      permissionDecision: "deny",
+      permissionDecisionReason: $reason
+    }
+  }'
+  exit 0
+}
+
+# Block gh CLI — use MCP GitHub tools
+if [[ "$COMMAND" =~ ^[[:space:]]*gh[[:space:]] ]]; then
+  deny "Use MCP GitHub tools (mcp__GitHub__*) instead of the gh CLI."
+fi
+
+# Block git subcommands that have MCP equivalents
+if [[ "$COMMAND" =~ ^[[:space:]]*git[[:space:]]+(.*) ]]; then
+  SUBCMD="${BASH_REMATCH[1]%% *}"
+  case "$SUBCMD" in
+    status) deny "Use mcp__Git__git_status instead." ;;
+    diff)   deny "Use mcp__Git__git_diff instead." ;;
+    log)    deny "Use mcp__Git__git_log instead." ;;
+    add)    deny "Use mcp__Git__git_add instead." ;;
+    # ... other subcommands with MCP equivalents
+  esac
+fi
+
+exit 0  # allow everything else
+```
+
+The script reads the JSON input from stdin, checks whether the command has an MCP equivalent, and returns a `permissionDecision` of `"deny"` if so. The agent is forced to use the structured tool, producing denser context window output.
 
 **Notification (PermissionRequest):** When the agent needs user attention (a permission prompt or a question), this hook sends a desktop notification so you are not blocked waiting:
 
-```nix
-PermissionRequest = [{
-  hooks = [{
-    type = "command";
-    command = ''
-      tool_name="$(jq -r '.tool_name // empty')"
-      case "$tool_name" in
-        AskUserQuestion) notify "Question asked" ;;
-        mcp__*)
-          mcp_name="''${tool_name#mcp__}"
-          mcp_name="''${mcp_name%%__*}"
-          notify "$mcp_name permission requested"
-          ;;
-        *) notify "$tool_name permission requested" ;;
-      esac
-    '';
-  }];
-}];
+```json
+{
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/notify-permission.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
-{{< admonition info "HTTP hooks" >}}
+```bash
+#!/usr/bin/env bash
+# .claude/hooks/notify-permission.sh
+tool_name="$(jq -r '.tool_name // empty')"
+case "$tool_name" in
+  AskUserQuestion)
+    notify-send 'Claude Code' 'Question asked' ;;
+  mcp__*)
+    mcp_name="${tool_name#mcp__}"
+    mcp_name="${mcp_name%%__*}"
+    notify-send 'Claude Code' "$mcp_name permission requested" ;;
+  *)
+    notify-send 'Claude Code' "$tool_name permission requested" ;;
+esac
+```
 
-In 2026, Claude Code added support for HTTP hooks. Instead of running a shell command, a hook can POST JSON to a URL. This enables webhook integrations: send a Slack message when a task completes, log tool usage to an observability platform, trigger a CI pipeline when the agent modifies certain files.
+The script parses `tool_name` from the JSON input on stdin and sends a desktop notification with `notify-send`. On macOS, replace with `osascript`; on WSL, you need a Windows-side toast tool since `notify-send` has no display server to talk to — my implementation uses [toasty](https://github.com/shanselman/toasty) and auto-detects the platform ([source](https://github.com/hakula139/nixos-config/blob/main/home/modules/notify/default.nix)). For complex hooks like this, extracting the logic into a separate script is cleaner than inlining escaped shell in JSON.
 
-{{< /admonition >}}
+### Beyond shell commands
+
+The examples above are all command hooks (`type: "command"`), but Claude Code supports three other handler types.
+
+**HTTP hooks** (`type: "http"`) POST the event's JSON to a URL instead of running a shell command. This enables webhook integrations: send a Slack message when a task completes, log tool usage to an observability platform, trigger a CI pipeline when the agent modifies certain files.
+
+**Prompt hooks** (`type: "prompt"`) send the event context to an LLM for single-turn evaluation. The LLM returns `{"ok": true}` to allow or `{"ok": false, "reason": "..."}` to block. This is useful when the decision requires judgment rather than a deterministic script check. A common pattern is a `Stop` hook that evaluates whether all tasks are actually complete before allowing the agent to finish:
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Analyze the conversation: $ARGUMENTS\n\nDetermine if:\n1. All user-requested tasks are complete\n2. No errors need to be addressed\n3. No follow-up work is needed\n\nRespond with JSON: {\"ok\": true} or {\"ok\": false, \"reason\": \"...\"}",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+`$ARGUMENTS` is replaced with the hook's JSON input — the full conversation context. If the LLM returns `"ok": false`, Claude continues working with the provided reason as its next instruction. This is a lightweight way to keep the agent on track without writing complex validation scripts.
+
+**Agent hooks** (`type: "agent"`) go one step further: they spawn a subagent that can use tools like Read, Grep, and Glob to verify conditions before returning a decision. Useful when verification requires inspecting actual files or test output, not just evaluating conversation context.
 
 ### The analogy
 
@@ -511,7 +602,7 @@ Hooks are **reactive**: they respond to events that the model initiates. They ca
 - **Access model reasoning.** Hooks receive structured event data (tool name, input, output), but they have no visibility into _why_ the model made a decision.
 - **Define reusable procedures.** A hook that triggers on every file write can format code, but it cannot define a 20-step deployment workflow that the agent can invoke on demand.
 
-Hooks also cannot give the agent structured access to external systems. The agent still talks to Git, GitHub, databases, and every other service through raw shell commands, parsing unstructured terminal output. For typed, structured tool access, there is MCP.
+Hooks also cannot give the agent structured access to external systems. The agent still talks to Git, GitHub, databases, and every other service through raw shell commands, parsing unstructured terminal output. For typed, structured tool access, here comes the MCP (Model Context Protocol).
 
 ## MCP
 
