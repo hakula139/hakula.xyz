@@ -135,14 +135,9 @@ The strong version specifies the files, the analysis, and the data sources. The 
 **Legal / compliance:**
 
 - Weak: "summarize the regulation"
-- Strong: "Extract all reporting obligations from SEC Rule 10b-5 that apply to a fund with AUM > $1B, organized by deadline frequency (daily, quarterly, annual)."
+- Strong: "Extract all reporting obligations from SEC Rule 10b-5 that apply to a fund with AUM > \$1B, organized by deadline frequency (daily, quarterly, annual)."
 
 Specificity transforms a vague reading assignment into a structured extraction task.
-
-**Operations:**
-
-- Weak: "help with the incident"
-- Strong: "Read the incident timeline in `incidents/2026-02-28.md`, compare the response steps against our runbook at `runbooks/db-failover.md`, and identify any steps that were missed or executed out of order."
 
 ### Why chat alone breaks down
 
@@ -151,7 +146,6 @@ Even with excellent prompts, the chat paradigm has a structural problem: **every
 - "We use TypeScript with strict mode."
 - "Our data pipeline config is in `config/etl/`."
 - "Always use the MCP Git tools instead of the `git` CLI."
-- "Footnotes go at the end of each subsection, not the end of the article."
 
 Each repetition consumes context window space that could be used for actual work. You are hand-loading the RAM every session, copying the same instructions into the same machine, burning tokens on boilerplate instead of analysis.
 
