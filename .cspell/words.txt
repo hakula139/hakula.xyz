@@ -11,6 +11,7 @@ bowlby
 chan
 chihaya
 clannad
+clippy
 cloudreve
 csikszentmihalyi
 cyorage
@@ -35,6 +36,8 @@ hatsune
 hookify
 hsl
 hugo
+impls
+indoc
 intj
 iser
 izumi

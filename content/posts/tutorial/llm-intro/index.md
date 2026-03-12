@@ -153,82 +153,203 @@ There has to be a better way. What if you could write your preferences down once
 
 ## CLAUDE.md, Rules, and Memory
 
-CLAUDE.md is the answer to the repetition problem. It is a Markdown file that the agent reads at the start of every session, automatically. No need to paste instructions; they are always in context.
+CLAUDE.md is the answer to the repetition problem. It is a Markdown file (which is a type of plain text) that the agent reads at the start of every session, automatically. No need to paste instructions; they are always in context.
 
 ### The CLAUDE.md hierarchy
 
 The system supports a cascading hierarchy, similar to CSS specificity:
 
 1. **Global** (`~/.claude/CLAUDE.md`): applies to every project, every session.
-2. **Project** (`.claude/CLAUDE.md` or `CLAUDE.md` at project root): applies to this specific codebase.
+2. **Project** (`CLAUDE.md` at project root): applies to this specific codebase.
 3. **Directory-level** (`CLAUDE.md` in any subdirectory): applies when working in that directory.
 
 Each level inherits from the one above and can override or extend it. A global file might define your communication style and tool preferences; a project file adds codebase-specific conventions; a directory file adds section-specific writing rules.
 
 ### What goes in each level
 
-Here is a concrete example from my own configuration, managed through NixOS[^nixos-config].
+Here is a concrete example from my own configuration.
 
-[^nixos-config]: The full configuration is at [hakula139/nixos-config](https://github.com/hakula139/nixos-config/tree/main/home/modules/claude-code). Every example in this article is drawn from production config, not hypothetical.
-
-**Global** (`~/.claude/CLAUDE.md`) covers communication style, code quality principles, MCP server usage patterns, and the full agent team workflow:
+**Global** (`~/.claude/CLAUDE.md`) covers communication style, code quality principles, commenting guidelines, and MCP server usage patterns:
 
 ```markdown
 ## Communication Style
 
 Be direct, honest, and skeptical. Criticism is valuable.
 
-- **Challenge my assumptions.** Point out when I'm wrong.
-- **Suggest better approaches.** If you see a cleaner way, speak up.
-- **Be concise by default.** Save extended explanations for
-  implementation details.
-- **No unnecessary flattery.** Skip compliments and praise.
-```
+- **Challenge my assumptions.** Point out when I'm wrong, mistaken, or appear to be heading in
+  the wrong direction.
+- **Suggest better approaches.** If you see a more efficient, cleaner, or more standard way to
+  solve something, speak up.
+- **Educate on standards.** Highlight relevant conventions, best practices, or standards I might
+  be missing.
+- **Be concise by default.** Short summaries are fine. Save extended explanations for when we're
+  actively working through implementation details or complex plans.
+- **Ask rather than assume.** If my intent is unclear, ask questions. Don't guess and proceed.
+  Clarify first.
+- **No unnecessary flattery.** Skip compliments and praise unless I specifically ask for your
+  judgment on something.
 
-```markdown
+## Code Quality Principles
+
+Follow the DRY (Don't Repeat Yourself) principle.
+
+Always look for opportunities to reuse code rather than duplicate logic. Factor out common
+patterns into reusable functions, modules, or abstractions.
+
+## Documentation Philosophy
+
+Create documentation only when explicitly requested.
+
+Do not proactively generate documentation files (README, API docs, etc.) after routine code
+changes. Documentation should be intentional, not automatic.
+
+When documentation is requested, make it:
+
+- Clear and actionable
+- Focused on "why" and "how to use" rather than "what" (which code should show)
+- Up-to-date with the actual implementation
+
+## Commenting Guidelines
+
+Comment the WHY, not the WHAT.
+
+Code should be self-explanatory through clear naming and structure. Add comments only when the
+code itself cannot convey important context:
+
+When to add comments:
+
+- **Complex algorithms** - Non-obvious logic that requires explanation of the approach
+- **Business rules** - Domain-specific constraints or decisions that aren't apparent from code alone
+- **Magic numbers** - Hardcoded values that need justification
+- **Workarounds** - Temporary fixes, hacks, or solutions to known issues (explain why and link to
+  issues if possible)
+- **Performance / security considerations** - Critical optimizations or security-sensitive sections
+
+When editing existing code:
+
+- Preserve existing comments unless they're outdated or wrong
+- Update comments if the code logic changes
+
+Avoid:
+
+- Comments that simply restate what the code does
+- Obvious explanations that clutter the code
+- Commented-out code (use version control instead)
+
 ## MCP Server Usage
 
-Prefer MCP tools over equivalent Bash commands or web searches.
-MCPs provide structured interfaces, better error handling, and
-work within the configured permission model.
+Prefer MCP tools over equivalent Bash commands or web searches. MCPs provide structured
+interfaces, better error handling, and work within the configured permission model.
 ```
 
-The global file also defines the entire agent team workflow: available agent types, model selection guidelines, coordination patterns, team presets, and the output contract all agents must follow. This is roughly 300 lines that establish the operational framework for every session.
+The global file also defines the entire agent team workflow: available agent types, model selection guidelines, coordination patterns, team presets, and the output contract all agents must follow. This is roughly 300 lines that establish the operational framework for every session. We will cover this in detail in the [Subagents](#subagents) and [Agent Teams](#agent-teams) sections.
 
 **Project** (`CLAUDE.md` in a Rust static site generator repo) covers project structure, coding conventions, and verification workflow:
 
-```markdown
+````markdown
 ## Project Overview
 
-kiln is a custom static site generator (SSG) written in Rust,
-replacing a Hugo + LoveIt theme stack for hakula.xyz.
+kiln is a custom static site generator (SSG) written in Rust.
 
-### Crate Structure (crates/kiln/src/)
+### CLI
 
-- build: build orchestration, per-page rendering, static file copying
-- config: TOML site configuration loading + defaults
-- content/: content model (frontmatter, page, discovery)
-- directive/: :::-fenced directive parsing + rendering
-- render/: markdown rendering pipeline (syntax highlighting,
-  KaTeX math, images, ToC generation)
+```bash
+kiln build [--root <dir>]        # Build the site (default root: cwd)
+kiln init-theme <name> [--root]  # Scaffold a new theme under themes/<name>/
 ```
 
-```markdown
+### Project Layout
+
+```text
+.
+├── config.toml   # Site configuration (TOML)
+├── content/      # Markdown content (posts, standalone pages)
+├── static/       # Static files copied to output root (favicons, images)
+├── templates/    # MiniJinja templates (site overrides theme)
+├── themes/       # Themes (git submodules), each with templates/ + static/
+├── crates/kiln/  # SSG engine — library (lib.rs) + CLI binary (main.rs)
+└── public/       # Build output (configurable via output_dir)
+```
+
 ## Coding Conventions
 
 ### Error Handling
 
-- Application code: anyhow::Result with .context() for
-  actionable messages.
-- Library error types: thiserror::Error derive for errors
-  that callers need to match on.
+- Application code: `anyhow::Result` with `.context()` for actionable messages.
+- Library error types: `thiserror::Error` derive for errors that callers need to match on.
 
 ### Lint Suppression
 
-- Use #[expect(lint)] instead of #[allow(lint)]. #[expect]
-  warns when the suppressed lint is no longer triggered,
-  preventing stale suppressions from accumulating.
+- Use `#[expect(lint)]` instead of `#[allow(lint)]`. `#[expect]` warns when the suppressed lint
+  is no longer triggered, preventing stale suppressions from accumulating.
+
+### Module Organization
+
+- New-style module paths: `foo.rs` alongside `foo/` directory, not `foo/mod.rs`.
+- Keep files focused: one primary type or concern per file.
+- Place functions and types in the module that reflects their conceptual domain — import paths
+  should not mislead about what the item does.
+- Avoid deep `pub use` re-export chains that obscure where items are defined.
+- Order helper functions by their caller.
+
+### String Literals
+
+- Prefer raw strings (`r#"..."#`) when the string contains characters that would need escaping.
+
+### Enum String Mappings
+
+- Use `strum` derives (`AsRefStr`, `EnumString`, `EnumIter`) for enum ↔ string conversions
+  instead of handwritten matches.
+- Keep manual `Display` impls when the display form differs from the serialized form.
+
+### Dependencies
+
+- Versions centralized in `[workspace.dependencies]` in the root `Cargo.toml`. Member crates
+  reference them with `dep.workspace = true`.
+- Only add dependencies to the workspace when a PR first needs them.
+- Prefer crates with minimal transitive dependencies.
+
+### Git Conventions
+
+- Commit messages: `type(scope): description`
+  - Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `style`, `perf`
+  - Scope: crate or module name (e.g., `kiln`, `config`, `render`)
+- Feature branches: `feat/<feature-name>`
+- Keep commits atomic — one logical change per commit.
+
+### Testing
+
+- Unit tests in the same file as the code they test (`#[cfg(test)]` module).
+- Integration tests in `tests/` directory for cross-module behavior.
+- Group tests by function under `// -- function_name --` section headers. Within each section,
+  order: happy path → variants → error cases.
+- Test name prefixes should match the section's function name.
+- Error-case test names use a return-type suffix: `_returns_error` (`Result`), `_returns_none`
+  (`Option`), `_returns_false` (`bool`).
+- Use `indoc!` for multi-line test inputs whenever possible.
+
+## Verification
+
+Run after implementation and before review:
+
+```bash
+cargo build
+cargo clippy --all-targets -- -D warnings  # zero warnings (pedantic lints)
+cargo test
+cargo llvm-cov --ignore-filename-regex 'main\.rs'  # check test coverage
 ```
+
+## Code Review
+
+After verification passes, run a dual review using both a reviewer subagent and a Codex MCP
+reviewer in parallel. Focus on:
+
+- Correctness and edge cases
+- Adherence to project conventions (this file)
+- Conciseness — prefer the simplest idiomatic solution
+- Existing crates — flag hand-written logic that an established crate already handles
+- Test coverage gaps
+````
 
 ### Settings and permissions
 
@@ -626,7 +747,7 @@ The mental model is a project manager delegating to specialists. The parent agen
 
 ### Agent types
 
-My configuration defines eight custom agent types, each with a specific role, behavioral constraints, and (in some cases) a different model tier[^agent-definitions]:
+My configuration defines eight custom agent types, each with a specific role, behavioral constraints, and (in some cases) a different model tier[^agent-definitions]. Each agent type is a separate Markdown file, but the overall orchestration rules — when to use agents, model selection guidelines, coordination patterns, team presets, and the output contract — all live in the global CLAUDE.md, so the agent reads them at the start of every session:
 
 [^agent-definitions]: Full agent definitions at [agents/](https://github.com/hakula139/nixos-config/tree/main/home/modules/claude-code/agents). Each is a Markdown file with frontmatter (name, description, model, tool restrictions) and a behavioral prompt.
 
