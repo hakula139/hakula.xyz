@@ -153,7 +153,7 @@ There has to be a better way. What if you could write your preferences down once
 
 ## CLAUDE.md, Rules, and Memory
 
-CLAUDE.md is the answer to the repetition problem. It is a Markdown file (which is a type of plain text) that the agent reads at the start of every session, automatically. No need to paste instructions; they are always in context.
+[CLAUDE.md](https://code.claude.com/docs/en/memory) is the answer to the repetition problem. It is a Markdown file (which is a type of plain text) that the agent reads at the start of every session, automatically. No need to paste instructions; they are always in context.
 
 ### The CLAUDE.md hierarchy
 
@@ -391,7 +391,7 @@ The key insight is the layering: safe read operations are auto-approved, destruc
 
 ### Memory
 
-Claude Code's auto-memory system (introduced in 2026) lets the agent save useful context across sessions. When the agent discovers something important (a debugging pattern, a user preference, a project convention), it can write it to a persistent memory directory. These memories are loaded into context at the start of future sessions, like a personal knowledge base that grows over time.
+Claude Code's **auto memory** system (introduced in 2026) lets the agent save useful context across sessions. When the agent discovers something important (a debugging pattern, a user preference, a project convention), it can write it to a persistent memory directory. These memories are loaded into context at the start of future sessions, like a personal knowledge base that grows over time.
 
 This is the machine equivalent of a senior engineer's institutional knowledge: "we tried X last quarter and it broke because of Y" or "the data team prefers Parquet over CSV for anything over 100MB".
 
@@ -414,7 +414,7 @@ CLAUDE.md tells the agent what to do, but these are instructions, not constraint
 
 ## Hooks
 
-Hooks are shell commands triggered at specific lifecycle events in the agent's operation. They run _outside_ the model: the model does not decide whether a hook fires, and it cannot override a hook's decision. This is the difference between a suggestion and an enforcement mechanism.
+[Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) are shell commands triggered at specific lifecycle events in the agent's operation. They run _outside_ the model: the model does not decide whether a hook fires, and it cannot override a hook's decision. This is the difference between a suggestion and an enforcement mechanism.
 
 ### Hook types
 
@@ -515,7 +515,7 @@ Hooks also cannot give the agent structured access to external systems. The agen
 
 ## MCP
 
-We introduced MCP briefly in the agent section. Now it is time to look at it properly, because MCP is the infrastructure that makes everything else useful. Without MCP, an agent's only tool is a raw Bash shell, powerful but unstructured, with no type safety, no permission model, and every command's output dumped as raw text into the context window.
+We introduced [MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) briefly in the agent section. Now it is time to look at it properly, because MCP is the infrastructure that makes everything else useful. Without MCP, an agent's only tool is a raw Bash shell, powerful but unstructured, with no type safety, no permission model, and every command's output dumped as raw text into the context window.
 
 ### What MCP actually provides
 
@@ -616,7 +616,7 @@ CLAUDE.md gives the agent preferences. Hooks enforce them. MCP gives it structur
 
 ## Skills
 
-Skills are Markdown files that define on-demand procedures. They live in `.claude/skills/` and are loaded into the context window only when explicitly invoked via `/skill-name`, not ambient like CLAUDE.md, not reactive like hooks.
+[Skills](https://docs.anthropic.com/en/docs/claude-code/slash-commands) are Markdown files that define on-demand procedures. They live in `.claude/skills/` and are loaded into the context window only when explicitly invoked via `/skill-name`, not ambient like CLAUDE.md, not reactive like hooks.
 
 ### Skill anatomy
 
@@ -677,7 +677,7 @@ One agent, one procedure, one perspective. But before we move to multi-agent orc
 
 ## Plugins
 
-Skills on their own are local files. Plugins are the distribution and extension mechanism that turns individual skills into a shared ecosystem: installable packages that add new skills, output styles, code review workflows, language server integrations, and third-party tool connections.
+Skills on their own are local files. [Plugins](https://docs.anthropic.com/en/docs/claude-code/mcp) are the distribution and extension mechanism that turns individual skills into a shared ecosystem: installable packages that add new skills, output styles, code review workflows, language server integrations, and third-party tool connections.
 
 ### Why this matters
 
@@ -761,7 +761,7 @@ Plugins extend a single agent's capabilities: more skills, more tools, more inte
 
 ## Subagents
 
-Subagents are child processes spawned by a parent agent to handle focused tasks. Each subagent gets its own context window, runs independently, and reports results back to the parent. No communication between subagents; everything routes through the orchestrator.
+[Subagents](https://docs.anthropic.com/en/docs/claude-code/sub-agents) are child processes spawned by a parent agent to handle focused tasks. Each subagent gets its own context window, runs independently, and reports results back to the parent. No communication between subagents; everything routes through the orchestrator.
 
 The mental model is a project manager delegating to specialists. The parent agent (the orchestrator) decides what needs to be done, spawns the appropriate specialist, waits for the result, and integrates it into the larger workflow.
 
