@@ -355,19 +355,39 @@ reviewer in parallel. Focus on:
 
 Beyond CLAUDE.md, the agent's behavior is governed by `settings.json`, which includes a permission model: **allow** (auto-approved), **ask** (requires confirmation), and **deny** (always blocked).
 
-My configuration defines over 335 auto-approved patterns spanning filesystem navigation, text processing, Git read operations, development tools, and container management. Write operations (git commit, push, destructive commands) require explicit confirmation. Some operations are unconditionally blocked. For example, `agenix -r` (which silently empties all encrypted secrets when stdin is not a TTY) is on the deny list because the failure mode is catastrophic and silent[^agenix-deny].
+My configuration defines over 250 auto-approved patterns spanning filesystem navigation, text processing, Git operations, development tools, network utilities, and container management. Destructive operations (`rm`, `kill`, `git push`) require explicit confirmation. Some operations are unconditionally blocked. Here is an excerpt:
 
-[^agenix-deny]: Discovered the hard way. The deny list exists for exactly these cases: operations where a mistake is both devastating and hard to detect.
-
-```nix
-deny = [
-  # agenix -r silently empties all secrets when stdin is not a TTY
-  "Bash(agenix -r *)"
-  "Bash(agenix --rekey *)"
-];
+```json
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(* --version)", "Bash(* --help)", "Bash(man *)",
+      "Bash(cat *)", "Bash(head *)", "Bash(tail *)", "Bash(stat *)",
+      "Bash(fd *)", "Bash(find *)", "Bash(grep *)", "Bash(rg *)",
+      "Bash(cp *)", "Bash(mkdir *)", "Bash(mv *)", "Bash(touch *)",
+      "Bash(awk *)", "Bash(jq *)", "Bash(sed *)", "Bash(sort *)",
+      "Bash(curl *)", "Bash(dig *)", "Bash(ping *)", "Bash(wget *)",
+      "Bash(git add *)", "Bash(git diff *)", "Bash(git log *)", "Bash(git status *)",
+      "Bash(cargo *)", "Bash(node *)", "Bash(python3 *)", "Bash(go *)",
+      "Bash(docker ps *)", "Bash(kubectl get *)", "Bash(systemctl status *)",
+      "mcp__Filesystem", "mcp__Git",
+      "WebFetch", "WebSearch"
+    ],
+    "ask": [
+      "Bash(rm *)", "Bash(kill *)", "Bash(sudo *)",
+      "Bash(git push *)", "Bash(git reset *)", "Bash(git branch -D *)",
+      "Bash(docker push *)",
+      "mcp__Git__git_reset"
+    ],
+    "deny": [
+      "Bash(agenix -r *)", "Bash(agenix --rekey *)"
+    ]
+  }
+}
 ```
 
-The permission model is context engineering at the system level: you are pre-loading the agent's environment with constraints that prevent categories of mistakes, without consuming context window space on repeated warnings.
+The key insight is the layering: safe read operations are auto-approved, destructive writes require confirmation, and catastrophic operations are blocked entirely. This is context engineering at the system level — you are pre-loading the agent's environment with constraints that prevent categories of mistakes, without consuming context window space on repeated warnings.
 
 ### Memory
 
