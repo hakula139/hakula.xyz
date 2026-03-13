@@ -428,8 +428,8 @@ MkDocs with [mike](https://github.com/jimporter/mike) (the versioning plugin) pu
 
 ```json
 [
-  {"version": "2.6.0", "title": "2.6.0", "aliases": ["latest"]},
-  {"version": "2.5.1", "title": "2.5.1", "aliases": []}
+  {"version": "2.0.0", "title": "2.0.0", "aliases": ["latest"]},
+  {"version": "1.2.3", "title": "1.2.3", "aliases": []}
 ]
 ```
 
@@ -447,7 +447,7 @@ async def resolve_version(self, version: str) -> str:
     return version
 ```
 
-This means `get_page("guides/intro/", version="latest")` transparently resolves to the correct version directory. The agent never needs to know the actual version number.
+This means `get_page("guides/getting-started/", version="latest")` transparently resolves to the correct version directory.
 
 ## Search
 
