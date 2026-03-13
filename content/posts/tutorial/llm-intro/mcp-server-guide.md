@@ -17,7 +17,7 @@ In [Part 1](../part-1/) of the LLM Intro series, we introduced MCP as the protoc
 
 The solution is an MCP server that wraps your documentation site with typed tool definitions: list available versions, browse the page index, read a specific page, search by keyword. The agent discovers these tools at startup and uses them the same way it uses Git or Context7 — by calling structured functions that return clean data instead of parsing raw HTML.
 
-This article walks through a real MCP server, generalized from an internal deployment, that does exactly this. By the end, you will have a working server you can adapt to any MkDocs-based documentation site, packaged for distribution with `uvx` and optionally bundled as a Claude Code plugin.
+This article walks through a real MCP server, generalized from an internal deployment, that does exactly this. By the end, you will have a working server you can adapt to any MkDocs-based documentation site, packaged for distribution with `uvx` and ready to integrate with any MCP-compatible agent.
 
 ## The llms.txt Standard
 
@@ -101,7 +101,7 @@ The raw export will not be MkDocs-ready. Expect to fix:
 - **List indentation.** MkDocs requires **4-space** indentation for nested lists, while Confluence exports often use 2 or 3 spaces.
 - **Code blocks.** Verify that exported code examples actually run. Confluence pages tend to accumulate stale snippets that no one has tested in months — the migration is a good opportunity to clean these up.
 
-These are mostly mechanical fixes — a good candidate for LLM-assisted batch processing. Tools like Claude Code can rewrite links, fix indentation, and reformat pages across an entire export in minutes.
+These are mostly mechanical fixes — a good candidate for LLM-assisted batch processing. Agentic coding tools (Claude Code, Codex CLI, Cursor, etc.) can rewrite links, fix indentation, and reformat pages across an entire export in minutes.
 
 Start with a minimal working demo (a handful of pages, correct links, proper formatting) before migrating the full space. Quality over coverage: a small set of verified, well-formatted pages is more useful to the agent than a bulk import full of broken links and garbled formatting.
 
@@ -181,7 +181,7 @@ build-backend = "hatchling.build"
 packages = ["src/my_docs_mcp"]
 ```
 
-The `[project.scripts]` entry creates a CLI command `my-docs-mcp` that calls `server:main`, which is how `uvx` and Claude Code will launch the server.
+The `[project.scripts]` entry creates a CLI command `my-docs-mcp` that calls `server:main`, which is how `uvx` and the agent will launch the server.
 
 Create the directory structure above, then install dependencies:
 
@@ -211,7 +211,7 @@ mcp = FastMCP(
 )
 ```
 
-The first argument is the server name (shown in Claude Code's MCP server list). The `instructions` string is injected into the agent's context at startup — it is how the agent learns _what_ this server does and _how_ to use its tools. Write these instructions for the model, not for humans: be explicit about the intended workflow. For longer, more detailed instructions, you can use a [Skill file](#level-3-bundled-skill) instead.
+The first argument is the server name (shown in the agent's MCP server list). The `instructions` string is injected into the agent's context at startup — it is how the agent learns _what_ this server does and _how_ to use its tools. Write these instructions for the model, not for humans: be explicit about the intended workflow. For longer, more detailed instructions, you can use a [Skill file](#level-2-skill-file) instead.
 
 ### Defining tools
 
@@ -503,7 +503,7 @@ This produces `dist/my_docs_mcp-0.1.0-py3-none-any.whl`, a standard Python wheel
 
 ### Running with uvx
 
-The key insight for distribution is [uvx](https://docs.astral.sh/uv/guides/tools/) (part of the `uv` toolchain): it downloads, installs, and runs a Python package in an isolated environment, all in one command. No virtual environments to manage, no system-wide installs, no dependency conflicts.
+The key insight for distribution is [uvx](https://docs.astral.sh/uv/guides/tools) (part of the `uv` toolchain): it downloads, installs, and runs a Python package in an isolated environment, all in one command. No virtual environments to manage, no system-wide installs, no dependency conflicts.
 
 ```bash
 uvx my-docs-mcp
@@ -515,7 +515,7 @@ If your package is hosted on an internal PyPI registry:
 UV_EXTRA_INDEX_URL=https://pypi.internal.example.com/simple uvx my-docs-mcp
 ```
 
-This is the same command that Claude Code will use to launch the server, which means you can test locally with the exact same invocation the agent will use in production.
+This is the same command the agent will use to launch the server, which means you can test locally with the exact same invocation used in production.
 
 ### Publishing
 
@@ -527,20 +527,22 @@ uv publish --publish-url https://pypi.internal.example.com/upload
 
 For internal teams, the private registry avoids exposing documentation tools publicly while keeping the distribution workflow identical to open-source packages.
 
-## Claude Code Integration
+## Agent Integration
 
-There are three levels of integration, from simplest to most capable.
+Any MCP-compatible agent can use this server. There are three levels of integration, from simplest to most capable.
 
 ### Level 1: Standalone MCP server
 
-Add the server to your Claude Code settings (`~/.claude/settings.json` for global, `.claude/settings.json` for project):
+Add the server to your agent's MCP configuration. The syntax varies by agent:
+
+**Claude Code** — add to `.mcp.json` (project) or `~/.claude/settings.json` (global):
 
 ```json
 {
   "mcpServers": {
     "my-docs": {
       "command": "uvx",
-      "args": ["my-docs-mcp"],
+      "args": ["--upgrade", "my-docs-mcp"],
       "env": {
         "UV_EXTRA_INDEX_URL": "https://pypi.internal.example.com/simple"
       }
@@ -549,50 +551,37 @@ Add the server to your Claude Code settings (`~/.claude/settings.json` for globa
 }
 ```
 
-Claude Code launches the server at session start via `uvx`, which handles installation and environment isolation automatically. The agent discovers the four tools and can use them immediately.
+**Codex CLI** — add to `.codex/config.toml` (project) or `~/.codex/config.toml` (global):
 
-### Level 2: Claude Code plugin
-
-A [plugin](https://code.claude.com/docs/en/discover-plugins) bundles the MCP server with metadata so it can be installed with a single command. Create a `.claude-plugin/` directory:
-
-```text
-.claude-plugin/
-├── plugin.json
-└── skills/
-    └── my-docs.md
+```toml
+[mcp_servers.my-docs]
+command = "uvx"
+args = ["--upgrade", "my-docs-mcp"]
+env = { UV_EXTRA_INDEX_URL = "https://pypi.internal.example.com/simple" }
+enabled = true
 ```
 
-The `plugin.json`:
+**Cursor** — add to `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global):
 
 ```json
 {
-  "name": "my-docs",
-  "version": "0.1.0",
-  "description": "Query API documentation from within Claude Code",
   "mcpServers": {
     "my-docs": {
       "command": "uvx",
-      "args": ["my-docs-mcp==0.1.0"],
+      "args": ["--upgrade", "my-docs-mcp"],
       "env": {
         "UV_EXTRA_INDEX_URL": "https://pypi.internal.example.com/simple"
       }
     }
-  },
-  "skills": ["skills/my-docs.md"]
+  }
 }
 ```
 
-Install with:
+The `--upgrade` flag ensures `uvx` always fetches the latest version instead of reusing a cached installation. The agent launches the server at session start, discovers the four tools, and can use them immediately.
 
-```bash
-claude plugin install .claude-plugin
-```
+### Level 2: Skill file
 
-The plugin pins the MCP server version in `args` so that all team members run the same version, avoiding the "works on my machine" problem.
-
-### Level 3: Bundled skill
-
-The plugin can include a skill file that teaches the agent _how_ to use the tools effectively. This is the difference between giving someone a set of wrenches and giving them a repair manual.
+A skill file teaches the agent _how_ to use the tools effectively. This is the difference between giving someone a set of wrenches and giving them a repair manual.
 
 ```markdown
 ---
@@ -631,7 +620,52 @@ You have access to documentation through MCP tools.
 
 The `description` field drives auto-invocation: when a user asks "how do I create a dataset?", the model matches the question to this skill's description and loads the full instructions into context, without the user needing to type `/my-docs`. The `user_invocable: true` flag also lets users invoke it manually with `/my-docs` when they want to be explicit.
 
-The three levels compose: a plugin includes the MCP server config _and_ the skill, so a single `claude plugin install` gives the team everything. But each level also works independently — you can run the MCP server without a plugin, or write a skill without packaging it as a plugin. Start with Level 1, add complexity only when the team needs it.
+Where to place the skill file depends on the agent:
+
+- **Claude Code**: `.claude/skills/my-docs/SKILL.md`
+- **Codex CLI**: `.codex/skills/my-docs/SKILL.md`
+- **Cursor**: `.cursor/skills/my-docs/SKILL.md`
+
+### Level 3: Plugin (Claude Code)
+
+A [plugin](https://code.claude.com/docs/en/discover-plugins) bundles the MCP server config _and_ the skill file so it can be installed with a single command. Create a `.claude-plugin/` directory:
+
+```text
+.claude-plugin/
+├── plugin.json
+└── skills/
+    └── my-docs.md
+```
+
+The `plugin.json`:
+
+```json
+{
+  "name": "my-docs",
+  "version": "0.1.0",
+  "description": "Query API documentation via MCP tools",
+  "mcpServers": {
+    "my-docs": {
+      "command": "uvx",
+      "args": ["my-docs-mcp==0.1.0"],
+      "env": {
+        "UV_EXTRA_INDEX_URL": "https://pypi.internal.example.com/simple"
+      }
+    }
+  },
+  "skills": ["skills/my-docs.md"]
+}
+```
+
+Install with:
+
+```bash
+claude plugin install .claude-plugin
+```
+
+The plugin pins the MCP server version in `args` so that all team members run the same version, avoiding the "works on my machine" problem.
+
+The three levels compose: a plugin includes the MCP server config and the skill, so a single `claude plugin install` gives the team everything. But each level also works independently — you can run the MCP server without a plugin, or write a skill without packaging it as a plugin. Start with Level 1, add complexity only when the team needs it.
 
 ## Testing
 
@@ -670,9 +704,9 @@ async def test():
 asyncio.run(test())
 ```
 
-### In Claude Code
+### In the agent
 
-The real test is using it. Start a Claude Code session with the MCP server configured, and ask the agent a question that requires documentation:
+The real test is using it. Start a session with the MCP server configured, and ask the agent a question that requires documentation:
 
 ```text
 > What parameters does the MarketDataset constructor accept?
@@ -682,7 +716,7 @@ Watch the tool calls in the output. The agent should call `search_docs("MarketDa
 
 {{< admonition warning "STDIO transport and stdout" >}}
 
-When running as a local MCP server (which is the default for Claude Code), the server communicates with the agent over stdin / stdout using JSON-RPC. Any `print()` statements, logging to stdout, or library output on stdout will corrupt the protocol and crash the server. Use `logging` (which defaults to stderr) or explicitly write to `sys.stderr`. This is the single most common cause of "MCP server failed to start" errors.
+When running as a local MCP server (the default for most agents), the server communicates with the agent over stdin / stdout using JSON-RPC. Any `print()` statements, logging to stdout, or library output on stdout will corrupt the protocol and crash the server. Use `logging` (which defaults to stderr) or explicitly write to `sys.stderr`. This is the single most common cause of "MCP server failed to start" errors.
 
 {{< /admonition >}}
 
