@@ -669,7 +669,9 @@ This is where the two layers converge: hooks enforce _what_ the agent should use
 
 The ecosystem we [introduced earlier](#from-chat-to-agent) extends to internal tooling. Any team can build an MCP server for their own systems (e.g., an internal knowledge base), and the agent gains the ability to use it without any model fine-tuning. The agent does not need to know how your systems work at a protocol level; it needs an MCP server that wraps them with typed tool definitions. We will cover how to build a custom MCP server in a future article.
 
-But none of these layers let the agent learn a reusable, multi-step procedure that combines preferences and tools on demand. For that, you need skills.
+### What MCP cannot do
+
+MCP gives the agent structured access to tools, but it does not tell the agent _when_ or _in what order_ to use them. The agent can call `mcp__Git__git_status` and `mcp__GitHub__create_pull_request`, but nothing defines a reusable procedure that chains these calls together with decision logic ("if tests pass, create a PR; if they fail, run the debugger"). Each session, the agent reasons from scratch about how to combine tools. For repeatable, multi-step workflows that persist across sessions, you need skills.
 
 ## Skills
 
@@ -719,7 +721,11 @@ Skills scale from simple (this one is 18 lines) to complex. The official [`/code
 
 Skills are the agent's equivalent of runbooks. A compliance team could have a `/regulatory-review` skill that walks the agent through a structured analysis of a new regulation: extract obligations, map to existing controls, identify gaps, generate a summary for the legal team. An operations team could have a `/incident-postmortem` skill that guides the agent through timeline construction, root cause analysis, and action item generation from incident logs.
 
+### What skills cannot do
+
 Within a project, skills share naturally — commit them to `.claude/skills/` and everyone on the team has them. But for skills that live _outside_ your project (e.g., a documentation lookup skill, a general code review workflow), sharing means copying Markdown files from someone else's repo into yours. When the skill's author releases an improved version, you need to copy again. There is no way to subscribe to upstream changes.
+
+Skills also cannot bundle related capabilities together. A code review workflow might need a skill, a set of specialized agents, custom hooks, and output style preferences. A standalone skill file cannot package all of these as a single installable unit.
 
 ## Plugins
 
