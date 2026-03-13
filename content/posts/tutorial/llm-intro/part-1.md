@@ -7,7 +7,7 @@ categories: [tutorial]
 license: CC BY-NC-SA 4.0
 ---
 
-A practical guide to LLM agents, from foundational concepts to building a production-ready agent configuration. Part 1 of a two-part series on context engineering: what an LLM actually is, how it becomes an agent, and the layered system (CLAUDE.md, hooks, MCP, skills, plugins) that makes it useful in practice. [Part 2](../part-2/) covers subagents, agent teams, and more advanced topics. Written for everyone, regardless of technical background.
+A practical guide to LLM agents, from foundational concepts to building a production-ready agent configuration. Part 1 of a two-part series: what an LLM actually is, how it becomes an agent, and the layered system (CLAUDE.md, hooks, MCP, skills, plugins) that makes it useful in practice. [Part 2](../part-2/) covers subagents, agent teams, and more advanced topics. Written for everyone, regardless of technical background.
 
 <!--more-->
 
@@ -26,8 +26,10 @@ The thesis is straightforward: LLM agents are a **layered system of context engi
 5. MCP servers provide that structured access: typed interfaces to Git, GitHub, databases, and thousands of other tools. Raw capabilities still need packaging into reusable workflows.
 6. Skills combine instructions and tools into on-demand procedures, loaded only when invoked instead of sitting in context permanently. But someone has to author and maintain each one.
 7. Plugins turn skills into a shareable ecosystem. Still, everything runs in a single context window.
+8. Subagents give each task its own context, but their summaries still flow back and fill the main agent's window. They cannot communicate with each other.
+9. Agent teams close that loop with shared task lists, direct messaging, and full parallel coordination, which is the state of the art by the time of this writing (March 2026).
 
-Part 1 covers layers 1–7: the foundations through plugins. [Part 2](../part-2/) picks up where we leave off, with subagents that give each task its own context window, and agent teams that enable full parallel coordination.
+This article covers layers 1–7. [Part 2](../part-2/) continues with subagents and agent teams.
 
 Whether you write code, build models, review contracts, or manage operations, the underlying principles are the same. The context window is working memory. Everything that goes into it costs something. The art is in managing what gets loaded, when, and for how long. This is what the field now calls **context engineering**, and it is the central framework for this entire article.
 
@@ -242,7 +244,7 @@ Prefer MCP tools over equivalent Bash commands or web searches. MCPs provide str
 interfaces, better error handling, and work within the configured permission model.
 ```
 
-The global file also defines the entire agent team workflow: available agent types, model selection guidelines, coordination patterns, team presets, and the output contract all agents must follow. This is roughly 300 lines that establish the operational framework for every session. We will cover this in detail in the [Subagents](#subagents) and [Agent Teams](#agent-teams) sections.
+The global file also defines the entire agent team workflow: available agent types, model selection guidelines, coordination patterns, team presets, and the output contract all agents must follow. This is roughly 300 lines that establish the operational framework for every session. We will cover this in detail in [Part 2](../part-2/).
 
 **Project** (`CLAUDE.md` in a Rust static site generator repo) covers project structure, coding conventions, and verification workflow:
 
@@ -712,12 +714,12 @@ Skills scale from simple (this one is 18 lines) to complex. The official [`/code
 
 ### How skills differ from CLAUDE.md
 
-| Aspect           | CLAUDE.md                   | Skills                      |
-| ---------------- | --------------------------- | --------------------------- |
-| Loading          | Always in context           | On-demand (explicit or auto)|
-| Purpose          | Preferences and conventions | Specific procedures         |
-| Tool access      | Unrestricted                | Can be restricted per skill |
-| Parameterization | Static                      | Can accept arguments        |
+| Aspect           | CLAUDE.md                   | Skills                       |
+| ---------------- | --------------------------- | ---------------------------- |
+| Loading          | Always in context           | On-demand (explicit or auto) |
+| Purpose          | Preferences and conventions | Specific procedures          |
+| Tool access      | Unrestricted                | Can be restricted per skill  |
+| Parameterization | Static                      | Can accept arguments         |
 
 Skills are the agent's equivalent of runbooks. A compliance team could have a `/regulatory-review` skill that walks the agent through a structured analysis of a new regulation: extract obligations, map to existing controls, identify gaps, generate a summary for the legal team. An operations team could have a `/incident-postmortem` skill that guides the agent through timeline construction, root cause analysis, and action item generation from incident logs.
 
