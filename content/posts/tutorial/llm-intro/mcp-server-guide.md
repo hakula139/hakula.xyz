@@ -211,7 +211,7 @@ mcp = FastMCP(
 )
 ```
 
-The first argument is the server name (shown in Claude Code's MCP server list). The `instructions` string is injected into the agent's context at startup — it is how the agent learns _what_ this server does and _how_ to use its tools. Write these instructions for the model, not for humans: be explicit about the intended workflow.
+The first argument is the server name (shown in Claude Code's MCP server list). The `instructions` string is injected into the agent's context at startup — it is how the agent learns _what_ this server does and _how_ to use its tools. Write these instructions for the model, not for humans: be explicit about the intended workflow. For longer, more detailed instructions, you can use a [Skill file](#level-3-bundled-skill) instead.
 
 ### Defining tools
 
@@ -231,7 +231,7 @@ async def get_docs_index(version: str = "latest") -> str:
     Parameters
     ----------
     version : str, optional
-        Documentation version or alias (e.g., "2.6.0", "latest").
+        Documentation version or alias (e.g., "1.2.3", "latest").
         Defaults to "latest".
 
     Returns
@@ -260,7 +260,7 @@ async def get_page(path: str, version: str = "latest") -> str:
     ----------
     path : str
         Page path relative to the version root
-        (e.g., "guides/getting-started/", "Python/tabular/").
+        (e.g., "guides/getting-started/", "python/my-module/").
     version : str, optional
         Documentation version or alias. Defaults to "latest".
     """
@@ -316,11 +316,13 @@ def _extract_page(llms_txt: str, full_text: str, path: str) -> str:
     return f"Page not found: {path} (title '{title}' not in llms-full.txt)"
 ```
 
-The path normalization matters because agents are inconsistent about trailing slashes and `index.md` suffixes. The regex in `_resolve_title` parses the Markdown link format that `llms.txt` uses: `- [Title](https://host/version/path/index.md)`.
+The path normalization matters because agents are inconsistent about trailing slashes and `index.md` suffixes. The regex in `_resolve_title` parses the Markdown link format that `llms.txt` uses — `- [Title](https://host/version/path/)` — and captures two groups: the page title and the path segment after the version component. If your docs site uses a different URL structure (e.g., no version prefix, or a different path layout), you will need to adjust this pattern.
 
 {{< admonition note "The search index fallback" >}}
 
 MkDocs generates a `search_index.json` that contains one entry per _section_ (each heading within a page). When a page is missing from `llms-full.txt`, the fallback collects all search index entries whose base path matches the requested page and concatenates them into a synthetic document. The result is not as clean as the original Markdown, but it is good enough that the agent can extract the information it needs. This is particularly useful for auto-generated API reference pages that some MkDocs setups exclude from `llms.txt`.
+
+If all your pages are already included in `llms-full.txt`, you can safely skip this fallback — the `_extract_page` function above will handle everything.
 
 {{< /admonition >}}
 
@@ -353,6 +355,8 @@ def _assemble_from_search_index(
 
     return "\n\n".join(parts) if parts else None
 ```
+
+The reconstructed document only uses two heading levels (`#` for the page title, `##` for sections) because the search index flattens all headings into entries with no nesting information — `h3`, `h4`, etc. from the original page are indistinguishable from `h2`. This is good enough for the agent to find what it needs, but it is one more reason to prefer `llms-full.txt` when possible.
 
 ### The entry point
 
