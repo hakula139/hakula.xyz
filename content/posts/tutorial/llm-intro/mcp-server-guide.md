@@ -144,7 +144,7 @@ The data flow is: agent calls a tool → server delegates to fetcher (which cach
 
 ## Project Setup
 
-We use [uv](https://docs.astral.sh/uv/) for dependency management and [hatchling](https://hatch.pypa.io/) as the build backend. The project layout:
+We use [uv](https://docs.astral.sh/uv) for dependency management and [hatchling](https://hatch.pypa.io) as the build backend. The project layout:
 
 ```text
 my-docs-mcp/
@@ -154,8 +154,7 @@ my-docs-mcp/
 │       ├── server.py
 │       ├── fetcher.py
 │       └── search.py
-├── pyproject.toml
-└── .gitignore
+└── pyproject.toml
 ```
 
 The `pyproject.toml`:
@@ -182,16 +181,13 @@ build-backend = "hatchling.build"
 packages = ["src/my_docs_mcp"]
 ```
 
-`★ Insight ─────────────────────────────────────`
-Two dependencies, and one of them (`httpx`) is already a transitive dependency of FastMCP. The `[project.scripts]` entry creates a CLI command `my-docs-mcp` that calls `server:main`, which is how `uvx` and Claude Code will launch the server. The `hatch.build.targets.wheel.packages` line tells hatchling where to find the source — necessary because we use the `src/` layout rather than having the package at the project root.
-`─────────────────────────────────────────────────`
+The `[project.scripts]` entry creates a CLI command `my-docs-mcp` that calls `server:main`, which is how `uvx` and Claude Code will launch the server.
 
-Initialize the project:
+Create the directory structure above, then install dependencies:
 
 ```bash
-uv init my-docs-mcp
 cd my-docs-mcp
-uv add "fastmcp>=3.1,<4" "httpx>=0.27"
+uv sync
 ```
 
 ## The Server
@@ -420,9 +416,7 @@ class CachedFetcher:
 
 The cache is a plain dictionary mapping URLs to `(timestamp, value)` tuples. `time.monotonic()` is used instead of `time.time()` because it is not affected by system clock adjustments — a minor detail that prevents subtle bugs in long-running server processes.
 
-`★ Insight ─────────────────────────────────────`
 The `verify_ssl=False` default is intentional for internal deployments where docs sit behind corporate proxies with self-signed certificates. For public-facing servers, you should set this to `True`. A production version might accept a CA bundle path instead of a boolean.
-`─────────────────────────────────────────────────`
 
 ### Version resolution
 
@@ -633,9 +627,7 @@ You have access to documentation through MCP tools.
 
 The `description` field drives auto-invocation: when a user asks "how do I create a dataset?", the model matches the question to this skill's description and loads the full instructions into context, without the user needing to type `/my-docs`. The `user_invocable: true` flag also lets users invoke it manually with `/my-docs` when they want to be explicit.
 
-`★ Insight ─────────────────────────────────────`
 The three levels compose: a plugin includes the MCP server config _and_ the skill, so a single `claude plugin install` gives the team everything. But each level also works independently — you can run the MCP server without a plugin, or write a skill without packaging it as a plugin. Start with Level 1, add complexity only when the team needs it.
-`─────────────────────────────────────────────────`
 
 ## Testing
 
