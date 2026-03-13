@@ -1,13 +1,13 @@
 ---
-title: "LLM Intro: From the Basics to Context Engineering"
-date: 2026-03-03T11:24:00+08:00
+title: "LLM Intro: From the Basics to Context Engineering (Part 1)"
+date: 2026-03-13T15:25:00+08:00
 
-tags: [AI, LLM, Claude Code, MCP, Skill, Agent, Subagent, Agent Team]
+tags: [AI, LLM, Claude Code, MCP, Skill, Plugin]
 categories: [tutorial]
 license: CC BY-NC-SA 4.0
 ---
 
-A practical guide to LLM agents, from foundational concepts to orchestrating teams of specialized AI agents that work in parallel. This article traces the full stack of context engineering: what an LLM actually is, how it becomes an agent, and the layered system of configuration (CLAUDE.md, hooks, skills, subagents, agent teams) that makes it useful in production. Written for everyone at the firm, regardless of technical background.
+A practical guide to LLM agents, from foundational concepts to building a production-ready agent configuration. Part 1 of a two-part series on context engineering: what an LLM actually is, how it becomes an agent, and the layered system (CLAUDE.md, hooks, MCP, skills, plugins) that makes it useful in practice. [Part 2](../part-2/) covers subagents, agent teams, and more advanced topics. Written for everyone, regardless of technical background.
 
 <!--more-->
 
@@ -15,7 +15,7 @@ A practical guide to LLM agents, from foundational concepts to orchestrating tea
 
 Picture this scenario. You're deploying a hotfix to the data pipeline on a Friday afternoon. In one terminal, an agent team is reviewing the pull request, three reviewers working in parallel, each focused on a different angle: correctness, security, and consistency with existing patterns. In another terminal, a researcher agent is tracing a regression in the ETL pipeline that surfaced this morning, cross-referencing logs with recent schema changes. A third session has an implementer drafting API documentation for the new endpoint your team shipped this week. All of this is happening simultaneously, coordinated through shared task lists and direct messaging between agents, while you focus on the deployment itself.
 
-This is not science fiction, and it is not a product demo. The system that enables it, Claude Code with its full agent orchestration stack, is what this article is about.
+This is not science fiction, and it is not a product demo. The system that enables it, Claude Code with its full agent orchestration stack, is what this two-part series is about.
 
 The thesis is straightforward: LLM agents are a **layered system of context engineering**. Each layer solves a specific problem the previous layer could not. The progression is natural and, once you see it, almost inevitable:
 
@@ -26,8 +26,8 @@ The thesis is straightforward: LLM agents are a **layered system of context engi
 5. MCP servers provide that structured access: typed interfaces to Git, GitHub, databases, and thousands of other tools. Raw capabilities still need packaging into reusable workflows.
 6. Skills combine instructions and tools into on-demand procedures, loaded only when invoked instead of sitting in context permanently. But someone has to author and maintain each one.
 7. Plugins turn skills into a shareable ecosystem. Still, everything runs in a single context window.
-8. Subagents give each task its own context, but their summaries still flow back and fill the main agent's window. They cannot communicate with each other.
-9. Agent teams close that loop with shared task lists, direct messaging, and full parallel coordination, which is the state of the art by the time of this writing (March 2026).
+
+Part 1 covers layers 1–7: the foundations through plugins. [Part 2](../part-2/) picks up where we leave off, with subagents that give each task its own context window, and agent teams that enable full parallel coordination.
 
 Whether you write code, build models, review contracts, or manage operations, the underlying principles are the same. The context window is working memory. Everything that goes into it costs something. The art is in managing what gets loaded, when, and for how long. This is what the field now calls **context engineering**, and it is the central framework for this entire article.
 
@@ -733,34 +733,19 @@ Skills also cannot bundle related capabilities together. A code review workflow 
 
 ### Why this matters
 
-This is arguably Claude Code's strongest competitive advantage over alternatives like OpenAI Codex CLI or Cursor. Anthropic defines the standard for how plugins are structured, distributed, and discovered. The result is a growing ecosystem where capabilities compound: installing a plugin does not just add a skill; it can add hooks, custom agents, output modes, and MCP server integrations in a single package.
-
-OpenAI's Codex CLI has powerful cloud sandboxes but no plugin ecosystem. Cursor has extensions through VS Code's marketplace, but those are IDE extensions, not agent capability extensions. Claude Code's plugin system operates at the agent level: it extends what the model can _do_, not just what the editor can display.
+This is arguably Claude Code's strongest competitive advantage. Just as Anthropic created MCP and grew an ecosystem of thousands of servers[^mcp-servers], they are now doing the same for plugins: defining the standard for how plugins are structured, distributed, and discovered, and building the marketplace around it. The [official plugin directory](https://github.com/anthropics/claude-plugins-official) already hosts 40+ plugins (including third-party integrations like GitHub, Playwright, and Slack), [community-maintained registries](https://claudemarketplaces.com) aggregate thousands more across nearly 3,000 marketplaces (by the time of this writing), and any GitHub repository can serve as a plugin source.
 
 ### What plugins provide
 
-My configuration enables 18+ plugins across four categories[^plugins]:
+My configuration enables 18+ plugins across three categories:
 
-[^plugins]: Plugins auto-update on each session. Enable them in `~/.claude/settings.json` under `enabledPlugins`.
-
-**Official skills**, Anthropic-maintained skill bundles:
+**Official**, Anthropic-maintained skill bundles and workflow extensions:
 
 ```json
 {
   "enabledPlugins": {
     "document-skills@anthropic-agent-skills": true,
-    "example-skills@anthropic-agent-skills": true
-  }
-}
-```
-
-These add dozens of invocable skills: `/pdf` for PDF manipulation, `/pptx` for presentation creation, `/frontend-design` for production-grade UI generation, `/mcp-builder` for creating new MCP servers. Each skill carries its own tool restrictions and step-by-step procedures.
-
-**Official plugins**, workflow extensions:
-
-```json
-{
-  "enabledPlugins": {
+    "example-skills@anthropic-agent-skills": true,
     "code-review@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
@@ -770,23 +755,23 @@ These add dozens of invocable skills: `/pdf` for PDF manipulation, `/pptx` for p
 }
 ```
 
-The `pr-review-toolkit` is notable: it adds specialized review agents (type design analyzer, comment analyzer, silent failure hunter, test coverage analyzer) that go beyond what a generic reviewer provides. `hookify` lets you analyze a conversation for mistakes and automatically generate hooks to prevent them in the future.
+The skill bundles add dozens of invocable skills: `/pdf` for PDF manipulation, `/pptx` for presentation creation, `/frontend-design` for production-grade UI generation, `/mcp-builder` for creating new MCP servers. Each skill carries its own tool restrictions and step-by-step procedures. The workflow plugins go further: `pr-review-toolkit` adds specialized review agents (type design analyzer, comment analyzer, silent failure hunter, test coverage analyzer) that go beyond what a generic reviewer provides; `hookify` lets you analyze a conversation for mistakes and automatically generate hooks to prevent them in the future.
 
 **LSP integrations**, language server protocol plugins:
 
 ```json
 {
   "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true
   }
 }
 ```
 
-These give the agent access to real-time language diagnostics (type errors, unused imports, lint warnings) from the same language servers your IDE uses. The agent can check its own work against the compiler before you even look at it.
+These give the agent access to real-time language diagnostics (type errors, unused imports, lint warnings) from the same language servers your IDE uses. Without LSP, the agent writes code and discovers type errors only when you run the build — or worse, when you read the code and notice something wrong. With LSP, the agent gets the same red-squiggle feedback loop that a human developer gets in VS Code, except it can query diagnostics programmatically after every edit. It catches its own mistakes before you even look at the diff.
 
 **Third-party plugins**, community contributions:
 
@@ -794,11 +779,12 @@ These give the agent access to real-time language diagnostics (type errors, unus
 {
   "enabledPlugins": {
     "context7-plugin@context7-marketplace": true,
-    "agent-browser@agent-browser": true,
-    "claude-code-wakatime@wakatime": true
+    "agent-browser@agent-browser": true
   }
 }
 ```
+
+We [already saw](#configuring-mcp-servers) Context7 as an MCP server for documentation lookup, but the MCP server alone does not tell the agent _how_ to use it well. The plugin bundles a skill with proper instructions on top of the server, so the agent knows when and how to query docs effectively. [Agent-browser](https://github.com/vercel-labs/agent-browser) (by Vercel Labs) is a lightweight alternative to Playwright for browser automation: it uses accessibility snapshots with semantic element references (`@e1`, `@e2`) instead of full HTML, and a persistent Rust CLI + Node.js daemon architecture that avoids reinitializing the browser on every call. The result is significantly less context consumed per interaction compared to a raw Playwright MCP.
 
 ### Marketplaces
 
@@ -820,158 +806,9 @@ Plugins are distributed through **marketplaces**, GitHub repositories that serve
 }
 ```
 
-This is a controlled ecosystem, not a free-for-all. You choose your sources, you choose your plugins, and the agent gains capabilities without any model retraining.
+## The Stack So Far
 
-### What plugins cannot do
-
-Plugins extend a single agent's capabilities: more skills, more tools, more integrations. But they do not change the fundamental limitation: one agent, one context window, one task at a time. A plugin cannot spawn a second agent to work in parallel, delegate a sub-task to a specialist, or coordinate multiple perspectives on the same problem. For that, you need agents that can delegate and collaborate.
-
-## Subagents
-
-[Subagents](https://docs.anthropic.com/en/docs/claude-code/sub-agents) are child processes spawned by a parent agent to handle focused tasks. Each subagent gets its own context window, runs independently, and reports results back to the parent. No communication between subagents; everything routes through the orchestrator.
-
-The mental model is a project manager delegating to specialists. The parent agent (the orchestrator) decides what needs to be done, spawns the appropriate specialist, waits for the result, and integrates it into the larger workflow.
-
-### Agent types
-
-My configuration defines eight custom agent types, each with a specific role, behavioral constraints, and (in some cases) a different model tier[^agent-definitions]. Each agent type is a separate Markdown file, but the overall orchestration rules — when to use agents, model selection guidelines, coordination patterns, team presets, and the output contract — all live in the global CLAUDE.md, so the agent reads them at the start of every session:
-
-[^agent-definitions]: Full agent definitions at [agents/](https://github.com/hakula139/nixos-config/tree/main/home/modules/claude-code/agents). Each is a Markdown file with frontmatter (name, description, model, tool restrictions) and a behavioral prompt.
-
-| Agent                | Role                                  | Model  | Access     |
-| -------------------- | ------------------------------------- | ------ | ---------- |
-| `architect`          | Design review, pattern analysis       | opus   | Read-only  |
-| `researcher`         | Fast codebase exploration, doc lookup | haiku  | Read-only  |
-| `implementer`        | Code writing, refactoring             | opus   | Full       |
-| `reviewer`           | Code quality, security, bugs          | opus   | Read-only  |
-| `tester`             | Test writing and execution            | sonnet | Full       |
-| `debugger`           | Hypothesis-driven root cause analysis | opus   | Read-only  |
-| `usability-reviewer` | UX clarity for user-facing surfaces   | opus   | Read-only  |
-| `codex-worker`       | Delegates to OpenAI Codex MCP         | haiku  | Restricted |
-
-### Model selection as context engineering
-
-Not every task requires the most powerful (and expensive) model. The `researcher` agent uses **haiku**, the fastest and cheapest model tier. Its job is to search files, read documentation, and return a structured summary. It does not need deep reasoning; it needs speed. The `tester` agent uses **sonnet**, a balanced tier where test writing's pattern-following nature does not justify opus costs, but the task is complex enough that haiku would struggle.
-
-The `codex-worker` is particularly interesting: it is a haiku-tier agent whose sole purpose is to formulate tasks and delegate them to the OpenAI Codex MCP, a separate model running in its own cloud sandbox. It reads enough context to write a clear prompt, delegates the actual work, evaluates the result, and reports back. Two models collaborating, each used for what it does best.
-
-This is cost-aware context engineering. You are not just managing what goes into the context window, but _which_ context window a task runs in, and at what price point.
-
-### The output contract
-
-All agents follow a shared output contract that keeps communication efficient:
-
-```markdown
-- **Status line**: Every report ends with
-  `Status: completed | partial (<what remains>) | blocked (<what's needed>)`
-- **Output budget**: 150-200 lines maximum
-- **File references**: All code-reading agents include `file:line` references
-- **Escalation**: Report blockers rather than producing low-quality output
-- **Prior context**: Build on upstream findings instead of re-investigating
-```
-
-The status line is critical. When the orchestrator receives a report ending with "Status: blocked (need access to production logs)", it knows immediately to either provide the missing context or reassign the task. No ambiguity, no wasted cycles.
-
-### Patterns
-
-The orchestrator uses subagents in several established patterns:
-
-- **Sequential pipeline**: researcher → architect → implementer → reviewer → tester. Each agent's output feeds the next.
-- **Parallel exploration**: Spawn multiple researchers to investigate different aspects of a problem simultaneously. Three researchers examining different subsystems finish faster than one examining all three.
-- **Review gate**: Always run a reviewer after the implementer completes significant changes. The reviewer's output determines whether the changes are accepted or revised.
-- **Codex offloading**: Use the codex-worker for tasks that benefit from a separate context window, orthogonal work that should not pollute the main session's context.
-
-For operations teams, this maps directly to incident response: one researcher traces the timeline, another checks recent deployments, a third examines monitoring data, all in parallel, all reporting to a coordinator who synthesizes the findings.
-
-### What subagents cannot do
-
-Subagents are **isolated**. They cannot:
-
-- **Share findings with each other.** If the researcher discovers something the reviewer needs to know, it must first report to the orchestrator, who then relays it to the reviewer. This round-trip adds latency and consumes the orchestrator's context.
-- **Coordinate directly.** The reviewer cannot send issues to the implementer. The researcher cannot ask the architect a clarifying question. Every interaction is mediated.
-- **Avoid the bottleneck.** The orchestrator must process every report, make every decision, relay every message. As the number of subagents grows, the orchestrator's context fills up with coordination overhead.
-
-Subagents delegate, but they do not collaborate. For tasks where agents need to share discoveries, challenge each other, or hand off work directly, you need the final layer.
-
-## Agent Teams
-
-Agent Teams are the full coordination model: multiple agents with a shared task list, direct peer-to-peer messaging, task dependencies, and file ownership rules. The orchestrator creates the team, defines tasks, spawns teammates, and steps back. Teammates claim work, execute it, communicate findings to each other, and report back without routing everything through the lead.
-
-### The key difference from subagents
-
-The decision rule is simple: if agents need to talk to each other, use an Agent Team. If they just report back, use subagents.
-
-| Capability                       | Subagents | Agent Teams |
-| -------------------------------- | --------- | ----------- |
-| Own context window               | Yes       | Yes         |
-| Report to orchestrator           | Yes       | Yes         |
-| Shared task list                 | No        | Yes         |
-| Direct messaging (`SendMessage`) | No        | Yes         |
-| Task dependencies                | No        | Yes         |
-| File ownership                   | Implicit  | Explicit    |
-
-### Team lifecycle
-
-A typical team session follows this sequence:
-
-1. **Create the team** (`TeamCreate`): establishes a team with a shared task directory.
-2. **Create tasks** (`TaskCreate`): define work items with descriptions, dependencies, and status tracking.
-3. **Spawn teammates**: launch agents with the `team_name` parameter so they join the team.
-4. **Teammates claim and work**: each teammate checks the task list, claims available work, and executes it.
-5. **Peer communication** (`SendMessage`): teammates share findings, flag issues, and coordinate directly.
-6. **Task completion**: teammates mark tasks done and check for more work.
-7. **Shutdown**: the lead sends shutdown requests when all work is complete, then deletes the team.
-
-### Team presets
-
-My configuration defines four team presets for common workflows:
-
-**Review team**: multi-angle code review. Two or three reviewer instances, each given a specific lens:
-
-- "Security focus: check for OWASP top 10 vulnerabilities, authentication bypasses, data exposure."
-- "Correctness focus: verify logic, edge cases, error handling paths."
-- "Style focus: check naming, patterns, consistency with existing codebase."
-
-For user-facing changes, a usability-reviewer joins alongside the code reviewers. The lead synthesizes all findings into a unified report. Three perspectives on the same code, delivered in parallel rather than sequentially.
-
-**Debug team**: parallel hypothesis investigation. Two or three debugger instances, each assigned a different hypothesis about the root cause. Debuggers share confirming and contradicting evidence with each other via `SendMessage`, gradually converging on an answer, much like how experienced engineers debug complex issues by exploring multiple theories simultaneously rather than committing to one path.
-
-**Feature team**: end-to-end development pipeline. Researcher gathers context, architect designs the approach, implementer writes code, reviewer validates. Task dependencies enforce the ordering: the implementer's task is blocked until the architect completes their design. This is a full delivery pipeline in a single session.
-
-**Refactor team**: safe large-scale restructuring. Architect analyzes current structure, implementer executes changes, reviewer verifies no regressions. File ownership is critical here.
-
-### File ownership
-
-This is the hardest constraint in agent teams: **two agents editing the same file leads to overwrites**. Agents do not share a filesystem lock. If the implementer is modifying `src/auth.ts` while another implementer modifies the same file, one set of changes gets lost.
-
-The lead must partition work so each teammate owns distinct file sets. For a refactor spanning many files, you might assign one implementer to the `src/api/` directory and another to `src/models/`. The partition must be communicated in the task description, and teammates must respect it.
-
-### Advanced patterns
-
-Beyond the presets, several advanced patterns have emerged from production use:
-
-**Implement-review loop:** The implementer and reviewer are teammates. After making changes, the implementer sends the reviewer a message with the modified files. The reviewer analyzes, sends issues back. The implementer fixes and messages again. This tight loop bypasses the lead entirely, reducing latency.
-
-**Research swarm:** Multiple researchers investigate different aspects of a problem, sharing findings with each other. "I found the config parsing logic in `src/config/`, relates to the schema change you were tracking." They converge on a comprehensive understanding faster than a single researcher could.
-
-**Multi-hypothesis debugging:** Multiple debuggers investigate different theories, exchanging evidence. When one debugger finds something that contradicts another's hypothesis, they message each other directly. The lead evaluates convergence and reports the most likely root cause.
-
-For a quant research team, an analogous pattern might involve spawning multiple researchers to investigate a strategy's drawdown from different angles: one examining market microstructure, another reviewing factor exposure shifts, a third checking data quality around the relevant dates. Each investigates independently and shares evidence with the others.
-
-### Honest limitations
-
-Agent teams are powerful, but they are not free:
-
-- **Cost.** N agents means roughly Nx the token cost. A four-agent team running opus costs four times what a single agent would.
-- **Complexity.** Agents can miscommunicate, duplicate work, or claim the same task. The lead must actively manage coordination.
-- **Diminishing returns.** Not every task benefits from parallelism. A simple bug fix with a clear root cause does not need a debug team; it needs one focused session.
-- **File conflicts.** The ownership constraint is real and annoying. Until agent frameworks support true collaborative editing, partitioning is the only safe approach.
-
-The judgment call (when to use a single agent, when to spawn subagents, when to assemble a full team) is a skill that develops with practice. The cost of under-parallelizing is slower delivery. The cost of over-parallelizing is wasted tokens and coordination overhead.
-
-## The Full Stack
-
-Here is the complete picture, each layer, what it solves, and what it cannot do:
+Here is what we have covered, each layer, what it solves, and what it cannot do:
 
 | Layer        | What it solves                           | What it cannot do          |
 | ------------ | ---------------------------------------- | -------------------------- |
@@ -982,29 +819,11 @@ Here is the complete picture, each layer, what it solves, and what it cannot do:
 | MCP          | Structured tool access, typed interfaces | Define reusable procedures |
 | Skills       | Reusable on-demand procedures            | Share or scale             |
 | Plugins      | Distributable capability packages        | Parallelize                |
-| Subagents    | Focused delegation, parallel work        | Peer communication         |
-| Agent Teams  | Full coordination, shared tasks          | Replace your judgment      |
 
-Each row exists because the row above it has a specific limitation. The progression is not arbitrary; it is driven by real problems encountered in real usage: "I keep repeating myself" → CLAUDE.md. "The model ignores my preferences" → hooks. "The model needs structured tool access" → MCP. "I need the same procedure every week" → skills. "I want to share procedures across the team" → plugins. "One agent cannot do this alone" → subagents. "Agents need to talk to each other" → teams.
+Each row exists because the row above it has a specific limitation. The progression is not arbitrary; it is driven by real problems encountered in real usage: "I keep repeating myself" → CLAUDE.md. "The model ignores my preferences" → hooks. "The model needs structured tool access" → MCP. "I need the same procedure every week" → skills. "I want to share procedures across the team" → plugins.
 
-There is a meta-observation worth making: this entire configuration system (the CLAUDE.md files, the hooks, the agents, the permission model) was itself partially built and maintained using Claude Code. The tool is self-hosting in a meaningful sense: agents helped write the definitions of agents.
+With these seven layers, you have a fully configured, production-ready agent. It knows your project conventions, enforces your rules, has structured access to external tools, can execute reusable procedures, and stays current through a plugin ecosystem. For many workflows, this is all you need.
 
-### Who benefits and how
+But everything so far runs in a single context window. One agent, one task at a time. When a problem is complex enough to benefit from parallel work, when you need a researcher gathering context while a reviewer checks the last set of changes, when three security lenses should examine the same code simultaneously — that is where the next layer begins.
 
-The layers apply differently depending on your role, but the underlying mechanism is the same: managing what is in the agent's context window to get the output you need.
-
-**Engineers** get multi-file refactoring where the agent understands your entire codebase's patterns, parallel code review with security and correctness lenses running simultaneously, and automated test generation that follows your existing test conventions.
-
-**Quant researchers** get automated literature surveys that search, read, and synthesize papers; strategy documentation that reads backtest results and generates structured analysis; and data pipeline debugging where the agent traces data flow through multiple transformation stages.
-
-**Data teams** get automated data quality checks that run against defined schemas and flag anomalies, report generation that pulls data from multiple sources and formats it per team conventions, and ETL pipeline monitoring where the agent watches for schema drift and transformation errors.
-
-**Legal and compliance** get regulatory change tracking where the agent monitors document updates and extracts new obligations, contract clause extraction against structured checklists, and policy audit workflows that compare current procedures against regulatory requirements.
-
-**Operations** get runbook automation where the agent follows (and improves) existing runbooks step by step, incident response coordination where multiple agents investigate in parallel, and onboarding material generation that reads the codebase and produces walkthroughs.
-
-### Where this is going
-
-The trajectory from "prompt engineering" (2024) to "context engineering" (2026) points toward something we might call "organization engineering": the skill of decomposing problems into delegable units, assigning them to the right specialist with the right context, and coordinating the results. These are fundamentally human skills. The best way to use these tools is to think about them the way you would think about managing a team of specialists: clear briefs, appropriate delegation, parallel workstreams, and synthesis of results.
-
-The tool is only as good as the person directing it. Understanding the layers is understanding the leverage points. And the leverage, at every level, comes from the same place: knowing what the agent needs to see, when it needs to see it, and what you can safely leave out.
+In [Part 2](../part-2/), we will cover **subagents** (focused delegation to child processes with their own context windows), **agent teams** (full peer-to-peer coordination with shared task lists and direct messaging), and the orchestration patterns that tie them together. That is where the opening scenario — three reviewers, a researcher, and an implementer all working in parallel — becomes reality.
