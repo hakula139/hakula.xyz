@@ -810,22 +810,20 @@ Plugins are distributed through **marketplaces**, GitHub repositories that serve
 
 ## The Stack So Far
 
-Here is what we have covered, each layer, what it solves, and what it cannot do:
+Here is what we have covered:
 
-| Layer        | What it solves                           | What it cannot do          |
-| ------------ | ---------------------------------------- | -------------------------- |
-| Raw LLM      | Text generation, pattern matching        | Act on the world           |
-| Chat + Tools | Interactive Q&A, agentic loops           | Remember between sessions  |
-| CLAUDE.md    | Persistent preferences, conventions      | Enforce rules              |
-| Hooks        | Automated enforcement, formatting        | Structured tool access     |
-| MCP          | Structured tool access, typed interfaces | Define reusable procedures |
-| Skills       | Reusable on-demand procedures            | Share or scale             |
-| Plugins      | Distributable capability packages        | Parallelize                |
+| Layer        | What it solves                           |
+| ------------ | ---------------------------------------- |
+| Raw LLM      | Text generation, pattern matching        |
+| Chat + Tools | Interactive Q&A, agentic loops           |
+| CLAUDE.md    | Persistent preferences, conventions      |
+| Hooks        | Automated enforcement, formatting        |
+| MCP          | Structured tool access, typed interfaces |
+| Skills       | Reusable on-demand procedures            |
+| Plugins      | Distributable capability packages        |
 
-Each row exists because the row above it has a specific limitation. The progression is not arbitrary; it is driven by real problems encountered in real usage: "I keep repeating myself" → CLAUDE.md. "The model ignores my preferences" → hooks. "The model needs structured tool access" → MCP. "I need the same procedure every week" → skills. "I want to share procedures across the team" → plugins.
+Each row exists because the row above it has a specific limitation. The progression is driven by real problems encountered in real usage.
 
-With these seven layers, you have a fully configured, production-ready agent. It knows your project conventions, enforces your rules, has structured access to external tools, can execute reusable procedures, and stays current through a plugin ecosystem. For many workflows, this is all you need.
-
-But everything so far runs in a single context window. One agent, one task at a time. When a problem is complex enough to benefit from parallel work, when you need a researcher gathering context while a reviewer checks the last set of changes, when three security lenses should examine the same code simultaneously — that is where the next layer begins.
+With these seven layers, you have a fully configured, production-ready agent. For many workflows, this is all you need. But while skills and plugins _can_ spawn subagents, we have not yet examined how to define your own agent types, assign them different models and roles, or orchestrate them into coordinated teams. That is where the next layer begins.
 
 In [Part 2](../part-2/), we will cover **subagents** (focused delegation to child processes with their own context windows), **agent teams** (full peer-to-peer coordination with shared task lists and direct messaging), and the orchestration patterns that tie them together. That is where the opening scenario — three reviewers, a researcher, and an implementer all working in parallel — becomes reality.
