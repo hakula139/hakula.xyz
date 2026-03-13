@@ -1,6 +1,6 @@
 ---
 title: "MCP Server Guide: Building a Documentation Server for LLM Agents"
-date: 2026-03-13T15:55:00+08:00
+date: 2026-03-13T17:36:00+08:00
 
 tags: [AI, LLM, MCP, Claude Code, FastMCP, Python]
 categories: [tutorial]
@@ -691,15 +691,19 @@ Or test the underlying logic without MCP at all — import the modules and call 
 
 ```python
 import asyncio
+from typing import Any
+
 from my_docs_mcp.fetcher import CachedFetcher
 from my_docs_mcp.search import search
 
-async def test():
-    f = CachedFetcher(base_url="https://docs.example.com")
-    index = await f.get_search_index("latest")
-    results = search(index, "dataset creation")
+
+async def test() -> None:
+    f: CachedFetcher = CachedFetcher(base_url="https://docs.example.com")
+    index: list[dict[str, Any]] = await f.get_search_index("latest")
+    results: list[dict[str, Any]] = search(index, "dataset creation")
     for r in results[:3]:
         print(r["title"], r["score"])
+
 
 asyncio.run(test())
 ```
@@ -709,14 +713,14 @@ asyncio.run(test())
 The real test is using it. Start a session with the MCP server configured, and ask the agent a question that requires documentation:
 
 ```text
-> What parameters does the MarketDataset constructor accept?
+> How should I use ... API / module?
 ```
 
-Watch the tool calls in the output. The agent should call `search_docs("MarketDataset constructor")`, identify the relevant page from the results, then call `get_page` to read it. If it hallucinates instead of calling the tools, your skill's `description` might not be triggering auto-invocation — make the description more specific about when the skill applies.
+Watch the tool calls in the output. The agent should call `search_docs(...)`, identify the relevant page from the results, then call `get_page` to read it. If it hallucinates instead of calling the tools, your skill's `description` might not be triggering auto-invocation — make the description more specific about when the skill applies.
 
-{{< admonition warning "STDIO transport and stdout" >}}
+{{< admonition warning "Stdio transport and stdout" >}}
 
-When running as a local MCP server (the default for most agents), the server communicates with the agent over stdin / stdout using JSON-RPC. Any `print()` statements, logging to stdout, or library output on stdout will corrupt the protocol and crash the server. Use `logging` (which defaults to stderr) or explicitly write to `sys.stderr`. This is the single most common cause of "MCP server failed to start" errors.
+When running as a local MCP server (the default for most agents), the server communicates with the agent over stdio using JSON-RPC. Any `print()` statements, logging to stdout, or library output on stdout will corrupt the protocol and crash the server. Use `logging` (which defaults to stderr) or explicitly write to `sys.stderr`. This is the single most common cause of "MCP server failed to start" errors.
 
 {{< /admonition >}}
 
@@ -735,4 +739,4 @@ The code is intentionally minimal (under 200 lines across all three modules) so 
 
 With an MCP server in place, your agent reads documentation instead of guessing. But the server is one piece of a larger system. [Part 1](../part-1/) covers the full stack — CLAUDE.md for persistent instructions, hooks for enforcement, skills for reusable procedures, plugins for distribution. An MCP server gives the agent _access_ to your docs; a skill tells it _when and how_ to use that access; a hook can _enforce_ that it always checks documentation before answering questions about your API. The layers compose.
 
-The full source code for this server is available as a template you can fork and adapt. Change the base URL, adjust the path resolution to match your site structure, publish to your internal registry, and your entire team has structured documentation access in every agent session.
+All the code in this article is self-contained — copy the three modules, change the base URL, adjust the path resolution to match your site structure, publish to your internal registry, and your entire team has structured documentation access in every agent session.
