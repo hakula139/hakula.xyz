@@ -465,63 +465,7 @@ The model never needs to think about formatting; it happens automatically, every
 
 This is context engineering through subtraction: instead of writing "always format your code", duplicating the formatting logic in CLAUDE.md and hoping the model complies, the hook makes formatting automatic and invisible. The instruction is replaced by infrastructure.
 
-**Enforce MCP (PreToolUse):** This hook blocks Bash commands that have MCP equivalents, forcing the agent to use structured MCP tools instead:
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/enforce-mcp.sh"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-```bash
-#!/usr/bin/env bash
-# .claude/hooks/enforce-mcp.sh
-COMMAND=$(jq -r '.tool_input.command')
-
-deny() {
-  jq -n --arg reason "$1" '{
-    hookSpecificOutput: {
-      hookEventName: "PreToolUse",
-      permissionDecision: "deny",
-      permissionDecisionReason: $reason
-    }
-  }'
-  exit 0
-}
-
-# Block gh CLI — use MCP GitHub tools
-if [[ "$COMMAND" =~ ^[[:space:]]*gh[[:space:]] ]]; then
-  deny "Use MCP GitHub tools (mcp__GitHub__*) instead of the gh CLI."
-fi
-
-# Block git subcommands that have MCP equivalents
-if [[ "$COMMAND" =~ ^[[:space:]]*git[[:space:]]+(.*) ]]; then
-  SUBCMD="${BASH_REMATCH[1]%% *}"
-  case "$SUBCMD" in
-    status) deny "Use mcp__Git__git_status instead." ;;
-    diff)   deny "Use mcp__Git__git_diff instead." ;;
-    log)    deny "Use mcp__Git__git_log instead." ;;
-    add)    deny "Use mcp__Git__git_add instead." ;;
-    # ... other subcommands with MCP equivalents
-  esac
-fi
-
-exit 0  # allow everything else
-```
-
-The script reads the JSON input from stdin, checks whether the command has an MCP equivalent, and returns a `permissionDecision` of `"deny"` if so. The agent is forced to use the structured tool, producing denser context window output.
+**Enforce MCP (PreToolUse):** This hook blocks Bash commands that have MCP equivalents (like `git status` or `gh pr list`), forcing the agent to use structured MCP tools instead. We will see this in detail in the [MCP enforcement through hooks](#mcp-enforcement-through-hooks) section — it is a good example of how hooks and MCP reinforce each other.
 
 **Notification (PermissionRequest):** When the agent needs user attention (a permission prompt or a question), this hook sends a desktop notification so you are not blocked waiting:
 
@@ -606,104 +550,126 @@ Hooks also cannot give the agent structured access to external systems. The agen
 
 ## MCP
 
-We introduced [MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) briefly in the agent section. Now it is time to look at it properly, because MCP is the infrastructure that makes everything else useful. Without MCP, an agent's only tool is a raw Bash shell, powerful but unstructured, with no type safety, no permission model, and every command's output dumped as raw text into the context window.
+We introduced [MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) briefly in the agent section. Now it is time to look at it properly, because MCP is the infrastructure that makes everything else useful. Without MCP, an agent's only tool is a raw Bash shell, powerful but unstructured, with no type safety. Every command's output is dumped as raw text into the context window.
 
 ### What MCP actually provides
 
-The **Model Context Protocol** defines a client-server architecture for tool use. An MCP server is a process that exposes a set of tools, each with a name, description, typed input schema, and typed output. The agent reads these definitions at startup and learns to call the tools by name. The key insight is that MCP tools return _structured_ data, not raw terminal output. When the agent calls `mcp__Git__git_status`, it gets a parsed status object, not a wall of colored text that it has to interpret.
+The **Model Context Protocol** defines a client-server architecture for tool use. An MCP server is a process that exposes a set of tools, each with a name, description, typed input schema, and typed output. The agent reads these definitions at startup and learns to call the tools by name. The key insight is that MCP tools return _structured_ data, not raw terminal output. When the agent calls `mcp__Git__git_status`, it gets a parsed status object, not a wall of colored text that it has to interpret with self-written Bash or Python scripts.
 
 This matters for context engineering. Structured output is denser and more predictable than raw shell output. A `git diff` piped through Bash might produce 200 lines of noisy terminal output; the MCP equivalent returns the same information in a structured format that the model can parse reliably. Less noise means more room for actual work in the context window.
 
 ### Configuring MCP servers
 
-My configuration connects seven MCP servers, each serving a distinct purpose[^mcp-config]:
+MCP servers are configured in `~/.claude/settings.json` (global) or `.claude/settings.json` (project). Here is an excerpt from my configuration:
 
-[^mcp-config]: MCP server definitions are centralized in [mcp/](https://github.com/hakula139/nixos-config/tree/main/home/modules/mcp) and shared across Claude Code and Codex CLI configurations.
-
-```nix
-mcpServers = {
-  DeepWiki = mcp.servers.deepwiki;     # AI-powered docs for any GitHub repo
-  Fetcher  = mcp.servers.fetcher;      # Playwright headless browser (fallback)
-  Filesystem = mcp.servers.filesystem; # Sandboxed file operations
-  Git      = mcp.servers.git;          # Structured git operations
-  GitHub   = mcp.servers.github;       # Issues, PRs, code search, reviews
-  Codex    = mcp.servers.codex;        # Delegate tasks to OpenAI Codex
-};
+```json
+{
+  "mcpServers": {
+    "Git": {
+      "command": "uvx",
+      "args": ["mcp-server-git"],
+      "type": "stdio"
+    },
+    "Fetcher": {
+      "command": "npx",
+      "args": ["-y", "fetcher-mcp"],
+      "type": "stdio"
+    },
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "type": "stdio"
+    },
+    "DeepWiki": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp", "--transport", "http-first"],
+      "type": "stdio"
+    },
+    "Codex": {
+      "command": "codex",
+      "args": ["mcp-server"],
+      "type": "stdio"
+    }
+  }
+}
 ```
 
 Each server brings capabilities that would be awkward or unreliable through raw shell commands:
 
-- **Git MCP** accepts a `repo_path` parameter, so the agent can operate on any repository without `cd`-ing around. Every operation returns structured data (diffs, logs, status), not terminal output.
-- **GitHub MCP** provides direct API access to issues, pull requests, code search, and reviews. Pagination is handled automatically. The alternative, parsing `gh` CLI output, is fragile and verbose.
-- **Filesystem MCP** adds sandboxing: the server defines which directories the agent can access. This is defense in depth on top of the permission model.
-- **DeepWiki** and **Context7** are documentation servers. DeepWiki generates AI-powered documentation for any GitHub repository on the fly; Context7 provides up-to-date library docs with code examples. For a data scientist working with a new library, these eliminate the "let me Google the API" cycle entirely.
-- **Codex MCP** is a bridge to OpenAI's Codex model running in a cloud sandbox. The agent can delegate self-contained tasks to a different model with its own context window.
-
-### MCP and the permission model
-
-MCP tools integrate directly into the permission system. In my configuration, all MCP read operations are auto-approved:
-
-```nix
-allow = [
-  "mcp__DeepWiki"
-  "mcp__Filesystem"
-  "mcp__Git__git_status"
-  "mcp__Git__git_diff"
-  "mcp__Git__git_log"
-  "mcp__GitHub"
-  "mcp__Codex"
-  # ...
-];
-```
-
-Write operations require confirmation:
-
-```nix
-ask = [
-  "mcp__Git__git_commit"
-  "mcp__Git__git_checkout"
-  "mcp__Git__git_create_branch"
-  "mcp__GitHub__create_pull_request"
-  "mcp__GitHub__merge_pull_request"
-  # ...
-];
-```
-
-This is granular, tool-level access control, something impossible with raw Bash commands, where `git commit` and `git log` are both just "Bash commands that start with `git`". MCP makes the permission boundary match the semantic boundary.
+- **Git MCP** returns structured data (diffs, logs, status) instead of raw terminal output. A `git diff` through Bash might dump 200 lines of colored text into the context window; the MCP equivalent returns the same information in a parsed format the model can consume reliably — denser and cheaper.
+- **Fetcher MCP** runs a headless Playwright browser behind the scenes. Claude Code's built-in `WebFetch` tool uses a simple HTTP client that many sites block (Reddit, Wikipedia, etc. all return 403). Fetcher bypasses this by rendering the page in a real Chromium instance, so the agent can actually read the content. It is slower and heavier, but invaluable as a fallback.
+- [**Context7**](https://context7.com) and [**DeepWiki**](https://deepwiki.com) are documentation servers. Context7 provides up-to-date library docs with code examples; DeepWiki builds AI-powered documentation for any GitHub repository and lets the agent ask questions about it interactively. These are direct countermeasures against hallucination. When the agent can look up the actual API instead of guessing from training data, it generates code that actually works.
+- **Codex MCP** is a bridge to OpenAI's Codex CLI. The agent can delegate self-contained tasks to a GPT model with its own context window. What makes this most valuable is that it gives you a genuine second opinion from a different model family. Claude and GPT have different blind spots, and their disagreements are where the interesting insights live. The back-and-forth between them frequently produces better results than either model alone.
 
 ### MCP enforcement through hooks
 
-With both hooks and MCP in place, they reinforce each other. Here is a `PreToolUse` hook that blocks Bash commands whenever an MCP equivalent exists, forcing the agent to use the structured tool instead[^enforce-mcp]:
+With both hooks and MCP in place, they reinforce each other. Here is a `PreToolUse` hook that blocks Bash commands whenever an MCP equivalent exists, forcing the agent to use the structured tool instead:
 
-[^enforce-mcp]: Full source at [hooks/enforce-mcp.sh](https://github.com/hakula139/nixos-config/blob/main/home/modules/claude-code/hooks/enforce-mcp.sh).
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/enforce-mcp.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+The script reads the JSON input from stdin, checks the command, and returns a `permissionDecision` of `"deny"` with a redirect message:
 
 ```bash
+#!/usr/bin/env bash
+# .claude/hooks/enforce-mcp.sh
+COMMAND=$(jq -r '.tool_input.command')
+
+deny() {
+  jq -n --arg reason "$1" '{
+    hookSpecificOutput: {
+      hookEventName: "PreToolUse",
+      permissionDecision: "deny",
+      permissionDecisionReason: $reason
+    }
+  }'
+  exit 0
+}
+
+# Block gh CLI — use MCP GitHub tools
+if [[ "$COMMAND" =~ ^[[:space:]]*gh[[:space:]] ]]; then
+  deny "Use MCP GitHub tools (mcp__GitHub__*) instead of the gh CLI."
+fi
+
 # Block git subcommands that have MCP equivalents
 if [[ "$COMMAND" =~ ^[[:space:]]*git[[:space:]]+(.*) ]]; then
-  REST="${BASH_REMATCH[1]}"
-  SUBCMD="${REST%% *}"
-
+  SUBCMD="${BASH_REMATCH[1]%% *}"
   case "$SUBCMD" in
-    add) deny "Use mcp__Git__git_add instead." ;;
-    diff) deny "Use mcp__Git__git_diff instead." ;;
-    log) deny "Use mcp__Git__git_log instead." ;;
     status) deny "Use mcp__Git__git_status instead." ;;
+    diff)   deny "Use mcp__Git__git_diff instead." ;;
+    log)    deny "Use mcp__Git__git_log instead." ;;
+    add)    deny "Use mcp__Git__git_add instead." ;;
     # ... other subcommands with MCP equivalents
   esac
 fi
+
+exit 0  # allow everything else
 ```
 
-The hook also blocks the `gh` CLI (use MCP GitHub tools), shell comment prefixes on Bash commands (use the description parameter), and `git -C` (use the MCP Git `repo_path` parameter). It allows through git subcommands _without_ MCP equivalents (`git blame`, `git stash`, `git ls-files`) and special cases like `git commit --amend` and `git reset --hard` that the MCP tools do not cover.
+The hook allows through git subcommands _without_ MCP equivalents (`git blame`, `git stash`, `git ls-files`) and special cases like `git commit --amend` and `git reset --hard` that the MCP tools do not cover.
 
-This is where the two layers converge: hooks enforce _what_ the agent should use, MCP provides _how_ to use it properly. Instead of writing "always use MCP tools" in CLAUDE.md and hoping the model complies, the hook makes non-compliance impossible. The context window is not consumed by the instruction at all.
+This is where the two layers converge: hooks enforce _what_ the agent should use, MCP provides _how_ to use it properly. Instead of writing "always use MCP tools" in CLAUDE.md and hoping the model complies, the hook makes non-compliance impossible.
 
 ### The ecosystem
 
-Anthropic donated MCP to the Linux Foundation in 2025, making it an open standard rather than a proprietary protocol. By 2026, the ecosystem includes servers for Slack, PostgreSQL, Redis, AWS, Kubernetes, Jira, Confluence, and thousands more. Any team can build an MCP server for their internal tools (a compliance database, a trading system API, an internal knowledge base), and the agent gains the ability to use it without any model fine-tuning.
+The ecosystem we [introduced earlier](#from-chat-to-agent) extends to internal tooling. Any team can build an MCP server for their own systems (e.g., an internal knowledge base), and the agent gains the ability to use it without any model fine-tuning. The agent does not need to know how your systems work at a protocol level; it needs an MCP server that wraps them with typed tool definitions. We will cover how to build a custom MCP server in a future article.
 
-For a firm with diverse tooling (Bloomberg terminals, internal risk systems, compliance databases), MCP is the integration layer. The agent does not need to know how your systems work at a protocol level; it needs an MCP server that wraps them with typed tool definitions.
-
-CLAUDE.md gives the agent preferences. Hooks enforce them. MCP gives it structured capabilities. But none of these layers let the agent learn a reusable, multi-step procedure that combines preferences and tools on demand. For that, you need skills.
+But none of these layers let the agent learn a reusable, multi-step procedure that combines preferences and tools on demand. For that, you need skills.
 
 ## Skills
 
@@ -780,68 +746,83 @@ OpenAI's Codex CLI has powerful cloud sandboxes but no plugin ecosystem. Cursor 
 
 My configuration enables 18+ plugins across four categories[^plugins]:
 
-[^plugins]: Managed declaratively in [plugins.nix](https://github.com/hakula139/nixos-config/blob/main/home/modules/claude-code/plugins.nix). Plugins auto-update on each session.
+[^plugins]: Plugins auto-update on each session. Enable them in `~/.claude/settings.json` under `enabledPlugins`.
 
 **Official skills**, Anthropic-maintained skill bundles:
 
-```nix
-"document-skills@anthropic-agent-skills" = true; # PDF, DOCX, PPTX, XLSX creation
-"example-skills@anthropic-agent-skills" = true;  # Frontend design, algorithmic art, MCP builder
+```json
+{
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true,
+    "example-skills@anthropic-agent-skills": true
+  }
+}
 ```
 
 These add dozens of invocable skills: `/pdf` for PDF manipulation, `/pptx` for presentation creation, `/frontend-design` for production-grade UI generation, `/mcp-builder` for creating new MCP servers. Each skill carries its own tool restrictions and step-by-step procedures.
 
 **Official plugins**, workflow extensions:
 
-```nix
-"code-review@claude-plugins-official" = true;       # Structured code review workflow
-"feature-dev@claude-plugins-official" = true;       # Guided feature development
-"pr-review-toolkit@claude-plugins-official" = true; # Multi-agent PR review
-"hookify@claude-plugins-official" = true;           # Create hooks from conversation analysis
-"security-guidance@claude-plugins-official" = true; # Security-focused guidance
+```json
+{
+  "enabledPlugins": {
+    "code-review@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true
+  }
+}
 ```
 
 The `pr-review-toolkit` is notable: it adds specialized review agents (type design analyzer, comment analyzer, silent failure hunter, test coverage analyzer) that go beyond what a generic reviewer provides. `hookify` lets you analyze a conversation for mistakes and automatically generate hooks to prevent them in the future.
 
 **LSP integrations**, language server protocol plugins:
 
-```nix
-"typescript-lsp@claude-plugins-official" = true;
-"pyright-lsp@claude-plugins-official" = true;
-"rust-analyzer-lsp@claude-plugins-official" = true;
-"clangd-lsp@claude-plugins-official" = true;
-"gopls-lsp@claude-plugins-official" = true;
+```json
+{
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
+  }
+}
 ```
 
 These give the agent access to real-time language diagnostics (type errors, unused imports, lint warnings) from the same language servers your IDE uses. The agent can check its own work against the compiler before you even look at it.
 
 **Third-party plugins**, community contributions:
 
-```nix
-"context7-plugin@context7-marketplace" = true; # Up-to-date library documentation
-"agent-browser@agent-browser" = true;          # Playwright browser automation
-"claude-code-wakatime@wakatime" = true;        # Time tracking
+```json
+{
+  "enabledPlugins": {
+    "context7-plugin@context7-marketplace": true,
+    "agent-browser@agent-browser": true,
+    "claude-code-wakatime@wakatime": true
+  }
+}
 ```
 
 ### Marketplaces
 
 Plugins are distributed through **marketplaces**, GitHub repositories that serve as registries. Anthropic maintains two official marketplaces (`anthropics/skills` and `anthropics/claude-plugins-official`), and third parties can create their own. The configuration is explicit: you declare which marketplaces to trust and which plugins to enable.
 
-```nix
-extraKnownMarketplaces = {
-  anthropic-agent-skills.source = {
-    source = "github";
-    repo = "anthropics/skills";
-  };
-  claude-plugins-official.source = {
-    source = "github";
-    repo = "anthropics/claude-plugins-official";
-  };
-  context7-marketplace.source = {
-    source = "github";
-    repo = "upstash/context7";
-  };
-};
+```json
+{
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": { "source": "github", "repo": "anthropics/skills" }
+    },
+    "claude-plugins-official": {
+      "source": { "source": "github", "repo": "anthropics/claude-plugins-official" }
+    },
+    "context7-marketplace": {
+      "source": { "source": "github", "repo": "upstash/context7" }
+    }
+  }
+}
 ```
 
 This is a controlled ecosystem, not a free-for-all. You choose your sources, you choose your plugins, and the agent gains capabilities without any model retraining.
