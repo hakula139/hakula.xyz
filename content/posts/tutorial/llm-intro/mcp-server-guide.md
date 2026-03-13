@@ -101,6 +101,8 @@ The raw export will not be MkDocs-ready. Expect to fix:
 - **List indentation.** MkDocs requires **4-space** indentation for nested lists, while Confluence exports often use 2 or 3 spaces.
 - **Code blocks.** Verify that exported code examples actually run. Confluence pages tend to accumulate stale snippets that no one has tested in months — the migration is a good opportunity to clean these up.
 
+These are mostly mechanical fixes — a good candidate for LLM-assisted batch processing. Tools like Claude Code can rewrite links, fix indentation, and reformat pages across an entire export in minutes.
+
 Start with a minimal working demo (a handful of pages, correct links, proper formatting) before migrating the full space. Quality over coverage: a small set of verified, well-formatted pages is more useful to the agent than a bulk import full of broken links and garbled formatting.
 
 {{< admonition tip "Markdown linting" >}}
@@ -134,7 +136,7 @@ All tools default to the `latest` version when `version` is omitted, which cover
 
 The architecture is three modules:
 
-- **`server.py`** — Tool definitions and page extraction logic. This is where FastMCP lives.
+- **`server.py`** — Tool definitions and page extraction logic. This is where [FastMCP](https://github.com/jlowin/fastmcp) lives.
 - **`fetcher.py`** — An async HTTP client with TTL caching. Fetches `llms.txt`, `llms-full.txt`, `versions.json`, and the MkDocs search index from your docs site.
 - **`search.py`** — A keyword search engine that operates over the MkDocs `search_index.json`.
 
