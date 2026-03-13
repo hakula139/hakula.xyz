@@ -673,68 +673,57 @@ But none of these layers let the agent learn a reusable, multi-step procedure th
 
 ## Skills
 
-[Skills](https://docs.anthropic.com/en/docs/claude-code/slash-commands) are Markdown files that define on-demand procedures. They live in `.claude/skills/` and are loaded into the context window only when explicitly invoked via `/skill-name`, not ambient like CLAUDE.md, not reactive like hooks.
+[Skills](https://docs.anthropic.com/en/docs/claude-code/slash-commands) are Markdown files that define on-demand procedures. They live in `.claude/skills/`, and their descriptions are always loaded so the model knows what is available, but the full content only enters the context window when invoked — either explicitly via `/skill-name` or automatically when the model determines the skill is relevant to the current task.
 
 ### Skill anatomy
 
-Here is a simplified example based on a real skill for combining anime screenshots[^skill-example]:
-
-[^skill-example]: The full skill is available through the plugin system. Skills can range from simple (10 lines) to complex (hundreds of lines with conditional logic).
+Here is the official `/commit` skill from Anthropic's [commit-commands](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/commit-commands) plugin:
 
 ```markdown
 ---
-name: combine-screenshots
-description: Combine multiple HDR AVIF screenshots into one
-  by keeping the first image in full and appending the subtitle
-  strip from each subsequent image below it.
-allowed_tools:
-  - Bash
-  - Read
-  - Write
+description: Create a git commit
+allowed-tools:
+  - Bash(git add *)
+  - Bash(git status *)
+  - Bash(git commit *)
 ---
 
-## Procedure
+## Context
 
-1. Read the first image to determine dimensions.
-2. For each subsequent image, extract only the bottom
-   subtitle strip (last 15% of height).
-3. Use ImageMagick to vertically concatenate:
-   first full image + all subtitle strips.
-4. Output as HDR AVIF with quality 85.
+- Current git status: !`git status`
+- Current git diff: !`git diff HEAD`
+- Current branch: !`git branch --show-current`
+- Recent commits: !`git log --oneline -10`
+
+## Your task
+
+Based on the above changes, create a single git commit.
 ```
 
 The key elements:
 
-- **Frontmatter** defines metadata: name, description, and critically, **allowed tools**. A skill can restrict the agent to only use specific tools during execution, preventing scope creep.
-- **Body** is the procedure itself, step-by-step instructions in Markdown. The agent follows these as a structured workflow.
+- **`description`** drives auto-invocation. When a user says "commit these changes", the model matches it to this skill without needing an explicit `/commit` command.
+- **`allowed-tools`** restricts the agent to only specific Bash commands during execution. The pattern `Bash(git add *)` means the agent can run `git add` with any arguments, but cannot touch any other tool. This is defense in depth: even if the procedure says "just commit", the tool restriction makes it impossible to drift.
+- **`!` backtick syntax** injects live context at invocation time. When the skill loads, `` !`git status` `` is replaced by the actual output of `git status`. The agent sees the current state of the repository, not a stale description. These commands execute _before_ the agent starts following the procedure, so they are not subject to `allowed-tools` restrictions — that is why `git diff` and `git log` work here even though only `git add`, `git status`, and `git commit` are allowed. All read operations happen during loading; the tool restrictions only govern what the agent does during execution.
+
+Skills scale from simple (this one is 18 lines) to complex. The official [`/code-review`](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review) skill is ~90 lines: it launches five parallel agents to review a PR from different angles (CLAUDE.md compliance, bugs, git history, prior PR comments, code comment adherence), scores each finding on a 0–100 confidence scale, filters out anything below 80, and posts a structured comment on the PR. A team-specific skill might create boilerplate across multiple files, register components in several different locations, and run a verification checklist — the kind of 30-minute manual runbook that the agent executes in one pass.
 
 ### How skills differ from CLAUDE.md
 
 | Aspect           | CLAUDE.md                   | Skills                      |
 | ---------------- | --------------------------- | --------------------------- |
-| Loading          | Always in context           | On-demand (`/skill-name`)   |
+| Loading          | Always in context           | On-demand (explicit or auto)|
 | Purpose          | Preferences and conventions | Specific procedures         |
 | Tool access      | Unrestricted                | Can be restricted per skill |
 | Parameterization | Static                      | Can accept arguments        |
 
 Skills are the agent's equivalent of runbooks. A compliance team could have a `/regulatory-review` skill that walks the agent through a structured analysis of a new regulation: extract obligations, map to existing controls, identify gaps, generate a summary for the legal team. An operations team could have a `/incident-postmortem` skill that guides the agent through timeline construction, root cause analysis, and action item generation from incident logs.
 
-Skills are distributable: they can be shared, versioned, and installed through a plugin ecosystem (covered in the next section). You write a skill once, and anyone on the team can invoke it. This is the package manager of AI capabilities.
-
-### What skills cannot do
-
-Skills are **single-agent procedures**. One agent follows one skill at a time. They cannot:
-
-- **Delegate sub-tasks.** A skill cannot spawn a separate agent to handle one step while it continues with another.
-- **Parallelize.** If a skill involves research, implementation, and review, these happen sequentially within one agent's context.
-- **Provide multiple perspectives.** A code review skill gives you one agent's opinion. There is no mechanism within a skill for a second agent to challenge or augment the first agent's findings.
-- **Escape context pressure.** A long skill procedure (say, a 200-line deployment checklist) eats into the context window for the duration of the task.
-
-One agent, one procedure, one perspective. But before we move to multi-agent orchestration, there is an important layer that makes Claude Code's single-agent capabilities significantly broader than its competitors: the plugin ecosystem.
+Within a project, skills share naturally — commit them to `.claude/skills/` and everyone on the team has them. But for skills that live _outside_ your project (e.g., a documentation lookup skill, a general code review workflow), sharing means copying Markdown files from someone else's repo into yours. When the skill's author releases an improved version, you need to copy again. There is no way to subscribe to upstream changes.
 
 ## Plugins
 
-Skills on their own are local files. [Plugins](https://docs.anthropic.com/en/docs/claude-code/mcp) are the distribution and extension mechanism that turns individual skills into a shared ecosystem: installable packages that add new skills, output styles, code review workflows, language server integrations, and third-party tool connections.
+[Plugins](https://code.claude.com/docs/en/discover-plugins) fill this gap. They are installable packages that bundle skills, agents, hooks, output styles, and settings together, distributed through a marketplace and auto-updated on each session. You enable a plugin once; it stays current.
 
 ### Why this matters
 
