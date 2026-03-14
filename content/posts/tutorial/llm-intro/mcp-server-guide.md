@@ -2,14 +2,19 @@
 title: "MCP Server Guide: Building a Documentation Server for LLM Agents"
 date: 2026-03-13T17:36:00+08:00
 
-tags: [AI, LLM, MCP, Claude Code, FastMCP, Python]
+tags: [AI, LLM, MCP, FastMCP, Python, MkDocs, Confluence, Claude Code]
 categories: [tutorial]
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/21256a36-9d48-4447-862f-2ea8c59b8e39_129339284.webp
 license: CC BY-NC-SA 4.0
 ---
 
 A practical, end-to-end guide to building a custom MCP server that turns your documentation site into structured tools for LLM agents. Covers the llms.txt standard, FastMCP, caching, search, packaging, and LLM agents integration. Written for teams that have internal docs (Confluence pages, Markdown files) and want their agents to read them instead of hallucinating.
 
 <!--more-->
+
+{{< admonition info "Banner Image" >}}
+[月の繭 - @佐々](https://www.pixiv.net/artworks/129339284)
+{{< /admonition >}}
 
 ## Introduction
 
