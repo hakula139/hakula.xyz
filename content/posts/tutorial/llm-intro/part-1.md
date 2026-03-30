@@ -567,7 +567,7 @@ This matters for context engineering. Structured output is denser and more predi
 
 ### Configuring MCP servers
 
-MCP servers are configured in `~/.claude/settings.json` (global) or `.claude/settings.json` (project). Here is an excerpt from my configuration:
+MCP servers are configured in `~/.claude.json` (global) or `.mcp.json` (project). Here is an excerpt from my configuration:
 
 ```json
 {

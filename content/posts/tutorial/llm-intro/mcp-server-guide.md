@@ -540,14 +540,14 @@ Any MCP-compatible agent can use this server. There are three levels of integrat
 
 Add the server to your agent's MCP configuration. The syntax varies by agent:
 
-**Claude Code** — add to `.mcp.json` (project) or `~/.claude/settings.json` (global):
+**Claude Code** — add to `.mcp.json` (project) or `~/.claude.json` (global):
 
 ```json
 {
   "mcpServers": {
     "my-docs": {
       "command": "uvx",
-      "args": ["--upgrade", "my-docs-mcp"],
+      "args": ["my-docs-mcp@latest"],
       "env": {
         "UV_EXTRA_INDEX_URL": "https://pypi.internal.example.com/simple"
       }
@@ -561,7 +561,7 @@ Add the server to your agent's MCP configuration. The syntax varies by agent:
 ```toml
 [mcp_servers.my-docs]
 command = "uvx"
-args = ["--upgrade", "my-docs-mcp"]
+args = ["my-docs-mcp@latest"]
 env = { UV_EXTRA_INDEX_URL = "https://pypi.internal.example.com/simple" }
 enabled = true
 ```
@@ -573,7 +573,7 @@ enabled = true
   "mcpServers": {
     "my-docs": {
       "command": "uvx",
-      "args": ["--upgrade", "my-docs-mcp"],
+      "args": ["my-docs-mcp@latest"],
       "env": {
         "UV_EXTRA_INDEX_URL": "https://pypi.internal.example.com/simple"
       }
@@ -582,7 +582,7 @@ enabled = true
 }
 ```
 
-The `--upgrade` flag ensures `uvx` always fetches the latest version instead of reusing a cached installation. The agent launches the server at session start, discovers the four tools, and can use them immediately.
+The `@latest` version specifier ensures `uvx` always fetches the latest version instead of reusing a cached installation. The agent launches the server at session start, discovers the four tools, and can use them immediately.
 
 ### Level 2: Skill file
 
@@ -742,6 +742,6 @@ The code is intentionally minimal (under 200 lines across all three modules) so 
 
 ## What Comes Next
 
-With an MCP server in place, your agent reads documentation instead of guessing. But the server is one piece of a larger system. [Part 1](../part-1/) covers the full stack — CLAUDE.md for persistent instructions, hooks for enforcement, skills for reusable procedures, plugins for distribution. An MCP server gives the agent _access_ to your docs; a skill tells it _when and how_ to use that access; a hook can _enforce_ that it always checks documentation before answering questions about your API. The layers compose.
+With an MCP server in place, your agent reads documentation instead of guessing. But the server is one piece of a larger system. [Part 1](part-1.md) covers the full stack — CLAUDE.md for persistent instructions, hooks for enforcement, skills for reusable procedures, plugins for distribution. An MCP server gives the agent _access_ to your docs; a skill tells it _when and how_ to use that access; a hook can _enforce_ that it always checks documentation before answering questions about your API. The layers compose.
 
 All the code in this article is self-contained — copy the three modules, change the base URL, adjust the path resolution to match your site structure, publish to your internal registry, and your entire team has structured documentation access in every agent session.
