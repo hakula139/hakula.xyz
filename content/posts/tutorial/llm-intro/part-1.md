@@ -421,7 +421,7 @@ CLAUDE.md tells the agent what to do, but these are instructions, not constraint
 
 ## Hooks
 
-[Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) are actions triggered at specific lifecycle events in the agent's operation — shell commands, HTTP endpoints, or even LLM prompts. They run _outside_ the model: the model does not decide whether a hook fires, and it cannot override a hook's decision. This is the difference between a suggestion and an enforcement mechanism.
+[Hooks](https://code.claude.com/docs/en/hooks) are actions triggered at specific lifecycle events in the agent's operation — shell commands, HTTP endpoints, or even LLM prompts. They run _outside_ the model: the model does not decide whether a hook fires, and it cannot override a hook's decision. This is the difference between a suggestion and an enforcement mechanism.
 
 ### Hook events
 
@@ -557,7 +557,7 @@ Hooks also cannot give the agent structured access to external systems. The agen
 
 ## MCP
 
-We introduced [MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) briefly in the agent section. Now it is time to look at it properly, because MCP is the infrastructure that makes everything else useful. Without MCP, an agent's only tool is a raw Bash shell, powerful but unstructured, with no type safety. Every command's output is dumped as raw text into the context window.
+We introduced [MCP](https://code.claude.com/docs/en/mcp) briefly in the agent section. Now it is time to look at it properly, because MCP is the infrastructure that makes everything else useful. Without MCP, an agent's only tool is a raw Bash shell, powerful but unstructured, with no type safety. Every command's output is dumped as raw text into the context window.
 
 ### What MCP actually provides
 
@@ -674,7 +674,7 @@ This is where the two layers converge: hooks enforce _what_ the agent should use
 
 ### The ecosystem
 
-The ecosystem we [introduced earlier](#from-chat-to-agent) extends to internal tooling. Any team can build an MCP server for their own systems (e.g., an internal knowledge base), and the agent gains the ability to use it without any model fine-tuning. The agent does not need to know how your systems work at a protocol level; it needs an MCP server that wraps them with typed tool definitions. We will cover how to build a custom MCP server in a future article.
+The ecosystem we [introduced earlier](#from-chat-to-agent) extends to internal tooling. Any team can build an MCP server for their own systems (e.g., an internal knowledge base), and the agent gains the ability to use it without any model fine-tuning. All the agent needs is an MCP server that wraps them with typed tool definitions. We will cover how to build a custom MCP server in a future article.
 
 ### What MCP cannot do
 
@@ -682,7 +682,7 @@ MCP gives the agent structured access to tools, but it does not tell the agent _
 
 ## Skills
 
-[Skills](https://docs.anthropic.com/en/docs/claude-code/slash-commands) are Markdown files that define on-demand procedures. They live in `.claude/skills/`, and their descriptions are always loaded so the model knows what is available, but the full content only enters the context window when invoked — either explicitly via `/skill-name` or automatically when the model determines the skill is relevant to the current task.
+[Skills](https://code.claude.com/docs/en/slash-commands) are Markdown files that define on-demand procedures. They live in `.claude/skills/`, and their descriptions are always loaded so the model knows what is available, but the full content only enters the context window when invoked — either explicitly via `/skill-name` or automatically when the model determines the skill is relevant to the current task.
 
 ### Skill anatomy
 
