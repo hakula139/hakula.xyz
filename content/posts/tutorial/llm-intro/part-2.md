@@ -169,7 +169,7 @@ As of this writing (April 2026), agent teams are experimental and disabled by de
 
 {{< /admonition >}}
 
-Agent Teams are the full coordination model: multiple agents with a shared task list, direct peer-to-peer messaging, task dependencies, and file ownership rules. The orchestrator creates the team, defines tasks, spawns teammates, and steps back. Teammates claim work, execute it, communicate findings to each other, and report back without routing everything through the lead.
+Agent Teams are the full coordination model: multiple agents with a shared task list, direct peer-to-peer messaging, and task dependencies. The orchestrator creates the team, defines tasks, spawns teammates, and steps back. Teammates claim work, execute it, communicate findings to each other, and report back without routing everything through the lead.
 
 ### The key difference from subagents
 
@@ -182,7 +182,6 @@ The decision rule is simple: if agents need to talk to each other, use an Agent 
 | Shared task list                 | No        | Yes         |
 | Direct messaging (`SendMessage`) | No        | Yes         |
 | Task dependencies                | No        | Yes         |
-| File ownership                   | Implicit  | Explicit    |
 
 ### Team lifecycle
 
