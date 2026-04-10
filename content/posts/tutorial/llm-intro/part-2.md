@@ -271,9 +271,7 @@ Claude Code handles this through a compaction pipeline[^compaction] that operate
 
 ### Auto-compaction
 
-When the token count approaches the context window limit, the system triggers auto-compaction: a process that summarizes the conversation history and replaces older turns with a compressed representation. The trigger threshold is configurable; my configuration sets it to 95% of the window capacity[^autocompact-override], which maximizes usable context while leaving enough headroom for the compaction process itself.
-
-[^autocompact-override]: Via `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE = "95"` in the environment configuration. The default threshold is lower, but a well-structured session can safely run closer to the limit.
+When the token count approaches the context window limit, the system triggers auto-compaction: a process that summarizes the conversation history and replaces older turns with a compressed representation.
 
 What survives compaction: the system prompt, all CLAUDE.md files, the current task list, recent conversation turns, a summary of modified files, and continuation instructions that help the agent resume where the summary left off. What gets compressed: early conversation turns, old search results, redundant tool outputs, and intermediate reasoning that has already been resolved.
 
@@ -289,33 +287,30 @@ The `/compact` command triggers compaction on demand, with an optional focus hin
 
 This is useful at natural task boundaries. After finishing a complex investigation and before starting implementation, a manual compact clears the investigation context and preserves only the conclusions. The focus hint guides the summarizer toward what matters for the next phase.
 
+In practice, manual compaction should be used more aggressively than most people realize. Even though flagship models like Opus 4.6 advertise a 1M-token context window, reasoning quality degrades well before that limit — typically 200-300K tokens is the effective ceiling for reliable work, and beyond 500K performance drops sharply. Compared to the earlier 200K window, the 1M expansion is better understood as breathing room — space to finish what you started without hitting a wall, not an invitation for marathon sessions. Compact when a logical task completes, not when the system forces you to.
+
+That said, compaction itself is not free. Each compaction consumes tokens for the summarization pass, and information is inevitably lost. The better strategy is to avoid needing frequent compaction in the first place: start fresh sessions for genuinely new tasks rather than appending to an aging context, store durable knowledge in CLAUDE.md and auto memory rather than relying on it surviving compaction, and use structured specs as the source of truth that gets re-loaded cleanly each session. Tools like [OpenSpec](https://github.com/Fission-AI/OpenSpec) formalize this approach — specifications live as version-controlled Markdown files in the repository, separating current behavior from proposed changes, so each session loads a clean contract rather than reconstructing intent from a compacted conversation history. Compaction is a safety net, not a workflow.
+
 ### Practical implications
 
-Context management is what makes the advanced patterns described in this article viable at scale. A 30-minute debugging session that reads 15 files and runs 10 commands would exhaust a fixed-size context window long before reaching a conclusion. With compaction, the session runs for hours, periodically compressing old context to make room for new work.
+Context management is what makes the advanced patterns described in this article viable at scale. A complex debugging session that reads 15 files and runs 10 commands would exhaust a fixed-size context window long before reaching a conclusion. With compaction, the session extends its useful life, periodically compressing old context to make room for new work. But the strongest sessions are the ones that rarely need it — they start focused, stay scoped, and finish before the window fills.
 
 For agent teams, each teammate has its own context window and its own compaction cycle. The orchestrator's context — which accumulates reports from all teammates — compacts independently. This means the orchestrator can coordinate a long-running team without running out of room. The quality of compaction summaries becomes the bottleneck, which is why the [output contract](#the-output-contract) matters: structured reports with clear status lines and concise findings compress better than free-form narratives.
 
+A more resilient approach is to externalize coordination state entirely: maintain a `roadmap.md` or `tasks.md` in the repository that tracks progress, decisions, and remaining work. Each teammate reads and updates this file rather than relying on the lead's context to hold the full picture. If the lead's context compacts and loses details, the file is still there. This is the same principle as specs and memory — prefer git-managed files over ephemeral context. Vibe coding, at scale, turns out to be an exercise in project management: the documentation and communication patterns matter more than the code generation itself.
+
 ## The Full Stack
 
-Here is the complete picture across both parts of this series:
+[Part 1](../part-1/#the-stack-so-far) covered layers 1-7 (raw LLM through plugins). This part adds the final two:
 
-| Layer        | What it solves                           | What it cannot do          |
-| ------------ | ---------------------------------------- | -------------------------- |
-| Raw LLM      | Text generation, pattern matching        | Act on the world           |
-| Chat + Tools | Interactive Q&A, agentic loops           | Remember between sessions  |
-| CLAUDE.md    | Persistent preferences, conventions      | Enforce rules              |
-| Hooks        | Automated enforcement, formatting        | Structured tool access     |
-| MCP          | Structured tool access, typed interfaces | Define reusable procedures |
-| Skills       | Reusable on-demand procedures            | Share or scale             |
-| Plugins      | Distributable capability packages        | Parallelize                |
-| Subagents    | Focused delegation, parallel work        | Peer communication         |
-| Agent Teams  | Full coordination, shared tasks          | Replace your judgment      |
+| Layer       | What it solves                    | What it cannot do     |
+| ----------- | --------------------------------- | --------------------- |
+| Subagents   | Focused delegation, parallel work | Peer communication    |
+| Agent Teams | Full coordination, shared tasks   | Replace your judgment |
 
-Each row exists because the row above it has a specific limitation. The progression is driven by real problems encountered in real usage: "I keep repeating myself" → CLAUDE.md. "The model ignores my preferences" → hooks. "The model needs structured tool access" → MCP. "I need the same procedure every week" → skills. "I want to share procedures across the team" → plugins. "One agent cannot do this alone" → subagents. "Agents need to talk to each other" → teams.
+Worktree isolation and context management sit underneath this stack as supporting infrastructure. Worktrees make parallel execution safe; compaction makes long sessions sustainable.
 
-Worktree isolation and context management sit underneath this stack as supporting infrastructure. Worktrees make parallel execution safe; compaction makes long sessions sustainable. Neither adds a new orchestration capability — they make the existing capabilities viable at scale.
-
-There is a meta-observation worth making: this entire configuration system (the CLAUDE.md files, the hooks, the agents, the permission model) was itself partially built and maintained using Claude Code. The tool is self-hosting in a meaningful sense: agents helped write the definitions of agents.
+There is a meta-observation worth making: this entire configuration system (the CLAUDE.md files, the hooks, the agents, the permission model) was itself partially built and maintained using Claude Code. The tool is self-hosting in a meaningful sense: agents helped write the definitions of agents. If the configuration surface looks daunting, remember that you do not have to set it up alone — the agent itself can scaffold, iterate, and maintain these files for you.
 
 ### The broader ecosystem
 
