@@ -27,20 +27,33 @@ Both reasons point to the same mental model: a project manager delegating to spe
 
 ### Agent types
 
-My configuration defines eight custom agent types, each with a specific role, behavioral constraints, and (in some cases) a different model tier. Each agent type is a separate Markdown file. Here is the `researcher` agent, which overrides the default model to `haiku`:
+Claude Code ships with several built-in subagents: **Explore** (haiku, read-only, for fast codebase search), **Plan** (inherits model, read-only, for context gathering in plan mode), and **General-purpose** (inherits model, full tool access, for complex multi-step tasks). These cover the most common delegation patterns out of the box.
+
+My configuration defines eight additional custom agent types on top of these, each with a specific role, behavioral constraints, and (in some cases) a different model tier. Each agent type is a separate Markdown file. Here is the `tester` agent, which overrides the default model to `sonnet`:
 
 ```markdown
 ---
-name: researcher
+name: tester
 description: |
-  Fast codebase exploration and documentation lookup. Use when you need to gather context from
-  multiple files, search for patterns, or look up external documentation.
-color: blue
-model: haiku
+  Test writing and execution, failure analysis. Use when you need tests written for new code,
+  want to run existing tests, or need help diagnosing test failures.
+color: magenta
+model: sonnet
 ---
 
-You are a research agent. Your role is to quickly gather information from the codebase and
-external sources, then return a focused summary. You do NOT write or modify code.
+You are a test engineer. Your role is to write tests, execute test suites, and analyze
+failures. Focus on meaningful test coverage over quantity.
+
+## Workflow
+
+1. **Understand the target**: What code needs testing? Read the implementation to understand
+   behavior, edge cases, and failure modes.
+2. **Check existing tests**: Find existing test files and patterns. Match the testing
+   framework, style, and conventions already in use.
+3. **Write / run tests**: Create new tests or execute existing ones. For test failures,
+   investigate root causes.
+4. **Report results**: Summarize test coverage and findings.
+
 ...
 ```
 
@@ -80,6 +93,19 @@ tools:
 You are a Codex delegation agent. Your role is to formulate clear task descriptions, delegate
 them to the Codex MCP, evaluate the output, and return a validated summary. You do NOT write
 code directly — you delegate to Codex and verify its work.
+
+## Workflow
+
+1. **Understand the task**: What needs to be done? Gather enough context to write a clear,
+   self-contained prompt for Codex.
+2. **Gather context**: Read relevant files to understand existing patterns. Include key
+   context in the Codex prompt so it doesn't have to rediscover it.
+3. **Delegate to Codex**: Use `mcp__Codex__codex` with a detailed prompt. Set appropriate
+   sandbox and approval policy.
+4. **Evaluate output**: Verify Codex's claims and code changes.
+5. **Iterate if needed**: Use `mcp__Codex__codex-reply` to provide corrections or follow-up.
+6. **Report results**: Summarize what Codex produced, what you verified, and any concerns.
+
 ...
 ```
 
@@ -88,6 +114,8 @@ code directly — you delegate to Codex and verify its work.
 Not every task requires the most powerful (and expensive) model. The `researcher` agent uses **haiku**, the fastest and cheapest model tier. Its job is to search files, read documentation, and return a structured summary — tasks where speed matters more than deep reasoning. The `tester` agent uses **sonnet**, a balanced tier where test writing's pattern-following nature does not justify opus costs, but the task is complex enough that haiku would struggle.
 
 The `codex-worker` is particularly interesting: it is a haiku-tier agent whose sole purpose is to formulate tasks and delegate them to the OpenAI Codex MCP, a separate model running in its own cloud sandbox. It reads enough context to write a clear prompt, delegates the actual work, evaluates the result, and reports back. Two models collaborating, each used for what it does best.
+
+Model selection is not the only lever. The `effort` field (`low`, `medium`, `high`, `max`) controls how much reasoning depth a subagent applies — a fast researcher can run at low effort, while a complex architectural review warrants high or max. Combined with model choice, this gives fine-grained control over the cost-quality tradeoff per task.
 
 This is cost-aware context engineering. You are not just managing what goes into the context window, but _which_ context window a task runs in, and at what price point.
 
@@ -106,14 +134,20 @@ All agents follow a shared output contract that keeps communication efficient:
 
 The status line is critical. When the orchestrator receives a report ending with "Status: blocked (need access to production logs)", it knows immediately to either provide the missing context or reassign the task. No ambiguity, no wasted cycles.
 
+### Persistent memory
+
+Subagents normally start with a clean context every time they are invoked. The `memory` field changes this: it gives a subagent a persistent directory that survives across sessions, scoped to `user` (all projects), `project` (this codebase, shareable via version control), or `local` (this codebase, not checked in). The subagent reads its accumulated notes at startup and writes new findings back when it finishes. Over time, a reviewer builds a knowledge base of recurring issues in this codebase; a researcher remembers which files contain which subsystems; a debugger logs failed approaches so it does not repeat them. This is institutional knowledge that compounds — the subagent equivalent of a senior engineer's notebook.
+
 ### Patterns
 
 The orchestrator uses subagents in several established patterns:
 
 - **Sequential pipeline**: researcher → architect → implementer → reviewer → tester. Each agent's output feeds the next.
 - **Parallel exploration**: Spawn multiple researchers to investigate different aspects of a problem simultaneously. Three researchers examining different subsystems finish faster than one examining all three.
+- **Parallel review**: Spawn two or three reviewers, each given a distinct lens — security, correctness, test coverage. Each reports independently to the orchestrator. A single reviewer tends to gravitate toward one type of issue at a time; splitting the criteria into independent domains means each gets thorough attention.
 - **Review gate**: Always run a reviewer after the implementer completes significant changes. The reviewer's output determines whether the changes are accepted or revised.
 - **Codex offloading**: Use the codex-worker for tasks that benefit from a separate context window, orthogonal work that should not pollute the main session's context.
+- **Background execution**: Subagents can run concurrently in the background while you continue working in the main session. Press Ctrl+B to background a running task, or set `background: true` in the agent's frontmatter to make it the default. Background subagents pre-approve permissions at launch and auto-deny anything not pre-approved, so they run without interrupting you.
 
 For operations teams, this maps directly to incident response: one researcher traces the timeline, another checks recent deployments, a third examines monitoring data, all in parallel, all reporting to a coordinator who synthesizes the findings.
 
@@ -128,6 +162,12 @@ Subagents are **isolated**. They cannot:
 Picture a manager who insists that every message between team members goes through them. Two engineers cannot pull each other into a quick sync; they must each email the manager, who reads both emails, decides what to forward, and relays it. With three reports this is manageable. With eight it is the manager's inbox that catches fire. Subagents delegate, but they do not collaborate. For tasks where agents need to share discoveries, challenge each other, or hand off work directly, you need the final layer.
 
 ## Agent Teams
+
+{{< admonition warning "Experimental" >}}
+
+As of this writing (April 2026), agent teams are experimental and disabled by default. Enable them by setting `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` in your environment or `settings.json`. The feature has known limitations around session resumption, task coordination, and shutdown behavior.
+
+{{< /admonition >}}
 
 Agent Teams are the full coordination model: multiple agents with a shared task list, direct peer-to-peer messaging, task dependencies, and file ownership rules. The orchestrator creates the team, defines tasks, spawns teammates, and steps back. Teammates claim work, execute it, communicate findings to each other, and report back without routing everything through the lead.
 
@@ -158,41 +198,29 @@ A typical team session follows this sequence:
 
 Under the hood, teammates can run as separate processes in tmux panes, giving each agent a visible terminal where you can watch its work in real time. The coordination happens through a filesystem-based protocol — task state and messages are exchanged as files in a shared directory, which keeps the mechanism simple and inspectable.
 
-### Team presets
+### What teams add over subagents
 
-My configuration defines four team presets for common workflows:
+Many of the [subagent patterns](#patterns) — parallel review, parallel exploration — work fine without teams. The orchestrator spawns workers, collects reports, synthesizes. Teams earn their overhead when agents need to coordinate mid-task. The [official documentation](https://code.claude.com/docs/en/agent-teams) highlights several workflows where this matters:
 
-**Review team**: multi-angle code review. Two or three reviewer instances, each given a specific lens:
+**Multi-hypothesis debugging**: spawn multiple debuggers with different theories. Unlike the subagent version where each reports independently, teammates share confirming and contradicting evidence via `SendMessage`, actively challenging each other's assumptions. Sequential investigation suffers from confirmation bias; parallel adversarial investigation surfaces the root cause faster because agents disprove each other's theories in real time, not after the fact.
 
-- "Security focus: check for OWASP top 10 vulnerabilities, authentication bypasses, data exposure."
-- "Correctness focus: verify logic, edge cases, error handling paths."
-- "Style focus: check naming, patterns, consistency with existing codebase."
+**Implement-review loop**: the implementer and reviewer are teammates. After making changes, the implementer sends the reviewer a message with the modified files. The reviewer analyzes, sends issues back. The implementer fixes and messages again. This tight loop bypasses the lead entirely, reducing latency. With subagents, each review cycle would require a full round-trip through the orchestrator.
 
-For user-facing changes, a usability-reviewer joins alongside the code reviewers. The lead synthesizes all findings into a unified report. Three perspectives on the same code, delivered in parallel rather than sequentially.
+**Cross-layer coordination**: changes that span frontend, backend, and tests, each owned by a different teammate. Task dependencies enforce the ordering: the backend teammate's API changes must land before the frontend teammate integrates against them. Each teammate works in its own context without the lead relaying messages between them.
 
-**Debug team**: parallel hypothesis investigation. Two or three debugger instances, each assigned a different hypothesis about the root cause. Debuggers share confirming and contradicting evidence with each other via `SendMessage`, gradually converging on an answer, much like how experienced engineers debug complex issues by exploring multiple theories simultaneously rather than committing to one path.
+**Feature development**: end-to-end pipeline in a single session. One teammate gathers context, another designs the approach, a third implements, a fourth reviews. Task dependencies block the implementer until the design is complete. This is a full delivery pipeline where the lead coordinates but does not do the work itself.
 
-**Feature team**: end-to-end development pipeline. Researcher gathers context, architect designs the approach, implementer writes code, reviewer validates. Task dependencies enforce the ordering: the implementer's task is blocked until the architect completes their design. This is a full delivery pipeline in a single session.
-
-**Refactor team**: safe large-scale restructuring. Architect analyzes current structure, implementer executes changes, reviewer verifies no regressions. File ownership is critical here.
+**Research swarm**: multiple researchers investigate different aspects of a problem, sharing findings with each other as they go. "I found the config parsing logic in `src/config/`, relates to the schema change you were tracking." They converge on a comprehensive understanding faster than independent subagents could, because each discovery redirects the others' investigation.
 
 ### File ownership
 
-This is the hardest constraint in agent teams: **two agents editing the same file leads to overwrites**. Agents do not share a filesystem lock. If the implementer is modifying `src/auth.ts` while another implementer modifies the same file, one set of changes gets lost.
+This is the hardest coordination problem in agent teams: **two agents editing the same file interfere with each other**. Agents do not share a filesystem lock. If one implementer modifies `src/auth.ts` while another modifies the same file, the second agent discovers the file has changed underneath it, is forced to re-read before editing, and may not understand why its expected state no longer matches. In the best case this wastes time on unnecessary investigation; in the worst case the agent reverts the other's changes, believing they are unintended.
 
 The lead must partition work so each teammate owns distinct file sets. For a refactor spanning many files, you might assign one implementer to the `src/api/` directory and another to `src/models/`. The partition must be communicated in the task description, and teammates must respect it. Worktree isolation (covered in the next section) offers a stronger guarantee by giving each agent its own working copy of the repository.
 
-### Advanced patterns
+The most ambitious public stress test of these patterns is Anthropic's own C compiler experiment[^c-compiler]: 16 parallel agents, running across ~2,000 Claude Code sessions over two weeks, produced a 100,000-line Rust-based C compiler capable of building Linux 6.9 on x86, ARM, and RISC-V. The key lesson was not about the agents themselves but about the harness. Agents work autonomously, so the test suite becomes the steering mechanism — if the verifier is imperfect, the agents solve the wrong problem. The experiment also surfaced a fundamental limitation of parallelism: when all agents hit the same bug in a monolithic task, they overwrite each other's fixes. The solution was to partition work using GCC as an oracle, randomly compiling most files with GCC and only the remainder with the new compiler, so each agent could work on a different failing file in parallel.
 
-Beyond the presets, several advanced patterns have emerged from production use:
-
-**Implement-review loop:** The implementer and reviewer are teammates. After making changes, the implementer sends the reviewer a message with the modified files. The reviewer analyzes, sends issues back. The implementer fixes and messages again. This tight loop bypasses the lead entirely, reducing latency.
-
-**Research swarm:** Multiple researchers investigate different aspects of a problem, sharing findings with each other. "I found the config parsing logic in `src/config/`, relates to the schema change you were tracking." They converge on a comprehensive understanding faster than a single researcher could.
-
-**Multi-hypothesis debugging:** Multiple debuggers investigate different theories, exchanging evidence. When one debugger finds something that contradicts another's hypothesis, they message each other directly. The lead evaluates convergence and reports the most likely root cause.
-
-For a quant research team, an analogous pattern might involve spawning multiple researchers to investigate a strategy's drawdown from different angles: one examining market microstructure, another reviewing factor exposure shifts, a third checking data quality around the relevant dates. Each investigates independently and shares evidence with the others.
+[^c-compiler]: Nicholas Carlini, [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler) (Feb 2026). The total cost was approximately $20,000 in API usage.
 
 ### Honest limitations
 
@@ -201,7 +229,7 @@ Agent teams are powerful, but they are not free:
 - **Cost.** N agents means roughly Nx the token cost. A four-agent team running opus costs four times what a single agent would.
 - **Complexity.** Agents can miscommunicate, duplicate work, or claim the same task. The lead must actively manage coordination.
 - **Diminishing returns.** Not every task benefits from parallelism. A simple bug fix with a clear root cause calls for one focused session.
-- **File conflicts.** Two agents editing the same file leads to overwrites. Partitioning work across distinct files is the safest approach; worktree isolation offers an alternative at the git level.
+- **File conflicts.** Two agents editing the same file leads to confusion, wasted investigation, and potential reverts. Partitioning work across distinct files is the safest approach; worktree isolation offers an alternative at the git level.
 
 The judgment call (when to use a single agent, when to spawn subagents, when to assemble a full team) is a skill that develops with practice. The cost of under-parallelizing is slower delivery. The cost of over-parallelizing is wasted tokens and coordination overhead.
 
@@ -217,6 +245,8 @@ claude --worktree auth-refactor
 
 This creates a branch (e.g., `worktree-auth-refactor`), checks it out in a separate directory, and runs the session there. Any file the agent reads or modifies is isolated from the main working tree. Other sessions — or teammates in an agent team — operate on their own branches without conflict.
 
+For subagents, worktree isolation can be declared directly in the agent definition via `isolation: worktree` in the frontmatter. The system automatically creates a temporary worktree when the subagent starts and cleans it up if no changes were made. This bridges the subagent and worktree concepts: a reviewer subagent that needs to test experimental changes can do so in its own branch without affecting the main session.
+
 Agents can also enter and exit worktrees mid-session via the `EnterWorktree` and `ExitWorktree` tools. In a team context, the lead assigns each teammate to a distinct worktree at the start, eliminating the need for careful file partitioning. The implementer working on `src/api/` and the implementer working on `src/models/` no longer need to stay out of each other's way; they each have their own copy of the entire repository.
 
 {{< admonition tip "Parallel sessions" >}}
@@ -225,7 +255,7 @@ A common pattern: open three terminals, each with a worktree session. One implem
 
 {{< /admonition >}}
 
-Worktrees defer conflict resolution rather than eliminating it. Two agents modifying the same function on different branches will produce a merge conflict when those branches converge. But a merge conflict is a controlled, reviewable event — far better than a silent overwrite mid-session. And for most agent team workflows, where the lead partitions work into independent areas, conflicts are rare.
+Worktrees defer conflict resolution rather than eliminating it. Two agents modifying the same function on different branches will produce a merge conflict when those branches converge. But a merge conflict is a controlled, reviewable event — far better than the confusion of mid-session file contention. And for most agent team workflows, where the lead partitions work into independent areas, conflicts are rare. When they do occur, the main agent handles merge resolution well — it can read both sides of the conflict, understand the intent behind each change, and produce a clean merge.
 
 The broader point: worktrees turn a coordination problem (two agents contending for the same file) into a standard git workflow problem (merging branches). It simply reuses what version control already provides.
 
@@ -291,15 +321,15 @@ There is a meta-observation worth making: this entire configuration system (the 
 
 These orchestration patterns are not unique to Claude Code. The open-source ecosystem has been converging on the same architecture from different directions, and the convergence itself is informative.
 
-[OpenCode](https://github.com/anomalyco/opencode), the most popular open-source coding agent with over 136,000 GitHub stars at the time of this writing, implements the same agent concepts — a build agent with full access, a plan agent in read-only mode, a general subagent for complex tasks — but decoupled from any specific model provider[^opencode]. It works with Claude, GPT, Gemini, and local models interchangeably. The lesson: the orchestration patterns described in this article do not depend on Claude being the underlying model. They work because the patterns themselves (delegation, isolation, coordination) are sound, independent of which LLM executes them.
+[OpenCode](https://github.com/anomalyco/opencode), the most popular open-source coding agent with over 140,000 GitHub stars at the time of this writing, implements the same agent concepts — a build agent with full access, a plan agent in read-only mode, a general subagent for complex tasks — but decoupled from any specific model provider[^opencode]. It works with Claude, GPT, Gemini, and local models interchangeably. The lesson: the orchestration patterns described in this article do not depend on Claude being the underlying model. They work because the patterns themselves (delegation, isolation, coordination) are sound, independent of which LLM executes them.
 
 [^opencode]: OpenCode is developed by Anomaly Innovations. See [opencode.ai](https://opencode.ai) for documentation and downloads.
 
-The [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) project (47,000+ stars) reverse-engineered Claude Code's architecture into a 12-session curriculum that mirrors the progression of this article: from a minimal agent loop through tool use, planning, subagents, context compaction, task systems, agent teams, and worktree isolation. Their central framing is worth borrowing: _the model is the agent; the code is the harness_[^harness]. The intelligence lives in the model. Everything we have been calling "context engineering" throughout this article is, in their vocabulary, harness engineering — building the tools, knowledge, permissions, and coordination infrastructure that lets the intelligence operate effectively. Both framings point at the same thing.
+The [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) project (50,000+ stars) reverse-engineered Claude Code's architecture into a 12-session curriculum that mirrors the progression of this article: from a minimal agent loop through tool use, planning, subagents, context compaction, task systems, agent teams, and worktree isolation. Their central framing is worth borrowing: _the model is the agent; the code is the harness_[^harness]. The intelligence lives in the model. Everything we have been calling "context engineering" throughout this article is, in their vocabulary, harness engineering — building the tools, knowledge, permissions, and coordination infrastructure that lets the intelligence operate effectively. Both framings point at the same thing.
 
 [^harness]: The "harness engineering" framing originates from the learn-claude-code project. See their [README](https://github.com/shareAI-lab/learn-claude-code) for the full philosophy.
 
-[Oh My OpenAgent](https://github.com/code-yeongyu/oh-my-openagent) (47,000+ stars) pushes into multi-model orchestration: different task categories route to different model providers automatically. Visual engineering tasks go to a vision-specialized model; deep reasoning goes to GPT-5.4; fast exploration goes to a lightweight model. The system treats model selection as another dimension of context engineering — choosing not just what context to load, but which model processes it. This is an extension of the [model selection](#model-selection-as-context-engineering) approach we described for subagents, taken to its logical extreme across provider boundaries.
+[Oh My OpenAgent](https://github.com/code-yeongyu/oh-my-openagent) (50,000+ stars) pushes into multi-model orchestration: different task categories route to different model providers automatically. Visual engineering tasks go to a vision-specialized model; deep reasoning goes to GPT-5.4; fast exploration goes to a lightweight model. The system treats model selection as another dimension of context engineering — choosing not just what context to load, but which model processes it. This is an extension of the [model selection](#model-selection) approach we described for subagents, taken to its logical extreme across provider boundaries.
 
 A recurring insight across all three projects: the most impactful improvements to agent performance come not from the model but from the harness. Oh My OpenAgent's hash-anchored edit tool — where every line carries a content hash that rejects edits against stale file state — reportedly took one model from a 6.7% to 68.3% success rate on a code editing benchmark[^harness-problem]. The model was the same; the edit mechanism changed. This aligns with what we have observed throughout: hooks, skills, output contracts, and worktree isolation do not make the model smarter. They make the model's environment more structured, which lets existing intelligence express itself more effectively.
 
