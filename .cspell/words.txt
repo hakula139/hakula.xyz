@@ -8,6 +8,7 @@ ave
 baldr
 bangumi
 bocchi
+bölük
 bowlby
 chan
 chihaya
@@ -36,6 +37,7 @@ gljs
 gopls
 hanaki
 hatsune
+homutan
 hookify
 hsl
 httpx
