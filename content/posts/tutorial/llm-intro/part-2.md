@@ -4,12 +4,17 @@ date: 2026-04-10T19:39:00+08:00
 
 tags: [AI, LLM, Claude Code, Agent, Subagent, Agent Team]
 categories: [tutorial]
+featuredImage: https://hakula-1257872502.file.myqcloud.com/images/3/article-covers/b4115b56-08d5-49ae-93c6-6cbb09ca4529_129430356.webp
 license: CC BY-NC-SA 4.0
 ---
 
 The second part of the context engineering series. [Part 1](../part-1/) covered the foundations: what an LLM is, how it becomes an agent, and the seven layers of configuration (CLAUDE.md, hooks, MCP, skills, plugins) that make it production-ready. This part picks up where we left off — with subagents, agent teams, worktree isolation, and the context management machinery that keeps it all running as sessions scale. We close with a look at how the broader open-source ecosystem is converging on the same orchestration patterns from different directions.
 
 <!--more-->
+
+{{< admonition info "Banner Image" >}}
+[. - @Homutan](https://www.pixiv.net/artworks/129430356)
+{{< /admonition >}}
 
 ## Subagents
 

@@ -37,6 +37,7 @@ gljs
 gopls
 hanaki
 hatsune
+homutan
 hookify
 hsl
 httpx
