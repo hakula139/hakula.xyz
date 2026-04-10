@@ -17,13 +17,17 @@ Throughout [Part 1](../part-1/), we saw subagents appear in passing: the `/code-
 
 [Subagents](https://code.claude.com/docs/en/sub-agents) are child agent instances spawned by a parent agent to handle focused tasks. Each gets its own context window, runs the same agent loop as the parent (plan → tool call → observe → iterate), and reports results back when done. No communication between subagents; everything routes through the orchestrator.
 
+### Why subagents
+
 The reason to use them is context hygiene. A single agent investigating three unrelated subsystems fills its context window with all three, even though each investigation only needs one. Subagents isolate that: each topic runs in its own window, and only the summary flows back to the orchestrator. The main session stays focused; the intermediate search results, file reads, and dead ends stay contained.
 
-The mental model is a project manager delegating to specialists. The parent agent (the orchestrator) decides what needs to be done, spawns the appropriate specialist, waits for the result, and integrates it into the larger workflow.
+Isolation buys more than a clean context window; it also buys cognitive independence. An agent that wrote the code is a poor judge of its own work — it has seen every intermediate decision, invested tokens in the approach, and when tests fail, is inclined to fix the tests rather than question the implementation. A separate reviewer or tester starts fresh, with no attachment to the approach. It sees only the result, not the effort that produced it.
+
+Both reasons point to the same mental model: a project manager delegating to specialists. The parent agent (the orchestrator) decides what needs to be done, spawns the appropriate specialist, waits for the result, and integrates it into the larger workflow.
 
 ### Agent types
 
-My configuration defines 8 custom agent types, each with a specific role, behavioral constraints, and (in some cases) a different model tier. Each agent type is a separate Markdown file. Here is the `researcher` agent, which overrides the default model to `haiku`:
+My configuration defines eight custom agent types, each with a specific role, behavioral constraints, and (in some cases) a different model tier. Each agent type is a separate Markdown file. Here is the `researcher` agent, which overrides the default model to `haiku`:
 
 ```markdown
 ---
