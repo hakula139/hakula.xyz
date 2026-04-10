@@ -79,7 +79,7 @@ code directly — you delegate to Codex and verify its work.
 
 ### Model selection
 
-Not every task requires the most powerful (and expensive) model. The `researcher` agent uses **haiku**, the fastest and cheapest model tier. Its job is to search files, read documentation, and return a structured summary. The `tester` agent uses **sonnet**, a balanced tier where test writing's pattern-following nature does not justify opus costs, but the task is complex enough that haiku would struggle.
+Not every task requires the most powerful (and expensive) model. The `researcher` agent uses **haiku**, the fastest and cheapest model tier. Its job is to search files, read documentation, and return a structured summary — tasks where speed matters more than deep reasoning. The `tester` agent uses **sonnet**, a balanced tier where test writing's pattern-following nature does not justify opus costs, but the task is complex enough that haiku would struggle.
 
 The `codex-worker` is particularly interesting: it is a haiku-tier agent whose sole purpose is to formulate tasks and delegate them to the OpenAI Codex MCP, a separate model running in its own cloud sandbox. It reads enough context to write a clear prompt, delegates the actual work, evaluates the result, and reports back. Two models collaborating, each used for what it does best.
 
@@ -119,7 +119,7 @@ Subagents are **isolated**. They cannot:
 - **Coordinate directly.** The reviewer cannot send issues to the implementer. The researcher cannot ask the architect a clarifying question. Every interaction is mediated.
 - **Avoid the bottleneck.** The orchestrator must process every report, make every decision, relay every message. As the number of subagents grows, the orchestrator's context fills up with coordination overhead.
 
-Subagents delegate, but they do not collaborate. For tasks where agents need to share discoveries, challenge each other, or hand off work directly, you need the final layer.
+Picture a manager who insists that every message between team members goes through them. Two engineers cannot pull each other into a quick sync; they must each email the manager, who reads both emails, decides what to forward, and relays it. With three reports this is manageable. With eight it is the manager's inbox that catches fire. Subagents delegate, but they do not collaborate. For tasks where agents need to share discoveries, challenge each other, or hand off work directly, you need the final layer.
 
 ## Agent Teams
 
