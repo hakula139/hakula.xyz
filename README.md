@@ -1,6 +1,6 @@
 # hakula.xyz
 
-My personal website, built with Hugo.
+The previous Hugo version of my personal website, preserved at [old.hakula.xyz](https://old.hakula.xyz). The current site is [hakula.xyz](https://hakula.xyz), built from [hakula.xyz-kiln](https://github.com/hakula139/hakula.xyz-kiln).
 
 ## Author
 
